@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.palette;
 
 import java.awt.Color;
 

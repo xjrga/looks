@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.theme;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

@@ -1,21 +1,21 @@
-package org.xjrga.looks;
+package org.xjrga.theme;
 
 import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
-import org.xjrga.looks.Palette00;
+import org.xjrga.palette.Palette00;
 
 public class Pink extends MetalTheme {
 
-    private FontUIResource font;
-    private ColorUIResource primary1;
-    private ColorUIResource primary2;
-    private ColorUIResource primary3;
-    private ColorUIResource secondary1;
-    private ColorUIResource secondary2;
-    private ColorUIResource secondary3;
+    private final FontUIResource font;
+    private final ColorUIResource primary1;
+    private final ColorUIResource primary2;
+    private final ColorUIResource primary3;
+    private final ColorUIResource secondary1;
+    private final ColorUIResource secondary2;
+    private final ColorUIResource secondary3;
 
     /*
      * Pink Theme 

@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.theme;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
