@@ -33,6 +33,11 @@ public class Mars extends MetalTheme {
     private final Color COLOR100 = new Color(0x000000);
     private final FontUIResource fontUIResource;
 
+    /**
+     * Mars constructor
+     *
+     * @param font the font
+     */
     public Mars(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.COLOR40);

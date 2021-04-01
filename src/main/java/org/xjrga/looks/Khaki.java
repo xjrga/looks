@@ -28,6 +28,11 @@ public class Khaki extends MetalTheme {
     public final Color F = new Color(0xe0d5c1);
     private final FontUIResource fontUIResource;
 
+    /**
+     * Khaki constructor
+     *
+     * @param font the font
+     */
     public Khaki(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.F);

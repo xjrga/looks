@@ -11,10 +11,10 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
 /**
+ * Dawn constructor
  *
- * @author Jorge R Garcia de Alba
+ * @param font the font
  */
-
 public class Dawn extends MetalTheme {
 
     private final ColorUIResource primary1;

@@ -24,6 +24,11 @@ public class MonochromeGreen extends MetalTheme {
     private ColorTones colorTones = null;
     private final FontUIResource fontUIResource;
 
+    /**
+     * Monochrome green constructor
+     *
+     * @param font the font
+     */
     public MonochromeGreen(Font font) {
         colorTones = new ColorTones(new Color(112, 173, 157));
         fontUIResource = new FontUIResource(font);

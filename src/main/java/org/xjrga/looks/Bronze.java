@@ -33,6 +33,11 @@ public class Bronze extends MetalTheme {
     private final Color COLOR100 = new Color(0x000000);
     private final FontUIResource fontUIResource;
 
+    /**
+     * Bronze constructor
+     *
+     * @param font the font
+     */
     public Bronze(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.COLOR40);

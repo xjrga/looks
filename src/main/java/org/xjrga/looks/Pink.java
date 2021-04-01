@@ -27,6 +27,11 @@ public class Pink extends MetalTheme {
     private final Color DARKBLUE = new Color(0x2b7bb8);
     private final FontUIResource fontUIResource;
 
+    /**
+     * Pink constructor
+     *
+     * @param font the font
+     */
     public Pink(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.PINK);

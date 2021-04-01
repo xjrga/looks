@@ -12,13 +12,17 @@ import java.awt.*;
  * @author Jorge R Garcia de Alba
  */
 public class Minimal extends MetalTheme {
-
-    private final FontUIResource font = new FontUIResource("Dialog", Font.PLAIN, 13);
+    
     private final ColorUIResource colorUIResource0 = new ColorUIResource(new Color(0xf2f2f2));
     private final ColorUIResource colorUIResource1 = new ColorUIResource(new Color(0, 0, 0));
     private final ColorUIResource colorUIResource2 = new ColorUIResource(new Color(0xFFF2D0));
     private final FontUIResource fontUIResource;
 
+    /**
+     * Minimal constructor
+     *
+     * @param font the font
+     */
     public Minimal(Font font) {
         fontUIResource = new FontUIResource(font);
     }

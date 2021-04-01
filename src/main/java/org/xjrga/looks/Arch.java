@@ -29,7 +29,8 @@ public class Arch extends MetalTheme {
     private Font font = null;
 
     /**
-     * Arch constructor     
+     * Arch constructor
+     *
      * @param font the font
      */
     public Arch(Font font) {
