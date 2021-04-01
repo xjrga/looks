@@ -6,7 +6,6 @@ import java.awt.Color;
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class ColorTones {
 
     private final ColorMixer addWhite;
