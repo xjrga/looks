@@ -7,10 +7,10 @@ import javax.swing.plaf.metal.MetalTheme;
 import java.awt.*;
 
 /**
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class Minimal extends MetalTheme {
 
     private final FontUIResource font = new FontUIResource("Dialog", Font.PLAIN, 13);

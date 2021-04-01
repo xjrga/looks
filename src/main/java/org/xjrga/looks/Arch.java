@@ -8,10 +8,10 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
 /**
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class Arch extends MetalTheme {
 
     private final ColorUIResource primary1;
@@ -28,6 +28,10 @@ public class Arch extends MetalTheme {
     private final FontUIResource fontUIResource;
     private Font font = null;
 
+    /**
+     * Arch constructor     
+     * @param font the font
+     */
     public Arch(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.WHITE);
@@ -108,19 +112,4 @@ public class Arch extends MetalTheme {
         return fontUIResource;
     }
 
-    /**
-     *
-     * @return Font
-     */
-    public Font getFont() {
-        return font;
-    }
-
-    /**
-     *
-     * @param font The font
-     */
-    public void setFont(Font font) {
-        this.font = font;
-    }
 }

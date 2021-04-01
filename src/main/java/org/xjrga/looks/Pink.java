@@ -8,10 +8,10 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
 /**
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class Pink extends MetalTheme {
 
     private final ColorUIResource primary1;

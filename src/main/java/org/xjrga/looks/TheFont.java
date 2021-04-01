@@ -8,10 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * This class generates a Font object from a true type font file
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class TheFont {
 
     private Font font;
@@ -31,7 +31,7 @@ public class TheFont {
 
     /**
      *
-     * @return The font
+     * @return A Font object
      */
     public Font getFont() {
         return font;

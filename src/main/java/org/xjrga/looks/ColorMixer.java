@@ -3,10 +3,10 @@ package org.xjrga.looks;
 import java.awt.Color;
 
 /**
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
  */
-
 public class ColorMixer {
 
     private final int mixR;
