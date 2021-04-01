@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
@@ -12,7 +13,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class Arch extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -24,9 +24,11 @@ public class Arch extends MetalTheme {
     public final Color PURPLE = new Color(0x83534f);
     public final Color WHITE = new Color(0xf0f1eb);
     public final Color BLUE = new Color(0x8894ac);
+    private final FontUIResource fontUIResource;
+    private Font font = null;
 
-    public Arch() {
-        font = new FontUIResource(TheFonts.getDejaVuSansMono(Float.valueOf(13)));
+    public Arch(Font font) {
+        fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.WHITE);
         secondary2 = new ColorUIResource(this.WHITE);
         primary1 = new ColorUIResource(this.PURPLE);
@@ -77,32 +79,39 @@ public class Arch extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
+        return fontUIResource;
+    }
+
+    public Font getFont() {
         return font;
     }
 
+    public void setFont(Font font) {
+        this.font = font;
+    }
 }

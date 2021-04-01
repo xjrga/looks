@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
@@ -12,7 +13,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class Pink extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -24,9 +24,10 @@ public class Pink extends MetalTheme {
     private final Color LIGHTBLUE = new Color(0xb6dada);
     private final Color MEDIUMBLUE = new Color(0x65c4ca);
     private final Color DARKBLUE = new Color(0x2b7bb8);
+    private final FontUIResource fontUIResource;
 
-    public Pink() {
-        font = new FontUIResource(TheFonts.getUbuntuMono(Float.valueOf(13)));
+    public Pink(Font font) {
+        fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.PINK);
         secondary2 = new ColorUIResource(this.PINK);
         primary1 = new ColorUIResource(this.GREEN);
@@ -77,32 +78,32 @@ public class Pink extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
 
 }

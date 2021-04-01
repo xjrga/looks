@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
@@ -13,7 +14,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class MonochromeGreen extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -21,10 +21,11 @@ public class MonochromeGreen extends MetalTheme {
     private final ColorUIResource secondary2;
     private final ColorUIResource secondary3;
     private ColorTones colorTones = null;
+    private final FontUIResource fontUIResource;
 
-    public MonochromeGreen() {
+    public MonochromeGreen(Font font) {
         colorTones = new ColorTones(new Color(112, 173, 157));
-        font = new FontUIResource(TheFonts.getDejaVuSansMono(Float.valueOf(13)));
+        fontUIResource = new FontUIResource(font);
         primary1 = new ColorUIResource(colorTones.lighterBy10());
         primary2 = new ColorUIResource(colorTones.lighterBy30());
         primary3 = new ColorUIResource(colorTones.lighterBy40());
@@ -79,32 +80,32 @@ public class MonochromeGreen extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
 
 }

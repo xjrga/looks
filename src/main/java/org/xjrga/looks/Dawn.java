@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.UIDefaults;
@@ -15,7 +16,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class Dawn extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -25,14 +25,13 @@ public class Dawn extends MetalTheme {
     private ColorTones colorTone01 = null;
     private ColorTones colorTone02 = null;
     private ColorTones colorTone03 = null;
-    
-    public Dawn() {
+    private final FontUIResource fontUIResource;
+
+    public Dawn(Font font) {
         colorTone01 = new ColorTones(new Color(94, 98, 101));
         colorTone02 = new ColorTones(new Color(58, 127, 184));
         colorTone03 = new ColorTones(new Color(129, 116, 2));
-        //font = new FontUIResource(TheFonts.getDejaVuSansMono(Float.valueOf(13)));
-        font = new FontUIResource(TheFonts.getLiberationMono(Float.valueOf(13)));
-        //font = new FontUIResource(TheFonts.getNotoMono(Float.valueOf(13)));
+        fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(colorTone01.getColor());
         //app, menu background, selected tab               
 
@@ -72,7 +71,7 @@ public class Dawn extends MetalTheme {
         UIManager.put("TabbedPane.selected", colorTone02.darkerBy10());
         UIManager.put("TabbedPane.background", colorTone01.getColor());
         UIManager.put("TabbedPane.darkShadow", colorTone01.darkerBy20());
-        UIManager.put("Table.gridColor", colorTone01.getColor());             
+        UIManager.put("Table.gridColor", colorTone01.getColor());
         UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(colorTone01.darkerBy20()));
         UIManager.put("TabbedPane.tabInsets", new Insets(1, 10, 8, 10));
         //If you enable this it will look a bit better but it affects 
@@ -128,32 +127,31 @@ public class Dawn extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
-
 }

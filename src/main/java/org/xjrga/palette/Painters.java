@@ -10,7 +10,7 @@ package org.xjrga.palette;
  * @author jr
  */
 public class Painters {
-    
+
 //    Leonardo Da Vinci (1452–1519)
 //    Vincent Van Gogh (1853–1890)
 //    Rembrandt (1606–1669)
@@ -21,7 +21,5 @@ public class Painters {
 //    Auguste Renoir (1841–1919)
 //    Jan Vermeer (1632–1675)
 //    Paul Cezanne (1839–1906)
-    
 //Mona Lisa by Leonardo da Vinci
-    
 }

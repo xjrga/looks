@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
@@ -12,7 +13,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class Gold extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -30,9 +30,10 @@ public class Gold extends MetalTheme {
     private final Color COLOR80 = new Color(0x332a0d);
     private final Color COLOR90 = new Color(0x191507);
     private final Color COLOR100 = new Color(0x000000);
+    private final FontUIResource fontUIResource;
 
-    public Gold() {
-        font = new FontUIResource(TheFonts.getLiberationMono(Float.valueOf(13)));
+    public Gold(Font font) {
+        fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.COLOR40);
         secondary2 = new ColorUIResource(this.COLOR40);
         primary3 = new ColorUIResource(this.COLOR20);
@@ -83,32 +84,32 @@ public class Gold extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
 
 }

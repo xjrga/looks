@@ -1,6 +1,7 @@
 package org.xjrga.looks;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
@@ -12,7 +13,6 @@ import javax.swing.plaf.metal.MetalTheme;
  */
 public class Khaki extends MetalTheme {
 
-    private final FontUIResource font;
     private final ColorUIResource primary1;
     private final ColorUIResource primary2;
     private final ColorUIResource primary3;
@@ -25,9 +25,10 @@ public class Khaki extends MetalTheme {
     public final Color D = new Color(0x897846);
     public final Color E = new Color(0x9ba068);
     public final Color F = new Color(0xe0d5c1);
+    private final FontUIResource fontUIResource;
 
-    public Khaki() {
-        font = new FontUIResource(TheFonts.getNotoMono(Float.valueOf(13)));
+    public Khaki(Font font) {
+        fontUIResource = new FontUIResource(font);
         secondary3 = new ColorUIResource(this.F);
         secondary2 = new ColorUIResource(this.F);
         primary1 = new ColorUIResource(this.C);
@@ -78,32 +79,32 @@ public class Khaki extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
 
 }

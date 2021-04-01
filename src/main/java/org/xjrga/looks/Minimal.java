@@ -16,10 +16,15 @@ public class Minimal extends MetalTheme {
     private final ColorUIResource colorUIResource0 = new ColorUIResource(new Color(0xf2f2f2));
     private final ColorUIResource colorUIResource1 = new ColorUIResource(new Color(0, 0, 0));
     private final ColorUIResource colorUIResource2 = new ColorUIResource(new Color(0xFFF2D0));
-    //private final ColorUIResource colorUIResource2 = new ColorUIResource(new Color(0xF8E0FD));
-    //private final ColorUIResource colorUIResource2 = new ColorUIResource(new Color(0xD4F0FA));
+    private final FontUIResource fontUIResource;
 
-    public Minimal() {
+    public Minimal(Font font) {
+        fontUIResource = new FontUIResource(font);
+    }
+
+    @Override
+    public void addCustomEntriesToTable(UIDefaults table) {
+        super.addCustomEntriesToTable(table);
         UIManager.put("TabbedPane.focus", colorUIResource2);
         UIManager.put("TabbedPane.selected", colorUIResource2);
         UIManager.put("Button.select", colorUIResource2);
