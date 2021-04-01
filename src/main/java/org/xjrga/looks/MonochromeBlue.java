@@ -8,10 +8,11 @@ import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
-/*
- * Monochrome Blue Theme 
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class MonochromeBlue extends MetalTheme {
 
     private final ColorUIResource primary1;

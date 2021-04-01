@@ -7,10 +7,11 @@ import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
-/*
- * Gold Theme 
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class Gold extends MetalTheme {
 
     private final ColorUIResource primary1;

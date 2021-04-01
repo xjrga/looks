@@ -7,14 +7,20 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
- * TheFonts 
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class TheFont {
-    
+
     private Font font;
 
+    /**
+     *
+     * @param path Path to truetype font
+     * @param size Font size
+     */
     public TheFont(String path, float size) {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(size);
@@ -23,6 +29,10 @@ public class TheFont {
         }
     }
 
+    /**
+     *
+     * @return The font
+     */
     public Font getFont() {
         return font;
     }

@@ -2,9 +2,11 @@ package org.xjrga.looks;
 
 import java.awt.Color;
 
-/*
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class ColorMixer {
 
     private final int mixR;

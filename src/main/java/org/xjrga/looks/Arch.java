@@ -7,10 +7,11 @@ import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
-/*
- * Arch Theme 
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class Arch extends MetalTheme {
 
     private final ColorUIResource primary1;
@@ -107,10 +108,18 @@ public class Arch extends MetalTheme {
         return fontUIResource;
     }
 
+    /**
+     *
+     * @return Font
+     */
     public Font getFont() {
         return font;
     }
 
+    /**
+     *
+     * @param font The font
+     */
     public void setFont(Font font) {
         this.font = font;
     }

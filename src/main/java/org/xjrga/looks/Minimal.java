@@ -6,10 +6,11 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 import java.awt.*;
 
-/*
- * Minimal Theme 
- * @author Jorge R Garcia de Alba     
+/**
+ *
+ * @author Jorge R Garcia de Alba
  */
+
 public class Minimal extends MetalTheme {
 
     private final FontUIResource font = new FontUIResource("Dialog", Font.PLAIN, 13);
