@@ -37,7 +37,7 @@ public class ColorMixer {
     }
 
     /**
-     * Generates a new color from color mix
+     * Generates a new color
      *
      * @param mixValue the amount of second color added represented by a decimal
      * number between 0 and 1.
