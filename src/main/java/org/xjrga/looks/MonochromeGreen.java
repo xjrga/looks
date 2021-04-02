@@ -90,6 +90,18 @@ public class MonochromeGreen extends MetalTheme {
     public ColorUIResource getSecondary3() {
         return secondary3;
     }
+    
+    @Override
+    protected ColorUIResource getWhite() {
+        //component outlines and backgrounds
+        return new ColorUIResource(colorTones.darkerBy50());
+    }
+
+    @Override
+    protected ColorUIResource getBlack() {
+        //text
+        return new ColorUIResource(colorTones.getWhite());
+    }
 
     @Override
     public FontUIResource getControlTextFont() {
