@@ -11,9 +11,9 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
 /**
- * Dawn constructor
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @param font the font 
+ * @author Jorge R Garcia de Alba
  */
 public class Dawn extends MetalTheme {
 
