@@ -24,7 +24,7 @@ public class Minimal extends MetalTheme {
      * @param font the font
      */
     public Minimal(Font font) {
-        fontUIResource = new FontUIResource(font);
+        this.fontUIResource = new FontUIResource(font);
     }
 
     @Override
@@ -86,31 +86,31 @@ public class Minimal extends MetalTheme {
 
     @Override
     public FontUIResource getControlTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSystemTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getUserTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getMenuTextFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getWindowTitleFont() {
-        return font;
+        return fontUIResource;
     }
 
     @Override
     public FontUIResource getSubTextFont() {
-        return font;
+        return fontUIResource;
     }
 }

@@ -22,8 +22,8 @@ public class ColorMixer {
     /**
      * ColorMixer constructor
      *
-     * @param colorA first color
-     * @param colorB second color
+     * @param colorA color that is diluted
+     * @param colorB color that dilutes
      */
     public ColorMixer(Color colorA, Color colorB) {
         this.colorA = colorA;
@@ -37,7 +37,7 @@ public class ColorMixer {
     }
 
     /**
-     * Generates a new color from color mix     
+     * Generates a new color from color mix
      *
      * @param mixValue the amount of second color added represented by a decimal
      * number between 0 and 1.
@@ -52,11 +52,21 @@ public class ColorMixer {
         return new Color(r, g, b);
     }
 
-    public Color getColorSource() {
+    /**
+     * Gets the color that is diluted
+     *
+     * @return a color object
+     */
+    public Color getColorA() {
         return colorA;
     }
 
-    public Color getColorMix() {
+    /**
+     * Gets the color that dilutes
+     *
+     * @return a color object
+     */
+    public Color getColorB() {
         return colorB;
     }
 

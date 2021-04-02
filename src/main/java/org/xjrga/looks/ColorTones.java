@@ -3,13 +3,14 @@ package org.xjrga.looks;
 import java.awt.Color;
 
 /**
+ * This class generates darker or lighter color tones. 
  *
  * @author Jorge R Garcia de Alba
  */
 public class ColorTones {
 
-    private final ColorMixer addWhite;
-    private final ColorMixer addBlack;
+    private final ColorMixer lighterTone;
+    private final ColorMixer darkerTone;
     private final Color lighter05;
     private final Color lighter10;
     private final Color lighter15;
@@ -51,54 +52,59 @@ public class ColorTones {
     private final Color darker95;
     private final Color black;
 
+    /**
+     * ColorTones constructor
+     *
+     * @param color The color to be lightened or darkened     
+     */
     public ColorTones(Color color) {
-        addWhite = new ColorMixer(color, new Color(255, 255, 255));
-        addBlack = new ColorMixer(color, new Color(0, 0, 0));
-        lighter05 = addWhite.getColorMix(0.05f);
-        lighter10 = addWhite.getColorMix(0.10f);
-        lighter15 = addWhite.getColorMix(0.15f);
-        lighter20 = addWhite.getColorMix(0.20f);
-        lighter25 = addWhite.getColorMix(0.25f);
-        lighter30 = addWhite.getColorMix(0.30f);
-        lighter35 = addWhite.getColorMix(0.35f);
-        lighter40 = addWhite.getColorMix(0.40f);
-        lighter45 = addWhite.getColorMix(0.45f);
-        lighter50 = addWhite.getColorMix(0.50f);
-        lighter55 = addWhite.getColorMix(0.55f);
-        lighter60 = addWhite.getColorMix(0.60f);
-        lighter65 = addWhite.getColorMix(0.65f);
-        lighter70 = addWhite.getColorMix(0.70f);
-        lighter75 = addWhite.getColorMix(0.75f);
-        lighter80 = addWhite.getColorMix(0.80f);
-        lighter85 = addWhite.getColorMix(0.85f);
-        lighter90 = addWhite.getColorMix(0.90f);
-        lighter95 = addWhite.getColorMix(0.95f);
-        white = addWhite.getColorMix(1.0f);
-        darker05 = addBlack.getColorMix(0.05f);
-        darker10 = addBlack.getColorMix(0.10f);
-        darker15 = addBlack.getColorMix(0.15f);
-        darker20 = addBlack.getColorMix(0.20f);
-        darker25 = addBlack.getColorMix(0.25f);
-        darker30 = addBlack.getColorMix(0.30f);
-        darker35 = addBlack.getColorMix(0.35f);
-        darker40 = addBlack.getColorMix(0.40f);
-        darker45 = addBlack.getColorMix(0.45f);
-        darker50 = addBlack.getColorMix(0.50f);
-        darker55 = addBlack.getColorMix(0.55f);
-        darker60 = addBlack.getColorMix(0.60f);
-        darker65 = addBlack.getColorMix(0.65f);
-        darker70 = addBlack.getColorMix(0.70f);
-        darker75 = addBlack.getColorMix(0.75f);
-        darker80 = addBlack.getColorMix(0.80f);
-        darker85 = addBlack.getColorMix(0.85f);
-        darker90 = addBlack.getColorMix(0.90f);
-        darker95 = addBlack.getColorMix(0.95f);
-        black = addBlack.getColorMix(1.0f);
+        lighterTone = new ColorMixer(color, new Color(255, 255, 255));
+        darkerTone = new ColorMixer(color, new Color(0, 0, 0));
+        lighter05 = lighterTone.getColorMix(0.05f);
+        lighter10 = lighterTone.getColorMix(0.10f);
+        lighter15 = lighterTone.getColorMix(0.15f);
+        lighter20 = lighterTone.getColorMix(0.20f);
+        lighter25 = lighterTone.getColorMix(0.25f);
+        lighter30 = lighterTone.getColorMix(0.30f);
+        lighter35 = lighterTone.getColorMix(0.35f);
+        lighter40 = lighterTone.getColorMix(0.40f);
+        lighter45 = lighterTone.getColorMix(0.45f);
+        lighter50 = lighterTone.getColorMix(0.50f);
+        lighter55 = lighterTone.getColorMix(0.55f);
+        lighter60 = lighterTone.getColorMix(0.60f);
+        lighter65 = lighterTone.getColorMix(0.65f);
+        lighter70 = lighterTone.getColorMix(0.70f);
+        lighter75 = lighterTone.getColorMix(0.75f);
+        lighter80 = lighterTone.getColorMix(0.80f);
+        lighter85 = lighterTone.getColorMix(0.85f);
+        lighter90 = lighterTone.getColorMix(0.90f);
+        lighter95 = lighterTone.getColorMix(0.95f);
+        white = lighterTone.getColorMix(1.0f);
+        darker05 = darkerTone.getColorMix(0.05f);
+        darker10 = darkerTone.getColorMix(0.10f);
+        darker15 = darkerTone.getColorMix(0.15f);
+        darker20 = darkerTone.getColorMix(0.20f);
+        darker25 = darkerTone.getColorMix(0.25f);
+        darker30 = darkerTone.getColorMix(0.30f);
+        darker35 = darkerTone.getColorMix(0.35f);
+        darker40 = darkerTone.getColorMix(0.40f);
+        darker45 = darkerTone.getColorMix(0.45f);
+        darker50 = darkerTone.getColorMix(0.50f);
+        darker55 = darkerTone.getColorMix(0.55f);
+        darker60 = darkerTone.getColorMix(0.60f);
+        darker65 = darkerTone.getColorMix(0.65f);
+        darker70 = darkerTone.getColorMix(0.70f);
+        darker75 = darkerTone.getColorMix(0.75f);
+        darker80 = darkerTone.getColorMix(0.80f);
+        darker85 = darkerTone.getColorMix(0.85f);
+        darker90 = darkerTone.getColorMix(0.90f);
+        darker95 = darkerTone.getColorMix(0.95f);
+        black = darkerTone.getColorMix(1.0f);
 
     }
 
     public Color getColor() {
-        return addWhite.getColorSource();
+        return lighterTone.getColorA();
     }
 
     public Color lighterBy5() {
