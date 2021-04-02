@@ -55,7 +55,8 @@ public class ColorTones {
     /**
      * ColorTones constructor
      *
-     * @param color The color to be lightened or darkened     
+     * @param color The color to be lightened or darkened
+     * @see java.awt.Color
      */
     public ColorTones(Color color) {
         lighterTone = new ColorMixer(color, new Color(255, 255, 255));

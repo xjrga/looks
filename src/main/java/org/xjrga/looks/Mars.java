@@ -37,6 +37,7 @@ public class Mars extends MetalTheme {
      * Mars constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Mars(Font font) {
         fontUIResource = new FontUIResource(font);

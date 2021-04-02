@@ -9,8 +9,7 @@ import javax.swing.plaf.metal.MetalTheme;
 
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
- *
- * @author Jorge R Garcia de Alba
+ * 
  */
 public class Silver extends MetalTheme {
 
@@ -37,6 +36,7 @@ public class Silver extends MetalTheme {
      * Silver constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Silver(Font font) {
         fontUIResource = new FontUIResource(font);

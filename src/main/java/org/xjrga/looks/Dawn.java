@@ -13,7 +13,7 @@ import javax.swing.plaf.metal.MetalTheme;
 /**
  * Dawn constructor
  *
- * @param font the font
+ * @param font the font 
  */
 public class Dawn extends MetalTheme {
 
@@ -28,6 +28,12 @@ public class Dawn extends MetalTheme {
     private ColorTones colorTone03 = null;
     private final FontUIResource fontUIResource;
 
+    /**
+     * Dawn constructor
+     *
+     * @param font the font
+     * @see java.awt.Font
+     */
     public Dawn(Font font) {
         colorTone01 = new ColorTones(new Color(94, 98, 101));
         colorTone02 = new ColorTones(new Color(58, 127, 184));

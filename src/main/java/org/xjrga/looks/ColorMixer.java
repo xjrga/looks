@@ -42,6 +42,7 @@ public class ColorMixer {
      * @param mixValue the amount of second color added represented by a decimal
      * number between 0 and 1.
      * @return a color
+     * @see java.awt.Color
      */
     public Color getColorMix(float mixValue) {
         testMixValueRange(mixValue);
@@ -56,6 +57,7 @@ public class ColorMixer {
      * Gets the color that is diluted
      *
      * @return a color object
+     * @see java.awt.Color
      */
     public Color getColorA() {
         return colorA;
@@ -64,12 +66,14 @@ public class ColorMixer {
     /**
      * Gets the color that dilutes
      *
-     * @return a color object
+     * @return a Color object
+     * @see java.awt.Color
      */
     public Color getColorB() {
         return colorB;
     }
 
+    
     private static void testMixValueRange(float mixValue) {
         boolean error = false;
         String message = "";

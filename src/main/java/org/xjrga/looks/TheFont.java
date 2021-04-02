@@ -32,6 +32,7 @@ public class TheFont {
     /**
      *
      * @return A Font object
+     * @see java.awt.Font 
      */
     public Font getFont() {
         return font;

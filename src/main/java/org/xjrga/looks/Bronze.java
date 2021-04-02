@@ -37,6 +37,7 @@ public class Bronze extends MetalTheme {
      * Bronze constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Bronze(Font font) {
         fontUIResource = new FontUIResource(font);

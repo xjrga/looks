@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba 
  */
 public class Minimal extends MetalTheme {
 
@@ -22,6 +22,7 @@ public class Minimal extends MetalTheme {
      * Minimal constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Minimal(Font font) {
         this.fontUIResource = new FontUIResource(font);

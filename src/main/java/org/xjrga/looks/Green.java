@@ -10,7 +10,7 @@ import javax.swing.plaf.metal.MetalTheme;
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba 
  */
 public class Green extends MetalTheme {
 
@@ -27,6 +27,12 @@ public class Green extends MetalTheme {
     public final Color DARKGREEN = new Color(0x3d4335);
     private final FontUIResource fontUIResource;
 
+    /**
+     * Green constructor
+     *
+     * @param font the font
+     * @see java.awt.Font
+     */
     public Green(Font font) {
         fontUIResource = new FontUIResource(font);
         secondary2 = new ColorUIResource(this.LIGHTGREEN);

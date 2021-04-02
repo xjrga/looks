@@ -32,6 +32,7 @@ public class Arch extends MetalTheme {
      * Arch constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Arch(Font font) {
         fontUIResource = new FontUIResource(font);

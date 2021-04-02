@@ -10,7 +10,7 @@ import javax.swing.plaf.metal.MetalTheme;
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba 
  */
 public class Pink extends MetalTheme {
 
@@ -31,6 +31,7 @@ public class Pink extends MetalTheme {
      * Pink constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Pink(Font font) {
         fontUIResource = new FontUIResource(font);

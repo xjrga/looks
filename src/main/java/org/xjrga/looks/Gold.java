@@ -37,6 +37,7 @@ public class Gold extends MetalTheme {
      * Gold constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public Gold(Font font) {
         fontUIResource = new FontUIResource(font);

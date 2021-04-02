@@ -11,7 +11,7 @@ import javax.swing.plaf.metal.MetalTheme;
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba 
  */
 public class MonochromeGreen extends MetalTheme {
 
@@ -25,9 +25,10 @@ public class MonochromeGreen extends MetalTheme {
     private final FontUIResource fontUIResource;
 
     /**
-     * Monochrome green constructor
+     * MonochromeGreen constructor
      *
      * @param font the font
+     * @see java.awt.Font
      */
     public MonochromeGreen(Font font) {
         colorTones = new ColorTones(new Color(112, 173, 157));
