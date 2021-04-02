@@ -2,6 +2,8 @@ package org.xjrga.looks;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
+import javax.swing.BorderFactory;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
@@ -44,8 +46,12 @@ public class MonochromeGreen extends MetalTheme {
     @Override
     public void addCustomEntriesToTable(UIDefaults table) {
         super.addCustomEntriesToTable(table);
-        //UIManager.put("TabbedPane.selected", colorTones.plus5());
-        //UIManager.put("TabbedPane.background", colorTones.plus0());
+        UIManager.put("TabbedPane.selected", colorTones.lighterBy30());
+        UIManager.put("TabbedPane.background",colorTones.getColor());
+        UIManager.put("TabbedPane.darkShadow", colorTones.darkerBy20());
+        UIManager.put("Table.gridColor", colorTones.getColor());
+        UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(colorTones.darkerBy20()));
+        UIManager.put("TabbedPane.tabInsets", new Insets(1, 10, 8, 10));
         //If you enable this it will look a bit better but it affects 
         //other themes
     }
