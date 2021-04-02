@@ -3,47 +3,61 @@ package org.xjrga.looks;
 import java.awt.Color;
 
 /**
- * This class is a theme for Java Look and Feel (also known as Metal)
+ * This class blends two colors. The color blend goes from 0 percent additional
+ * color to 100 percent.
  *
  * @author Jorge R Garcia de Alba
  */
 public class ColorMixer {
 
-    private final int mixR;
-    private final int mixG;
-    private final int mixB;
-    private final int srcR;
-    private final int srcG;
-    private final int srcB;
-    private final Color src;
-    private final Color mix;
+    private final Color colorA;
+    private final int colorARed;
+    private final int colorAGreen;
+    private final int colorABlue;
+    private final Color colorB;
+    private final int colorBRed;
+    private final int colorBGreen;
+    private final int colorBBlue;
 
-    public ColorMixer(Color src, Color mix) {
-        this.src = src;
-        this.mix = mix;
-        srcR = src.getRed();
-        srcG = src.getGreen();
-        srcB = src.getBlue();
-        mixR = mix.getRed();
-        mixG = mix.getGreen();
-        mixB = mix.getBlue();
+    /**
+     * ColorMixer constructor
+     *
+     * @param colorA first color
+     * @param colorB second color
+     */
+    public ColorMixer(Color colorA, Color colorB) {
+        this.colorA = colorA;
+        this.colorB = colorB;
+        colorARed = colorA.getRed();
+        colorAGreen = colorA.getGreen();
+        colorABlue = colorA.getBlue();
+        colorBRed = colorB.getRed();
+        colorBGreen = colorB.getGreen();
+        colorBBlue = colorB.getBlue();
     }
 
-    public Color getColorTone(float mixValue) {
+    /**
+     * Generates a new color from color mix     
+     *
+     * @param mixValue the amount of second color added represented by a decimal
+     * number between 0 and 1.
+     * @return a color
+     */
+    public Color getColorMix(float mixValue) {
         testMixValueRange(mixValue);
-        int r = (int) (srcR * (1.0f - mixValue) + mixR * mixValue);
-        int g = (int) (srcG * (1.0f - mixValue) + mixG * mixValue);
-        int b = (int) (srcB * (1.0f - mixValue) + mixB * mixValue);
+        int r = (int) (colorARed * (1.0f - mixValue) + colorBRed * mixValue);
+        int g = (int) (colorAGreen * (1.0f - mixValue) + colorBGreen * mixValue);
+        int b = (int) (colorABlue * (1.0f - mixValue) + colorBBlue * mixValue);
         //System.out.println("New Color: "+r+","+g+","+b);
         return new Color(r, g, b);
     }
 
     public Color getColorSource() {
-        return src;
+        return colorA;
     }
 
     public Color getColorMix() {
-        return mix;
+        return colorB;
     }
 
     private static void testMixValueRange(float mixValue) {
