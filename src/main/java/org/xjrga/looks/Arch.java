@@ -2,7 +2,10 @@ package org.xjrga.looks;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
+import javax.swing.BorderFactory;
 import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
@@ -25,8 +28,7 @@ public class Arch extends MetalTheme {
     public final Color PURPLE = new Color(0x83534f);
     public final Color WHITE = new Color(0xf0f1eb);
     public final Color BLUE = new Color(0x8894ac);
-    private final FontUIResource fontUIResource;
-    private Font font = null;
+    private final FontUIResource fontUIResource;    
 
     /**
      * Arch constructor
@@ -47,6 +49,14 @@ public class Arch extends MetalTheme {
     @Override
     public void addCustomEntriesToTable(UIDefaults table) {
         super.addCustomEntriesToTable(table);
+        UIManager.put("TabbedPane.selected", this.PINK);
+        UIManager.put("TabbedPane.background", this.WHITE);
+        UIManager.put("TabbedPane.darkShadow", this.PURPLE);
+        UIManager.put("Table.gridColor", this.PURPLE);
+        UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(this.PURPLE));
+        UIManager.put("TabbedPane.tabInsets", new Insets(1, 7, 7, 7));
+        //If you enable this it will look a bit better but it affects 
+        //other themes
     }
 
     @Override
