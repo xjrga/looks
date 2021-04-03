@@ -80,7 +80,7 @@ public class Dawn extends MetalTheme {
         UIManager.put("TabbedPane.darkShadow", colorTone01.darkerBy20());
         UIManager.put("Table.gridColor", colorTone01.getColor());
         UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(colorTone01.darkerBy20()));
-        UIManager.put("TabbedPane.tabInsets", new Insets(1, 10, 8, 10));
+        UIManager.put("TabbedPane.tabInsets", new Insets(1, 7, 7, 7));
         //If you enable this it will look a bit better but it affects 
         //other themes
     }
