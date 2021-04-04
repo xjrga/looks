@@ -47,7 +47,7 @@ public class MonochromeGreen extends MetalTheme {
     public void addCustomEntriesToTable(UIDefaults table) {
         super.addCustomEntriesToTable(table);
         UIManager.put("TabbedPane.selected", colorTones.lighterBy30());
-        UIManager.put("TabbedPane.background",colorTones.getColor());
+        UIManager.put("TabbedPane.unselectedBackground",colorTones.getColor());
         UIManager.put("TabbedPane.darkShadow", colorTones.darkerBy20());
         UIManager.put("Table.gridColor", colorTones.getColor());
         UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(colorTones.darkerBy20()));

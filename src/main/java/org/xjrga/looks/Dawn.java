@@ -76,7 +76,7 @@ public class Dawn extends MetalTheme {
     public void addCustomEntriesToTable(UIDefaults table) {
         super.addCustomEntriesToTable(table);
         UIManager.put("TabbedPane.selected", colorTone02.darkerBy10());
-        UIManager.put("TabbedPane.background", colorTone01.getColor());
+        UIManager.put("TabbedPane.unselectedBackground", colorTone01.getColor());
         UIManager.put("TabbedPane.darkShadow", colorTone01.darkerBy20());
         UIManager.put("Table.gridColor", colorTone01.getColor());
         UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(colorTone01.darkerBy20()));

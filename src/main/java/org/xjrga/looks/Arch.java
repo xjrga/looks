@@ -47,10 +47,10 @@ public class Arch extends MetalTheme {
     }
 
     @Override
-    public void addCustomEntriesToTable(UIDefaults table) {
+    public void addCustomEntriesToTable(UIDefaults table) {        
         super.addCustomEntriesToTable(table);
         UIManager.put("TabbedPane.selected", this.PINK);
-        UIManager.put("TabbedPane.background", this.WHITE);
+        UIManager.put("TabbedPane.unselectedBackground", Color.MAGENTA);        
         UIManager.put("TabbedPane.darkShadow", this.PURPLE);
         UIManager.put("Table.gridColor", this.PURPLE);
         UIManager.put("ProgressBar.border", BorderFactory.createLineBorder(this.PURPLE));
