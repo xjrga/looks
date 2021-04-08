@@ -2,9 +2,7 @@ package org.xjrga.looks.roughdraft;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Insets;
 import javax.swing.UIDefaults;
-import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
