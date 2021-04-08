@@ -12,7 +12,7 @@ public class ColorGenerator {
     private final HsbValues hsbValues;
 
     /**
-     * ColorGenerator constructor
+     * Constructs a new color generator 
      *
      * @param color the base color     
      * @see java.awt.Color
