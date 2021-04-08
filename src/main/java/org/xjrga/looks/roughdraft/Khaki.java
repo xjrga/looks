@@ -13,7 +13,6 @@ import javax.swing.plaf.metal.MetalTheme;
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
- * @see java.awt.Font
  */
 public class Khaki extends MetalTheme {
 
