@@ -1,9 +1,9 @@
-package org.xjrga.looks;
+package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
 
 /**
- * This class generates darker or lighter color tones. 
+ * This class generates darker or lighter color tones.
  *
  * @author Jorge R Garcia de Alba
  */

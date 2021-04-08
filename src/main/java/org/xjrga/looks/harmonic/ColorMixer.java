@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
 
@@ -73,7 +73,6 @@ public class ColorMixer {
         return colorB;
     }
 
-    
     private static void testMixValueRange(float mixValue) {
         boolean error = false;
         String message = "";

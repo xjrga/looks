@@ -15,7 +15,7 @@ import org.xjrga.looks.harmonic.ColorHarmonic;
  *
  * @author jr
  */
-public class Dawn extends MetalTheme {
+public class Dawn03 extends MetalTheme {
 
     private final ColorUIResource white;
     private final ColorUIResource black;
@@ -72,13 +72,14 @@ public class Dawn extends MetalTheme {
     private final ColorHarmonic colorHarmonic01;
     private final ColorGenerator colorGenerator;
 
-    public Dawn(Font font) {
+    public Dawn03(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
-        colorGenerator = new ColorGenerator(new Color(94, 98, 101));
-        Color complementary = colorHarmonic01.getComplementaryColor();        
-        color01 = colorHarmonic01.getBaseColor();
-        color02 = complementary;
+        colorGenerator = new ColorGenerator(new Color(94, 98, 101));                
+        Color firstTriadic = colorHarmonic01.getFirstTriadicColor();
+        //        
+        color01 = colorHarmonic01.getBaseColor();                
+        color02 = firstTriadic;
         color03 = colorGenerator.generateMonochromeColorUsingBrightness(40);
         color04 = colorGenerator.generateMonochromeColorUsingBrightness(45);
         color05 = colorGenerator.generateMonochromeColorUsingBrightness(50);
@@ -142,7 +143,7 @@ public class Dawn extends MetalTheme {
 
     @Override
     public String getName() {
-        return "Dawn";
+        return "Dawn 03";
     }
 
     @Override
