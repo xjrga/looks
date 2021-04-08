@@ -10,7 +10,7 @@ public class ColorGeneratorTest {
     @Test
     public void testGetColorUsingHue() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));
-        Color color = colorGenerator.generateColor(0);
+        Color color = colorGenerator.generateColorUsingHueChange(0);
         //Red,255,0,0
         Assert.assertEquals(color.getRed(), 255);
         Assert.assertEquals(color.getGreen(), 0);

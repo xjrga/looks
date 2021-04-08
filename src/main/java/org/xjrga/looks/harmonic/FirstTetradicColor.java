@@ -25,7 +25,7 @@ public class FirstTetradicColor implements HarmonicColor {
 
     @Override
     public Color getColor() {
-        return colorGenerator.generateColor(angle);
+        return colorGenerator.generateColorUsingHueChange(angle);
     }
 
     @Override
