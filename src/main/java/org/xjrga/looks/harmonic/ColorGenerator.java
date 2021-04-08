@@ -11,6 +11,12 @@ public class ColorGenerator {
 
     private final HsbValues hsbValues;
 
+    /**
+     * ColorGenerator constructor
+     *
+     * @param color the base color     
+     * @see java.awt.Color
+     */
     public ColorGenerator(Color color) {
         hsbValues = new HsbValues(color);
     }
