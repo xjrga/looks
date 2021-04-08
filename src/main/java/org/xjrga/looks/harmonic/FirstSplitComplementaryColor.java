@@ -2,6 +2,11 @@ package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
 
+/**
+ * This class is a harmonic color
+ *
+ * @author Jorge R Garcia de Alba
+ */
 public class FirstSplitComplementaryColor implements HarmonicColor {
 
     private Color color = null;

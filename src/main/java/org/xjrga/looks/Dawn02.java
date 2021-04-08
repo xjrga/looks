@@ -12,8 +12,9 @@ import org.xjrga.looks.harmonic.ColorGenerator;
 import org.xjrga.looks.harmonic.ColorHarmonic;
 
 /**
+ * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author jr
+ * @author Jorge R Garcia de Alba
  */
 public class Dawn02 extends MetalTheme {
 
