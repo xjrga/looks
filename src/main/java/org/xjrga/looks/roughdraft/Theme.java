@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.looks.roughdraft;
 
 import java.awt.Color;
 import java.awt.Font;
