@@ -3,7 +3,7 @@ package org.xjrga.looks.harmonic;
 import java.awt.Color;
 
 /**
- * This class is a harmonic color
+ * This class implements the HarmonicColor interface
  *
  * @author Jorge R Garcia de Alba
  */
@@ -13,6 +13,12 @@ public class FirstTetradicColor implements HarmonicColor {
     private final float angle = 60f;
     private final ColorGenerator colorGenerator;
 
+    /**
+     * Constructs a new harmonic color; 
+     *
+     * @param color the base color     
+     * @see java.awt.Color
+     */
     public FirstTetradicColor(Color color) {
         this.color = color;
         colorGenerator = new ColorGenerator(color);

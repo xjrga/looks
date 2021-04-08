@@ -3,7 +3,7 @@ package org.xjrga.looks.harmonic;
 import java.awt.Color;
 
 /**
- * This class is a harmonic color
+ * This class implements the HarmonicColor interface
  *
  * @author Jorge R Garcia de Alba
  */
@@ -12,7 +12,13 @@ public class ComplementaryColor implements HarmonicColor {
     private Color color = null;
     private final float angle = 180f;
     private final ColorGenerator colorGenerator;
-
+    
+    /**
+     * Constructs a new harmonic color; 
+     *
+     * @param color the base color     
+     * @see java.awt.Color
+     */
     public ComplementaryColor(Color color) {
         this.color = color;
         colorGenerator = new ColorGenerator(color);
