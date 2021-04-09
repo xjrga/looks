@@ -20,15 +20,20 @@ package org.xjrga.looks.harmonic;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 
 /**
@@ -49,11 +54,32 @@ public class MyColorChooser {
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        JScrollPane jScrollPane = new JScrollPane(panel);  
+        panel.add(new JButton("Hello!"));
+        JScrollPane jScrollPane = new JScrollPane(panel);
         jScrollPane.setViewportView(panel);
-        jScrollPane.setPreferredSize(new Dimension(590,300));
-        chooser.setPreviewPanel(jScrollPane);
-        frame.setContentPane(chooser);
+        jScrollPane.setPreferredSize(new Dimension(590, 300));
+        chooser.setPreviewPanel(new JPanel());
+        JPanel main = new JPanel();
+        JPanel panel00 = new JPanel();
+        JPanel panel01 = new JPanel();
+        main.setLayout(new GridLayout(0, 1));
+        panel00.setLayout(new FlowLayout());
+        panel00.setBorder(new TitledBorder("00"));
+        panel01.setLayout(new FlowLayout());
+        panel01.setBorder(new TitledBorder("01"));
+        JRadioButton option01 = new JRadioButton("Background");
+        JRadioButton option02 = new JRadioButton("Font");
+        //Group the radio buttons.
+        ButtonGroup group = new ButtonGroup();
+        group.add(option01);
+        group.add(option02);
+        panel00.add(option01);
+        panel00.add(option02);
+        panel01.add(jScrollPane);
+        main.add(chooser);
+        main.add(panel00);
+        main.add(panel01);
+        frame.setContentPane(main);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);
@@ -63,14 +89,14 @@ public class MyColorChooser {
             new Thread() {
                 public void run() {
                     panel.removeAll();
-                    while (iterator.hasNext()) {                        
+                    while (iterator.hasNext()) {
                         HarmonicColor next = iterator.next();
                         JLabel lab = new JLabel();
                         lab.setOpaque(true);
-                        lab.setText(next.getAngle()+"");
-                        lab.setBackground(next.getColor());                        
+                        lab.setText(next.getAngle() + "");
+                        lab.setBackground(next.getColor());
                         panel.add(lab);
-                        System.out.println(next.getName() + ":" + next.getAngle());                        
+                        System.out.println(next.getName() + ":" + next.getAngle());
                         panel.setBackground(next.getBaseColor());
                         panel.revalidate();
 //                        try {
@@ -80,7 +106,7 @@ public class MyColorChooser {
 //                        }
                     }
                 }
-            }.start();            
+            }.start();
         });
         frame.addWindowListener(new WindowAdapter() {
 
@@ -89,6 +115,14 @@ public class MyColorChooser {
                 exit();
             }
         });
+
+        option01.addActionListener(e -> event_menuItemNew());
+        
+    }
+
+    private void event_menuItemNew() {
+        
+        System.out.println("Hello!");
     }
 
     public void exit() {
@@ -100,4 +134,5 @@ public class MyColorChooser {
             MyColorChooser myColorChooser = new MyColorChooser();
         });
     }
+
 }
