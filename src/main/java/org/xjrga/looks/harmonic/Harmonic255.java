@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Harmonic255 implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
-    private final float angle = 105f;
+    private final float angle = 255f;
     private final ColorGenerator colorGenerator;
 
     /**
