@@ -82,20 +82,13 @@ public class Theme extends MetalTheme {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
-        Color complementary = colorHarmonic01.getComplementaryColor();
-        Color firstSplitComplementary = colorHarmonic01.getFirstSplitComplementaryColor();
-        Color secondSplitComplementary = colorHarmonic01.getSecondSplitComplementaryColor();
-        Color firstTriadic = colorHarmonic01.getFirstTriadicColor();
-        Color secondTriadic = colorHarmonic01.getSecondTriadicColor();
-        Color firstTetradic = colorHarmonic01.getFirstTetradicColor();
-        Color secondTetradic = colorHarmonic01.getSecondTetradicColor();
-        Color thirdTetradic = colorHarmonic01.getThirdTetradicColor();
+        Color complementary = colorHarmonic01.getComplementaryColor();        
         Color firstAnalogous = colorHarmonic01.getFirstAnalogousColor();
         Color secondAnalogous = colorHarmonic01.getSecondAnalogousColor();
         //        
         color01 = colorHarmonic01.getBaseColor();
-        //*color02 = complementary;
-        color02 = firstSplitComplementary;
+        color02 = complementary;
+        //color02 = firstSplitComplementary;
         //color02 = secondSplitComplementary;
         //*color02 = firstTriadic;
         //color02 = secondTriadic;
