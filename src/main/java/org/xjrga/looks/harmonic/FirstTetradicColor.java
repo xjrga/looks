@@ -47,5 +47,10 @@ public class FirstTetradicColor implements HarmonicColor, Comparable<HarmonicCol
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "First Tetradic";
+    }
 
 }

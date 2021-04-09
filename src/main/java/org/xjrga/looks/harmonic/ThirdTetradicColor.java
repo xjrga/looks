@@ -64,4 +64,9 @@ public class ThirdTetradicColor implements HarmonicColor, Comparable<HarmonicCol
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "Third Tetradic";
+    }
 }

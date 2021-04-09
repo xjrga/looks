@@ -64,4 +64,9 @@ public class SecondAnalogousColor implements HarmonicColor, Comparable<HarmonicC
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "Second Analogous";
+    }
 }

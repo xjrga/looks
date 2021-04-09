@@ -64,4 +64,9 @@ public class SecondTetradicColor implements HarmonicColor, Comparable<HarmonicCo
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "Second Tetradic";
+    }
 }

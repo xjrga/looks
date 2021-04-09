@@ -64,4 +64,9 @@ public class SecondTriadicColor implements HarmonicColor, Comparable<HarmonicCol
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "Second Triadic";
+    }
 }

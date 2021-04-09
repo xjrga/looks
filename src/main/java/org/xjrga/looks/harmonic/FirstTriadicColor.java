@@ -47,4 +47,9 @@ public class FirstTriadicColor implements HarmonicColor, Comparable<HarmonicColo
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "First Triadic";
+    }
 }

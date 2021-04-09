@@ -47,4 +47,9 @@ public class FirstSplitComplementaryColor implements HarmonicColor, Comparable<H
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "First Split Complementary";
+    }
 }

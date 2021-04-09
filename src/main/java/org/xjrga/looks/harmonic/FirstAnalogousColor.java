@@ -47,4 +47,9 @@ public class FirstAnalogousColor implements HarmonicColor, Comparable<HarmonicCo
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "First Analogous";
+    }
 }

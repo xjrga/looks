@@ -22,6 +22,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Iterator;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,21 +49,6 @@ public class MyColorChooser {
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        JLabel label = new JLabel();
-        label.setOpaque(true);
-        panel.add(label);
-        JLabel label2 = new JLabel();
-        label2.setOpaque(true);
-        panel.add(label2);
-        JLabel label3 = new JLabel();
-        label3.setOpaque(true);
-        panel.add(label3);
-        JLabel label4 = new JLabel();
-        label4.setOpaque(true);
-        panel.add(label4);
-        JLabel label5 = new JLabel();
-        label5.setOpaque(true);
-        panel.add(label5);
         chooser.setPreviewPanel(panel);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
@@ -70,18 +56,15 @@ public class MyColorChooser {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            label.setBackground(colorHarmonic.getBaseColor());
-            label5.setBackground(colorHarmonic.getFirstTriadicColor());
-            label3.setBackground(colorHarmonic.getFirstSplitComplementaryColor());
-            label2.setBackground(colorHarmonic.getComplementaryColor());
-            label4.setBackground(colorHarmonic.getSecondSplitComplementaryColor());
-            colorHarmonic.getSecondTriadicColor();
-            colorHarmonic.getThirdTetradicColor();
-            colorHarmonic.getFirstTetradicColor();
-            colorHarmonic.getSecondTetradicColor();
-            colorHarmonic.getThirdTetradicColor();
-            colorHarmonic.getFirstAnalogousColor();
-            colorHarmonic.getSecondAnalogousColor();
+            Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
+            while(iterator.hasNext()){
+                HarmonicColor next = iterator.next();
+                System.out.println(next.getName()+":"+next.getAngle());
+                JLabel label = new JLabel();
+                label.setOpaque(true);
+                label.setBackground(next.getColor());
+                panel.add(label);
+            }
         });
         frame.addWindowListener(new WindowAdapter() {
 

@@ -65,4 +65,9 @@ public class ComplementaryColor implements HarmonicColor, Comparable<HarmonicCol
         return result;
     }
 
+    @Override
+    public String getName() {
+        return "Complementary";
+    }
+
 }

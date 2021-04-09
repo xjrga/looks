@@ -64,4 +64,9 @@ public class SecondSplitComplementaryColor implements HarmonicColor, Comparable<
         }
         return result;
     }
+    
+    @Override
+    public String getName() {
+        return "Second Split Complementary";
+    }
 }
