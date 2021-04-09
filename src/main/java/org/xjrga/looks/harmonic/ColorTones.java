@@ -104,166 +104,371 @@ public class ColorTones {
 
     }
 
+    /**
+     * Returns base color
+     * 
+     * @return base color
+     */
     public Color getColor() {
         return lighterTone.getColorA();
     }
 
+    /**
+     * Returns color that is blend of base color and 5% white
+     * 
+     * @return color
+     */
     public Color lighterBy5() {
         return lighter05;
     }
 
+    /**
+     * Returns color that is blend of base color and 10% white
+     * 
+     * @return color
+     */
     public Color lighterBy10() {
         return lighter10;
     }
 
+    /**
+     * Returns color that is blend of base color and 15% white
+     * 
+     * @return color
+     */
     public Color lighterBy15() {
         return lighter15;
     }
 
+    /**
+     * Returns color that is blend of base color and 20% white
+     * 
+     * @return color
+     */
     public Color lighterBy20() {
         return lighter20;
     }
 
+    /**
+     * Returns color that is blend of base color and 25% white
+     * 
+     * @return color
+     */
     public Color lighterBy25() {
         return lighter25;
     }
 
+    /**
+     * Returns color that is blend of base color and 30% white
+     * 
+     * @return color
+     */
     public Color lighterBy30() {
         return lighter30;
     }
 
+    /**
+     * Returns color that is blend of base color and 35% white
+     * 
+     * @return color
+     */
     public Color lighterBy35() {
         return lighter35;
     }
 
+    /**
+     * Returns color that is blend of base color and 40% white
+     * 
+     * @return color
+     */
     public Color lighterBy40() {
         return lighter40;
     }
 
+    /**
+     * Returns color that is blend of base color and 45% white
+     * 
+     * @return color
+     */
     public Color lighterBy45() {
         return lighter45;
     }
 
+    /**
+     * Returns color that is blend of base color and 50% white
+     * 
+     * @return color
+     */
     public Color lighterBy50() {
         return lighter50;
     }
 
+    /**
+     * Returns color that is blend of base color and 55% white
+     * 
+     * @return color
+     */
     public Color lighterBy55() {
         return lighter55;
     }
 
+    /**
+     * Returns color that is blend of base color and 60% white
+     * 
+     * @return color
+     */
     public Color lighterBy60() {
         return lighter60;
     }
 
+    /**
+     * Returns color that is blend of base color and 65% white
+     * 
+     * @return color
+     */
     public Color lighterBy65() {
         return lighter65;
     }
 
+    /**
+     * Returns color that is blend of base color and 70% white
+     * 
+     * @return color
+     */
     public Color lighterBy70() {
         return lighter70;
     }
 
+    /**
+     * Returns color that is blend of base color and 75% white
+     * 
+     * @return color
+     */
     public Color lighterBy75() {
         return lighter75;
     }
 
+    /**
+     * Returns color that is blend of base color and 80% white
+     * 
+     * @return color
+     */
     public Color lighterBy80() {
         return lighter80;
     }
 
+    /**
+     * Returns color that is blend of base color and 85% white
+     * 
+     * @return color
+     */
     public Color lighterBy85() {
         return lighter85;
     }
 
+    /**
+     * Returns color that is blend of base color and 90% white
+     * 
+     * @return color
+     */
     public Color lighterBy90() {
         return lighter90;
     }
 
+    /**
+     * Returns color that is blend of base color and 95% white
+     * 
+     * @return color
+     */
     public Color lighterBy95() {
         return lighter95;
     }
 
+    /**
+     * Returns white color
+     * 
+     * @return color
+     */
     public Color getWhite() {
         return white;
     }
 
+    /**
+     * Returns color that is blend of base color and 5% black
+     * 
+     * @return color
+     */
     public Color darkerBy5() {
         return darker05;
     }
 
+    /**
+     * Returns color that is blend of base color and 10% black
+     * 
+     * @return color
+     */
     public Color darkerBy10() {
         return darker10;
     }
 
+    /**
+     * Returns color that is blend of base color and 15% black
+     * 
+     * @return color
+     */
     public Color darkerBy15() {
         return darker15;
     }
 
+    /**
+     * Returns color that is blend of base color and 20% black
+     * 
+     * @return color
+     */
     public Color darkerBy20() {
         return darker20;
     }
 
+    /**
+     * Returns color that is blend of base color and 25% black
+     * 
+     * @return color
+     */
     public Color darkerBy25() {
         return darker25;
     }
 
+    /**
+     * Returns color that is blend of base color and 30% black
+     * 
+     * @return color
+     */
     public Color darkerBy30() {
         return darker30;
     }
 
+    /**
+     * Returns color that is blend of base color and 35% black
+     * 
+     * @return color
+     */
     public Color darkerBy35() {
         return darker35;
     }
 
+    /**
+     * Returns color that is blend of base color and 40% black
+     * 
+     * @return color
+     */
     public Color darkerBy40() {
         return darker40;
     }
 
+    /**
+     * Returns color that is blend of base color and 45% black
+     * 
+     * @return color
+     */
     public Color darkerBy45() {
         return darker45;
     }
 
+    /**
+     * Returns color that is blend of base color and 50% black
+     * 
+     * @return color
+     */
     public Color darkerBy50() {
         return darker50;
     }
 
+    /**
+     * Returns color that is blend of base color and 55% black
+     * 
+     * @return color
+     */
     public Color darkerBy55() {
         return darker55;
     }
 
+    /**
+     * Returns color that is blend of base color and 60% black
+     * 
+     * @return color
+     */
     public Color darkerBy60() {
         return darker60;
     }
 
+    /**
+     * Returns color that is blend of base color and 65% black
+     * 
+     * @return color
+     */
     public Color darkerBy65() {
         return darker65;
     }
 
+    /**
+     * Returns color that is blend of base color and 70% black
+     * 
+     * @return color
+     */
     public Color darkerBy70() {
         return darker70;
     }
 
+    /**
+     * Returns color that is blend of base color and 75% black
+     * 
+     * @return color
+     */
     public Color darkerBy75() {
         return darker75;
     }
 
+    /**
+     * Returns color that is blend of base color and 80% black
+     * 
+     * @return color
+     */
     public Color darkerBy80() {
         return darker80;
     }
 
+    /**
+     * Returns color that is blend of base color and 85% black
+     * 
+     * @return color
+     */
     public Color darkerBy85() {
         return darker85;
     }
 
+    /**
+     * Returns color that is blend of base color and 90% black
+     * 
+     * @return color
+     */
     public Color darkerBy90() {
         return darker90;
     }
 
+    /**
+     * Returns color that is blend of base color and 95% black
+     * 
+     * @return color
+     */
     public Color darkerBy95() {
         return darker95;
     }
 
+    /**
+     * Returns black color
+     * 
+     * @return color
+     */
     public Color getBlack() {
         return black;
     }
