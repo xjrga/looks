@@ -60,7 +60,7 @@ public class MyColorChooser {
             while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
                 System.out.println(next.getName() + ":" + next.getAngle());
-                JLabel label = new JLabel();
+                JLabel label = new JLabel();                
                 label.setOpaque(true);
                 label.setBackground(next.getColor());
                 panel.add(label);

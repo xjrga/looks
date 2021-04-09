@@ -11,6 +11,7 @@ import java.util.Iterator;
  */
 public class ColorHarmonic {
 
+    private final HarmonicColor harmonic15;
     private final HarmonicColor harmonic30;
     private final HarmonicColor harmonic45;
     private final HarmonicColor harmonic60;
@@ -44,6 +45,7 @@ public class ColorHarmonic {
      */
     public ColorHarmonic(Color color) {
         list = new ArrayList();
+        harmonic15 = new Harmonic15(color);
         harmonic30 = new Harmonic30(color);
         harmonic45 = new Harmonic45(color);
         harmonic60 = new Harmonic60(color);
@@ -66,6 +68,7 @@ public class ColorHarmonic {
         harmonic315 = new Harmonic315(color);
         harmonic330 = new Harmonic330(color);
         harmonic345 = new Harmonic345(color);
+        list.add(harmonic15);
         list.add(harmonic30);
         list.add(harmonic45);
         list.add(harmonic60);
@@ -87,7 +90,7 @@ public class ColorHarmonic {
         list.add(harmonic300);
         list.add(harmonic315);
         list.add(harmonic330);
-        list.add(harmonic345);        
+        list.add(harmonic345);
         list.sort(new HarmonicColorComparator());
         this.color = color;
     }
@@ -103,12 +106,112 @@ public class ColorHarmonic {
     }
 
     /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic30() {
+        return harmonic30.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic45() {
+        return harmonic45.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic60() {
+        return harmonic60.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic75() {
+        return harmonic75.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic90() {
+        return harmonic90.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic105() {
+        return harmonic105.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic120() {
+        return harmonic120.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic135() {
+        return harmonic135.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic150() {
+        return harmonic150.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic165() {
+        return harmonic165.getColor();
+    }
+
+    /**
      * Returns complementary color with respect to base color
      *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getComplementaryColor() {
+    public Color getHarmonic180() {
         return harmonic180.getColor();
     }
 
@@ -118,18 +221,108 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getFirstAnalogousColor() {
-        return harmonic30.getColor();
+    public Color getHarmonic195() {
+        return harmonic195.getColor();
     }
 
     /**
-     * Returns second analogous color with respect to base color
+     * Returns first analogous color with respect to base color
      *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getSecondAnalogousColor() {
+    public Color getHarmonic210() {
+        return harmonic210.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic225() {
+        return harmonic225.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic240() {
+        return harmonic240.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic255() {
+        return harmonic255.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic270() {
+        return harmonic270.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic285() {
+        return harmonic285.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic300() {
+        return harmonic300.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic315() {
+        return harmonic315.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic330() {
         return harmonic330.getColor();
+    }
+
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic345() {
+        return harmonic345.getColor();
     }
 
     public Iterator<HarmonicColor> getIterator() {
