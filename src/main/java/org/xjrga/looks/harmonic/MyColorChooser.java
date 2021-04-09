@@ -57,7 +57,7 @@ public class MyColorChooser {
         panel.add(label);
         JScrollPane jScrollPane = new JScrollPane(panel);  
         jScrollPane.setViewportView(panel);
-        jScrollPane.setPreferredSize(new Dimension(300,300));
+        jScrollPane.setPreferredSize(new Dimension(590,300));
         chooser.setPreviewPanel(jScrollPane);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
