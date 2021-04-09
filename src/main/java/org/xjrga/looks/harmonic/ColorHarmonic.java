@@ -11,7 +11,7 @@ import java.util.Iterator;
  */
 public class ColorHarmonic {
 
-    private final ComplementaryColor complementary;
+    private final Harmonic180 complementary;
     private final FirstTriadicColor firstTriadicColor;
     private final SecondTriadicColor secondTriadicColor;
     private final FirstTetradicColor firstTetradicColor;
@@ -19,8 +19,8 @@ public class ColorHarmonic {
     private final ThirdTetradicColor thirdTetradicColor;
     private final FirstSplitComplementaryColor firstSplitComplementaryColor;
     private final SecondSplitComplementaryColor secondSplitComplementaryColor;
-    private final FirstAnalogousColor firstAnalogousColor;
-    private final SecondAnalogousColor secondAnalogousColor;
+    private final Harmonic30 firstAnalogousColor;
+    private final Harmonic330 secondAnalogousColor;
     private final Color color;
     private final ArrayList<HarmonicColor> list;
 
@@ -32,7 +32,7 @@ public class ColorHarmonic {
      */
     public ColorHarmonic(Color color) {        
         list = new ArrayList();
-        complementary = new ComplementaryColor(color);
+        complementary = new Harmonic180(color);
         firstTriadicColor = new FirstTriadicColor(color);
         secondTriadicColor = new SecondTriadicColor(color);
         firstTetradicColor = new FirstTetradicColor(color);
@@ -40,8 +40,8 @@ public class ColorHarmonic {
         thirdTetradicColor = new ThirdTetradicColor(color);
         firstSplitComplementaryColor = new FirstSplitComplementaryColor(color);
         secondSplitComplementaryColor = new SecondSplitComplementaryColor(color);
-        firstAnalogousColor = new FirstAnalogousColor(color);
-        secondAnalogousColor = new SecondAnalogousColor(color);
+        firstAnalogousColor = new Harmonic30(color);
+        secondAnalogousColor = new Harmonic330(color);
         list.add(complementary);
         list.add(firstTriadicColor);
         list.add(secondTriadicColor);

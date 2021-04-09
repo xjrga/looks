@@ -7,10 +7,10 @@ import java.awt.Color;
  *
  * @author Jorge R Garcia de Alba
  */
-public class SecondAnalogousColor implements HarmonicColor, Comparable<HarmonicColor> {
+public class Harmonic30 implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
-    private final float angle = 330f;
+    private final float angle = 30f;
     private final ColorGenerator colorGenerator;
 
     /**
@@ -19,41 +19,29 @@ public class SecondAnalogousColor implements HarmonicColor, Comparable<HarmonicC
      * @param color the base color
      * @see java.awt.Color
      */
-    public SecondAnalogousColor(Color color) {
+    public Harmonic30(Color color) {
         this.color = color;
         colorGenerator = new ColorGenerator(color);
     }
 
-    /**
-     * Gets the base color
-     *
-     * @return Base color
-     * @see java.awt.Color
-     */
     @Override
     public Color getBaseColor() {
         return color;
     }
 
-    /**
-     * Gets the harmonic color
-     *
-     * @return Harmonic color
-     * @see java.awt.Color
-     */
     @Override
     public Color getColor() {
         return colorGenerator.generateColorUsingHueChange(angle);
     }
 
-    /**
-     * Gets the degree of hue change
-     *
-     * @return Degree of hue change with respect to base color
-     */
     @Override
     public float getAngle() {
         return angle;
+    }
+
+    @Override
+    public String getName() {
+        return "First Analogous";
     }
 
     @Override
@@ -63,10 +51,5 @@ public class SecondAnalogousColor implements HarmonicColor, Comparable<HarmonicC
             result = 1;
         }
         return result;
-    }
-
-    @Override
-    public String getName() {
-        return "Second Analogous";
     }
 }
