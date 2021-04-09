@@ -99,9 +99,7 @@ public class MyColorChooser {
 
         @Override
         public void run() {
-            while (true) {
-                panel.setBackground(color);                
-            }
+            panel.setBackground(color);            
         }
 
     }
