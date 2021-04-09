@@ -61,8 +61,9 @@ public class MyColorChooser {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
             new Thread() {
-                public void run() {                    
-                    while (iterator.hasNext()) {
+                public void run() {
+                    panel.removeAll();
+                    while (iterator.hasNext()) {                        
                         HarmonicColor next = iterator.next();
                         JLabel lab = new JLabel();
                         lab.setOpaque(true);
