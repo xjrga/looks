@@ -66,7 +66,8 @@ public class MyColorChooser {
                         HarmonicColor next = iterator.next();
                         System.out.println(next.getName() + ":" + next.getAngle());
                         label.setText(next.getName());
-                        panel.setBackground(next.getColor());
+                        label.setBackground(next.getColor());
+                        panel.setBackground(next.getBaseColor());
                         Thread.sleep(500);
                     }
                 }
