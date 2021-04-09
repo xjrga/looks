@@ -75,7 +75,7 @@ public class Theme extends MetalTheme {
 
     /**
      * Theme constructor
-     * 
+     *
      * @param font
      */
     public Theme(Font font) {

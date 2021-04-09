@@ -75,16 +75,16 @@ public class Dawn02 extends MetalTheme {
 
     /**
      * Theme constructor
-     * 
+     *
      * @param font font
      */
     public Dawn02(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
-        colorGenerator = new ColorGenerator(new Color(94, 98, 101));        
-        Color firstSplitComplementary = colorHarmonic01.getFirstSplitComplementaryColor();                        
-        color01 = colorHarmonic01.getBaseColor();        
-        color02 = firstSplitComplementary;                
+        colorGenerator = new ColorGenerator(new Color(94, 98, 101));
+        Color firstSplitComplementary = colorHarmonic01.getFirstSplitComplementaryColor();
+        color01 = colorHarmonic01.getBaseColor();
+        color02 = firstSplitComplementary;
         color03 = colorGenerator.generateMonochromeColorUsingBrightness(40);
         color04 = colorGenerator.generateMonochromeColorUsingBrightness(45);
         color05 = colorGenerator.generateMonochromeColorUsingBrightness(50);

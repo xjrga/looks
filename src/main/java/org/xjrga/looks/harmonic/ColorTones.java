@@ -106,7 +106,7 @@ public class ColorTones {
 
     /**
      * Returns base color
-     * 
+     *
      * @return base color
      */
     public Color getColor() {
@@ -115,7 +115,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 5% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy5() {
@@ -124,7 +124,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 10% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy10() {
@@ -133,7 +133,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 15% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy15() {
@@ -142,7 +142,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 20% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy20() {
@@ -151,7 +151,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 25% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy25() {
@@ -160,7 +160,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 30% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy30() {
@@ -169,7 +169,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 35% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy35() {
@@ -178,7 +178,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 40% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy40() {
@@ -187,7 +187,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 45% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy45() {
@@ -196,7 +196,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 50% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy50() {
@@ -205,7 +205,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 55% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy55() {
@@ -214,7 +214,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 60% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy60() {
@@ -223,7 +223,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 65% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy65() {
@@ -232,7 +232,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 70% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy70() {
@@ -241,7 +241,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 75% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy75() {
@@ -250,7 +250,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 80% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy80() {
@@ -259,7 +259,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 85% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy85() {
@@ -268,7 +268,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 90% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy90() {
@@ -277,7 +277,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 95% white
-     * 
+     *
      * @return color
      */
     public Color lighterBy95() {
@@ -286,7 +286,7 @@ public class ColorTones {
 
     /**
      * Returns white color
-     * 
+     *
      * @return color
      */
     public Color getWhite() {
@@ -295,7 +295,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 5% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy5() {
@@ -304,7 +304,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 10% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy10() {
@@ -313,7 +313,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 15% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy15() {
@@ -322,7 +322,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 20% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy20() {
@@ -331,7 +331,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 25% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy25() {
@@ -340,7 +340,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 30% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy30() {
@@ -349,7 +349,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 35% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy35() {
@@ -358,7 +358,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 40% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy40() {
@@ -367,7 +367,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 45% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy45() {
@@ -376,7 +376,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 50% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy50() {
@@ -385,7 +385,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 55% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy55() {
@@ -394,7 +394,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 60% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy60() {
@@ -403,7 +403,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 65% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy65() {
@@ -412,7 +412,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 70% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy70() {
@@ -421,7 +421,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 75% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy75() {
@@ -430,7 +430,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 80% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy80() {
@@ -439,7 +439,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 85% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy85() {
@@ -448,7 +448,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 90% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy90() {
@@ -457,7 +457,7 @@ public class ColorTones {
 
     /**
      * Returns color that is blend of base color and 95% black
-     * 
+     *
      * @return color
      */
     public Color darkerBy95() {
@@ -466,7 +466,7 @@ public class ColorTones {
 
     /**
      * Returns black color
-     * 
+     *
      * @return color
      */
     public Color getBlack() {

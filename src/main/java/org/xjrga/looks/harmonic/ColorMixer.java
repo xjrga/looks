@@ -75,7 +75,7 @@ public class ColorMixer {
 
     /**
      * Throws exception if mix value is outside limits (0-1)
-     *     
+     *
      */
     private static void testMixValueRange(float mixValue) {
         boolean error = false;

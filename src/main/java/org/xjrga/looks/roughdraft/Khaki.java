@@ -46,7 +46,7 @@ public class Khaki extends MetalTheme {
 
     @Override
     public void addCustomEntriesToTable(UIDefaults table) {
-        super.addCustomEntriesToTable(table);       
+        super.addCustomEntriesToTable(table);
     }
 
     @Override

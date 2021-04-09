@@ -8,7 +8,7 @@ import java.awt.Color;
  * @author Jorge R Garcia de Alba
  */
 public class ColorHarmonic {
-    
+
     private final ComplementaryColor complementary;
     private final FirstTriadicColor firstTriadicColor;
     private final SecondTriadicColor secondTriadicColor;
@@ -18,16 +18,16 @@ public class ColorHarmonic {
     private final FirstSplitComplementaryColor firstSplitComplementaryColor;
     private final SecondSplitComplementaryColor secondSplitComplementaryColor;
     private final FirstAnalogousColor firstAnalogousColor;
-    private final SecondAnalogousColor secondAnalogousColor;  
+    private final SecondAnalogousColor secondAnalogousColor;
     private final Color color;
 
     /**
      * ColorHarmonic constructor
      *
-     * @param color the base color     
+     * @param color the base color
      * @see java.awt.Color
      */
-    public ColorHarmonic(Color color) {        
+    public ColorHarmonic(Color color) {
         complementary = new ComplementaryColor(color);
         firstTriadicColor = new FirstTriadicColor(color);
         secondTriadicColor = new SecondTriadicColor(color);
@@ -40,10 +40,10 @@ public class ColorHarmonic {
         secondAnalogousColor = new SecondAnalogousColor(color);
         this.color = color;
     }
-    
+
     /**
      * Returns base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
@@ -53,103 +53,102 @@ public class ColorHarmonic {
 
     /**
      * Returns complementary color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
     public Color getComplementaryColor() {
         return complementary.getColor();
     }
-    
+
     /**
      * Returns first triadic color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getFirstTriadicColor(){
+    public Color getFirstTriadicColor() {
         return firstTriadicColor.getColor();
     }
-    
+
     /**
      * Returns second triadic color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getSecondTriadicColor(){
+    public Color getSecondTriadicColor() {
         return secondTriadicColor.getColor();
     }
-    
+
     /**
      * Returns first tetradic color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getFirstTetradicColor(){
+    public Color getFirstTetradicColor() {
         return firstTetradicColor.getColor();
     }
-    
+
     /**
      * Returns second tetradic color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getSecondTetradicColor(){
+    public Color getSecondTetradicColor() {
         return secondTetradicColor.getColor();
     }
-    
+
     /**
      * Returns third tetradic color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getThirdTetradicColor(){
+    public Color getThirdTetradicColor() {
         return thirdTetradicColor.getColor();
     }
 
     /**
      * Returns first split complementary color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getFirstSplitComplementaryColor(){
+    public Color getFirstSplitComplementaryColor() {
         return firstSplitComplementaryColor.getColor();
     }
-    
+
     /**
      * Returns second split complementary color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getSecondSplitComplementaryColor(){
+    public Color getSecondSplitComplementaryColor() {
         return secondSplitComplementaryColor.getColor();
     }
-   
+
     /**
      * Returns first analogous color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getFirstAnalogousColor(){
+    public Color getFirstAnalogousColor() {
         return firstAnalogousColor.getColor();
     }
-    
-    
+
     /**
      * Returns second analogous color with respect to base color
-     *     
+     *
      * @return a color
      * @see java.awt.Color
      */
-    public Color getSecondAnalogousColor(){
+    public Color getSecondAnalogousColor() {
         return secondAnalogousColor.getColor();
     }
-        
+
 }

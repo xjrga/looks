@@ -45,7 +45,7 @@ public class Arch extends MetalTheme {
 
     @Override
     public void addCustomEntriesToTable(UIDefaults table) {
-        super.addCustomEntriesToTable(table);       
+        super.addCustomEntriesToTable(table);
     }
 
     @Override

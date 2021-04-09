@@ -75,14 +75,14 @@ public class Dawn extends MetalTheme {
 
     /**
      * Theme constructor
-     * 
+     *
      * @param font font
      */
     public Dawn(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
-        Color complementary = colorHarmonic01.getComplementaryColor();        
+        Color complementary = colorHarmonic01.getComplementaryColor();
         color01 = colorHarmonic01.getBaseColor();
         color02 = complementary;
         color03 = colorGenerator.generateMonochromeColorUsingBrightness(40);

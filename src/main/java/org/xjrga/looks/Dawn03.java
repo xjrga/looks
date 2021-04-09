@@ -75,16 +75,16 @@ public class Dawn03 extends MetalTheme {
 
     /**
      * Theme constructor
-     * 
+     *
      * @param font font
      */
     public Dawn03(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
-        colorGenerator = new ColorGenerator(new Color(94, 98, 101));                
+        colorGenerator = new ColorGenerator(new Color(94, 98, 101));
         Color firstTriadic = colorHarmonic01.getFirstTriadicColor();
         //        
-        color01 = colorHarmonic01.getBaseColor();                
+        color01 = colorHarmonic01.getBaseColor();
         color02 = firstTriadic;
         color03 = colorGenerator.generateMonochromeColorUsingBrightness(40);
         color04 = colorGenerator.generateMonochromeColorUsingBrightness(45);

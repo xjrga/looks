@@ -7,7 +7,7 @@ import java.awt.Color;
  *
  * @author Jorge R Garcia de Alba
  */
-public class ComplementaryColor implements HarmonicColor {
+public class ComplementaryColor implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
     private final float angle = 180f;
@@ -55,4 +55,14 @@ public class ComplementaryColor implements HarmonicColor {
     public float getAngle() {
         return angle;
     }
+
+    @Override
+    public int compareTo(HarmonicColor harmonicColor) {
+        int result = 0;
+        if (this.getAngle() > harmonicColor.getAngle()) {
+            result = 1;
+        }
+        return result;
+    }
+
 }

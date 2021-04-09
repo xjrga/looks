@@ -1,12 +1,12 @@
 package org.xjrga.looks.roughdraft;
 
-import org.xjrga.looks.harmonic.ColorTones;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
+import org.xjrga.looks.harmonic.ColorTones;
 
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
@@ -43,7 +43,7 @@ public class MonochromeGreen extends MetalTheme {
 
     @Override
     public void addCustomEntriesToTable(UIDefaults table) {
-        super.addCustomEntriesToTable(table);        
+        super.addCustomEntriesToTable(table);
     }
 
     @Override

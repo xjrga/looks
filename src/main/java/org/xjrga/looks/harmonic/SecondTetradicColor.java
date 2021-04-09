@@ -7,16 +7,16 @@ import java.awt.Color;
  *
  * @author Jorge R Garcia de Alba
  */
-public class SecondTetradicColor implements HarmonicColor {
+public class SecondTetradicColor implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
     private final float angle = 180f;
     private final ColorGenerator colorGenerator;
 
     /**
-     * Constructs a new harmonic color; 
+     * Constructs a new harmonic color;
      *
-     * @param color the base color     
+     * @param color the base color
      * @see java.awt.Color
      */
     public SecondTetradicColor(Color color) {
@@ -54,5 +54,14 @@ public class SecondTetradicColor implements HarmonicColor {
     @Override
     public float getAngle() {
         return angle;
+    }
+
+    @Override
+    public int compareTo(HarmonicColor harmonicColor) {
+        int result = 0;
+        if (this.getAngle() > harmonicColor.getAngle()) {
+            result = 1;
+        }
+        return result;
     }
 }
