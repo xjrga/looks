@@ -5,8 +5,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorMixer;
 
+/**
+ *
+ * @author jr
+ */
 public class ColorMixTest {
 
+    /**
+     *
+     */
     @Test
     public void testRgbValues() {
         ColorMixer colorMixer = new ColorMixer(new Color(0, 0, 0), new Color(255, 255, 255));

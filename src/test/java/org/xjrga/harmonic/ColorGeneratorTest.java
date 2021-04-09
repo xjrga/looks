@@ -5,8 +5,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorGenerator;
 
+/**
+ *
+ * @author jr
+ */
 public class ColorGeneratorTest {
 
+    /**
+     *
+     */
     @Test
     public void testGetColorUsingHue() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));
@@ -17,6 +24,9 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getBlue(), 0);
     }
     
+    /**
+     *
+     */
     @Test
     public void testGetColorUsingSaturation() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));
@@ -27,6 +37,9 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getBlue(), 102);
     }
     
+    /**
+     *
+     */
     @Test
     public void testGetColorUsingBrightness() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));
@@ -37,6 +50,9 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getBlue(), 0);
     }
     
+    /**
+     *
+     */
     @Test
     public void testGenerateMonochromeColor() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));

@@ -5,8 +5,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorTones;
 
+/**
+ *
+ * @author jr
+ */
 public class ColorTonesTest {
 
+    /**
+     *
+     */
     @Test
     public void testGetTones() {
         ColorTones colorTones = new ColorTones(new Color(0, 0, 0));

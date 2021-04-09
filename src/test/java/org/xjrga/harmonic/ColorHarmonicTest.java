@@ -5,8 +5,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorHarmonic;
 
+/**
+ *
+ * @author jr
+ */
 public class ColorHarmonicTest {
 
+    /**
+     *
+     */
     @Test
     public void testGetComplementaryColor() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
@@ -17,6 +24,9 @@ public class ColorHarmonicTest {
         Assert.assertEquals(complementaryColor.getBlue(), 255);
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetTriadicColors() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
@@ -32,6 +42,9 @@ public class ColorHarmonicTest {
         Assert.assertEquals(secondTriadicColor.getBlue(), 255);
     }
 
+    /**
+     *
+     */
     public void testGetTetradicColors() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
         Color firstTetradicColor = colorHarmonic.getFirstTetradicColor();
@@ -51,6 +64,9 @@ public class ColorHarmonicTest {
         Assert.assertEquals(thirdTetradicColor.getBlue(), 255);
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetSplitComplementaryColors() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
@@ -66,6 +82,9 @@ public class ColorHarmonicTest {
         Assert.assertEquals(secondSplitComplementaryColor.getBlue(), 255);
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetAnalogousColors() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
