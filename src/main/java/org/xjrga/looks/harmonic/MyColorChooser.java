@@ -19,7 +19,7 @@ package org.xjrga.looks.harmonic;
 
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
@@ -32,39 +32,43 @@ import javax.swing.event.ChangeEvent;
 
 /**
  *
- * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
+ * @author Jorge R Garcia de Alba <jorge.r.garciadealba@gmail.com>
  */
 public class MyColorChooser {
 
-    private final JFrame frame;
+    private JFrame frame;
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
-        GridLayout layout = new GridLayout(0, 2);
-        //FlowLayout layout = new FlowLayout();
+        FlowLayout layout = new FlowLayout();
         JPanel panel = new JPanel();
         panel.setOpaque(true);
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        JLabel label = new JLabel();
+        label.setPreferredSize(new Dimension(200, 200));
+        label.setOpaque(true);
+        panel.add(label);        
         chooser.setPreviewPanel(panel);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(true);       
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
+            panel.setBackground(colorHarmonic.getBaseColor());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
             while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
-                System.out.println(next.getName() + ":" + next.getAngle());
-                JLabel label = new JLabel();                
-                label.setOpaque(true);
-                label.setBackground(next.getColor());
-                panel.add(label);
-            }
+                System.out.println(next.getName() + ":" + next.getAngle());                                
+//                JLabel label = new JLabel();                
+//                label.setOpaque(true);
+//                label.setBackground(next.getColor());
+//                panel.add(label);
+            }            
         });
         frame.addWindowListener(new WindowAdapter() {
 
