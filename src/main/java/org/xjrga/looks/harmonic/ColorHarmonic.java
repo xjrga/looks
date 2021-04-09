@@ -11,9 +11,9 @@ import java.util.Iterator;
  */
 public class ColorHarmonic {
 
-    private final Harmonic180 complementary;
-    private final Harmonic30 firstAnalogousColor;
-    private final Harmonic330 secondAnalogousColor;
+    private final Harmonic30 harmonic30;
+    private final Harmonic180 harmonic180;    
+    private final Harmonic330 harmonic330;
     private final Color color;
     private final ArrayList<HarmonicColor> list;
 
@@ -25,12 +25,12 @@ public class ColorHarmonic {
      */
     public ColorHarmonic(Color color) {        
         list = new ArrayList();
-        complementary = new Harmonic180(color);        
-        firstAnalogousColor = new Harmonic30(color);
-        secondAnalogousColor = new Harmonic330(color);
-        list.add(complementary);
-        list.add(firstAnalogousColor);
-        list.add(secondAnalogousColor);
+        harmonic180 = new Harmonic180(color);        
+        harmonic30 = new Harmonic30(color);
+        harmonic330 = new Harmonic330(color);
+        list.add(harmonic180);
+        list.add(harmonic30);
+        list.add(harmonic330);
         list.sort(new HarmonicColorComparator());
         this.color = color;
     }
@@ -52,7 +52,7 @@ public class ColorHarmonic {
      * @see java.awt.Color
      */
     public Color getComplementaryColor() {
-        return complementary.getColor();
+        return harmonic180.getColor();
     }
    
     /**
@@ -62,7 +62,7 @@ public class ColorHarmonic {
      * @see java.awt.Color
      */
     public Color getFirstAnalogousColor() {
-        return firstAnalogousColor.getColor();
+        return harmonic30.getColor();
     }
 
     /**
@@ -72,7 +72,7 @@ public class ColorHarmonic {
      * @see java.awt.Color
      */
     public Color getSecondAnalogousColor() {
-        return secondAnalogousColor.getColor();
+        return harmonic330.getColor();
     }
 
     public Iterator<HarmonicColor> getIterator() {
