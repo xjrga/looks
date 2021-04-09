@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorHarmonic;
 
 /**
+ * ColorHarmonic tests
  *
- * @author jr
+ * @author Jorge R Garcia de Alba
  */
 public class ColorHarmonicTest {
 
