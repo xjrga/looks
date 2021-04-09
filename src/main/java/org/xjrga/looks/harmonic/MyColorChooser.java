@@ -51,8 +51,7 @@ public class MyColorChooser {
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        JLabel label = new JLabel();
-        label.setPreferredSize(new Dimension(200, 200));
+        JLabel label = new JLabel();        
         label.setOpaque(true);
         panel.add(label);
         JScrollPane jScrollPane = new JScrollPane(panel);  
