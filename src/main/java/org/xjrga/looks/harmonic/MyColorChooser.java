@@ -23,6 +23,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
@@ -37,13 +38,20 @@ public class MyColorChooser {
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JColorChooser jColorChooser = new JColorChooser();
-        frame.setContentPane(jColorChooser);
+        JColorChooser chooser = new JColorChooser();
+        JLabel label = new JLabel();
+        label.setPreferredSize(new Dimension(600, 200));
+        label.setOpaque(true);
+        label.setText("Hello, world!");
+        chooser.setPreviewPanel(label);
+        frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);
-        jColorChooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
-            Color newColor = jColorChooser.getColor();
+        chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
+            Color newColor = chooser.getColor();
+            label.setForeground(newColor);
+            label.setBackground(newColor);
         });
         frame.addWindowListener(new WindowAdapter() {
 
