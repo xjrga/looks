@@ -42,8 +42,9 @@ import javax.swing.event.ChangeEvent;
  */
 public class MyColorChooser {
 
-    private JFrame frame;
-    private JRadioButton option01;
+    private final JFrame frame;
+    private final JRadioButton option01;
+    private final JRadioButton option02;
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
@@ -69,7 +70,7 @@ public class MyColorChooser {
         panel01.setLayout(new FlowLayout());
         panel01.setBorder(new TitledBorder("01"));
         option01 = new JRadioButton("Background");
-        JRadioButton option02 = new JRadioButton("Font");
+        option02 = new JRadioButton("Font");
         //Group the radio buttons.
         ButtonGroup group = new ButtonGroup();
         group.add(option01);
@@ -86,28 +87,33 @@ public class MyColorChooser {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
-            new Thread() {
-                public void run() {
-                    panel.removeAll();
-                    while (iterator.hasNext()) {
-                        HarmonicColor next = iterator.next();
-                        JLabel lab = new JLabel();
-                        lab.setOpaque(true);
-                        lab.setText(next.getAngle() + "");
-                        lab.setBackground(next.getColor());
-                        panel.add(lab);
-                        System.out.println(next.getName() + ":" + next.getAngle());
-                        panel.setBackground(next.getBaseColor());
-                        panel.revalidate();
+            if (option01.isSelected()) {
+                panel.setBackground(chooser.getColor());
+            } else {
+                Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
+                new Thread() {
+                    public void run() {
+                        panel.removeAll();
+                        while (iterator.hasNext()) {
+                            HarmonicColor next = iterator.next();
+                            JLabel lab = new JLabel();
+                            lab.setOpaque(true);
+                            lab.setText(next.getAngle() + "");
+                            lab.setBackground(next.getColor());
+                            panel.add(lab);
+                            System.out.println(next.getName() + ":" + next.getAngle());
+                            //panel.setBackground(next.getBaseColor());
+                            panel.revalidate();
 //                        try {
 //                            Thread.sleep(500);
 //                        } catch (InterruptedException ex) {
 //                            Logger.getLogger(MyColorChooser.class.getName()).log(Level.SEVERE, null, ex);
 //                        }
+                        }
                     }
-                }
-            }.start();
+                }.start();
+            }
+
         });
         frame.addWindowListener(new WindowAdapter() {
 
@@ -118,12 +124,17 @@ public class MyColorChooser {
         });
 
         option01.addActionListener(e -> event_radiobutton_option01());
-
+        option02.addActionListener(e -> event_radiobutton_option02());
     }
 
     private void event_radiobutton_option01() {
 
         System.out.println(option01.isSelected());
+    }
+
+    private void event_radiobutton_option02() {
+
+        System.out.println(option02.isSelected());
     }
 
     public void exit() {
