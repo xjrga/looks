@@ -1,8 +1,9 @@
 package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.TreeSet;
 
 /**
  * This class generates harmonic color objects
@@ -22,7 +23,7 @@ public class ColorHarmonic {
     private final FirstAnalogousColor firstAnalogousColor;
     private final SecondAnalogousColor secondAnalogousColor;
     private final Color color;
-    private final TreeSet<HarmonicColor> treeSet;
+    private final ArrayList<HarmonicColor> list;
 
     /**
      * ColorHarmonic constructor
@@ -31,7 +32,8 @@ public class ColorHarmonic {
      * @see java.awt.Color
      */
     public ColorHarmonic(Color color) {
-        treeSet = new TreeSet();
+        //treeSet = new TreeSet();
+        list = new ArrayList();
         complementary = new ComplementaryColor(color);
         firstTriadicColor = new FirstTriadicColor(color);
         secondTriadicColor = new SecondTriadicColor(color);
@@ -41,17 +43,18 @@ public class ColorHarmonic {
         firstSplitComplementaryColor = new FirstSplitComplementaryColor(color);
         secondSplitComplementaryColor = new SecondSplitComplementaryColor(color);
         firstAnalogousColor = new FirstAnalogousColor(color);
-        secondAnalogousColor = new SecondAnalogousColor(color);        
-        treeSet.add(complementary);
-        treeSet.add(firstTriadicColor);
-        treeSet.add(secondTriadicColor);
-        treeSet.add(firstTetradicColor);
-        treeSet.add(secondTetradicColor);
-        treeSet.add(thirdTetradicColor);
-        treeSet.add(firstSplitComplementaryColor);
-        treeSet.add(secondSplitComplementaryColor);
-        treeSet.add(firstAnalogousColor);
-        treeSet.add(secondAnalogousColor);
+        secondAnalogousColor = new SecondAnalogousColor(color);
+        list.add(complementary);
+        list.add(firstTriadicColor);
+        list.add(secondTriadicColor);
+        list.add(firstTetradicColor);
+        list.add(secondTetradicColor);
+        list.add(thirdTetradicColor);
+        list.add(firstSplitComplementaryColor);
+        list.add(secondSplitComplementaryColor);
+        list.add(firstAnalogousColor);
+        list.add(secondAnalogousColor);        
+        Collections.sort(list, new HarmonicColorComparator());        
         this.color = color;
     }
 
@@ -164,9 +167,9 @@ public class ColorHarmonic {
     public Color getSecondAnalogousColor() {
         return secondAnalogousColor.getColor();
     }
-    
-    public Iterator<HarmonicColor> getIterator(){
-        return treeSet.iterator();
+
+    public Iterator<HarmonicColor> getIterator() {
+        return list.iterator();
     }
 
 }

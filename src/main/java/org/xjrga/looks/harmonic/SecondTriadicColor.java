@@ -1,13 +1,14 @@
 package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
+import java.util.Comparator;
 
 /**
  * This class implements the HarmonicColor interface
  *
  * @author Jorge R Garcia de Alba
  */
-public class SecondTriadicColor implements HarmonicColor, Comparable<HarmonicColor> {
+public class SecondTriadicColor implements HarmonicColor, Comparator<HarmonicColor> {
 
     private Color color = null;
     private final float angle = 240f;
@@ -55,16 +56,16 @@ public class SecondTriadicColor implements HarmonicColor, Comparable<HarmonicCol
     public float getAngle() {
         return angle;
     }
-    
+
     @Override
-    public int compareTo(HarmonicColor harmonicColor) {
+    public int compare(HarmonicColor o1, HarmonicColor o2) {
         int result = 0;
-        if (this.getAngle() > harmonicColor.getAngle()) {
+        if (o1.getAngle() > o2.getAngle()) {
             result = 1;
         }
         return result;
     }
-    
+
     @Override
     public String getName() {
         return "Second Triadic";

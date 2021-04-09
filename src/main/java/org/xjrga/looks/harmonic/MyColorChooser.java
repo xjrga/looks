@@ -57,9 +57,9 @@ public class MyColorChooser {
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
-            while(iterator.hasNext()){
+            while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
-                System.out.println(next.getName()+":"+next.getAngle());
+                System.out.println(next.getName() + ":" + next.getAngle());
                 JLabel label = new JLabel();
                 label.setOpaque(true);
                 label.setBackground(next.getColor());
