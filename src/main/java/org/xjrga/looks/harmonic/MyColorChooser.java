@@ -66,13 +66,11 @@ public class MyColorChooser {
             while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
                 System.out.println(next.getName() + ":" + next.getAngle());
-                SwingUtilities.invokeLater(() -> {
-                    JLabel label2 = new JLabel();
-                    label2.setOpaque(true);
-                    label2.setBackground((Color)next.getColor());
-                    panel.add(label2);
-                });
-            }
+                JLabel label2 = new JLabel();
+                label2.setOpaque(true);
+                label2.setBackground((Color) next.getColor());
+                panel.add(label2);                
+            }                                    
         });
         frame.addWindowListener(new WindowAdapter() {
 
