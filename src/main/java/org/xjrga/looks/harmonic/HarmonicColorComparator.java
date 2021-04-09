@@ -30,11 +30,15 @@ public class HarmonicColorComparator implements Comparator<HarmonicColor> {
     }
 
     @Override
-    public int compare(HarmonicColor o1, HarmonicColor o2) {
-        int result = 0;
-        if (o1.getAngle() > o2.getAngle()) {
-            result = 1;
+    public int compare(HarmonicColor o1, HarmonicColor o2) {        
+        float angle1 = o1.getAngle();
+        float angle2 = o2.getAngle();
+        if (angle1 < angle2) {
+            return -1;
         }
-        return result;
+        if (angle1 > angle2) {
+            return 1;
+        }
+        return 0;
     }
 }

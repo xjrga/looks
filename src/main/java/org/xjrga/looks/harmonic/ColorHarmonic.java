@@ -51,7 +51,8 @@ public class ColorHarmonic {
         list.add(firstSplitComplementaryColor);
         list.add(secondSplitComplementaryColor);
         list.add(firstAnalogousColor);
-        list.add(secondAnalogousColor);                
+        list.add(secondAnalogousColor);
+        list.sort(new HarmonicColorComparator());
         this.color = color;
     }
 
