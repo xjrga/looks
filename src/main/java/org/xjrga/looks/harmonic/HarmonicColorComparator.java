@@ -21,7 +21,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class HarmonicColorComparator implements Comparator<HarmonicColor> {
 
