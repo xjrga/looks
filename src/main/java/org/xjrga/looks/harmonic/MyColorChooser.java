@@ -17,13 +17,15 @@
  */
 package org.xjrga.looks.harmonic;
 
-import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
@@ -39,19 +41,30 @@ public class MyColorChooser {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
+        FlowLayout layout = new FlowLayout();
+        JPanel panel = new JPanel();
+        panel.setOpaque(true);
+        panel.setPreferredSize(new Dimension(600, 200));
+        panel.setLayout(layout);
+        panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         JLabel label = new JLabel();
-        label.setPreferredSize(new Dimension(600, 200));
+        label.setPreferredSize(new Dimension(200, 200));
         label.setOpaque(true);
-        label.setText("Hello, world!");
-        chooser.setPreviewPanel(label);
+        panel.add(label);        
+        JLabel label2 = new JLabel();
+        label2.setPreferredSize(new Dimension(200, 200));
+        label2.setOpaque(true);  
+        panel.add(label2);
+        chooser.setPreviewPanel(panel);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(true);       
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
-            Color newColor = chooser.getColor();
-            label.setForeground(newColor);
-            label.setBackground(newColor);
+            ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
+            panel.setBackground(colorHarmonic.getBaseColor());
+            label.setBackground(colorHarmonic.getComplementaryColor());
+            label2.setBackground(colorHarmonic.getFirstSplitComplementaryColor());                        
         });
         frame.addWindowListener(new WindowAdapter() {
 
