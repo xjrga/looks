@@ -60,17 +60,13 @@ public class MyColorChooser {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            panel.setBackground(colorHarmonic.getBaseColor());
-            //label.setBackground(colorHarmonic.getHarmonic180());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
             while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
                 System.out.println(next.getName() + ":" + next.getAngle());
-                JLabel label2 = new JLabel();
-                label2.setOpaque(true);
-                label2.setBackground((Color) next.getColor());
-                panel.add(label2);                
-            }                                    
+                Thread thread = new Thread(new Repainter(panel, next.getColor()));                
+                thread.start();
+            }
         });
         frame.addWindowListener(new WindowAdapter() {
 
@@ -89,6 +85,25 @@ public class MyColorChooser {
         SwingUtilities.invokeLater(() -> {
             MyColorChooser myColorChooser = new MyColorChooser();
         });
+    }
+
+    public class Repainter implements Runnable {
+
+        private JPanel panel;
+        private Color color;
+
+        public Repainter(JPanel panel, Color color) {
+            this.panel = panel;
+            this.color = color;
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                panel.setBackground(color);                
+            }
+        }
+
     }
 
 }
