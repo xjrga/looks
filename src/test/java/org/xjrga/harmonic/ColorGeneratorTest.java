@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import org.xjrga.looks.harmonic.ColorGenerator;
 
 /**
- * This class is a theme for Java Look and Feel (also known as Metal)
+ * ColorGenerator tests
  *
  * @author Jorge R Garcia de Alba
  */
