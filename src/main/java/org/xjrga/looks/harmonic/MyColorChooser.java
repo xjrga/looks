@@ -60,8 +60,24 @@ public class MyColorChooser {
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
-            Thread thread = new Thread(new Repainter(panel, colorHarmonic));
-            thread.start();            
+            new Thread() {
+                public void run() {
+                    JLabel label = new JLabel();
+                    while (iterator.hasNext()) {
+                        HarmonicColor next = iterator.next();
+                        System.out.println(next.getName() + ":" + next.getAngle());
+                        label.setText(next.getName());
+                        label.repaint();
+                        label.revalidate();
+                        panel.add(label);
+                        panel.revalidate();
+                        panel.setBackground(next.getColor());
+                        Thread.sleep(500);
+                    }
+                }
+            }.start();
+            //Thread thread = new Thread(new Repainter(panel, colorHarmonic));
+            //thread.start();
         });
         frame.addWindowListener(new WindowAdapter() {
 
@@ -81,35 +97,4 @@ public class MyColorChooser {
             MyColorChooser myColorChooser = new MyColorChooser();
         });
     }
-
-    public class Repainter implements Runnable {
-
-        private JPanel panel;
-        private ColorHarmonic colorHarmonic;
-        private Iterator<HarmonicColor> iterator;
-
-        public Repainter(JPanel panel, ColorHarmonic colorHarmonic) {
-            this.panel = panel;
-            this.colorHarmonic = colorHarmonic;
-            iterator = colorHarmonic.getIterator();
-        }
-
-        @Override
-        public void run() {
-            JLabel label = new JLabel();
-            while (iterator.hasNext()) {
-                HarmonicColor next = iterator.next();
-                System.out.println(next.getName() + ":" + next.getAngle());                                
-                label.setText(next.getName());
-                label.repaint();
-                label.revalidate();
-                panel.add(label);
-                panel.revalidate();
-                panel.setBackground(next.getColor());
-                Thread.sleep(500);
-            }         
-        }
-
-    }
-
 }
