@@ -23,8 +23,6 @@ import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -74,11 +72,11 @@ public class MyColorChooser {
                         System.out.println(next.getName() + ":" + next.getAngle());                        
                         panel.setBackground(next.getBaseColor());
                         panel.revalidate();
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(MyColorChooser.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+//                        try {
+//                            Thread.sleep(500);
+//                        } catch (InterruptedException ex) {
+//                            Logger.getLogger(MyColorChooser.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
                     }
                 }
             }.start();            
