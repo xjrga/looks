@@ -12,7 +12,7 @@ public interface HarmonicColor {
     /**
      * Gets the base color
      *     
-     * @return Returns a color; the base color
+     * @return Base color
      * @see java.awt.Color
      */
     Color getBaseColor();
@@ -20,7 +20,7 @@ public interface HarmonicColor {
     /**
      * Gets the harmonic color
      *     
-     * @return Returns a color; the harmonic color
+     * @return Harmonic color
      * @see java.awt.Color
      */
     Color getColor();
@@ -28,8 +28,7 @@ public interface HarmonicColor {
     /**
      * Gets the degree of hue change
      *     
-     * @return Returns a float; the degree of hue change with respect to 
-     * base color
+     * @return Degree of hue change with respect to base color     
      */
     float getAngle();
 }
