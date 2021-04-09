@@ -41,7 +41,7 @@ public class Harmonic30 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "First Analogous";
+        return "Analogous 30";
     }
 
     @Override
