@@ -73,6 +73,11 @@ public class Dawn extends MetalTheme {
     private final ColorHarmonic colorHarmonic01;
     private final ColorGenerator colorGenerator;
 
+    /**
+     * Theme constructor
+     * 
+     * @param font
+     */
     public Dawn(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
