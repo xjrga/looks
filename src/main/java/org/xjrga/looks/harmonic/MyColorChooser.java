@@ -51,8 +51,6 @@ public class MyColorChooser {
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        JLabel label = new JLabel();                
-        panel.add(label);
         JScrollPane jScrollPane = new JScrollPane(panel);  
         jScrollPane.setViewportView(panel);
         jScrollPane.setPreferredSize(new Dimension(590,300));
@@ -73,10 +71,9 @@ public class MyColorChooser {
                         lab.setText(next.getAngle()+"");
                         lab.setBackground(next.getColor());                        
                         panel.add(lab);
-                        System.out.println(next.getName() + ":" + next.getAngle());
-                        label.setText(next.getName());
-                        //label.setBackground(Color.BLUE);
-                        panel.setBackground(next.getBaseColor());                        
+                        System.out.println(next.getName() + ":" + next.getAngle());                        
+                        panel.setBackground(next.getBaseColor());
+                        panel.revalidate();
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException ex) {
