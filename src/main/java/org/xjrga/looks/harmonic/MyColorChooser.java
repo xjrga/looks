@@ -61,16 +61,11 @@ public class MyColorChooser {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
             new Thread() {
-                public void run() {
-                    JLabel label = new JLabel();
+                public void run() {                    
                     while (iterator.hasNext()) {
                         HarmonicColor next = iterator.next();
                         System.out.println(next.getName() + ":" + next.getAngle());
                         label.setText(next.getName());
-                        label.repaint();
-                        label.revalidate();
-                        panel.add(label);
-                        panel.revalidate();
                         panel.setBackground(next.getColor());
                         Thread.sleep(500);
                     }
