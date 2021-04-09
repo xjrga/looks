@@ -17,6 +17,7 @@
  */
 package org.xjrga.looks.harmonic;
 
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -51,24 +52,27 @@ public class MyColorChooser {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(200, 200));
         label.setOpaque(true);
-        panel.add(label);        
+        panel.add(label);
         chooser.setPreviewPanel(panel);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
-        frame.setVisible(true);       
+        frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             panel.setBackground(colorHarmonic.getBaseColor());
+            //label.setBackground(colorHarmonic.getHarmonic180());
             Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
             while (iterator.hasNext()) {
                 HarmonicColor next = iterator.next();
-                System.out.println(next.getName() + ":" + next.getAngle());                                
-//                JLabel label = new JLabel();                
-//                label.setOpaque(true);
-//                label.setBackground(next.getColor());
-//                panel.add(label);
-            }            
+                System.out.println(next.getName() + ":" + next.getAngle());
+                SwingUtilities.invokeLater(() -> {
+                    JLabel label2 = new JLabel();
+                    label2.setOpaque(true);
+                    label2.setBackground((Color)next.getColor());
+                    panel.add(label2);
+                });
+            }
         });
         frame.addWindowListener(new WindowAdapter() {
 
