@@ -12,11 +12,11 @@ public class ComplementaryColor implements HarmonicColor {
     private Color color = null;
     private final float angle = 180f;
     private final ColorGenerator colorGenerator;
-    
+
     /**
-     * Constructs a new harmonic color; 
+     * Constructs a new harmonic color;
      *
-     * @param color Base color     
+     * @param color Base color
      * @see java.awt.Color
      */
     public ComplementaryColor(Color color) {
@@ -26,7 +26,7 @@ public class ComplementaryColor implements HarmonicColor {
 
     /**
      * Gets the base color
-     *     
+     *
      * @return Base color
      * @see java.awt.Color
      */
@@ -37,7 +37,7 @@ public class ComplementaryColor implements HarmonicColor {
 
     /**
      * Gets the harmonic color
-     *     
+     *
      * @return Harmonic color
      * @see java.awt.Color
      */
@@ -48,8 +48,8 @@ public class ComplementaryColor implements HarmonicColor {
 
     /**
      * Gets the degree of hue change
-     *     
-     * @return Degree of hue change with respect to base color     
+     *
+     * @return Degree of hue change with respect to base color
      */
     @Override
     public float getAngle() {
