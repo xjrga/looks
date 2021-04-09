@@ -76,7 +76,7 @@ public class Dawn03 extends MetalTheme {
     /**
      * Theme constructor
      * 
-     * @param font
+     * @param font font
      */
     public Dawn03(Font font) {
         fontUIResource = new FontUIResource(font);
