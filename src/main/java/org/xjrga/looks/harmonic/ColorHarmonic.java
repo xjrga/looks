@@ -42,7 +42,7 @@ public class ColorHarmonic {
     }
     
     /**
-     * Returns a base color
+     * Returns base color
      *     
      * @return a color
      * @see java.awt.Color
