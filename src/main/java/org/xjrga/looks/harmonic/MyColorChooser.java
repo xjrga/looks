@@ -17,6 +17,7 @@
  */
 package org.xjrga.looks.harmonic;
 
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -71,11 +72,13 @@ public class MyColorChooser {
                     while (iterator.hasNext()) {
                         HarmonicColor next = iterator.next();
                         JLabel lab = new JLabel();
+                        lab.setOpaque(true);
                         lab.setText(next.getAngle()+"");
+                        lab.setBackground(next.getColor());                        
                         panel.add(lab);
                         System.out.println(next.getName() + ":" + next.getAngle());
                         label.setText(next.getName());
-                        label.setBackground(next.getColor());
+                        label.setBackground(Color.BLUE);
                         panel.setBackground(next.getBaseColor());                        
                         try {
                             Thread.sleep(500);
