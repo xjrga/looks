@@ -3,7 +3,7 @@ package org.xjrga.looks.harmonic;
 import java.awt.Color;
 
 /**
- * This class retrieves and converts hsb values from color object
+ * This class retrieves and converts hsb values from Color object
  *
  * @author Jorge R Garcia de Alba
  */
@@ -77,31 +77,31 @@ public class HsbValues {
     /**
      * Converts hue fraction to hue
      *   
-     * @param hue a float; the color hue fraction (0-1)
+     * @param hueFraction a float; the color hue fraction (0-1)
      * @return a float; the color hue (0-100)     
      */
-    public static float convertToHueFromHueFraction(float hue) {
-        return hue * 360f;
+    public static float convertToHueFromHueFraction(float hueFraction) {
+        return hueFraction * 360f;
     }
 
     /**
      * Converts saturation fraction to saturation
      *   
-     * @param saturation a float; the color saturation fraction (0-1)
+     * @param saturationFraction a float; the color saturation fraction (0-1)
      * @return a float; the color saturation (0-100)     
      */
-    public static float convertToSaturationFromSaturationFraction(float saturation) {
-        return saturation * 100f;
+    public static float convertToSaturationFromSaturationFraction(float saturationFraction) {
+        return saturationFraction * 100f;
     }
 
     /**
      * Converts brightness fraction to brightness
      *   
-     * @param brightness a float; the color brightness fraction (0-1)
+     * @param brightnessFraction a float; the color brightness fraction (0-1)
      * @return a float; the color brightness (0-100)     
      */
-    public static float convertToBrightnessFromBrightnessFraction(float brightness) {
-        return brightness * 100f;
+    public static float convertToBrightnessFromBrightnessFraction(float brightnessFraction) {
+        return brightnessFraction * 100f;
     }
 
     /**
