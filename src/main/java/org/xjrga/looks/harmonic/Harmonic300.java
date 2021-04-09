@@ -7,10 +7,10 @@ import java.awt.Color;
  *
  * @author Jorge R Garcia de Alba
  */
-public class Harmonic90 implements HarmonicColor, Comparable<HarmonicColor> {
+public class Harmonic300 implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
-    private final float angle = 90f;
+    private final float angle = 300f;
     private final ColorGenerator colorGenerator;
 
     /**
@@ -19,7 +19,7 @@ public class Harmonic90 implements HarmonicColor, Comparable<HarmonicColor> {
      * @param color the base color
      * @see java.awt.Color
      */
-    public Harmonic90(Color color) {
+    public Harmonic300(Color color) {
         this.color = color;
         colorGenerator = new ColorGenerator(color);
     }
@@ -41,7 +41,7 @@ public class Harmonic90 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Split or Analogous 90";
+        return "Analogous 300";
     }
 
     @Override
