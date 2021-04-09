@@ -43,6 +43,7 @@ import javax.swing.event.ChangeEvent;
 public class MyColorChooser {
 
     private JFrame frame;
+    private JRadioButton option01;
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
@@ -67,7 +68,7 @@ public class MyColorChooser {
         panel00.setBorder(new TitledBorder("00"));
         panel01.setLayout(new FlowLayout());
         panel01.setBorder(new TitledBorder("01"));
-        JRadioButton option01 = new JRadioButton("Background");
+        option01 = new JRadioButton("Background");
         JRadioButton option02 = new JRadioButton("Font");
         //Group the radio buttons.
         ButtonGroup group = new ButtonGroup();
@@ -116,13 +117,13 @@ public class MyColorChooser {
             }
         });
 
-        option01.addActionListener(e -> event_menuItemNew());
-        
+        option01.addActionListener(e -> event_radiobutton_option01());
+
     }
 
-    private void event_menuItemNew() {
-        
-        System.out.println("Hello!");
+    private void event_radiobutton_option01() {
+
+        System.out.println(option01.isSelected());
     }
 
     public void exit() {
