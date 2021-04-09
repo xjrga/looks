@@ -1,14 +1,13 @@
 package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
-import java.util.Comparator;
 
 /**
  * This class implements the HarmonicColor interface
  *
  * @author Jorge R Garcia de Alba
  */
-public class FirstSplitComplementaryColor implements HarmonicColor, Comparator<HarmonicColor> {
+public class FirstSplitComplementaryColor implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
     private final float angle = 160f;
@@ -41,16 +40,16 @@ public class FirstSplitComplementaryColor implements HarmonicColor, Comparator<H
     }
 
     @Override
-    public int compare(HarmonicColor o1, HarmonicColor o2) {
-        int result = 0;
-        if (o1.getAngle() > o2.getAngle()) {
-            result = 1;
-        }
-        return result;
+    public String getName() {
+        return "First Split Complementary";
     }
 
     @Override
-    public String getName() {
-        return "First Split Complementary";
+    public int compareTo(HarmonicColor harmonicColor) {
+        int result = 0;
+        if (this.getAngle() > harmonicColor.getAngle()) {
+            result = 1;
+        }
+        return result;
     }
 }

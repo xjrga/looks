@@ -1,14 +1,13 @@
 package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
-import java.util.Comparator;
 
 /**
  * This class implements the HarmonicColor interface
  *
  * @author Jorge R Garcia de Alba
  */
-public class FirstAnalogousColor implements HarmonicColor, Comparator<HarmonicColor> {
+public class FirstAnalogousColor implements HarmonicColor, Comparable<HarmonicColor> {
 
     private Color color = null;
     private final float angle = 30f;
@@ -41,16 +40,16 @@ public class FirstAnalogousColor implements HarmonicColor, Comparator<HarmonicCo
     }
 
     @Override
-    public int compare(HarmonicColor o1, HarmonicColor o2) {
-        int result = 0;
-        if (o1.getAngle() > o2.getAngle()) {
-            result = 1;
-        }
-        return result;
+    public String getName() {
+        return "First Analogous";
     }
 
     @Override
-    public String getName() {
-        return "First Analogous";
+    public int compareTo(HarmonicColor harmonicColor) {
+        int result = 0;
+        if (this.getAngle() > harmonicColor.getAngle()) {
+            result = 1;
+        }
+        return result;
     }
 }

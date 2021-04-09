@@ -2,7 +2,6 @@ package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -31,8 +30,7 @@ public class ColorHarmonic {
      * @param color the base color
      * @see java.awt.Color
      */
-    public ColorHarmonic(Color color) {
-        //treeSet = new TreeSet();
+    public ColorHarmonic(Color color) {        
         list = new ArrayList();
         complementary = new ComplementaryColor(color);
         firstTriadicColor = new FirstTriadicColor(color);
@@ -53,8 +51,7 @@ public class ColorHarmonic {
         list.add(firstSplitComplementaryColor);
         list.add(secondSplitComplementaryColor);
         list.add(firstAnalogousColor);
-        list.add(secondAnalogousColor);        
-        Collections.sort(list, new HarmonicColorComparator());        
+        list.add(secondAnalogousColor);                
         this.color = color;
     }
 
