@@ -19,7 +19,7 @@ package org.xjrga.looks.harmonic;
 
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JColorChooser;
@@ -40,31 +40,48 @@ public class MyColorChooser {
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JColorChooser chooser = new JColorChooser();
-        FlowLayout layout = new FlowLayout();
+        JColorChooser chooser = new JColorChooser();        
+        GridLayout layout = new GridLayout(0,2);
+        //FlowLayout layout = new FlowLayout();
         JPanel panel = new JPanel();
         panel.setOpaque(true);
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setLayout(layout);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        JLabel label = new JLabel();
-        label.setPreferredSize(new Dimension(200, 200));
+        JLabel label = new JLabel();        
         label.setOpaque(true);
         panel.add(label);        
-        JLabel label2 = new JLabel();
-        label2.setPreferredSize(new Dimension(200, 200));
+        JLabel label2 = new JLabel();        
         label2.setOpaque(true);  
         panel.add(label2);
+        JLabel label3 = new JLabel();       
+        label3.setOpaque(true);  
+        panel.add(label3);
+        JLabel label4 = new JLabel();       
+        label4.setOpaque(true);  
+        panel.add(label4);
+        JLabel label5 = new JLabel();       
+        label5.setOpaque(true);  
+        panel.add(label5);
         chooser.setPreviewPanel(panel);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);       
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
-            ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            panel.setBackground(colorHarmonic.getBaseColor());
-            label.setBackground(colorHarmonic.getComplementaryColor());
-            label2.setBackground(colorHarmonic.getFirstSplitComplementaryColor());                        
+            ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());           
+            label.setBackground(colorHarmonic.getBaseColor());
+            label2.setBackground(colorHarmonic.getComplementaryColor());
+            label3.setBackground(colorHarmonic.getFirstSplitComplementaryColor());
+            label4.setBackground(colorHarmonic.getSecondSplitComplementaryColor());
+            label5.setBackground(colorHarmonic.getFirstTriadicColor());
+            colorHarmonic.getSecondTriadicColor();
+            colorHarmonic.getThirdTetradicColor();
+            colorHarmonic.getFirstTetradicColor();
+            colorHarmonic.getSecondTetradicColor();
+            colorHarmonic.getThirdTetradicColor();
+            colorHarmonic.getFirstAnalogousColor();
+            colorHarmonic.getSecondAnalogousColor();
         });
         frame.addWindowListener(new WindowAdapter() {
 
