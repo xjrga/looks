@@ -23,10 +23,13 @@ import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
@@ -52,7 +55,10 @@ public class MyColorChooser {
         label.setPreferredSize(new Dimension(200, 200));
         label.setOpaque(true);
         panel.add(label);
-        chooser.setPreviewPanel(panel);
+        JScrollPane jScrollPane = new JScrollPane(panel);  
+        jScrollPane.setViewportView(panel);
+        jScrollPane.setPreferredSize(new Dimension(300,300));
+        chooser.setPreviewPanel(jScrollPane);
         frame.setContentPane(chooser);
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
@@ -64,16 +70,19 @@ public class MyColorChooser {
                 public void run() {                    
                     while (iterator.hasNext()) {
                         HarmonicColor next = iterator.next();
+                        panel.add(new JLabel("=)"));
                         System.out.println(next.getName() + ":" + next.getAngle());
                         label.setText(next.getName());
                         label.setBackground(next.getColor());
-                        panel.setBackground(next.getBaseColor());
-                        Thread.sleep(500);
+                        panel.setBackground(next.getBaseColor());                        
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(MyColorChooser.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
-            }.start();
-            //Thread thread = new Thread(new Repainter(panel, colorHarmonic));
-            //thread.start();
+            }.start();            
         });
         frame.addWindowListener(new WindowAdapter() {
 
