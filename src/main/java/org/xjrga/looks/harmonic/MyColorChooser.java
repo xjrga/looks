@@ -125,7 +125,8 @@ public class MyColorChooser {
                             lab.setOpaque(true);
                             lab.setPreferredSize(new Dimension(50, 50));
                             lab.setForeground(fontColor);
-                            lab.setText(next.getAngleChange() + "");
+                            lab.setText(next.getAngle()+ "");
+                            //lab.setText(next.getAngleChange()+ "");
                             lab.setBackground(next.getColor());
                             lab.setBorder(new LineBorder(Color.BLACK));
                             lab.setHorizontalAlignment(SwingConstants.CENTER);
