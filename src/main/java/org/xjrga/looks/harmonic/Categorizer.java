@@ -26,30 +26,53 @@ public class Categorizer {
     private HarmonicColor color;
 
     public Categorizer() {
-        
+
     }
-    
-    public void setHarmonicColor(HarmonicColor color){
+
+    public void setHarmonicColor(HarmonicColor color) {
         this.color = color;
     }
 
     public String getColorTemperature() {
-        return findTemperature(color);
-    }
-
-    public String getColorCategory() {
-        return "";
-    }
-
-    private String findTemperature(HarmonicColor color) {
 
         String tempRange = "Cold";
 
         if (color.getAngle() >= 0f && color.getAngle() <= 165f) {
             tempRange = "Warm";
         }
-
         return tempRange;
+    }
+
+    public String getColorSide() {
+
+        String side;
+
+        if (color.getAngleChange() == 180f || color.getAngleChange() == 0f) {
+            side = "Center";
+        } else if (color.getAngleChange() > 0f && color.getAngleChange() < 180f) {
+            side = "Left";
+        } else {
+            side = "Right";
+        }
+
+        return side;
+    }
+
+    public String getColorCategory() {
+
+        String colorType;
+
+        if (color.getAngleChange() > 0f && color.getAngleChange() <= 90f) {
+            colorType = "Analogous";
+        } else if (color.getAngleChange() >= 90f && color.getAngleChange() < 180f) {
+            colorType = "Split";
+        } else if (color.getAngleChange() > 180f && color.getAngleChange() <= 270f) {
+            colorType = "Split";
+        } else {
+            colorType = "Analogous";
+        }
+
+        return colorType;
     }
 
 }
