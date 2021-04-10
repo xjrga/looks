@@ -11,6 +11,7 @@ import java.util.Iterator;
  */
 public class ColorHarmonic {
 
+    private final HarmonicColor harmonic0;
     private final HarmonicColor harmonic15;
     private final HarmonicColor harmonic30;
     private final HarmonicColor harmonic45;
@@ -45,6 +46,7 @@ public class ColorHarmonic {
      */
     public ColorHarmonic(Color color) {
         list = new ArrayList();
+        harmonic0 = new Harmonic0(color);
         harmonic15 = new Harmonic15(color);
         harmonic30 = new Harmonic30(color);
         harmonic45 = new Harmonic45(color);
@@ -68,6 +70,7 @@ public class ColorHarmonic {
         harmonic315 = new Harmonic315(color);
         harmonic330 = new Harmonic330(color);
         harmonic345 = new Harmonic345(color);
+        list.add(harmonic0);
         list.add(harmonic15);
         list.add(harmonic30);
         list.add(harmonic45);
@@ -103,6 +106,16 @@ public class ColorHarmonic {
      */
     public Color getBaseColor() {
         return color;
+    }
+    
+    /**
+     * Returns first analogous color with respect to base color
+     *
+     * @return a color
+     * @see java.awt.Color
+     */
+    public Color getHarmonic0() {
+        return harmonic0.getColor();
     }
 
     /**

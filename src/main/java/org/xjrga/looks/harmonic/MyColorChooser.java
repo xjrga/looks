@@ -132,7 +132,7 @@ public class MyColorChooser {
                             lab.setHorizontalAlignment(SwingConstants.CENTER);
                             lab.setVerticalAlignment(SwingConstants.CENTER);
                             panelColors.add(lab);
-                            System.out.println(next.getName() + ":" + next.getAngleChange());
+                            System.out.println(next.getName() + ":" + next.getAngle());
                             panelColors.revalidate();
                         }
                     }
