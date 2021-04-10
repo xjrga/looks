@@ -65,13 +65,13 @@ public class MyColorChooser {
         JPanel panelColors = new JPanel();
         panelColors.setOpaque(true);
         //panelColors.setPreferredSize(new Dimension(600, 200));
-        //panelColors.setLayout(new GridLayout(0,4));
-        panelColors.setLayout(new FlowLayout());
+        panelColors.setLayout(new GridLayout(0,13));
+        //panelColors.setLayout(new FlowLayout());
         panelColors.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         panelColors.add(new JButton("Hello!"));
         JScrollPane jScrollPane = new JScrollPane(panelColors);
         jScrollPane.setViewportView(panelColors);
-        jScrollPane.setPreferredSize(new Dimension(600, 200));
+        jScrollPane.setPreferredSize(new Dimension(600, 250));
         chooser.setPreviewPanel(new JPanel());
         JPanel main = new JPanel();
         JPanel panel00 = new JPanel();
@@ -127,18 +127,18 @@ public class MyColorChooser {
                         panelColors.removeAll();
                         while (iterator.hasNext()) {
                             HarmonicColor next = iterator.next();
-                            JLabel lab = new JLabel();
-                            lab.setOpaque(true);
-                            lab.setPreferredSize(new Dimension(50, 50));
-                            lab.setForeground(fontColor);
-                            lab.setText(next.getAngle() + "");
-                            lab.setBackground(next.getColor());
-                            lab.setBorder(new LineBorder(Color.BLACK));
-                            lab.setHorizontalAlignment(SwingConstants.CENTER);
-                            lab.setVerticalAlignment(SwingConstants.CENTER);
-                            panelColors.add(lab);
+                            JLabel label = new JLabel();
+                            label.setOpaque(true);
+                            label.setPreferredSize(new Dimension(50, 50));
+                            label.setForeground(fontColor);
+                            label.setText(next.getAngle() + "");
+                            label.setBackground(next.getColor());
+                            label.setBorder(new LineBorder(Color.BLACK));
+                            label.setHorizontalAlignment(SwingConstants.CENTER);
+                            label.setVerticalAlignment(SwingConstants.CENTER);
+                            panelColors.add(label);
                             categorizer.setHarmonicColor(next);
-                            lab.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorSide() + " " + categorizer.getColorCategory() + "</html>");
+                            label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorSide() + " " + categorizer.getColorCategory() + "</html>");
                             panelColors.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorSide() + ":" + categorizer.getColorCategory());
                         }
