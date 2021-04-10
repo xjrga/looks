@@ -9,9 +9,11 @@ import java.awt.Color;
  */
 public class Harmonic285 implements HarmonicColor, Comparable<HarmonicColor> {
 
-    private Color color = null;
-    private final float angle = 285f;
+    private Color baseColor = null;
     private final ColorGenerator colorGenerator;
+    private final Color newColor;
+    private final float angleChange = 285f;
+    private float angle = -1f;
 
     /**
      * Constructs a new harmonic color;
@@ -20,28 +22,35 @@ public class Harmonic285 implements HarmonicColor, Comparable<HarmonicColor> {
      * @see java.awt.Color
      */
     public Harmonic285(Color color) {
-        this.color = color;
+        this.baseColor = color;
         colorGenerator = new ColorGenerator(color);
-    }
-
-    @Override
-    public Color getBaseColor() {
-        return color;
-    }
-
-    @Override
-    public Color getColor() {
-        return colorGenerator.generateColorUsingHueChange(angle);
+        newColor = colorGenerator.generateColorUsingHueChange(angleChange);
+        angle = colorGenerator.getNewHue();
     }
 
     @Override
     public float getAngleChange() {
+        return angleChange;
+    }
+
+    @Override
+    public float getAngle() {
         return angle;
     }
 
     @Override
+    public Color getBaseColor() {
+        return baseColor;
+    }
+
+    @Override
+    public Color getColor() {
+        return newColor;
+    }
+
+    @Override
     public String getName() {
-        return "Analogous 285";
+        return "Split 285";
     }
 
     @Override
@@ -52,9 +61,5 @@ public class Harmonic285 implements HarmonicColor, Comparable<HarmonicColor> {
         }
         return result;
     }
-    
-    @Override
-    public float getAngle() {
-        return colorGenerator.getNewHue();
-    }
+
 }
