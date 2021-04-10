@@ -36,8 +36,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import org.xjrga.looks.Dawn;
 
 /**
  *
@@ -127,16 +131,16 @@ public class MyColorChooser {
                             lab.setOpaque(true);
                             lab.setPreferredSize(new Dimension(50, 50));
                             lab.setForeground(fontColor);
-                            lab.setText(next.getAngle()+ "");
-                            //lab.setText(next.getAngleChange()+ "");
+                            lab.setText(next.getAngle() + "");
                             lab.setBackground(next.getColor());
                             lab.setBorder(new LineBorder(Color.BLACK));
                             lab.setHorizontalAlignment(SwingConstants.CENTER);
                             lab.setVerticalAlignment(SwingConstants.CENTER);
                             panelColors.add(lab);
-                            categorizer.setHarmonicColor(next);                            
-                            System.out.println(next.getAngle()+":"+next.getAngleChange()+":"+categorizer.getColorTemperature()+":"+categorizer.getColorSide()+":"+categorizer.getColorCategory());
+                            categorizer.setHarmonicColor(next);
+                            lab.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorSide() + " " + categorizer.getColorCategory() + "</html>");
                             panelColors.revalidate();
+                            System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorSide() + ":" + categorizer.getColorCategory());
                         }
                     }
                 }.start();
@@ -156,7 +160,12 @@ public class MyColorChooser {
         frame.dispose();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
+        try {
+            MetalLookAndFeel.setCurrentTheme(new Dawn());
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        }
         SwingUtilities.invokeLater(() -> {
             MyColorChooser myColorChooser = new MyColorChooser();
         });
