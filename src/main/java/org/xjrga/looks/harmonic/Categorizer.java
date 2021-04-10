@@ -40,6 +40,7 @@ public class Categorizer {
         if (color.getAngle() >= 0f && color.getAngle() <= 165f) {
             tempRange = "Warm";
         }
+
         return tempRange;
     }
 
@@ -62,11 +63,19 @@ public class Categorizer {
 
         String colorType;
 
-        if (color.getAngleChange() > 0f && color.getAngleChange() <= 90f) {
+        if (color.getAngleChange() == 180f) {
+            colorType = "Complementary";
+        } else if (color.getAngleChange() == 0f) {
+            colorType = "Original";
+        } else if (color.getAngleChange() == 90f) {
+            colorType = "Analogous and Split";
+        } else if (color.getAngleChange() == 270f) {
+            colorType = "Analogous and Split";
+        } else if (color.getAngleChange() > 0f && color.getAngleChange() < 90f) {
             colorType = "Analogous";
-        } else if (color.getAngleChange() >= 90f && color.getAngleChange() < 180f) {
+        } else if (color.getAngleChange() > 90f && color.getAngleChange() < 180f) {
             colorType = "Split";
-        } else if (color.getAngleChange() > 180f && color.getAngleChange() <= 270f) {
+        } else if (color.getAngleChange() > 180f && color.getAngleChange() < 270f) {
             colorType = "Split";
         } else {
             colorType = "Analogous";
