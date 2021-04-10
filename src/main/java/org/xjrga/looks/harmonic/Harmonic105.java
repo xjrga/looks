@@ -27,12 +27,12 @@ public class Harmonic105 implements HarmonicColor, Comparable<HarmonicColor> {
         newColor = colorGenerator.generateColorUsingHueChange(angleChange);
         angle = colorGenerator.getNewHue();
     }
-    
+
     @Override
     public float getAngleChange() {
         return angleChange;
     }
-    
+
     @Override
     public float getAngle() {
         return angle;
@@ -61,5 +61,5 @@ public class Harmonic105 implements HarmonicColor, Comparable<HarmonicColor> {
         }
         return result;
     }
-    
+
 }

@@ -9,56 +9,48 @@ import java.awt.Color;
  */
 public class Harmonic180 implements HarmonicColor, Comparable<HarmonicColor> {
 
-    private Color color = null;
-    private final float angle = 180f;
+    private Color baseColor = null;
     private final ColorGenerator colorGenerator;
+    private final Color newColor;
+    private final float angleChange = 180f;
+    private float angle = -1f;
 
     /**
      * Constructs a new harmonic color;
      *
-     * @param color Base color
+     * @param color the base color
      * @see java.awt.Color
      */
     public Harmonic180(Color color) {
-        this.color = color;
+        this.baseColor = color;
         colorGenerator = new ColorGenerator(color);
+        newColor = colorGenerator.generateColorUsingHueChange(angleChange);
+        angle = colorGenerator.getNewHue();
     }
 
-    /**
-     * Gets the base color
-     *
-     * @return Base color
-     * @see java.awt.Color
-     */
-    @Override
-    public Color getBaseColor() {
-        return color;
-    }
-
-    /**
-     * Gets the harmonic color
-     *
-     * @return Harmonic color
-     * @see java.awt.Color
-     */
-    @Override
-    public Color getColor() {
-        return colorGenerator.generateColorUsingHueChange(angle);
-    }
-
-    /**
-     * Gets the degree of hue change
-     *
-     * @return Degree of hue change with respect to base color
-     */
     @Override
     public float getAngleChange() {
+        return angleChange;
+    }
+
+    @Override
+    public float getAngle() {
         return angle;
     }
 
     @Override
+    public Color getBaseColor() {
+        return baseColor;
+    }
+
+    @Override
+    public Color getColor() {
+        return newColor;
+    }
+
+    @Override
     public String getName() {
-        return "Complementary";
+        return "Complementary 180";
     }
 
     @Override
@@ -68,11 +60,6 @@ public class Harmonic180 implements HarmonicColor, Comparable<HarmonicColor> {
             result = 1;
         }
         return result;
-    }
-    
-    @Override
-    public float getAngle() {
-        return colorGenerator.getNewHue();
     }
 
 }
