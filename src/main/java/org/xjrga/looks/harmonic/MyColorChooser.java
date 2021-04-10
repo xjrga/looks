@@ -50,11 +50,13 @@ public class MyColorChooser {
     private final JRadioButton option02;
     private final JRadioButton option03;
     private Color fontColor;
+    private Categorizer categorizer;
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
+        Categorizer categorizer = new Categorizer();
         chooser.addChooserPanel(new MyChooserPanel());
         JPanel panelColors = new JPanel();
         panelColors.setOpaque(true);
@@ -132,7 +134,8 @@ public class MyColorChooser {
                             lab.setHorizontalAlignment(SwingConstants.CENTER);
                             lab.setVerticalAlignment(SwingConstants.CENTER);
                             panelColors.add(lab);
-                            System.out.println(next.getName() + ":" + next.getAngle());
+                            categorizer.setHarmonicColor(next);                            
+                            System.out.println(next.getName() + ":" + next.getAngle()+":"+categorizer.getColorTemperature());
                             panelColors.revalidate();
                         }
                     }
