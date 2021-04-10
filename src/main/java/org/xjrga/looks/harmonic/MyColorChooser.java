@@ -18,6 +18,7 @@
 package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -35,7 +36,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -47,7 +47,7 @@ public class MyColorChooser {
     private final JRadioButton option01;
     private final JRadioButton option02;
     private final JRadioButton option03;
-    private Color fontColor;    
+    private Color fontColor;
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
@@ -91,12 +91,27 @@ public class MyColorChooser {
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);
-        chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
+        chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             if (option02.isSelected()) {
-               fontColor = chooser.getColor();
+                fontColor = chooser.getColor();
+                new Thread() {
+                    public void run() {
+                        Component[] components = panel.getComponents();
+                        for (int i = 0; i < components.length; i++) {
+                            //System.out.println("Component name - " + components[i].getName());
+                            if (components[i] instanceof JLabel) {                                
+                                components[i].setForeground(fontColor);                                
+                            }
+                        }
+                    }
+                }.start();
             } else if (option01.isSelected()) {
-                panel.setBackground(chooser.getColor());
+                new Thread() {
+                    public void run() {
+                        panel.setBackground(chooser.getColor());
+                    }
+                }.start();
             } else if (option03.isSelected()) {
                 Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
                 new Thread() {
