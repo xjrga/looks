@@ -30,7 +30,7 @@ public interface HarmonicColor {
      *
      * @return Degree of hue change with respect to base color
      */
-    float getAngle();
+    float getAngleChange();
 
     /**
      * Gets the harmonic color name

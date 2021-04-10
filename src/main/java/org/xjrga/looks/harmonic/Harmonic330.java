@@ -52,14 +52,14 @@ public class Harmonic330 implements HarmonicColor, Comparable<HarmonicColor> {
      * @return Degree of hue change with respect to base color
      */
     @Override
-    public float getAngle() {
+    public float getAngleChange() {
         return angle;
     }
 
     @Override
     public int compareTo(HarmonicColor harmonicColor) {
         int result = 0;
-        if (this.getAngle() > harmonicColor.getAngle()) {
+        if (this.getAngleChange() > harmonicColor.getAngleChange()) {
             result = 1;
         }
         return result;

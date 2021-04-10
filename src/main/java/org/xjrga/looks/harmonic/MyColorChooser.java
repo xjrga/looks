@@ -34,6 +34,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -50,11 +51,11 @@ public class MyColorChooser {
     private final JRadioButton option03;
     private Color fontColor;
 
-    public MyColorChooser() {            
+    public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JColorChooser chooser = new JColorChooser();        
-        chooser.addChooserPanel(new MyChooserPanel());        
+        JColorChooser chooser = new JColorChooser();
+        chooser.addChooserPanel(new MyChooserPanel());
         JPanel panelColors = new JPanel();
         panelColors.setOpaque(true);
         //panelColors.setPreferredSize(new Dimension(600, 200));
@@ -100,9 +101,9 @@ public class MyColorChooser {
                 new Thread() {
                     public void run() {
                         Component[] components = panelColors.getComponents();
-                        for (int i = 0; i < components.length; i++) {                            
-                            if (components[i] instanceof JLabel) {                                
-                                components[i].setForeground(fontColor);                                
+                        for (int i = 0; i < components.length; i++) {
+                            if (components[i] instanceof JLabel) {
+                                components[i].setForeground(fontColor);
                             }
                         }
                     }
@@ -120,15 +121,17 @@ public class MyColorChooser {
                         panelColors.removeAll();
                         while (iterator.hasNext()) {
                             HarmonicColor next = iterator.next();
-                            JLabel lab = new JLabel();                            
+                            JLabel lab = new JLabel();
                             lab.setOpaque(true);
-                            lab.setPreferredSize(new Dimension(50,50));
+                            lab.setPreferredSize(new Dimension(50, 50));
                             lab.setForeground(fontColor);
-                            lab.setText(next.getAngle() + "");
+                            lab.setText(next.getAngleChange() + "");
                             lab.setBackground(next.getColor());
                             lab.setBorder(new LineBorder(Color.BLACK));
+                            lab.setHorizontalAlignment(SwingConstants.CENTER);
+                            lab.setVerticalAlignment(SwingConstants.CENTER);
                             panelColors.add(lab);
-                            System.out.println(next.getName() + ":" + next.getAngle());
+                            System.out.println(next.getName() + ":" + next.getAngleChange());
                             panelColors.revalidate();
                         }
                     }
@@ -142,9 +145,9 @@ public class MyColorChooser {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });        
+        });
     }
-    
+
     public void exit() {
         frame.dispose();
     }

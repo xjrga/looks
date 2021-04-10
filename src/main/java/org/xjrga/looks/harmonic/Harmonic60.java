@@ -35,7 +35,7 @@ public class Harmonic60 implements HarmonicColor, Comparable<HarmonicColor> {
     }
 
     @Override
-    public float getAngle() {
+    public float getAngleChange() {
         return angle;
     }
 
@@ -47,7 +47,7 @@ public class Harmonic60 implements HarmonicColor, Comparable<HarmonicColor> {
     @Override
     public int compareTo(HarmonicColor harmonicColor) {
         int result = 0;
-        if (this.getAngle() > harmonicColor.getAngle()) {
+        if (this.getAngleChange() > harmonicColor.getAngleChange()) {
             result = 1;
         }
         return result;
