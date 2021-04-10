@@ -35,6 +35,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 /**
@@ -56,13 +57,14 @@ public class MyColorChooser {
         chooser.addChooserPanel(new MyChooserPanel());        
         JPanel panelColors = new JPanel();
         panelColors.setOpaque(true);
-        panelColors.setPreferredSize(new Dimension(600, 200));
-        panelColors.setLayout(new GridLayout(0,1));
+        //panelColors.setPreferredSize(new Dimension(600, 200));
+        //panelColors.setLayout(new GridLayout(0,4));
+        panelColors.setLayout(new FlowLayout());
         panelColors.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         panelColors.add(new JButton("Hello!"));
         JScrollPane jScrollPane = new JScrollPane(panelColors);
         jScrollPane.setViewportView(panelColors);
-        jScrollPane.setPreferredSize(new Dimension(590, 300));
+        jScrollPane.setPreferredSize(new Dimension(600, 200));
         chooser.setPreviewPanel(new JPanel());
         JPanel main = new JPanel();
         JPanel panel00 = new JPanel();
@@ -120,10 +122,11 @@ public class MyColorChooser {
                             HarmonicColor next = iterator.next();
                             JLabel lab = new JLabel();                            
                             lab.setOpaque(true);
+                            lab.setPreferredSize(new Dimension(50,50));
                             lab.setForeground(fontColor);
                             lab.setText(next.getAngle() + "");
                             lab.setBackground(next.getColor());
-                            lab.setBorder(new TitledBorder(next.getAngle()+""));
+                            lab.setBorder(new LineBorder(Color.BLACK));
                             panelColors.add(lab);
                             System.out.println(next.getName() + ":" + next.getAngle());
                             panelColors.revalidate();
