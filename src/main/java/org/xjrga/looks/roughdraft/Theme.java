@@ -82,9 +82,9 @@ public class Theme extends MetalTheme {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
-        Color complementary = colorHarmonic01.getHarmonic180();        
-        Color firstAnalogous = colorHarmonic01.getHarmonic180();
-        Color secondAnalogous = colorHarmonic01.getHarmonic330();
+        Color complementary = colorHarmonic01.getHarmonic180().getColor();        
+        Color firstAnalogous = colorHarmonic01.getHarmonic180().getColor();
+        Color secondAnalogous = colorHarmonic01.getHarmonic330().getColor();
         //        
         color01 = colorHarmonic01.getBaseColor();
         color02 = complementary;

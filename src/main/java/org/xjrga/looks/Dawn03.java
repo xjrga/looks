@@ -83,7 +83,7 @@ public class Dawn03 extends MetalTheme {
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
         //Color firstTriadic = colorHarmonic01.getFirstTriadicColor();
-        Color firstTriadic = colorHarmonic01.getHarmonic180();
+        Color firstTriadic = colorHarmonic01.getHarmonic180().getColor();
         //        
         color01 = colorHarmonic01.getBaseColor();
         color02 = firstTriadic;

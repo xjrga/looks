@@ -18,7 +18,7 @@ public class ColorHarmonicTest {
     @Test
     public void testGetComplementaryColor() {
         ColorHarmonic colorHarmonic = new ColorHarmonic(new Color(255, 0, 0));
-        Color complementaryColor = colorHarmonic.getHarmonic180();
+        Color complementaryColor = colorHarmonic.getHarmonic180().getColor();
         //Cyan,0,255,255
         Assert.assertEquals(complementaryColor.getRed(), 0);
         Assert.assertEquals(complementaryColor.getGreen(), 255);

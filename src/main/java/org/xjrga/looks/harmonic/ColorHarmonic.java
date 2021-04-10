@@ -114,8 +114,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic0() {
-        return harmonic0.getColor();
+    public HarmonicColor getHarmonic0() {
+        return harmonic0;
     }
 
     /**
@@ -124,8 +124,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic30() {
-        return harmonic30.getColor();
+    public HarmonicColor getHarmonic30() {
+        return harmonic30;
     }
 
     /**
@@ -134,8 +134,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic45() {
-        return harmonic45.getColor();
+    public HarmonicColor getHarmonic45() {
+        return harmonic45;
     }
 
     /**
@@ -144,8 +144,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic60() {
-        return harmonic60.getColor();
+    public HarmonicColor getHarmonic60() {
+        return harmonic60;
     }
 
     /**
@@ -154,8 +154,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic75() {
-        return harmonic75.getColor();
+    public HarmonicColor getHarmonic75() {
+        return harmonic75;
     }
 
     /**
@@ -164,8 +164,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic90() {
-        return harmonic90.getColor();
+    public HarmonicColor getHarmonic90() {
+        return harmonic90;
     }
 
     /**
@@ -174,8 +174,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic105() {
-        return harmonic105.getColor();
+    public HarmonicColor getHarmonic105() {
+        return harmonic105;
     }
 
     /**
@@ -184,8 +184,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic120() {
-        return harmonic120.getColor();
+    public HarmonicColor getHarmonic120() {
+        return harmonic120;
     }
 
     /**
@@ -194,8 +194,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic135() {
-        return harmonic135.getColor();
+    public HarmonicColor getHarmonic135() {
+        return harmonic135;
     }
 
     /**
@@ -204,8 +204,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic150() {
-        return harmonic150.getColor();
+    public HarmonicColor getHarmonic150() {
+        return harmonic150;
     }
 
     /**
@@ -214,8 +214,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic165() {
-        return harmonic165.getColor();
+    public HarmonicColor getHarmonic165() {
+        return harmonic165;
     }
 
     /**
@@ -224,8 +224,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic180() {
-        return harmonic180.getColor();
+    public HarmonicColor getHarmonic180() {
+        return harmonic180;
     }
 
     /**
@@ -234,8 +234,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic195() {
-        return harmonic195.getColor();
+    public HarmonicColor getHarmonic195() {
+        return harmonic195;
     }
 
     /**
@@ -244,8 +244,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic210() {
-        return harmonic210.getColor();
+    public HarmonicColor getHarmonic210() {
+        return harmonic210;
     }
 
     /**
@@ -254,8 +254,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic225() {
-        return harmonic225.getColor();
+    public HarmonicColor getHarmonic225() {
+        return harmonic225;
     }
 
     /**
@@ -264,8 +264,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic240() {
-        return harmonic240.getColor();
+    public HarmonicColor getHarmonic240() {
+        return harmonic240;
     }
 
     /**
@@ -274,8 +274,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic255() {
-        return harmonic255.getColor();
+    public HarmonicColor getHarmonic255() {
+        return harmonic255;
     }
 
     /**
@@ -284,8 +284,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic270() {
-        return harmonic270.getColor();
+    public HarmonicColor getHarmonic270() {
+        return harmonic270;
     }
 
     /**
@@ -294,8 +294,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic285() {
-        return harmonic285.getColor();
+    public HarmonicColor getHarmonic285() {
+        return harmonic285;
     }
 
     /**
@@ -304,8 +304,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic300() {
-        return harmonic300.getColor();
+    public HarmonicColor getHarmonic300() {
+        return harmonic300;
     }
 
     /**
@@ -314,8 +314,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic315() {
-        return harmonic315.getColor();
+    public HarmonicColor getHarmonic315() {
+        return harmonic315;
     }
 
     /**
@@ -324,8 +324,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic330() {
-        return harmonic330.getColor();
+    public HarmonicColor getHarmonic330() {
+        return harmonic330;
     }
 
     /**
@@ -334,8 +334,8 @@ public class ColorHarmonic {
      * @return a color
      * @see java.awt.Color
      */
-    public Color getHarmonic345() {
-        return harmonic345.getColor();
+    public HarmonicColor getHarmonic345() {
+        return harmonic345;
     }
 
     public Iterator<HarmonicColor> getIterator() {
