@@ -52,4 +52,9 @@ public class Harmonic315 implements HarmonicColor, Comparable<HarmonicColor> {
         }
         return result;
     }
+    
+    @Override
+    public float getAngle() {
+        return colorGenerator.getNewHue();
+    }
 }

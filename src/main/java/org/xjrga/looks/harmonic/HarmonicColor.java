@@ -38,4 +38,11 @@ public interface HarmonicColor {
      * @return Harmonic color name
      */
     String getName();
+    
+    /**
+     * Gets the hue
+     *
+     * @return Hue
+     */
+    float getAngle();
 }

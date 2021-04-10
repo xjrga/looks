@@ -41,7 +41,7 @@ import javax.swing.border.TitledBorder;
 
 /**
  *
- * @author Jorge R Garcia de Alba <jorge.r.garciadealba@gmail.com>
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class MyColorChooser {
 

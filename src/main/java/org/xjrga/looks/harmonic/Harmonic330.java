@@ -69,4 +69,9 @@ public class Harmonic330 implements HarmonicColor, Comparable<HarmonicColor> {
     public String getName() {
         return "Analogous 330";
     }
+    
+    @Override
+    public float getAngle() {
+        return colorGenerator.getNewHue();
+    }
 }

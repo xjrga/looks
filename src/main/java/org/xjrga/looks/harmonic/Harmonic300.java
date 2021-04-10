@@ -50,6 +50,11 @@ public class Harmonic300 implements HarmonicColor, Comparable<HarmonicColor> {
         if (this.getAngleChange() > harmonicColor.getAngleChange()) {
             result = 1;
         }
-        return result;
+        return result;    
+   }
+    
+    @Override
+    public float getAngle() {
+        return colorGenerator.getNewHue();
     }
 }
