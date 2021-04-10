@@ -53,8 +53,7 @@ public class MyColorChooser {
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();        
-        chooser.addChooserPanel(new MyChooserPanel());
-        FlowLayout layout = new FlowLayout();
+        chooser.addChooserPanel(new MyChooserPanel());        
         JPanel panelColors = new JPanel();
         panelColors.setOpaque(true);
         panelColors.setPreferredSize(new Dimension(600, 200));
@@ -119,11 +118,12 @@ public class MyColorChooser {
                         panelColors.removeAll();
                         while (iterator.hasNext()) {
                             HarmonicColor next = iterator.next();
-                            JLabel lab = new JLabel();
+                            JLabel lab = new JLabel();                            
                             lab.setOpaque(true);
                             lab.setForeground(fontColor);
                             lab.setText(next.getAngle() + "");
                             lab.setBackground(next.getColor());
+                            lab.setBorder(new TitledBorder(next.getAngle()+""));
                             panelColors.add(lab);
                             System.out.println(next.getName() + ":" + next.getAngle());
                             panelColors.revalidate();
