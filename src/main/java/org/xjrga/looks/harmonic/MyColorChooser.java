@@ -49,10 +49,11 @@ public class MyColorChooser {
     private final JRadioButton option03;
     private Color fontColor;
 
-    public MyColorChooser() {
+    public MyColorChooser() {            
         frame = new JFrame("MyColorChooser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JColorChooser chooser = new JColorChooser();
+        JColorChooser chooser = new JColorChooser();        
+        chooser.addChooserPanel(new MyChooserPanel());
         FlowLayout layout = new FlowLayout();
         JPanel panel = new JPanel();
         panel.setOpaque(true);
