@@ -17,6 +17,7 @@
  */
 package org.xjrga.looks.harmonic;
 
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -45,6 +46,8 @@ public class MyColorChooser {
     private final JFrame frame;
     private final JRadioButton option01;
     private final JRadioButton option02;
+    private final JRadioButton option03;
+    private Color fontColor;    
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
@@ -71,12 +74,15 @@ public class MyColorChooser {
         panel01.setBorder(new TitledBorder("01"));
         option01 = new JRadioButton("Background");
         option02 = new JRadioButton("Font");
+        option03 = new JRadioButton("Harmonic");
         //Group the radio buttons.
         ButtonGroup group = new ButtonGroup();
         group.add(option01);
         group.add(option02);
+        group.add(option03);
         panel00.add(option01);
         panel00.add(option02);
+        panel00.add(option03);
         panel01.add(jScrollPane);
         main.add(chooser);
         main.add(panel00);
@@ -87,9 +93,11 @@ public class MyColorChooser {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((ChangeEvent event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            if (option01.isSelected()) {
+            if (option02.isSelected()) {
+               fontColor = chooser.getColor();
+            } else if (option01.isSelected()) {
                 panel.setBackground(chooser.getColor());
-            } else {
+            } else if (option03.isSelected()) {
                 Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
                 new Thread() {
                     public void run() {
@@ -98,6 +106,7 @@ public class MyColorChooser {
                             HarmonicColor next = iterator.next();
                             JLabel lab = new JLabel();
                             lab.setOpaque(true);
+                            lab.setForeground(fontColor);
                             lab.setText(next.getAngle() + "");
                             lab.setBackground(next.getColor());
                             panel.add(lab);
