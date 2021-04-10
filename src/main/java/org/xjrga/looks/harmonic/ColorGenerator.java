@@ -89,5 +89,13 @@ public class ColorGenerator {
         float saturation = hsbValues.getSaturation();
         return generateColor(hue, saturation, brightness);
     }
+    
+    public float getHue() {
+        return hue;
+    }
+
+    public float getNewHue() {
+        return newHue;
+    }
 
 }
