@@ -10,6 +10,8 @@ import java.awt.Color;
 public class ColorGenerator {
 
     private final HsbValues hsbValues;
+    private final float hue;
+    private float newHue = -1;
 
     /**
      * Constructs a new color generator
@@ -19,6 +21,7 @@ public class ColorGenerator {
      */
     public ColorGenerator(Color color) {
         hsbValues = new HsbValues(color);
+        hue = hsbValues.getHue();        
     }
 
     /**
@@ -45,11 +48,11 @@ public class ColorGenerator {
      * @see java.awt.Color
      */
     public Color generateColorUsingHueChange(float hueChange) {
-        float newHue = HsbValues.calculateNewHue(hsbValues.getHue(), hueChange);
+        newHue = HsbValues.calculateNewHue(hsbValues.getHue(), hueChange);
         float saturation = hsbValues.getSaturation();
         float brightness = hsbValues.getBrightness();
         return generateColor(newHue, saturation, brightness);
-    }
+    }    
 
     /**
      * Generates a new monochrome color from base color
@@ -59,8 +62,7 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColor(float saturation, float brightness) {
-        float hue = hsbValues.getHue();
+    public Color generateMonochromeColor(float saturation, float brightness) {        
         return generateColor(hue, saturation, brightness);
     }
 
@@ -71,8 +73,7 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColorUsingSaturation(float saturation) {
-        float hue = hsbValues.getHue();
+    public Color generateMonochromeColorUsingSaturation(float saturation) {        
         float brightness = hsbValues.getBrightness();
         return generateColor(hue, saturation, brightness);
     }
@@ -84,8 +85,7 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColorUsingBrightness(float brightness) {
-        float hue = hsbValues.getHue();
+    public Color generateMonochromeColorUsingBrightness(float brightness) {        
         float saturation = hsbValues.getSaturation();
         return generateColor(hue, saturation, brightness);
     }
