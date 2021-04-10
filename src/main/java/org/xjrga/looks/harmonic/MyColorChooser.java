@@ -98,8 +98,7 @@ public class MyColorChooser {
                 new Thread() {
                     public void run() {
                         Component[] components = panel.getComponents();
-                        for (int i = 0; i < components.length; i++) {
-                            //System.out.println("Component name - " + components[i].getName());
+                        for (int i = 0; i < components.length; i++) {                            
                             if (components[i] instanceof JLabel) {                                
                                 components[i].setForeground(fontColor);                                
                             }
@@ -126,13 +125,7 @@ public class MyColorChooser {
                             lab.setBackground(next.getColor());
                             panel.add(lab);
                             System.out.println(next.getName() + ":" + next.getAngle());
-                            //panel.setBackground(next.getBaseColor());
                             panel.revalidate();
-//                        try {
-//                            Thread.sleep(500);
-//                        } catch (InterruptedException ex) {
-//                            Logger.getLogger(MyColorChooser.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
                         }
                     }
                 }.start();
@@ -145,22 +138,9 @@ public class MyColorChooser {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });
-
-        option01.addActionListener(e -> event_radiobutton_option01());
-        option02.addActionListener(e -> event_radiobutton_option02());
+        });        
     }
-
-    private void event_radiobutton_option01() {
-
-        System.out.println(option01.isSelected());
-    }
-
-    private void event_radiobutton_option02() {
-
-        System.out.println(option02.isSelected());
-    }
-
+    
     public void exit() {
         frame.dispose();
     }
