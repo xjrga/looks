@@ -50,7 +50,7 @@ public class Harmonic150 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Split 150";
+        return "";
     }
 
     @Override

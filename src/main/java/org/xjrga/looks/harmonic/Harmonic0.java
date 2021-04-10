@@ -50,7 +50,7 @@ public class Harmonic0 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Base color 0";
+        return "";
     }
 
     @Override

@@ -50,7 +50,7 @@ public class Harmonic15 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Analogous 15";
+        return "";
     }
 
     @Override

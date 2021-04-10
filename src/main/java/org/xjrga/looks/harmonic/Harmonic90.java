@@ -50,7 +50,7 @@ public class Harmonic90 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Split or Analogous 90";
+        return "";
     }
 
     @Override

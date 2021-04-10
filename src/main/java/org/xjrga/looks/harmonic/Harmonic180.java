@@ -50,7 +50,7 @@ public class Harmonic180 implements HarmonicColor, Comparable<HarmonicColor> {
 
     @Override
     public String getName() {
-        return "Complementary 180";
+        return "";
     }
 
     @Override

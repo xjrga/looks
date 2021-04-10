@@ -135,7 +135,7 @@ public class MyColorChooser {
                             lab.setVerticalAlignment(SwingConstants.CENTER);
                             panelColors.add(lab);
                             categorizer.setHarmonicColor(next);                            
-                            System.out.println(next.getName() + ":" + next.getAngle()+":"+categorizer.getColorTemperature()+":"+categorizer.getColorSide()+":"+categorizer.getColorCategory());
+                            System.out.println(next.getAngle()+":"+categorizer.getColorTemperature()+":"+categorizer.getColorSide()+":"+categorizer.getColorCategory());
                             panelColors.revalidate();
                         }
                     }
