@@ -9,9 +9,11 @@ import java.awt.Color;
  */
 public class Harmonic300 implements HarmonicColor, Comparable<HarmonicColor> {
 
-    private Color color = null;
-    private final float angle = 300f;
+    private Color baseColor = null;
     private final ColorGenerator colorGenerator;
+    private final Color newColor;
+    private final float angleChange = 300f;
+    private float angle = -1f;
 
     /**
      * Constructs a new harmonic color;
@@ -20,23 +22,30 @@ public class Harmonic300 implements HarmonicColor, Comparable<HarmonicColor> {
      * @see java.awt.Color
      */
     public Harmonic300(Color color) {
-        this.color = color;
+        this.baseColor = color;
         colorGenerator = new ColorGenerator(color);
-    }
-
-    @Override
-    public Color getBaseColor() {
-        return color;
-    }
-
-    @Override
-    public Color getColor() {
-        return colorGenerator.generateColorUsingHueChange(angle);
+        newColor = colorGenerator.generateColorUsingHueChange(angleChange);
+        angle = colorGenerator.getNewHue();
     }
 
     @Override
     public float getAngleChange() {
+        return angleChange;
+    }
+
+    @Override
+    public float getAngle() {
         return angle;
+    }
+
+    @Override
+    public Color getBaseColor() {
+        return baseColor;
+    }
+
+    @Override
+    public Color getColor() {
+        return newColor;
     }
 
     @Override
@@ -50,11 +59,7 @@ public class Harmonic300 implements HarmonicColor, Comparable<HarmonicColor> {
         if (this.getAngleChange() > harmonicColor.getAngleChange()) {
             result = 1;
         }
-        return result;    
-   }
-    
-    @Override
-    public float getAngle() {
-        return colorGenerator.getNewHue();
+        return result;
     }
+
 }
