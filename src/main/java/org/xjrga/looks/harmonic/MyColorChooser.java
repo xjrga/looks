@@ -55,14 +55,14 @@ public class MyColorChooser {
         JColorChooser chooser = new JColorChooser();        
         chooser.addChooserPanel(new MyChooserPanel());
         FlowLayout layout = new FlowLayout();
-        JPanel panel = new JPanel();
-        panel.setOpaque(true);
-        panel.setPreferredSize(new Dimension(600, 200));
-        panel.setLayout(layout);
-        panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        panel.add(new JButton("Hello!"));
-        JScrollPane jScrollPane = new JScrollPane(panel);
-        jScrollPane.setViewportView(panel);
+        JPanel panelColors = new JPanel();
+        panelColors.setOpaque(true);
+        panelColors.setPreferredSize(new Dimension(600, 200));
+        panelColors.setLayout(new GridLayout(0,1));
+        panelColors.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        panelColors.add(new JButton("Hello!"));
+        JScrollPane jScrollPane = new JScrollPane(panelColors);
+        jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(590, 300));
         chooser.setPreviewPanel(new JPanel());
         JPanel main = new JPanel();
@@ -98,7 +98,7 @@ public class MyColorChooser {
                 fontColor = chooser.getColor();
                 new Thread() {
                     public void run() {
-                        Component[] components = panel.getComponents();
+                        Component[] components = panelColors.getComponents();
                         for (int i = 0; i < components.length; i++) {                            
                             if (components[i] instanceof JLabel) {                                
                                 components[i].setForeground(fontColor);                                
@@ -109,14 +109,14 @@ public class MyColorChooser {
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
-                        panel.setBackground(chooser.getColor());
+                        panelColors.setBackground(chooser.getColor());
                     }
                 }.start();
             } else if (option03.isSelected()) {
                 Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
                 new Thread() {
                     public void run() {
-                        panel.removeAll();
+                        panelColors.removeAll();
                         while (iterator.hasNext()) {
                             HarmonicColor next = iterator.next();
                             JLabel lab = new JLabel();
@@ -124,9 +124,9 @@ public class MyColorChooser {
                             lab.setForeground(fontColor);
                             lab.setText(next.getAngle() + "");
                             lab.setBackground(next.getColor());
-                            panel.add(lab);
+                            panelColors.add(lab);
                             System.out.println(next.getName() + ":" + next.getAngle());
-                            panel.revalidate();
+                            panelColors.revalidate();
                         }
                     }
                 }.start();
