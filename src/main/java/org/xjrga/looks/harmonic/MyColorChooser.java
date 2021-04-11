@@ -50,10 +50,10 @@ import org.xjrga.looks.Dawn;
 public class MyColorChooser {
 
     private final JFrame frame;
-    private final JRadioButton option01;
-    private final JRadioButton option02;
-    private final JRadioButton option03;
-    private final JRadioButton option04;
+    private final JRadioButton optionBackground;
+    private final JRadioButton optionFont;
+    private final JRadioButton optionHarmonic;
+    private final JRadioButton optionBorder;
     private Color chooserColor;
     private Color borderColor;
 
@@ -93,21 +93,21 @@ public class MyColorChooser {
         JPanel panel01 = new JPanel();
         panel00.setLayout(new FlowLayout());
         panel01.setLayout(new BorderLayout());
-        option01 = new JRadioButton("Background");
-        option02 = new JRadioButton("Font");
-        option03 = new JRadioButton("Harmonic");
-        option04 = new JRadioButton("Border");
+        optionBackground = new JRadioButton("Background");
+        optionFont = new JRadioButton("Font");
+        optionHarmonic = new JRadioButton("Harmonic");
+        optionBorder = new JRadioButton("Border");
         //Group the radio buttons.
         ButtonGroup group = new ButtonGroup();
-        group.add(option01);
-        group.add(option02);
-        group.add(option03);
-        group.add(option04);
-        group.setSelected(option03.getModel(), true);
-        panel00.add(option03);
-        panel00.add(option01);
-        panel00.add(option04);
-        panel00.add(option02);
+        group.add(optionBackground);
+        group.add(optionFont);
+        group.add(optionHarmonic);
+        group.add(optionBorder);
+        group.setSelected(optionHarmonic.getModel(), true);
+        panel00.add(optionHarmonic);
+        panel00.add(optionBackground);
+        panel00.add(optionBorder);
+        panel00.add(optionFont);
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
@@ -120,7 +120,7 @@ public class MyColorChooser {
         chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             chooserColor = chooser.getColor();
-            if (option02.isSelected()) {
+            if (optionFont.isSelected()) {
                 new Thread() {
                     public void run() {
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
@@ -154,7 +154,7 @@ public class MyColorChooser {
                         frame.repaint();
                     }
                 }.start();
-            } else if (option01.isSelected()) {
+            } else if (optionBackground.isSelected()) {
                 new Thread() {
                     public void run() {
                         LineBorder paneLineBorder = new LineBorder(borderColor);                        
@@ -169,7 +169,7 @@ public class MyColorChooser {
                         ((TitledBorder) panelColorsRight.getBorder()).setBorder(paneLineBorder);
                     }
                 }.start();
-            } else if (option03.isSelected()) {
+            } else if (optionHarmonic.isSelected()) {
                 Iterator<HarmonicColor> leftIterator = colorHarmonic.getLeftIterator();
                 Iterator<HarmonicColor> rightIterator = colorHarmonic.getRightIterator();
                 Iterator<HarmonicColor> topIterator = colorHarmonic.getTopIterator();
@@ -221,7 +221,7 @@ public class MyColorChooser {
                         return label;
                     }
                 }.start();
-            } else if (option04.isSelected()) {
+            } else if (optionBorder.isSelected()) {
                 borderColor = chooserColor;
                 new Thread() {
                     public void run() {
