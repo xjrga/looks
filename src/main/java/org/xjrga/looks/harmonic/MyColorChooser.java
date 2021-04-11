@@ -19,7 +19,6 @@ package org.xjrga.looks.harmonic;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -27,7 +26,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -62,14 +60,17 @@ public class MyColorChooser {
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
         chooser.addChooserPanel(new MyChooserPanel());
+        JPanel panelColorsLeft = new JPanel();
+        panelColorsLeft.setOpaque(true);
+        panelColorsLeft.setLayout(new GridLayout(0, 13));
+        JPanel panelColorsRight = new JPanel();
+        panelColorsRight.setOpaque(true);
+        panelColorsRight.setLayout(new GridLayout(0, 13));
         JPanel panelColors = new JPanel();
-        panelColors.setOpaque(true);
-        //panelColors.setPreferredSize(new Dimension(600, 200));
-        panelColors.setLayout(new GridLayout(0,13));
-        //panelColors.setLayout(new FlowLayout());
-        panelColors.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        panelColors.add(new JButton("Hello!"));
-        JScrollPane jScrollPane = new JScrollPane(panelColors);
+        panelColors.setLayout(new GridLayout(0, 1));
+        panelColors.add(panelColorsLeft);
+        panelColors.add(panelColorsRight);
+        JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
         chooser.setPreviewPanel(new JPanel());
@@ -106,10 +107,16 @@ public class MyColorChooser {
                 fontColor = chooser.getColor();
                 new Thread() {
                     public void run() {
-                        Component[] components = panelColors.getComponents();
-                        for (int i = 0; i < components.length; i++) {
-                            if (components[i] instanceof JLabel) {
-                                components[i].setForeground(fontColor);
+                        Component[] componentsLeft = panelColorsLeft.getComponents();
+                        for (int i = 0; i < componentsLeft.length; i++) {
+                            if (componentsLeft[i] instanceof JLabel) {
+                                componentsLeft[i].setForeground(fontColor);
+                            }
+                        }
+                        Component[] componentsRight = panelColorsRight.getComponents();
+                        for (int i = 0; i < componentsRight.length; i++) {
+                            if (componentsRight[i] instanceof JLabel) {
+                                componentsRight[i].setForeground(fontColor);
                             }
                         }
                     }
@@ -117,31 +124,52 @@ public class MyColorChooser {
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
-                        panelColors.setBackground(chooser.getColor());
+                        panelColorsLeft.setBackground(chooser.getColor());
+                        panelColorsRight.setBackground(chooser.getColor());
                     }
                 }.start();
             } else if (option03.isSelected()) {
                 Iterator<HarmonicColor> iterator = colorHarmonic.getIterator();
                 new Thread() {
                     public void run() {
-                        panelColors.removeAll();
+                        panelColorsLeft.removeAll();
+                        panelColorsRight.removeAll();
                         while (iterator.hasNext()) {
                             HarmonicColor next = iterator.next();
-                            JLabel label = new JLabel();
-                            label.setOpaque(true);
-                            label.setPreferredSize(new Dimension(50, 50));
-                            label.setForeground(fontColor);
-                            label.setText(next.getAngle() + "");
-                            label.setBackground(next.getColor());
-                            label.setBorder(new LineBorder(Color.BLACK));
-                            label.setHorizontalAlignment(SwingConstants.CENTER);
-                            label.setVerticalAlignment(SwingConstants.CENTER);
-                            panelColors.add(label);
-                            categorizer.setHarmonicColor(next);
-                            label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorSide() + " " + categorizer.getColorCategory() + "</html>");
-                            panelColors.revalidate();
+                            //JLabel label = getLabel(next);
+                            if (next.getAngleChange() == 0) {
+                                panelColorsLeft.add(getLabel(next));
+                                panelColorsRight.add(getLabel(next));
+                            }
+                            if (next.getAngleChange() == 180) {
+                                panelColorsLeft.add(getLabel(next));
+                                panelColorsRight.add(getLabel(next));
+                            }
+//                            if (next.getAngleChange() > 0 && next.getAngleChange() <= 180) {
+//                                panelColorsLeft.add(getLabel(next));
+//
+//                            } else {
+//                                panelColorsRight.add(getLabel(next));
+//                            }                                                        
+                            panelColorsLeft.revalidate();
+                            panelColorsRight.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorSide() + ":" + categorizer.getColorCategory());
                         }
+                    }
+
+                    private JLabel getLabel(HarmonicColor next) {
+                        JLabel label = new JLabel();
+                        label.setOpaque(true);
+                        label.setPreferredSize(new Dimension(50, 50));
+                        label.setForeground(fontColor);
+                        label.setText(next.getAngle() + "");
+                        label.setBackground(next.getColor());
+                        label.setBorder(new LineBorder(Color.BLACK));
+                        label.setHorizontalAlignment(SwingConstants.CENTER);
+                        label.setVerticalAlignment(SwingConstants.CENTER);
+                        categorizer.setHarmonicColor(next);
+                        label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorSide() + " " + categorizer.getColorCategory() + "</html>");
+                        return label;
                     }
                 }.start();
             }
@@ -160,7 +188,7 @@ public class MyColorChooser {
         frame.dispose();
     }
 
-    public static void main(String[] args) {        
+    public static void main(String[] args) {
         try {
             MetalLookAndFeel.setCurrentTheme(new Dawn());
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
