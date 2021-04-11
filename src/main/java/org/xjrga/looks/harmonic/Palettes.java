@@ -34,9 +34,12 @@ public class Palettes extends AbstractColorChooserPanel {
 
     public void buildChooser() {
         setLayout(new GridLayout(0, 3));
-        makeAddButton("Red", Color.red);
-        makeAddButton("Green", Color.green);
-        makeAddButton("Blue", Color.blue);
+        addButton("Red", Color.red);
+        addButton("Green", Color.green);
+        addButton("Blue", Color.blue);
+        addButton("Black", Color.black);
+        addButton("Gray", Color.gray);
+        addButton("White", Color.white);        
     }
 
     public void updateChooser() {
@@ -54,7 +57,7 @@ public class Palettes extends AbstractColorChooserPanel {
         return null;
     }
 
-    private void makeAddButton(String name, Color color) {
+    private void addButton(String name, Color color) {
         JButton button = new JButton(name);
         button.setBackground(color);
         button.setAction(setColorAction);

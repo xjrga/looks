@@ -236,17 +236,17 @@ public class MyColorChooser {
                         panelColorsBottom.repaint();
                     }
 
-                    private JLabel getLabel(HarmonicColor next) {
+                    private JLabel getLabel(HarmonicColor harmonicColor) {
                         JLabel label = new JLabel();
                         label.setOpaque(true);
                         label.setPreferredSize(new Dimension(50, 50));
                         label.setForeground(fontColor);
                         label.setBorder(new LineBorder((borderColor)));
-                        label.setText(next.getAngle() + "");
-                        label.setBackground(next.getColor());
+                        label.setText(harmonicColor.getAngle() + "");
+                        label.setBackground(harmonicColor.getColor());
                         label.setHorizontalAlignment(SwingConstants.CENTER);
                         label.setVerticalAlignment(SwingConstants.CENTER);
-                        categorizer.setHarmonicColor(next);
+                        categorizer.setHarmonicColor(harmonicColor);
                         label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorPositionTB() + ", " + categorizer.getColorPositionLR() + "<br/>" + categorizer.getColorCategory() + "</html>");
                         return label;
                     }
