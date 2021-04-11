@@ -44,7 +44,7 @@ public class Palettes extends AbstractColorChooserPanel {
         map = new HashMap();
         panel00 = new JPanel();
         panel01 = new JPanel();
-        
+
     }
 
     public void buildChooser() {
@@ -57,7 +57,9 @@ public class Palettes extends AbstractColorChooserPanel {
         //addButton("White", Color.white);
         add(panel00);
         add(panel01);
-        panel00.add(new JButton("+"));
+        JButton buttonAdd = new JButton("+");
+        panel00.add(buttonAdd);
+        buttonAdd.addActionListener(e -> event_addNewColor());
     }
 
     public void updateChooser() {
@@ -92,12 +94,13 @@ public class Palettes extends AbstractColorChooserPanel {
             }
         }
         );
-    }   
+    }
 
     @Override
     public void add(PopupMenu popup) {
         super.add(popup); //To change body of generated methods, choose Tools | Templates.
     }
+
     @Override
     public Component add(String name, Component comp) {
         return super.add(name, comp); //To change body of generated methods, choose Tools | Templates.
@@ -111,8 +114,14 @@ public class Palettes extends AbstractColorChooserPanel {
     Action setColorAction = new AbstractAction() {
         public void actionPerformed(ActionEvent evt) {
             JButton button = (JButton) evt.getSource();
-            getColorSelectionModel().setSelectedColor(button.getBackground());
-            //getColorSelectionModel().getSelectedColor()
+            getColorSelectionModel().setSelectedColor(button.getBackground());            
         }
     };
+
+    private void event_addNewColor() {        
+        Color selectedColor = getColorSelectionModel().getSelectedColor();
+        addButton(selectedColor.getRGB(),selectedColor);
+        panel01.revalidate();
+        panel01.repaint();
+    }
 }

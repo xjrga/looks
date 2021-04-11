@@ -27,6 +27,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -114,10 +115,11 @@ public class PaletteViewer {
         group.add(optionHarmonic);
         group.add(optionBorder);
         group.setSelected(optionHarmonic.getModel(), true);
-        panel00.add(optionHarmonic);
         panel00.add(optionBackground);
-        panel00.add(optionBorder);
         panel00.add(optionFont);
+        panel00.add(optionBorder);
+        panel00.add(optionHarmonic);
+        panel00.add(new JButton("+"));
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
@@ -130,8 +132,6 @@ public class PaletteViewer {
         chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             chooserColor = chooser.getColor();            
-            palettes.addButton(chooserColor.getRGB(), chooserColor);
-            //palettes.removeButton("Cyan");
             if (optionFont.isSelected()) {
                 fontColor = chooserColor;
                 new Thread() {
