@@ -17,6 +17,7 @@
  */
 package org.xjrga.looks.harmonic;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -92,7 +93,7 @@ public class MyColorChooser {
         main.setLayout(new GridLayout(0, 1));
         panel00.setLayout(new FlowLayout());
         panel00.setBorder(new TitledBorder("00"));
-        panel01.setLayout(new GridLayout(0,1));
+        panel01.setLayout(new BorderLayout());
         panel01.setBorder(new TitledBorder("01"));
         option01 = new JRadioButton("Background");
         option02 = new JRadioButton("Font");
@@ -105,8 +106,8 @@ public class MyColorChooser {
         panel00.add(option01);
         panel00.add(option02);
         panel00.add(option03);
-        panel01.add(panel00);
-        panel01.add(jScrollPane);
+        panel01.add(panel00,BorderLayout.NORTH);
+        panel01.add(jScrollPane,BorderLayout.CENTER);
         main.add(chooser);        
         main.add(panel01);
         frame.setContentPane(main);
