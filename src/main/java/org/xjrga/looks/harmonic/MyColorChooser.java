@@ -65,6 +65,17 @@ public class MyColorChooser {
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
         chooser.addChooserPanel(new Palettes());
+        JPanel panelOriginal = new JPanel();
+        panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
+        panelOriginal.setBorder(new TitledBorder("Original"));        
+        JPanel panelColorsTop = new JPanel();
+        panelColorsTop.setOpaque(true);
+        panelColorsTop.setLayout(new GridLayout(0, 13, 10, 10));
+        panelColorsTop.setBorder(new TitledBorder("Complementary"));
+        JPanel panelColorsBottom = new JPanel();
+        panelColorsBottom.setOpaque(true);
+        panelColorsBottom.setLayout(new GridLayout(0, 13, 10, 10));
+        panelColorsBottom.setBorder(new TitledBorder("Analogous"));        
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
         panelColorsLeft.setLayout(new GridLayout(0, 13, 10, 10));
@@ -73,16 +84,9 @@ public class MyColorChooser {
         panelColorsRight.setOpaque(true);
         panelColorsRight.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsRight.setBorder(new TitledBorder("Right"));
-        JPanel panelColorsTop = new JPanel();
-        panelColorsTop.setOpaque(true);
-        panelColorsTop.setLayout(new GridLayout(0, 13, 10, 10));
-        panelColorsTop.setBorder(new TitledBorder("Complementary"));
-        JPanel panelColorsBottom = new JPanel();
-        panelColorsBottom.setOpaque(true);
-        panelColorsBottom.setLayout(new GridLayout(0, 13, 10, 10));
-        panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
+        panelColors.add(panelOriginal);
         panelColors.add(panelColorsTop);
         panelColors.add(panelColorsBottom);
         panelColors.add(panelColorsLeft);
@@ -126,10 +130,17 @@ public class MyColorChooser {
                 fontColor = chooserColor;
                 new Thread() {
                     public void run() {
+                        ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
+                        Component[] componentsOriginal = panelOriginal.getComponents();
+                        for (int i = 0; i < componentsOriginal.length; i++) {
+                            if (componentsOriginal[i] instanceof JLabel) {
+                                componentsOriginal[i].setForeground(fontColor);
+                            }
+                        }
                         Component[] componentsLeft = panelColorsLeft.getComponents();
                         for (int i = 0; i < componentsLeft.length; i++) {
                             if (componentsLeft[i] instanceof JLabel) {
@@ -161,12 +172,14 @@ public class MyColorChooser {
                 backgroundColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        LineBorder paneLineBorder = new LineBorder(backgroundColor);                        
+                        LineBorder paneLineBorder = new LineBorder(backgroundColor);
                         panelColors.setBackground(backgroundColor);
+                        panelOriginal.setBackground(backgroundColor);
                         panelColorsLeft.setBackground(backgroundColor);
                         panelColorsRight.setBackground(backgroundColor);
                         panelColorsTop.setBackground(backgroundColor);
                         panelColorsBottom.setBackground(backgroundColor);
+                        ((TitledBorder) panelOriginal.getBorder()).setBorder(paneLineBorder);
                         ((TitledBorder) panelColorsTop.getBorder()).setBorder(paneLineBorder);
                         ((TitledBorder) panelColorsBottom.getBorder()).setBorder(paneLineBorder);
                         ((TitledBorder) panelColorsLeft.getBorder()).setBorder(paneLineBorder);
@@ -180,10 +193,12 @@ public class MyColorChooser {
                 Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();
                 new Thread() {
                     public void run() {
+                        panelOriginal.removeAll();
                         panelColorsLeft.removeAll();
                         panelColorsRight.removeAll();
                         panelColorsTop.removeAll();
                         panelColorsBottom.removeAll();
+                        panelOriginal.add(getLabel(colorHarmonic.getHarmonic0()));
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();                            
                             panelColorsLeft.add(getLabel(next));
