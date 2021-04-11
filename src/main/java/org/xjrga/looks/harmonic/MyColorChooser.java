@@ -33,6 +33,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -87,11 +88,9 @@ public class MyColorChooser {
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
-        chooser.setPreviewPanel(new JPanel());
-        JPanel main = new JPanel();
+        chooser.setPreviewPanel(new JPanel());        
         JPanel panel00 = new JPanel();
         JPanel panel01 = new JPanel();
-        main.setLayout(new GridLayout(0, 1));
         panel00.setLayout(new FlowLayout());
         panel01.setLayout(new BorderLayout());
         option01 = new JRadioButton("Background");
@@ -110,11 +109,12 @@ public class MyColorChooser {
         panel00.add(option04);
         panel00.add(option02);
         panel01.add(panel00, BorderLayout.NORTH);
-        panel01.add(jScrollPane, BorderLayout.CENTER);
-        main.add(chooser);
-        main.add(panel01);
-        frame.setContentPane(main);
-        frame.setPreferredSize(new Dimension(600, 600));
+        panel01.add(jScrollPane, BorderLayout.CENTER);        
+        JSplitPane jSplitPane = new JSplitPane();
+        jSplitPane.add(chooser, JSplitPane.TOP);
+        jSplitPane.add(panel01, JSplitPane.BOTTOM);
+        frame.setContentPane(jSplitPane);
+        frame.setPreferredSize(new Dimension(1200, 600));
         frame.pack();
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((var event) -> {
