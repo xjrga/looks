@@ -52,6 +52,7 @@ public class MyColorChooser {
     private final JRadioButton option01;
     private final JRadioButton option02;
     private final JRadioButton option03;
+    private final JRadioButton option04;
     private Color fontColor;    
 
     public MyColorChooser() {
@@ -59,7 +60,7 @@ public class MyColorChooser {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
-        chooser.addChooserPanel(new MyChooserPanel());
+        chooser.addChooserPanel(new Palettes());
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
         panelColorsLeft.setLayout(new GridLayout(0, 13));
@@ -95,14 +96,18 @@ public class MyColorChooser {
         option01 = new JRadioButton("Background");
         option02 = new JRadioButton("Font");
         option03 = new JRadioButton("Harmonic");
+        option04 = new JRadioButton("Border");
         //Group the radio buttons.
         ButtonGroup group = new ButtonGroup();
         group.add(option01);
         group.add(option02);
         group.add(option03);
-        panel00.add(option01);
-        panel00.add(option02);
+        group.add(option04);
+        group.setSelected(option03.getModel(), true);
         panel00.add(option03);
+        panel00.add(option01);
+        panel00.add(option04);
+        panel00.add(option02);        
         panel01.add(panel00,BorderLayout.NORTH);
         panel01.add(jScrollPane,BorderLayout.CENTER);
         main.add(chooser);        

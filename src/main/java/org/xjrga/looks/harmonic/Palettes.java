@@ -30,7 +30,7 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 
-public class MyChooserPanel extends AbstractColorChooserPanel {
+public class Palettes extends AbstractColorChooserPanel {
 
     public void buildChooser() {
         setLayout(new GridLayout(0, 3));
@@ -65,6 +65,7 @@ public class MyChooserPanel extends AbstractColorChooserPanel {
         public void actionPerformed(ActionEvent evt) {
             JButton button = (JButton) evt.getSource();
             getColorSelectionModel().setSelectedColor(button.getBackground());
+            //getColorSelectionModel().getSelectedColor()
         }
     };
 }
