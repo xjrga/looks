@@ -36,6 +36,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class Palettes extends AbstractColorChooserPanel {
@@ -53,7 +55,17 @@ public class Palettes extends AbstractColorChooserPanel {
         model = new TableModelColor();
         table.setModel(model);
         table.setDefaultRenderer(Color.class, new ColorRenderer());
-        panelResult.add(new JScrollPane(table));        
+        panelResult.add(new JScrollPane(table));
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (table.getSelectedRow() > -1) {
+                    // print first column value from selected row
+                    System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+                }
+            }
+        });
+
     }
 
     @Override
