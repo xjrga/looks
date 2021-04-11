@@ -122,7 +122,7 @@ public class Palettes extends AbstractColorChooserPanel {
     };
 
     public void addNewItem(Color selectedColor) {
-        addButton(selectedColor.getRGB(), selectedColor);
+        //addButton(selectedColor.getRGB(), selectedColor);
         Vector row = new Vector();
         row.add(selectedColor);
         model.addRow(row);
