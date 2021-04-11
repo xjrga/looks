@@ -157,7 +157,7 @@ public class MyColorChooser {
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
-                        LineBorder lineBorder = new LineBorder(borderColor);
+                        LineBorder lineBorder = new LineBorder(borderColor);                        
                         panelColors.setBackground(chooserColor);
                         panelColorsLeft.setBackground(chooserColor);
                         panelColorsRight.setBackground(chooserColor);
@@ -181,8 +181,7 @@ public class MyColorChooser {
                         panelColorsTop.removeAll();
                         panelColorsBottom.removeAll();
                         while (leftIterator.hasNext()) {
-                            HarmonicColor next = leftIterator.next();
-                            //panelColorsLeft.add(Box.createHorizontalStrut(5));
+                            HarmonicColor next = leftIterator.next();                            
                             panelColorsLeft.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
@@ -212,9 +211,9 @@ public class MyColorChooser {
                         label.setOpaque(true);
                         label.setPreferredSize(new Dimension(50, 50));
                         label.setForeground(chooserColor);
+                        label.setBorder(new LineBorder((borderColor)));
                         label.setText(next.getAngle() + "");
-                        label.setBackground(next.getColor());
-                        //label.setBorder(new LineBorder(Color.BLACK));
+                        label.setBackground(next.getColor());                        
                         label.setHorizontalAlignment(SwingConstants.CENTER);
                         label.setVerticalAlignment(SwingConstants.CENTER);
                         categorizer.setHarmonicColor(next);
@@ -226,7 +225,7 @@ public class MyColorChooser {
                 borderColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        LineBorder lineBorder = new LineBorder(borderColor);
+                        LineBorder lineBorder = new LineBorder(borderColor,2);
                         Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
