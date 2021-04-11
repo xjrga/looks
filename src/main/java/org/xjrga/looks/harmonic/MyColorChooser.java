@@ -53,7 +53,7 @@ public class MyColorChooser {
     private final JRadioButton option02;
     private final JRadioButton option03;
     private final JRadioButton option04;
-    private Color fontColor;
+    private Color chooserColor;
 
     public MyColorChooser() {
         frame = new JFrame("Design");
@@ -116,38 +116,38 @@ public class MyColorChooser {
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);
-        chooser.getSelectionModel().addChangeListener((var event) -> {
+        chooser.getSelectionModel().addChangeListener((var event) -> {            
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            if (option02.isSelected()) {
-                fontColor = chooser.getColor();
+            chooserColor = chooser.getColor();
+            if (option02.isSelected()) {                             
                 new Thread() {
                     public void run() {
-                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(chooserColor);
                         Component[] componentsLeft = panelColorsLeft.getComponents();
                         for (int i = 0; i < componentsLeft.length; i++) {
                             if (componentsLeft[i] instanceof JLabel) {
-                                componentsLeft[i].setForeground(fontColor);
+                                componentsLeft[i].setForeground(chooserColor);
                             }
                         }
                         Component[] componentsRight = panelColorsRight.getComponents();
                         for (int i = 0; i < componentsRight.length; i++) {
                             if (componentsRight[i] instanceof JLabel) {
-                                componentsRight[i].setForeground(fontColor);
+                                componentsRight[i].setForeground(chooserColor);
                             }
                         }
                         Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
-                                componentsTop[i].setForeground(fontColor);
+                                componentsTop[i].setForeground(chooserColor);
                             }
                         }
                         Component[] componentsBottom = panelColorsBottom.getComponents();
                         for (int i = 0; i < componentsBottom.length; i++) {
                             if (componentsBottom[i] instanceof JLabel) {
-                                componentsBottom[i].setForeground(fontColor);
+                                componentsBottom[i].setForeground(chooserColor);
                             }
                         }
                         frame.repaint();
@@ -156,11 +156,11 @@ public class MyColorChooser {
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
-                        panelColors.setBackground(chooser.getColor());
-                        panelColorsLeft.setBackground(chooser.getColor());
-                        panelColorsRight.setBackground(chooser.getColor());
-                        panelColorsTop.setBackground(chooser.getColor());
-                        panelColorsBottom.setBackground(chooser.getColor());                        
+                        panelColors.setBackground(chooserColor);
+                        panelColorsLeft.setBackground(chooserColor);
+                        panelColorsRight.setBackground(chooserColor);
+                        panelColorsTop.setBackground(chooserColor);
+                        panelColorsBottom.setBackground(chooserColor);                        
                     }
                 }.start();
             } else if (option03.isSelected()) {
@@ -204,7 +204,7 @@ public class MyColorChooser {
                         JLabel label = new JLabel();
                         label.setOpaque(true);
                         label.setPreferredSize(new Dimension(50, 50));
-                        label.setForeground(fontColor);
+                        label.setForeground(chooserColor);
                         label.setText(next.getAngle() + "");
                         label.setBackground(next.getColor());
                         label.setBorder(new LineBorder(Color.BLACK));
@@ -218,10 +218,10 @@ public class MyColorChooser {
             } else if (option04.isSelected()) {
                 new Thread() {
                     public void run() {
-                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                        
+                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(chooserColor);                        
                     }
                 }.start();
             }
