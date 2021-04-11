@@ -58,7 +58,7 @@ public class MyColorChooser {
     private Color borderColor;
 
     public MyColorChooser() {
-        frame = new JFrame("Design");
+        frame = new JFrame("Color Palette Design");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
@@ -114,7 +114,7 @@ public class MyColorChooser {
         jSplitPane.add(chooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
-        frame.setPreferredSize(new Dimension(1200, 600));
+        frame.setPreferredSize(new Dimension(1400, 600));
         frame.pack();
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((var event) -> {
