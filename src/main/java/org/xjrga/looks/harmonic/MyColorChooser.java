@@ -56,6 +56,8 @@ public class MyColorChooser {
     private final JRadioButton optionBorder;
     private Color chooserColor;
     private Color borderColor;
+    private Color fontColor;
+    private Color backgroundColor;
 
     public MyColorChooser() {
         frame = new JFrame("Color Palette Design");
@@ -121,48 +123,50 @@ public class MyColorChooser {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             chooserColor = chooser.getColor();
             if (optionFont.isSelected()) {
+                fontColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(chooserColor);
+                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
                         Component[] componentsLeft = panelColorsLeft.getComponents();
                         for (int i = 0; i < componentsLeft.length; i++) {
                             if (componentsLeft[i] instanceof JLabel) {
-                                componentsLeft[i].setForeground(chooserColor);
+                                componentsLeft[i].setForeground(fontColor);
                             }
                         }
                         Component[] componentsRight = panelColorsRight.getComponents();
                         for (int i = 0; i < componentsRight.length; i++) {
                             if (componentsRight[i] instanceof JLabel) {
-                                componentsRight[i].setForeground(chooserColor);
+                                componentsRight[i].setForeground(fontColor);
                             }
                         }
                         Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
-                                componentsTop[i].setForeground(chooserColor);
+                                componentsTop[i].setForeground(fontColor);
                             }
                         }
                         Component[] componentsBottom = panelColorsBottom.getComponents();
                         for (int i = 0; i < componentsBottom.length; i++) {
                             if (componentsBottom[i] instanceof JLabel) {
-                                componentsBottom[i].setForeground(chooserColor);
+                                componentsBottom[i].setForeground(fontColor);
                             }
                         }
                         frame.repaint();
                     }
                 }.start();
             } else if (optionBackground.isSelected()) {
+                backgroundColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        LineBorder paneLineBorder = new LineBorder(chooserColor);                        
-                        panelColors.setBackground(chooserColor);
-                        panelColorsLeft.setBackground(chooserColor);
-                        panelColorsRight.setBackground(chooserColor);
-                        panelColorsTop.setBackground(chooserColor);
-                        panelColorsBottom.setBackground(chooserColor);
+                        LineBorder paneLineBorder = new LineBorder(backgroundColor);                        
+                        panelColors.setBackground(backgroundColor);
+                        panelColorsLeft.setBackground(backgroundColor);
+                        panelColorsRight.setBackground(backgroundColor);
+                        panelColorsTop.setBackground(backgroundColor);
+                        panelColorsBottom.setBackground(backgroundColor);
                         ((TitledBorder) panelColorsTop.getBorder()).setBorder(paneLineBorder);
                         ((TitledBorder) panelColorsBottom.getBorder()).setBorder(paneLineBorder);
                         ((TitledBorder) panelColorsLeft.getBorder()).setBorder(paneLineBorder);
@@ -210,7 +214,7 @@ public class MyColorChooser {
                         JLabel label = new JLabel();
                         label.setOpaque(true);
                         label.setPreferredSize(new Dimension(50, 50));
-                        label.setForeground(chooserColor);
+                        label.setForeground(fontColor);
                         label.setBorder(new LineBorder((borderColor)));
                         label.setText(next.getAngle() + "");
                         label.setBackground(next.getColor());                        
