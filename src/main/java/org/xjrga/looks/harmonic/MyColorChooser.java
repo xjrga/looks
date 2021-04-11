@@ -219,6 +219,7 @@ public class MyColorChooser {
                             panelColorsBottom.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
+                        panelOriginal.revalidate();
                         panelColorsLeft.revalidate();
                         panelColorsRight.revalidate();
                         panelColorsTop.revalidate();
@@ -245,6 +246,12 @@ public class MyColorChooser {
                 new Thread() {
                     public void run() {
                         LineBorder labelLineBorder = new LineBorder(borderColor,2);
+                        Component[] componentsOriginal = panelOriginal.getComponents();
+                        for (int i = 0; i < componentsOriginal.length; i++) {
+                            if (componentsOriginal[i] instanceof JLabel) {
+                                ((JLabel) componentsOriginal[i]).setBorder(labelLineBorder);
+                            }
+                        }
                         Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
