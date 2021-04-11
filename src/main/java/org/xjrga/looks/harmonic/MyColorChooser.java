@@ -219,31 +219,37 @@ public class MyColorChooser {
             } else if (option04.isSelected()) {
                 borderColor = chooserColor;
                 new Thread() {
-                    public void run() {
-                        Component[] componentsLeft = panelColorsLeft.getComponents();
-                        for (int i = 0; i < componentsLeft.length; i++) {
-                            if (componentsLeft[i] instanceof JLabel) {
-                                ((JLabel) componentsLeft[i]).setBorder(new LineBorder(borderColor));
-                            }
-                        }
-                        Component[] componentsRight = panelColorsRight.getComponents();
-                        for (int i = 0; i < componentsRight.length; i++) {
-                            if (componentsRight[i] instanceof JLabel) {
-                                ((JLabel) componentsRight[i]).setBorder(new LineBorder(borderColor));
-                            }
-                        }
-                        Component[] componentsTop = panelColorsTop.getComponents();
+                    public void run() {             
+                        LineBorder lineBorder = new LineBorder(borderColor);                                                
+                        ((TitledBorder)panelColorsTop.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder)panelColorsBottom.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder)panelColorsLeft.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder)panelColorsRight.getBorder()).setBorder(lineBorder);
+                        Component[] componentsTop = panelColorsTop.getComponents();                        
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
-                                ((JLabel) componentsTop[i]).setBorder(new LineBorder(borderColor));
+                                ((JLabel) componentsTop[i]).setBorder(lineBorder);
                             }
                         }
                         Component[] componentsBottom = panelColorsBottom.getComponents();
                         for (int i = 0; i < componentsBottom.length; i++) {
                             if (componentsBottom[i] instanceof JLabel) {
-                                ((JLabel) componentsBottom[i]).setBorder(new LineBorder(borderColor));
+                                ((JLabel) componentsBottom[i]).setBorder(lineBorder);
                             }
                         }
+                        Component[] componentsLeft = panelColorsLeft.getComponents();
+                        for (int i = 0; i < componentsLeft.length; i++) {
+                            if (componentsLeft[i] instanceof JLabel) {
+                                ((JLabel) componentsLeft[i]).setBorder(lineBorder);
+                            }
+                        }
+                        Component[] componentsRight = panelColorsRight.getComponents();
+                        for (int i = 0; i < componentsRight.length; i++) {
+                            if (componentsRight[i] instanceof JLabel) {
+                                ((JLabel) componentsRight[i]).setBorder(lineBorder);
+                            }
+                        }
+                        frame.repaint();
                     }
                 }.start();
             }
