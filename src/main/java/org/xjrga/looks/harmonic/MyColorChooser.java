@@ -157,7 +157,7 @@ public class MyColorChooser {
             } else if (optionBackground.isSelected()) {
                 new Thread() {
                     public void run() {
-                        LineBorder paneLineBorder = new LineBorder(borderColor);                        
+                        LineBorder paneLineBorder = new LineBorder(chooserColor);                        
                         panelColors.setBackground(chooserColor);
                         panelColorsLeft.setBackground(chooserColor);
                         panelColorsRight.setBackground(chooserColor);
