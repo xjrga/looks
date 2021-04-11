@@ -121,6 +121,11 @@ public class MyColorChooser {
                 fontColor = chooser.getColor();
                 new Thread() {
                     public void run() {
+                        ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                        
                         Component[] componentsLeft = panelColorsLeft.getComponents();
                         for (int i = 0; i < componentsLeft.length; i++) {
                             if (componentsLeft[i] instanceof JLabel) {
@@ -145,11 +150,13 @@ public class MyColorChooser {
                                 componentsBottom[i].setForeground(fontColor);
                             }
                         }
+                        frame.repaint();
                     }
                 }.start();
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
+                        panelColors.setBackground(chooser.getColor());
                         panelColorsLeft.setBackground(chooser.getColor());
                         panelColorsRight.setBackground(chooser.getColor());
                         panelColorsTop.setBackground(chooser.getColor());
