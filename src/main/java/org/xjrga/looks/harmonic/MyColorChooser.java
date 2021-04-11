@@ -70,6 +70,7 @@ public class MyColorChooser {
         panelColors.setLayout(new GridLayout(0, 1));
         panelColors.add(panelColorsLeft);
         panelColors.add(panelColorsRight);
+        panelColors.add(new JPanel());
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
@@ -135,24 +136,15 @@ public class MyColorChooser {
                         panelColorsLeft.removeAll();
                         panelColorsRight.removeAll();
                         while (iterator.hasNext()) {
-                            HarmonicColor next = iterator.next();
-                            //JLabel label = getLabel(next);
-                            if (next.getAngleChange() == 0) {
+                            HarmonicColor next = iterator.next();                            
+                            if (next.getAngleChange() >= 0 && next.getAngleChange() <= 180) {
                                 panelColorsLeft.add(getLabel(next));
+                                panelColorsLeft.revalidate();
+                            } 
+                            if (next.getAngleChange() >= 0 && next.getAngleChange() >= 180){
                                 panelColorsRight.add(getLabel(next));
-                            }
-                            if (next.getAngleChange() == 180) {
-                                panelColorsLeft.add(getLabel(next));
-                                panelColorsRight.add(getLabel(next));
-                            }
-//                            if (next.getAngleChange() > 0 && next.getAngleChange() <= 180) {
-//                                panelColorsLeft.add(getLabel(next));
-//
-//                            } else {
-//                                panelColorsRight.add(getLabel(next));
-//                            }                                                        
-                            panelColorsLeft.revalidate();
-                            panelColorsRight.revalidate();
+                                panelColorsRight.revalidate();
+                            }                                                                                                               
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorSide() + ":" + categorizer.getColorCategory());
                         }
                     }
