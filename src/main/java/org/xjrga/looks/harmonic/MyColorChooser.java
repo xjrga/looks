@@ -71,11 +71,11 @@ public class MyColorChooser {
         JPanel panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
         panelColorsTop.setLayout(new GridLayout(0, 13));
-        panelColorsTop.setBorder(new TitledBorder("Top"));        
+        panelColorsTop.setBorder(new TitledBorder("Complementary"));        
         JPanel panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
         panelColorsBottom.setLayout(new GridLayout(0, 13));
-        panelColorsBottom.setBorder(new TitledBorder("Bottom"));
+        panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
         panelColors.setBorder(new TitledBorder("Colors"));
@@ -94,7 +94,7 @@ public class MyColorChooser {
         main.setLayout(new GridLayout(0, 1));
         panel00.setLayout(new FlowLayout());
         panel00.setBorder(new TitledBorder("00"));
-        panel01.setLayout(new FlowLayout());
+        panel01.setLayout(new GridLayout(0,1));
         panel01.setBorder(new TitledBorder("01"));
         option01 = new JRadioButton("Background");
         option02 = new JRadioButton("Font");
@@ -107,9 +107,9 @@ public class MyColorChooser {
         panel00.add(option01);
         panel00.add(option02);
         panel00.add(option03);
+        panel01.add(panel00);
         panel01.add(jScrollPane);
-        main.add(chooser);
-        main.add(panel00);
+        main.add(chooser);        
         main.add(panel01);
         frame.setContentPane(main);
         frame.setPreferredSize(new Dimension(600, 600));
