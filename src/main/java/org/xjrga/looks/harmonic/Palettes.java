@@ -43,7 +43,7 @@ public class Palettes extends AbstractColorChooserPanel {
     }
 
     public String getDisplayName() {
-        return "MyChooserPanel";
+        return "Palettes";
     }
 
     public Icon getSmallDisplayIcon() {

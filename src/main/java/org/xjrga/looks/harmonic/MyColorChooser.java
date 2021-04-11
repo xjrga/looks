@@ -56,7 +56,7 @@ public class MyColorChooser {
     private Color fontColor;    
 
     public MyColorChooser() {
-        frame = new JFrame("MyColorChooser");
+        frame = new JFrame("Design");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
@@ -213,6 +213,16 @@ public class MyColorChooser {
                         categorizer.setHarmonicColor(next);
                         label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorPositionTB() + ", " + categorizer.getColorPositionLR() + "<br/>" + categorizer.getColorCategory() + "</html>");
                         return label;
+                    }
+                }.start();
+            }else if (option04.isSelected()) {
+                new Thread() {
+                    public void run() {
+                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                                                
+                        frame.repaint();
                     }
                 }.start();
             }
