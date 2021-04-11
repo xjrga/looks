@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package org.xjrga.looks.harmonic;
+package org.xjrga.looks.paletteviewer;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -42,6 +42,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import org.xjrga.looks.Dawn180;
+import org.xjrga.looks.harmonic.Categorizer;
+import org.xjrga.looks.harmonic.ColorHarmonic;
+import org.xjrga.looks.harmonic.HarmonicColor;
 
 /**
  *
