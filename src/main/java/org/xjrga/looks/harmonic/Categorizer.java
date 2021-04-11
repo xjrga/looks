@@ -44,16 +44,31 @@ public class Categorizer {
         return tempRange;
     }
 
-    public String getColorSide() {
+    public String getColorPositionLR() {
 
         String side;
 
-        if (color.getAngleChange() == 180f || color.getAngleChange() == 0f) {
+        if (color.getAngleChange() == 0f || color.getAngleChange() == 180f) {
             side = "Center";
         } else if (color.getAngleChange() > 0f && color.getAngleChange() < 180f) {
             side = "Left";
         } else {
             side = "Right";
+        }
+
+        return side;
+    }
+    
+    public String getColorPositionTB() {
+
+        String side;
+
+        if (color.getAngleChange() == 90f || color.getAngleChange() == 270f) {
+            side = "Side";
+        } else if (color.getAngleChange() > 90f && color.getAngleChange() < 270f) {
+            side = "Top";
+        } else {
+            side = "Bottom";
         }
 
         return side;
