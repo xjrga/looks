@@ -117,7 +117,6 @@ public class MyColorChooser {
                 fontColor = chooser.getColor();
                 new Thread() {
                     public void run() {
-                        ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
