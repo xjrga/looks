@@ -146,7 +146,7 @@ public class Dawn135 extends MetalTheme {
 
     @Override
     public String getName() {
-        return "Dawn 03";
+        return "Dawn 135";
     }
 
     @Override
