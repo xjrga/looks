@@ -65,19 +65,19 @@ public class MyColorChooser {
         chooser.addChooserPanel(new Palettes());
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
-        panelColorsLeft.setLayout(new GridLayout(0, 13));
+        panelColorsLeft.setLayout(new GridLayout(0, 13,10,10));
         panelColorsLeft.setBorder(new TitledBorder("Left"));
         JPanel panelColorsRight = new JPanel();
         panelColorsRight.setOpaque(true);
-        panelColorsRight.setLayout(new GridLayout(0, 13));
+        panelColorsRight.setLayout(new GridLayout(0, 13,10,10));
         panelColorsRight.setBorder(new TitledBorder("Right"));
         JPanel panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
-        panelColorsTop.setLayout(new GridLayout(0, 13));
+        panelColorsTop.setLayout(new GridLayout(0, 13,10,10));
         panelColorsTop.setBorder(new TitledBorder("Complementary"));
         JPanel panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
-        panelColorsBottom.setLayout(new GridLayout(0, 13));
+        panelColorsBottom.setLayout(new GridLayout(0, 13,10,10));
         panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
@@ -177,9 +177,10 @@ public class MyColorChooser {
                         panelColorsBottom.removeAll();
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();
+                            //panelColorsLeft.add(Box.createHorizontalStrut(5));
                             panelColorsLeft.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
-                        }
+                        }                        
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
                             panelColorsRight.add(getLabel(next));
