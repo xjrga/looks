@@ -67,7 +67,7 @@ public class MyColorChooser {
         chooser.addChooserPanel(new Palettes());
         JPanel panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
-        panelOriginal.setBorder(new TitledBorder("Original"));        
+        panelOriginal.setBorder(new TitledBorder("Original"));
         JPanel panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
         panelColorsTop.setLayout(new GridLayout(0, 13, 10, 10));
@@ -75,7 +75,7 @@ public class MyColorChooser {
         JPanel panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
         panelColorsBottom.setLayout(new GridLayout(0, 13, 10, 10));
-        panelColorsBottom.setBorder(new TitledBorder("Analogous"));        
+        panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
         panelColorsLeft.setLayout(new GridLayout(0, 13, 10, 10));
@@ -193,37 +193,47 @@ public class MyColorChooser {
                 Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();
                 new Thread() {
                     public void run() {
+                        //
                         panelOriginal.removeAll();
-                        panelColorsLeft.removeAll();
-                        panelColorsRight.removeAll();
-                        panelColorsTop.removeAll();
-                        panelColorsBottom.removeAll();
                         panelOriginal.add(getLabel(colorHarmonic.getHarmonic0()));
+                        panelOriginal.revalidate();
+                        panelOriginal.repaint();
+                        //
+                        panelColorsLeft.removeAll();
                         while (leftIterator.hasNext()) {
-                            HarmonicColor next = leftIterator.next();                            
+                            HarmonicColor next = leftIterator.next();
                             panelColorsLeft.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
+                        panelColorsLeft.revalidate();
+                        panelColorsLeft.repaint();
+                        //
+                        panelColorsRight.removeAll();
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
                             panelColorsRight.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
+                        panelColorsRight.revalidate();
+                        panelColorsRight.repaint();
+                        //
+                        panelColorsTop.removeAll();
                         while (topIterator.hasNext()) {
                             HarmonicColor next = topIterator.next();
                             panelColorsTop.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
+                        panelColorsTop.revalidate();
+                        panelColorsTop.repaint();
+                        //
+                        panelColorsBottom.removeAll();
                         while (bottomIterator.hasNext()) {
                             HarmonicColor next = bottomIterator.next();
                             panelColorsBottom.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
-                        panelOriginal.revalidate();
-                        panelColorsLeft.revalidate();
-                        panelColorsRight.revalidate();
-                        panelColorsTop.revalidate();
                         panelColorsBottom.revalidate();
+                        panelColorsBottom.repaint();
                     }
 
                     private JLabel getLabel(HarmonicColor next) {
@@ -233,7 +243,7 @@ public class MyColorChooser {
                         label.setForeground(fontColor);
                         label.setBorder(new LineBorder((borderColor)));
                         label.setText(next.getAngle() + "");
-                        label.setBackground(next.getColor());                        
+                        label.setBackground(next.getColor());
                         label.setHorizontalAlignment(SwingConstants.CENTER);
                         label.setVerticalAlignment(SwingConstants.CENTER);
                         categorizer.setHarmonicColor(next);
@@ -245,7 +255,7 @@ public class MyColorChooser {
                 borderColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        LineBorder labelLineBorder = new LineBorder(borderColor,2);
+                        LineBorder labelLineBorder = new LineBorder(borderColor, 2);
                         Component[] componentsOriginal = panelOriginal.getComponents();
                         for (int i = 0; i < componentsOriginal.length; i++) {
                             if (componentsOriginal[i] instanceof JLabel) {
