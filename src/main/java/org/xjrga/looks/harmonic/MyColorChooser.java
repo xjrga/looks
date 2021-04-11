@@ -51,8 +51,7 @@ public class MyColorChooser {
     private final JRadioButton option01;
     private final JRadioButton option02;
     private final JRadioButton option03;
-    private Color fontColor;
-    private Categorizer categorizer;
+    private Color fontColor;    
 
     public MyColorChooser() {
         frame = new JFrame("MyColorChooser");
@@ -82,8 +81,7 @@ public class MyColorChooser {
         panelColors.add(panelColorsLeft);
         panelColors.add(panelColorsRight);
         panelColors.add(panelColorsTop);
-        panelColors.add(panelColorsBottom);
-        panelColors.add(new JPanel());
+        panelColors.add(panelColorsBottom);        
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));

@@ -83,15 +83,15 @@ public class Categorizer {
         } else if (color.getAngleChange() == 0f) {
             colorType = "Original";
         } else if (color.getAngleChange() == 90f) {
-            colorType = "Analogous and Split";
+            colorType = "Analogous and Complementary";
         } else if (color.getAngleChange() == 270f) {
-            colorType = "Analogous and Split";
+            colorType = "Analogous and Complementary";
         } else if (color.getAngleChange() > 0f && color.getAngleChange() < 90f) {
             colorType = "Analogous";
         } else if (color.getAngleChange() > 90f && color.getAngleChange() < 180f) {
-            colorType = "Split";
+            colorType = "Complementary";
         } else if (color.getAngleChange() > 180f && color.getAngleChange() < 270f) {
-            colorType = "Split";
+            colorType = "Complementary";
         } else {
             colorType = "Analogous";
         }
