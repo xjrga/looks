@@ -66,9 +66,9 @@ public class PaletteViewer {
     public PaletteViewer() {
         frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JColorChooser chooser = new JColorChooser();
+        chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
-        Palettes palettes = new Palettes();
+        palettes = new Palettes();
         chooser.addChooserPanel(palettes);
         JPanel panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
@@ -119,7 +119,8 @@ public class PaletteViewer {
         panel00.add(optionFont);
         panel00.add(optionBorder);
         panel00.add(optionHarmonic);
-        panel00.add(new JButton("+"));
+        JButton buttonAdd = new JButton("+");
+        panel00.add(buttonAdd);
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
@@ -322,6 +323,15 @@ public class PaletteViewer {
                 exit();
             }
         });
+        buttonAdd.addActionListener(e -> event_addNewColor());
+    }
+    private Palettes palettes;
+    private JColorChooser chooser;
+    
+    private void event_addNewColor() {        
+        Color selectedColor = chooser.getColor();
+        palettes.addNewItem(selectedColor);
+        System.out.println(selectedColor.toString());        
     }
 
     public void exit() {

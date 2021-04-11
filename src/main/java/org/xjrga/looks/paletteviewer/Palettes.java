@@ -27,26 +27,35 @@ import java.awt.GridLayout;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
+import java.util.Vector;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.table.DefaultTableModel;
 
 public class Palettes extends AbstractColorChooserPanel {
 
     private HashMap<Integer, JButton> map;
-    private JPanel panel00;
-    private JPanel panel01;
+    private JPanel panelResult;
+    private JTable table;
+    private DefaultTableModel model;
 
     public Palettes() {
         map = new HashMap();
-        panel00 = new JPanel();
-        panel01 = new JPanel();
-
+        panelResult = new JPanel();
+        add(panelResult);
+        table = new JTable();
+        model = new TableModelColor();
+        table.setModel(model);        
+        panelResult.add(new JScrollPane(table));        
     }
 
+    @Override
     public void buildChooser() {
         setLayout(new GridLayout(0, 1));
         //addButton("Red", Color.red);
@@ -55,11 +64,7 @@ public class Palettes extends AbstractColorChooserPanel {
         //addButton("Black", Color.black);
         //addButton("Gray", Color.gray);
         //addButton("White", Color.white);
-        add(panel00);
-        add(panel01);
-        JButton buttonAdd = new JButton("+");
-        panel00.add(buttonAdd);
-        buttonAdd.addActionListener(e -> event_addNewColor());
+
     }
 
     public void updateChooser() {
@@ -82,9 +87,7 @@ public class Palettes extends AbstractColorChooserPanel {
         map.put(rgb, button);
         button.setBackground(color);
         button.setAction(setColorAction);
-        panel01.add(button);
-        //add(button);
-
+        panelResult.add(button);
     }
 
     public void removeButton(Integer rgb) {
@@ -114,14 +117,17 @@ public class Palettes extends AbstractColorChooserPanel {
     Action setColorAction = new AbstractAction() {
         public void actionPerformed(ActionEvent evt) {
             JButton button = (JButton) evt.getSource();
-            getColorSelectionModel().setSelectedColor(button.getBackground());            
+            getColorSelectionModel().setSelectedColor(button.getBackground());
         }
     };
 
-    private void event_addNewColor() {        
-        Color selectedColor = getColorSelectionModel().getSelectedColor();
-        addButton(selectedColor.getRGB(),selectedColor);
-        panel01.revalidate();
-        panel01.repaint();
+    public void addNewItem(Color selectedColor) {
+        addButton(selectedColor.getRGB(), selectedColor);
+        Vector row = new Vector();
+        row.add(selectedColor);
+        model.addRow(row);
+        System.out.println(model.getRowCount());
+        panelResult.revalidate();
+        panelResult.repaint();
     }
 }
