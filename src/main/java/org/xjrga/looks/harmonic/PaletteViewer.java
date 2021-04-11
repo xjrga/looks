@@ -41,7 +41,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.metal.MetalLookAndFeel;
-import org.xjrga.looks.Dawn;
+import org.xjrga.looks.Dawn180;
 
 /**
  *
@@ -324,7 +324,7 @@ public class PaletteViewer {
 
     public static void main(String[] args) {
         try {
-            MetalLookAndFeel.setCurrentTheme(new Dawn());
+            MetalLookAndFeel.setCurrentTheme(new Dawn180());
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }

@@ -10,14 +10,13 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 import org.xjrga.looks.harmonic.ColorGenerator;
 import org.xjrga.looks.harmonic.ColorHarmonic;
-import org.xjrga.looks.harmonic.HarmonicColor;
 
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
  * @author Jorge R Garcia de Alba
  */
-public class Dawn extends MetalTheme {
+public class Dawn135 extends MetalTheme {
 
     private final ColorUIResource white;
     private final ColorUIResource black;
@@ -78,14 +77,12 @@ public class Dawn extends MetalTheme {
      * Theme constructor
      *     
      */
-    public Dawn() {
-        //fontUIResource = new FontUIResource(font);
+    public Dawn135() {
         fontUIResource = new FontUIResource(Font.DIALOG, Font.PLAIN,12);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
-        HarmonicColor complementary = colorHarmonic01.getHarmonic180();
         color01 = colorHarmonic01.getBaseColor();
-        color02 = complementary.getColor();
+        color02 = colorHarmonic01.getHarmonic135().getColor();;
         color03 = colorGenerator.generateMonochromeColorUsingBrightness(40);
         color04 = colorGenerator.generateMonochromeColorUsingBrightness(45);
         color05 = colorGenerator.generateMonochromeColorUsingBrightness(50);
@@ -149,7 +146,7 @@ public class Dawn extends MetalTheme {
 
     @Override
     public String getName() {
-        return "Dawn";
+        return "Dawn 03";
     }
 
     @Override
