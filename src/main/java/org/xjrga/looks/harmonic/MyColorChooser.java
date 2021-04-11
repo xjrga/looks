@@ -78,7 +78,6 @@ public class MyColorChooser {
         panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
-        panelColors.setBorder(new TitledBorder("Colors"));
         panelColors.add(panelColorsTop);
         panelColors.add(panelColorsBottom);
         panelColors.add(panelColorsLeft);
@@ -92,9 +91,7 @@ public class MyColorChooser {
         JPanel panel01 = new JPanel();
         main.setLayout(new GridLayout(0, 1));
         panel00.setLayout(new FlowLayout());
-        panel00.setBorder(new TitledBorder("00"));
         panel01.setLayout(new BorderLayout());
-        panel01.setBorder(new TitledBorder("01"));
         option01 = new JRadioButton("Background");
         option02 = new JRadioButton("Font");
         option03 = new JRadioButton("Harmonic");
