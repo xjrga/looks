@@ -38,6 +38,8 @@ public class ColorHarmonic {
     private final Color color;
     private final ArrayList<HarmonicColor> left;
     private final ArrayList<HarmonicColor> right;
+    private final ArrayList<HarmonicColor> top;
+    private final ArrayList<HarmonicColor> bottom;
 
     /**
      * ColorHarmonic constructor
@@ -48,6 +50,8 @@ public class ColorHarmonic {
     public ColorHarmonic(Color color) {
         left = new ArrayList();
         right = new ArrayList();
+        top = new ArrayList();
+        bottom = new ArrayList();
         harmonic0 = new Harmonic0(color);
         harmonic15 = new Harmonic15(color);
         harmonic30 = new Harmonic30(color);
@@ -72,6 +76,7 @@ public class ColorHarmonic {
         harmonic315 = new Harmonic315(color);
         harmonic330 = new Harmonic330(color);
         harmonic345 = new Harmonic345(color);
+        //left (clockwise)
         left.add(harmonic0);
         left.add(harmonic15);
         left.add(harmonic30);
@@ -84,7 +89,8 @@ public class ColorHarmonic {
         left.add(harmonic135);
         left.add(harmonic150);
         left.add(harmonic165);
-        left.add(harmonic180);        
+        left.add(harmonic180);                
+        //right (counter-clockwise)
         right.add(harmonic0);
         right.add(harmonic345);
         right.add(harmonic330);
@@ -98,6 +104,34 @@ public class ColorHarmonic {
         right.add(harmonic210);
         right.add(harmonic195);     
         right.add(harmonic180);
+        //top (clockwise)
+        top.add(harmonic90);
+        top.add(harmonic105);
+        top.add(harmonic120);
+        top.add(harmonic135);
+        top.add(harmonic150);
+        top.add(harmonic165);
+        top.add(harmonic180);
+        top.add(harmonic195);
+        top.add(harmonic210);
+        top.add(harmonic225);
+        top.add(harmonic240);
+        top.add(harmonic255);
+        top.add(harmonic270);
+        //bottom (counter-clockwise)
+        bottom.add(harmonic90);
+        bottom.add(harmonic75);
+        bottom.add(harmonic60);
+        bottom.add(harmonic45);
+        bottom.add(harmonic30);
+        bottom.add(harmonic15);
+        bottom.add(harmonic0);
+        bottom.add(harmonic345);
+        bottom.add(harmonic330);
+        bottom.add(harmonic315);
+        bottom.add(harmonic300);
+        bottom.add(harmonic285);
+        bottom.add(harmonic270);       
         //left.sort(new HarmonicColorComparator());
         //right.sort(new HarmonicColorComparator());
         this.color = color;
@@ -349,6 +383,14 @@ public class ColorHarmonic {
     
     public Iterator<HarmonicColor> getRightIterator() {
         return right.iterator();
+    }
+    
+    public Iterator<HarmonicColor> getTopIterator() {
+        return top.iterator();
+    }
+    
+    public Iterator<HarmonicColor> getBottomIterator() {
+        return bottom.iterator();
     }
 
 }
