@@ -47,7 +47,7 @@ import org.xjrga.looks.Dawn;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class MyColorChooser {
+public class PaletteViewer {
 
     private final JFrame frame;
     private final JRadioButton optionBackground;
@@ -59,8 +59,8 @@ public class MyColorChooser {
     private Color fontColor;
     private Color backgroundColor;
 
-    public MyColorChooser() {
-        frame = new JFrame("Color Palette Design");
+    public PaletteViewer() {
+        frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
@@ -203,7 +203,7 @@ public class MyColorChooser {
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();
                             panelColorsLeft.add(getLabel(next));
-                            System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         panelColorsLeft.revalidate();
                         panelColorsLeft.repaint();
@@ -212,7 +212,7 @@ public class MyColorChooser {
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
                             panelColorsRight.add(getLabel(next));
-                            System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         panelColorsRight.revalidate();
                         panelColorsRight.repaint();
@@ -221,7 +221,7 @@ public class MyColorChooser {
                         while (topIterator.hasNext()) {
                             HarmonicColor next = topIterator.next();
                             panelColorsTop.add(getLabel(next));
-                            System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         panelColorsTop.revalidate();
                         panelColorsTop.repaint();
@@ -230,7 +230,7 @@ public class MyColorChooser {
                         while (bottomIterator.hasNext()) {
                             HarmonicColor next = bottomIterator.next();
                             panelColorsBottom.add(getLabel(next));
-                            System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         panelColorsBottom.revalidate();
                         panelColorsBottom.repaint();
@@ -311,7 +311,7 @@ public class MyColorChooser {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         SwingUtilities.invokeLater(() -> {
-            MyColorChooser myColorChooser = new MyColorChooser();
+            PaletteViewer palette = new PaletteViewer();
         });
     }
 
