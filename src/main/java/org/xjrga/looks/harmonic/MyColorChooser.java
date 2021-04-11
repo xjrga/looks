@@ -79,10 +79,10 @@ public class MyColorChooser {
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
         panelColors.setBorder(new TitledBorder("Colors"));
-        panelColors.add(panelColorsLeft);
-        panelColors.add(panelColorsRight);
         panelColors.add(panelColorsTop);
-        panelColors.add(panelColorsBottom);        
+        panelColors.add(panelColorsBottom);
+        panelColors.add(panelColorsLeft);
+        panelColors.add(panelColorsRight);                
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
