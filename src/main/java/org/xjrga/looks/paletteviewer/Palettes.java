@@ -61,7 +61,8 @@ public class Palettes extends AbstractColorChooserPanel {
             public void valueChanged(ListSelectionEvent event) {
                 if (table.getSelectedRow() > -1) {
                     // print first column value from selected row
-                    System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+                    //System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+                    getColorSelectionModel().setSelectedColor((Color)table.getValueAt(table.getSelectedRow(), 0));
                 }
             }
         });
