@@ -114,7 +114,7 @@ public class MyColorChooser {
         jSplitPane.add(chooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
-        frame.setPreferredSize(new Dimension(1400, 600));
+        frame.setPreferredSize(new Dimension(1500, 500));
         frame.pack();
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((var event) -> {
