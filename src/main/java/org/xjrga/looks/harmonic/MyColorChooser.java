@@ -219,13 +219,13 @@ public class MyColorChooser {
             } else if (option04.isSelected()) {
                 borderColor = chooserColor;
                 new Thread() {
-                    public void run() {             
-                        LineBorder lineBorder = new LineBorder(borderColor);                                                
-                        ((TitledBorder)panelColorsTop.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder)panelColorsBottom.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder)panelColorsLeft.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder)panelColorsRight.getBorder()).setBorder(lineBorder);
-                        Component[] componentsTop = panelColorsTop.getComponents();                        
+                    public void run() {
+                        LineBorder lineBorder = new LineBorder(borderColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsLeft.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsRight.getBorder()).setBorder(lineBorder);
+                        Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
                                 ((JLabel) componentsTop[i]).setBorder(lineBorder);
