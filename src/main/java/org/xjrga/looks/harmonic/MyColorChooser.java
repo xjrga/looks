@@ -53,7 +53,7 @@ public class MyColorChooser {
     private final JRadioButton option02;
     private final JRadioButton option03;
     private final JRadioButton option04;
-    private Color fontColor;    
+    private Color fontColor;
 
     public MyColorChooser() {
         frame = new JFrame("Design");
@@ -68,11 +68,11 @@ public class MyColorChooser {
         JPanel panelColorsRight = new JPanel();
         panelColorsRight.setOpaque(true);
         panelColorsRight.setLayout(new GridLayout(0, 13));
-        panelColorsRight.setBorder(new TitledBorder("Right"));        
+        panelColorsRight.setBorder(new TitledBorder("Right"));
         JPanel panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
         panelColorsTop.setLayout(new GridLayout(0, 13));
-        panelColorsTop.setBorder(new TitledBorder("Complementary"));        
+        panelColorsTop.setBorder(new TitledBorder("Complementary"));
         JPanel panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
         panelColorsBottom.setLayout(new GridLayout(0, 13));
@@ -82,7 +82,7 @@ public class MyColorChooser {
         panelColors.add(panelColorsTop);
         panelColors.add(panelColorsBottom);
         panelColors.add(panelColorsLeft);
-        panelColors.add(panelColorsRight);                
+        panelColors.add(panelColorsRight);
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
@@ -107,10 +107,10 @@ public class MyColorChooser {
         panel00.add(option03);
         panel00.add(option01);
         panel00.add(option04);
-        panel00.add(option02);        
-        panel01.add(panel00,BorderLayout.NORTH);
-        panel01.add(jScrollPane,BorderLayout.CENTER);
-        main.add(chooser);        
+        panel00.add(option02);
+        panel01.add(panel00, BorderLayout.NORTH);
+        panel01.add(jScrollPane, BorderLayout.CENTER);
+        main.add(chooser);
         main.add(panel01);
         frame.setContentPane(main);
         frame.setPreferredSize(new Dimension(600, 600));
@@ -125,7 +125,7 @@ public class MyColorChooser {
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                        
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
                         Component[] componentsLeft = panelColorsLeft.getComponents();
                         for (int i = 0; i < componentsLeft.length; i++) {
                             if (componentsLeft[i] instanceof JLabel) {
@@ -160,14 +160,14 @@ public class MyColorChooser {
                         panelColorsLeft.setBackground(chooser.getColor());
                         panelColorsRight.setBackground(chooser.getColor());
                         panelColorsTop.setBackground(chooser.getColor());
-                        panelColorsBottom.setBackground(chooser.getColor());
+                        panelColorsBottom.setBackground(chooser.getColor());                        
                     }
                 }.start();
             } else if (option03.isSelected()) {
                 Iterator<HarmonicColor> leftIterator = colorHarmonic.getLeftIterator();
                 Iterator<HarmonicColor> rightIterator = colorHarmonic.getRightIterator();
                 Iterator<HarmonicColor> topIterator = colorHarmonic.getTopIterator();
-                Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();                                
+                Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();
                 new Thread() {
                     public void run() {
                         panelColorsLeft.removeAll();
@@ -177,27 +177,27 @@ public class MyColorChooser {
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();
                             panelColorsLeft.add(getLabel(next));
-                            panelColorsLeft.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
                             panelColorsRight.add(getLabel(next));
-                            panelColorsRight.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         while (topIterator.hasNext()) {
                             HarmonicColor next = topIterator.next();
                             panelColorsTop.add(getLabel(next));
-                            panelColorsTop.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         while (bottomIterator.hasNext()) {
                             HarmonicColor next = bottomIterator.next();
                             panelColorsBottom.add(getLabel(next));
-                            panelColorsBottom.revalidate();
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
+                        panelColorsLeft.revalidate();
+                        panelColorsRight.revalidate();
+                        panelColorsTop.revalidate();
+                        panelColorsBottom.revalidate();                        
                     }
 
                     private JLabel getLabel(HarmonicColor next) {
@@ -215,18 +215,16 @@ public class MyColorChooser {
                         return label;
                     }
                 }.start();
-            }else if (option04.isSelected()) {
+            } else if (option04.isSelected()) {
                 new Thread() {
                     public void run() {
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                                                
-                        frame.repaint();
+                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);                        
                     }
                 }.start();
             }
-
         });
         frame.addWindowListener(new WindowAdapter() {
 
