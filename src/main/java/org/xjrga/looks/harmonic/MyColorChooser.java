@@ -65,19 +65,19 @@ public class MyColorChooser {
         chooser.addChooserPanel(new Palettes());
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
-        panelColorsLeft.setLayout(new GridLayout(0, 13,10,10));
+        panelColorsLeft.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsLeft.setBorder(new TitledBorder("Left"));
         JPanel panelColorsRight = new JPanel();
         panelColorsRight.setOpaque(true);
-        panelColorsRight.setLayout(new GridLayout(0, 13,10,10));
+        panelColorsRight.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsRight.setBorder(new TitledBorder("Right"));
         JPanel panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
-        panelColorsTop.setLayout(new GridLayout(0, 13,10,10));
+        panelColorsTop.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsTop.setBorder(new TitledBorder("Complementary"));
         JPanel panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
-        panelColorsBottom.setLayout(new GridLayout(0, 13,10,10));
+        panelColorsBottom.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsBottom.setBorder(new TitledBorder("Analogous"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
@@ -88,7 +88,7 @@ public class MyColorChooser {
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
-        chooser.setPreviewPanel(new JPanel());        
+        chooser.setPreviewPanel(new JPanel());
         JPanel panel00 = new JPanel();
         JPanel panel01 = new JPanel();
         panel00.setLayout(new FlowLayout());
@@ -109,7 +109,7 @@ public class MyColorChooser {
         panel00.add(option04);
         panel00.add(option02);
         panel01.add(panel00, BorderLayout.NORTH);
-        panel01.add(jScrollPane, BorderLayout.CENTER);        
+        panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
         jSplitPane.add(chooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
@@ -157,11 +157,16 @@ public class MyColorChooser {
             } else if (option01.isSelected()) {
                 new Thread() {
                     public void run() {
+                        LineBorder lineBorder = new LineBorder(borderColor);
                         panelColors.setBackground(chooserColor);
                         panelColorsLeft.setBackground(chooserColor);
                         panelColorsRight.setBackground(chooserColor);
                         panelColorsTop.setBackground(chooserColor);
                         panelColorsBottom.setBackground(chooserColor);
+                        ((TitledBorder) panelColorsTop.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsBottom.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsLeft.getBorder()).setBorder(lineBorder);
+                        ((TitledBorder) panelColorsRight.getBorder()).setBorder(lineBorder);
                     }
                 }.start();
             } else if (option03.isSelected()) {
@@ -180,7 +185,7 @@ public class MyColorChooser {
                             //panelColorsLeft.add(Box.createHorizontalStrut(5));
                             panelColorsLeft.add(getLabel(next));
                             System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
-                        }                        
+                        }
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
                             panelColorsRight.add(getLabel(next));
@@ -222,10 +227,6 @@ public class MyColorChooser {
                 new Thread() {
                     public void run() {
                         LineBorder lineBorder = new LineBorder(borderColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder) panelColorsLeft.getBorder()).setBorder(lineBorder);
-                        ((TitledBorder) panelColorsRight.getBorder()).setBorder(lineBorder);
                         Component[] componentsTop = panelColorsTop.getComponents();
                         for (int i = 0; i < componentsTop.length; i++) {
                             if (componentsTop[i] instanceof JLabel) {
