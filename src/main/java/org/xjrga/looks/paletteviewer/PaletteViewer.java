@@ -27,7 +27,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Iterator;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -119,8 +118,6 @@ public class PaletteViewer {
         panel00.add(optionFont);
         panel00.add(optionBorder);
         panel00.add(optionHarmonic);
-        JButton buttonAdd = new JButton("+");
-        panel00.add(buttonAdd);
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
@@ -322,17 +319,10 @@ public class PaletteViewer {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });
-        buttonAdd.addActionListener(e -> event_addNewColor());
+        });        
     }
     private Palettes palettes;
-    private JColorChooser chooser;
-    
-    private void event_addNewColor() {        
-        Color selectedColor = chooser.getColor();
-        palettes.addNewItem(selectedColor);
-        System.out.println(selectedColor.toString());        
-    }
+    private JColorChooser chooser;       
 
     public void exit() {
         frame.dispose();
