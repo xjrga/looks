@@ -22,31 +22,42 @@ package org.xjrga.looks.paletteviewer;
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 public class Palettes extends AbstractColorChooserPanel {
 
     private HashMap<Integer, JButton> map;
+    private JPanel panel00;
+    private JPanel panel01;
 
     public Palettes() {
         map = new HashMap();
+        panel00 = new JPanel();
+        panel01 = new JPanel();
+        
     }
 
     public void buildChooser() {
-        setLayout(new GridLayout(0, 3));
+        setLayout(new GridLayout(0, 1));
         //addButton("Red", Color.red);
         //addButton("Green", Color.green);
         //addButton("Blue", Color.blue);
         //addButton("Black", Color.black);
         //addButton("Gray", Color.gray);
         //addButton("White", Color.white);
+        add(panel00);
+        add(panel01);
+        panel00.add(new JButton("+"));
     }
 
     public void updateChooser() {
@@ -69,7 +80,8 @@ public class Palettes extends AbstractColorChooserPanel {
         map.put(rgb, button);
         button.setBackground(color);
         button.setAction(setColorAction);
-        add(button);
+        panel01.add(button);
+        //add(button);
 
     }
 
@@ -80,6 +92,20 @@ public class Palettes extends AbstractColorChooserPanel {
             }
         }
         );
+    }   
+
+    @Override
+    public void add(PopupMenu popup) {
+        super.add(popup); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public Component add(String name, Component comp) {
+        return super.add(name, comp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component add(Component comp) {
+        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
     }
 
     Action setColorAction = new AbstractAction() {
