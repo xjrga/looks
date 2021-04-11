@@ -54,6 +54,7 @@ public class MyColorChooser {
     private final JRadioButton option03;
     private final JRadioButton option04;
     private Color chooserColor;
+    private Color borderColor;
 
     public MyColorChooser() {
         frame = new JFrame("Design");
@@ -116,10 +117,10 @@ public class MyColorChooser {
         frame.setPreferredSize(new Dimension(600, 600));
         frame.pack();
         frame.setVisible(true);
-        chooser.getSelectionModel().addChangeListener((var event) -> {            
+        chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
             chooserColor = chooser.getColor();
-            if (option02.isSelected()) {                             
+            if (option02.isSelected()) {
                 new Thread() {
                     public void run() {
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
@@ -160,7 +161,7 @@ public class MyColorChooser {
                         panelColorsLeft.setBackground(chooserColor);
                         panelColorsRight.setBackground(chooserColor);
                         panelColorsTop.setBackground(chooserColor);
-                        panelColorsBottom.setBackground(chooserColor);                        
+                        panelColorsBottom.setBackground(chooserColor);
                     }
                 }.start();
             } else if (option03.isSelected()) {
@@ -197,7 +198,7 @@ public class MyColorChooser {
                         panelColorsLeft.revalidate();
                         panelColorsRight.revalidate();
                         panelColorsTop.revalidate();
-                        panelColorsBottom.revalidate();                        
+                        panelColorsBottom.revalidate();
                     }
 
                     private JLabel getLabel(HarmonicColor next) {
@@ -207,7 +208,7 @@ public class MyColorChooser {
                         label.setForeground(chooserColor);
                         label.setText(next.getAngle() + "");
                         label.setBackground(next.getColor());
-                        label.setBorder(new LineBorder(Color.BLACK));
+                        //label.setBorder(new LineBorder(Color.BLACK));
                         label.setHorizontalAlignment(SwingConstants.CENTER);
                         label.setVerticalAlignment(SwingConstants.CENTER);
                         categorizer.setHarmonicColor(next);
@@ -216,12 +217,33 @@ public class MyColorChooser {
                     }
                 }.start();
             } else if (option04.isSelected()) {
+                borderColor = chooserColor;
                 new Thread() {
                     public void run() {
-                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(chooserColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(chooserColor);                        
+                        Component[] componentsLeft = panelColorsLeft.getComponents();
+                        for (int i = 0; i < componentsLeft.length; i++) {
+                            if (componentsLeft[i] instanceof JLabel) {
+                                ((JLabel) componentsLeft[i]).setBorder(new LineBorder(borderColor));
+                            }
+                        }
+                        Component[] componentsRight = panelColorsRight.getComponents();
+                        for (int i = 0; i < componentsRight.length; i++) {
+                            if (componentsRight[i] instanceof JLabel) {
+                                ((JLabel) componentsRight[i]).setBorder(new LineBorder(borderColor));
+                            }
+                        }
+                        Component[] componentsTop = panelColorsTop.getComponents();
+                        for (int i = 0; i < componentsTop.length; i++) {
+                            if (componentsTop[i] instanceof JLabel) {
+                                ((JLabel) componentsTop[i]).setBorder(new LineBorder(borderColor));
+                            }
+                        }
+                        Component[] componentsBottom = panelColorsBottom.getComponents();
+                        for (int i = 0; i < componentsBottom.length; i++) {
+                            if (componentsBottom[i] instanceof JLabel) {
+                                ((JLabel) componentsBottom[i]).setBorder(new LineBorder(borderColor));
+                            }
+                        }
                     }
                 }.start();
             }
