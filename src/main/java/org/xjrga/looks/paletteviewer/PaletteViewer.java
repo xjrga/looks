@@ -67,7 +67,8 @@ public class PaletteViewer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JColorChooser chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
-        chooser.addChooserPanel(new Palettes());
+        Palettes palettes = new Palettes();
+        chooser.addChooserPanel(palettes);
         JPanel panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
         panelOriginal.setBorder(new TitledBorder("Original"));
@@ -128,7 +129,9 @@ public class PaletteViewer {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            chooserColor = chooser.getColor();
+            chooserColor = chooser.getColor();            
+            palettes.addButton(chooserColor.getRGB(), chooserColor);
+            //palettes.removeButton("Cyan");
             if (optionFont.isSelected()) {
                 fontColor = chooserColor;
                 new Thread() {
@@ -267,7 +270,7 @@ public class PaletteViewer {
                         sb.append(harmonicColor.getAngle());
                         sb.append("<br/>");
                         sb.append("Hue Change: ");
-                        sb.append(harmonicColor.getAngleChange());                                                
+                        sb.append(harmonicColor.getAngleChange());
                         label.setToolTipText(sb.toString());
                         return label;
                     }

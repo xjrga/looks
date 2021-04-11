@@ -24,6 +24,7 @@ package org.xjrga.looks.paletteviewer;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
@@ -32,14 +33,20 @@ import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 public class Palettes extends AbstractColorChooserPanel {
 
+    private HashMap<Integer, JButton> map;
+
+    public Palettes() {
+        map = new HashMap();
+    }
+
     public void buildChooser() {
         setLayout(new GridLayout(0, 3));
-        addButton("Red", Color.red);
-        addButton("Green", Color.green);
-        addButton("Blue", Color.blue);
-        addButton("Black", Color.black);
-        addButton("Gray", Color.gray);
-        addButton("White", Color.white);        
+        //addButton("Red", Color.red);
+        //addButton("Green", Color.green);
+        //addButton("Blue", Color.blue);
+        //addButton("Black", Color.black);
+        //addButton("Gray", Color.gray);
+        //addButton("White", Color.white);
     }
 
     public void updateChooser() {
@@ -57,11 +64,22 @@ public class Palettes extends AbstractColorChooserPanel {
         return null;
     }
 
-    private void addButton(String name, Color color) {
-        JButton button = new JButton(name);
+    public void addButton(int rgb, Color color) {
+        JButton button = new JButton();
+        map.put(rgb, button);
         button.setBackground(color);
         button.setAction(setColorAction);
         add(button);
+
+    }
+
+    public void removeButton(Integer rgb) {
+        map.forEach((k, v) -> {
+            if (k == rgb) {
+                this.remove(v);
+            }
+        }
+        );
     }
 
     Action setColorAction = new AbstractAction() {
