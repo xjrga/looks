@@ -247,7 +247,25 @@ public class PaletteViewer {
                         label.setHorizontalAlignment(SwingConstants.CENTER);
                         label.setVerticalAlignment(SwingConstants.CENTER);
                         categorizer.setHarmonicColor(harmonicColor);
-                        label.setToolTipText("<html>" + categorizer.getColorTemperature() + "<br/>" + categorizer.getColorPositionTB() + ", " + categorizer.getColorPositionLR() + "<br/>" + categorizer.getColorCategory() + "</html>");
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("<html>");
+                        sb.append("Temperature: ");
+                        sb.append(String.valueOf(categorizer.getColorTemperature()));
+                        sb.append("<br/>");
+                        sb.append("Position: ");
+                        sb.append(categorizer.getColorPositionTB());
+                        sb.append(", ");
+                        sb.append(categorizer.getColorPositionLR());
+                        sb.append("<br/>");
+                        sb.append("Type: ");
+                        sb.append(categorizer.getColorCategory());
+                        sb.append("<br/>");
+                        sb.append("Hue: ");
+                        sb.append(harmonicColor.getAngle());
+                        sb.append("<br/>");
+                        sb.append("Hue Change: ");
+                        sb.append(harmonicColor.getAngleChange());                                                
+                        label.setToolTipText(sb.toString());
                         return label;
                     }
                 }.start();
