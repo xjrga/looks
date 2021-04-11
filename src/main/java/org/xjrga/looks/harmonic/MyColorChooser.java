@@ -63,11 +63,14 @@ public class MyColorChooser {
         JPanel panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
         panelColorsLeft.setLayout(new GridLayout(0, 13));
+        panelColorsLeft.setBorder(new TitledBorder("Left"));
         JPanel panelColorsRight = new JPanel();
         panelColorsRight.setOpaque(true);
         panelColorsRight.setLayout(new GridLayout(0, 13));
+        panelColorsRight.setBorder(new TitledBorder("Right"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
+        panelColors.setBorder(new TitledBorder("Colors"));
         panelColors.add(panelColorsLeft);
         panelColors.add(panelColorsRight);
         panelColors.add(new JPanel());
