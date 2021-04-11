@@ -51,7 +51,8 @@ public class Palettes extends AbstractColorChooserPanel {
         add(panelResult);
         table = new JTable();
         model = new TableModelColor();
-        table.setModel(model);        
+        table.setModel(model);
+        table.setDefaultRenderer(Color.class, new ColorRenderer());
         panelResult.add(new JScrollPane(table));        
     }
 
