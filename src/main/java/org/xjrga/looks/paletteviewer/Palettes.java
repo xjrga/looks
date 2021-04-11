@@ -22,16 +22,9 @@ package org.xjrga.looks.paletteviewer;
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.GridLayout;
-import java.awt.PopupMenu;
-import java.awt.event.ActionEvent;
-import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.Icon;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -41,14 +34,13 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class Palettes extends AbstractColorChooserPanel {
-
-    private HashMap<Integer, JButton> map;
+    
     private JPanel panelResult;
     private JTable table;
     private DefaultTableModel model;
 
     public Palettes() {
-        map = new HashMap();
+        setLayout(new GridLayout(0, 1));        
         panelResult = new JPanel();
         add(panelResult);
         table = new JTable();
@@ -59,9 +51,7 @@ public class Palettes extends AbstractColorChooserPanel {
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent event) {
-                if (table.getSelectedRow() > -1) {
-                    // print first column value from selected row
-                    //System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+                if (table.getSelectedRow() > -1) {                    
                     getColorSelectionModel().setSelectedColor((Color)table.getValueAt(table.getSelectedRow(), 0));
                 }
             }
@@ -71,70 +61,28 @@ public class Palettes extends AbstractColorChooserPanel {
 
     @Override
     public void buildChooser() {
-        setLayout(new GridLayout(0, 1));
-        //addButton("Red", Color.red);
-        //addButton("Green", Color.green);
-        //addButton("Blue", Color.blue);
-        //addButton("Black", Color.black);
-        //addButton("Gray", Color.gray);
-        //addButton("White", Color.white);
-
+        
     }
 
+    @Override
     public void updateChooser() {
     }
 
+    @Override
     public String getDisplayName() {
         return "Palettes";
     }
 
+    @Override
     public Icon getSmallDisplayIcon() {
         return null;
     }
 
+    @Override
     public Icon getLargeDisplayIcon() {
         return null;
-    }
-
-    public void addButton(int rgb, Color color) {
-        JButton button = new JButton();
-        map.put(rgb, button);
-        button.setBackground(color);
-        button.setAction(setColorAction);
-        panelResult.add(button);
-    }
-
-    public void removeButton(Integer rgb) {
-        map.forEach((k, v) -> {
-            if (k == rgb) {
-                this.remove(v);
-            }
-        }
-        );
-    }
-
-    @Override
-    public void add(PopupMenu popup) {
-        super.add(popup); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Component add(String name, Component comp) {
-        return super.add(name, comp); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Component add(Component comp) {
-        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    Action setColorAction = new AbstractAction() {
-        public void actionPerformed(ActionEvent evt) {
-            JButton button = (JButton) evt.getSource();
-            getColorSelectionModel().setSelectedColor(button.getBackground());
-        }
-    };
-
+    }    
+   
     public void addNewItem(Color selectedColor) {
         //addButton(selectedColor.getRGB(), selectedColor);
         Vector row = new Vector();
