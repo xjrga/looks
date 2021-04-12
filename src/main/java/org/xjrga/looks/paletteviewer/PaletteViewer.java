@@ -116,7 +116,7 @@ public class PaletteViewer {
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelSaveButton = new JButton("Save");
         previewPanelDeleteButton.setEnabled(false);
-        previewPanelSaveButton.setEnabled(false);        
+        previewPanelSaveButton.setEnabled(false);
         previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
@@ -345,6 +345,7 @@ public class PaletteViewer {
         });
         previewPanelAddButton.addActionListener(e -> event_addNewColor());
         previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
+        //previewPanelDeleteButton.addActionListener(e -> event_deleteRecentPanel());
 
         Component[] componentsColorChooser = chooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
@@ -429,7 +430,11 @@ public class PaletteViewer {
     }
 
     private void event_clearRecentPanel() {
-        resetRecentPanel();
+        if (chooserTabbedPane.getSelectedIndex() == 5) {
+            palettes.deleteItems();
+        } else if (chooserTabbedPane.getSelectedIndex() == 0) {
+            resetRecentPanel();
+        }
     }
 
 }

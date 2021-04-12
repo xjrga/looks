@@ -85,4 +85,8 @@ public class Palettes extends AbstractColorChooserPanel {
         panelResult.revalidate();
         panelResult.repaint();
     }
+    
+    public void deleteItems(){
+        model.setRowCount(0);
+    }
 }
