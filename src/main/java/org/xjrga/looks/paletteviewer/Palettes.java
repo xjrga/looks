@@ -33,13 +33,13 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 public class Palettes extends AbstractColorChooserPanel {
-    
+
     private final JPanel panelResult;
     private JTable table;
     private final DefaultTableModel model;
 
     public Palettes() {
-        super.setLayout(new GridLayout(0, 1));        
+        super.setLayout(new GridLayout(0, 1));
         panelResult = new JPanel();
         super.add(panelResult);
         table = new JTable();
@@ -49,14 +49,14 @@ public class Palettes extends AbstractColorChooserPanel {
         panelResult.add(new JScrollPane(table));
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
-                getColorSelectionModel().setSelectedColor((Color)table.getValueAt(table.getSelectedRow(), 0));
+                getColorSelectionModel().setSelectedColor((Color) table.getValueAt(table.getSelectedRow(), 0));
             }
-        });       
+        });
     }
-        
+
     @Override
     public void buildChooser() {
-        
+
     }
 
     @Override
@@ -76,17 +76,21 @@ public class Palettes extends AbstractColorChooserPanel {
     @Override
     public Icon getLargeDisplayIcon() {
         return null;
-    }    
-   
-    public void addNewColorItem(Color selectedColor) {        
+    }
+
+    public void addColorItem(Color selectedColor) {
         Vector row = new Vector();
         row.add(selectedColor);
-        model.addRow(row);        
+        model.addRow(row);
         panelResult.revalidate();
         panelResult.repaint();
     }
-    
-    public void deleteAllColorItems(){
+
+    public void deleteAllColorItems() {
         model.setRowCount(0);
+    }
+
+    public void deleteSelectedColorItem() {
+        model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));
     }
 }

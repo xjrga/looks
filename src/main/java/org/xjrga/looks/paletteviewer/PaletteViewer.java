@@ -343,9 +343,9 @@ public class PaletteViewer {
                 exit();
             }
         });
-        previewPanelAddButton.addActionListener(e -> event_addNewColor());
+        previewPanelAddButton.addActionListener(e -> event_addColor());
         previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
-        //previewPanelDeleteButton.addActionListener(e -> event_deleteRecentPanel());
+        previewPanelDeleteButton.addActionListener(e -> event_deleteColor());
 
         Component[] componentsColorChooser = chooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
@@ -358,28 +358,40 @@ public class PaletteViewer {
                 System.out.println("Tab: " + chooserTabbedPane.getSelectedIndex());
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelClearButton.setEnabled(true);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
+                        previewPanelSaveButton.setEnabled(false);
                         break;
                     case 1:
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelClearButton.setEnabled(false);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
+                        previewPanelSaveButton.setEnabled(false);
                         break;
                     case 2:
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelClearButton.setEnabled(false);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
+                        previewPanelSaveButton.setEnabled(false);
                         break;
                     case 3:
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelClearButton.setEnabled(false);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
+                        previewPanelSaveButton.setEnabled(false);
                         break;
                     case 4:
-                        previewPanelDeleteButton.setEnabled(false);
+                        previewPanelClearButton.setEnabled(false);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelSaveButton.setEnabled(false);
+                        previewPanelDeleteButton.setEnabled(false);
                         break;
                     case 5:
-                        previewPanelDeleteButton.setEnabled(true);
+                        previewPanelClearButton.setEnabled(true);
+                        previewPanelAddButton.setEnabled(true);
                         previewPanelSaveButton.setEnabled(true);
+                        previewPanelDeleteButton.setEnabled(true);
                         break;
                 }
             }
@@ -423,12 +435,16 @@ public class PaletteViewer {
         }
     }
 
-    public void event_addNewColor() {
+    public void event_addColor() {
         Color selectedColor = chooser.getColor();
-        palettes.addNewColorItem(selectedColor);
+        palettes.addColorItem(selectedColor);
         System.out.println(selectedColor.toString());
     }
 
+    private void event_deleteColor() {
+        palettes.deleteSelectedColorItem();
+    }
+    
     private void event_clearRecentPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
             palettes.deleteAllColorItems();
@@ -436,5 +452,5 @@ public class PaletteViewer {
             resetRecentPanel();
         }
     }
-
+    
 }
