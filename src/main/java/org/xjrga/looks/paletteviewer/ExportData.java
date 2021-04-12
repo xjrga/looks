@@ -21,6 +21,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLEventWriter;
@@ -79,8 +80,8 @@ public class ExportData {
         //XMLStreamConstants.DTD
         try {
             XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("test.xml"));
-            XMLEvent event = eventFactory.createStartDocument();                        
-            writer.add(event);           
+            XMLEvent event = eventFactory.createStartDocument();
+            writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
             event = eventFactory.createDTD("<!DOCTYPE document SYSTEM \"test.dtd\">");
@@ -89,19 +90,64 @@ public class ExportData {
             writer.add(event);
             event = eventFactory.createStartElement("", "", "document");
             writer.add(event);
-            event = eventFactory.createStartElement("", "", "colors");            
+            event = eventFactory.createStartElement("", "", "colors");
             writer.add(event);
-            event = eventFactory.createStartElement("", "", "color");            
-            writer.add(event);                        
-            event =  eventFactory.createCharacters("cyan"); 
+            event = eventFactory.createStartElement("", "", "color");
             writer.add(event);
-            //event = eventFactory.createNamespace("", "");
-            //writer.add(event);
-            //event = eventFactory.createAttribute("attribute", "value");
-            //writer.add(event);
+            event = eventFactory.createCharacters("cyan");
+            writer.add(event);
             event = eventFactory.createEndElement("", "", "color");
             writer.add(event);
             event = eventFactory.createEndElement("", "", "colors");
+            writer.add(event);
+            event = eventFactory.createEndElement("", "", "document");
+            writer.add(event);
+            writer.flush();
+            writer.close();
+        } catch (XMLStreamException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeTestDocument2(DefaultTableModel model) {
+        XMLOutputFactory factory = XMLOutputFactory.newInstance();
+        XMLEventFactory eventFactory = XMLEventFactory.newInstance();
+        try {
+            XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("test.xml"));
+            XMLEvent event = eventFactory.createStartDocument();
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createDTD("<!DOCTYPE document SYSTEM \"test.dtd\">");
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createStartElement("", "", "document");
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createStartElement("", "", "colors");            
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            int rows = model.getRowCount();
+            int columns = model.getColumnCount();
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    event = eventFactory.createStartElement("", "", "color");
+                    writer.add(event);
+                    event = eventFactory.createCharacters(model.getValueAt(i, j).toString());
+                    writer.add(event);
+                    event = eventFactory.createEndElement("", "", "color");
+                    writer.add(event);
+                    event = eventFactory.createSpace("\n");
+                    writer.add(event);
+                }
+            }
+            event = eventFactory.createEndElement("", "", "colors");
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
             writer.add(event);
             event = eventFactory.createEndElement("", "", "document");
             writer.add(event);
