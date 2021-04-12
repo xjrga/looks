@@ -336,6 +336,7 @@ public class PaletteViewer {
             }
         });
         previewPanelAddButton.addActionListener(e -> event_addNewColor());
+        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
     }
     private Palettes palettes;
     private JColorChooser chooser;
@@ -355,25 +356,22 @@ public class PaletteViewer {
         });
     }
 
-    public void reset() {
+    public void resetRecentPanel() {
         for (AbstractColorChooserPanel p : chooser.getChooserPanels()) {
-
             if (p.getClass().getSimpleName().equals("DefaultSwatchChooserPanel")) {
-
                 Field recentPanelField;
-
                 try {
                     recentPanelField = p.getClass().getDeclaredField("recentSwatchPanel");
                     recentPanelField.setAccessible(true);
                     Object recentPanel = recentPanelField.get(p);
                     Method recentColorMethod = recentPanel.getClass().getMethod("setMostRecentColor", Color.class);
                     recentColorMethod.setAccessible(true);
-                    recentColorMethod.invoke(recentPanel, Color.BLACK);
-                    recentColorMethod.invoke(recentPanel, Color.RED);
+                    for (int i = 0; i < 35; i++) {
+                        recentColorMethod.invoke(recentPanel, new Color(95, 99, 102));
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(PaletteViewer.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
                 break;
             }
 
@@ -383,7 +381,11 @@ public class PaletteViewer {
     public void event_addNewColor() {
         Color selectedColor = chooser.getColor();
         palettes.addNewItem(selectedColor);
-        System.out.println(selectedColor.toString());
+        System.out.println(selectedColor.toString());        
+    }
+
+    private void event_clearRecentPanel() {
+        resetRecentPanel();
     }
 
 }
