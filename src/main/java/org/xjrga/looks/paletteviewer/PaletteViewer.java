@@ -342,10 +342,11 @@ public class PaletteViewer {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });
-        previewPanelAddButton.addActionListener(e -> event_addColor());
-        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
-        previewPanelDeleteButton.addActionListener(e -> event_deleteColor());
+        });        
+        previewPanelClearButton.addActionListener(e -> event_clearRecentColorPanel());
+        previewPanelAddButton.addActionListener(e -> event_addColorItem());
+        previewPanelDeleteButton.addActionListener(e -> event_deleteColorItem());
+        previewPanelSaveButton.addActionListener(e -> event_exportColorItems());
 
         Component[] componentsColorChooser = chooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
@@ -435,17 +436,21 @@ public class PaletteViewer {
         }
     }
 
-    public void event_addColor() {
+    public void event_addColorItem() {
         Color selectedColor = chooser.getColor();
         palettes.addColorItem(selectedColor);
         System.out.println(selectedColor.toString());
     }
 
-    private void event_deleteColor() {
+    private void event_deleteColorItem() {
         palettes.deleteSelectedColorItem();
     }
     
-    private void event_clearRecentPanel() {
+    private void event_exportColorItems() {
+        palettes.exportColorItems();
+    }
+    
+    private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
             palettes.deleteAllColorItems();
         } else if (chooserTabbedPane.getSelectedIndex() == 0) {

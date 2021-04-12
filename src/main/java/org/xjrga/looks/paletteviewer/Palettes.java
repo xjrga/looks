@@ -93,4 +93,8 @@ public class Palettes extends AbstractColorChooserPanel {
     public void deleteSelectedColorItem() {
         model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));
     }
+
+    void exportColorItems() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
