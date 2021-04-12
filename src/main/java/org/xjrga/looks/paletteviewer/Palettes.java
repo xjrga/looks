@@ -55,16 +55,10 @@ public class Palettes extends AbstractColorChooserPanel {
         });
         JButton buttonAdd = new JButton("+");
         panelResult.add(buttonAdd);
-        buttonAdd.addActionListener(e -> event_addNewColor());
+        //buttonAdd.addActionListener(e -> event_addNewColor());
 
     }
-    
-    private void event_addNewColor() {        
-        Color selectedColor = getColorSelectionModel().getSelectedColor();
-        addNewItem(selectedColor);
-        System.out.println(selectedColor.toString());        
-    }
-
+        
     @Override
     public void buildChooser() {
         
@@ -89,7 +83,7 @@ public class Palettes extends AbstractColorChooserPanel {
         return null;
     }    
    
-    private void addNewItem(Color selectedColor) {
+    public void addNewItem(Color selectedColor) {
         //addButton(selectedColor.getRGB(), selectedColor);
         Vector row = new Vector();
         row.add(selectedColor);

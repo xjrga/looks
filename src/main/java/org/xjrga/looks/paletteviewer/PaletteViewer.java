@@ -25,8 +25,13 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,6 +45,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import org.xjrga.looks.Dawn180;
 import org.xjrga.looks.harmonic.Categorizer;
@@ -98,7 +104,16 @@ public class PaletteViewer {
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(panelColors);
         jScrollPane.setPreferredSize(new Dimension(600, 250));
-        chooser.setPreviewPanel(new JPanel());
+        JPanel previewPanel = new JPanel();
+        JButton previewPanelAddButton = new JButton("+");
+        JButton previewPanelDeleteButton = new JButton("-");
+        JButton previewPanelClearButton = new JButton("Clear");
+        JButton previewPanelSaveButton = new JButton("Save");
+        previewPanel.add(previewPanelAddButton);
+        previewPanel.add(previewPanelDeleteButton);
+        previewPanel.add(previewPanelClearButton);
+        previewPanel.add(previewPanelSaveButton);
+        chooser.setPreviewPanel(previewPanel);
         JPanel panel00 = new JPanel();
         JPanel panel01 = new JPanel();
         panel00.setLayout(new FlowLayout());
@@ -129,7 +144,7 @@ public class PaletteViewer {
         frame.setVisible(true);
         chooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            chooserColor = chooser.getColor();            
+            chooserColor = chooser.getColor();
             if (optionFont.isSelected()) {
                 fontColor = chooserColor;
                 new Thread() {
@@ -319,10 +334,11 @@ public class PaletteViewer {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });        
+        });
+        previewPanelAddButton.addActionListener(e -> event_addNewColor());
     }
     private Palettes palettes;
-    private JColorChooser chooser;       
+    private JColorChooser chooser;
 
     public void exit() {
         frame.dispose();
@@ -337,6 +353,37 @@ public class PaletteViewer {
         SwingUtilities.invokeLater(() -> {
             PaletteViewer palette = new PaletteViewer();
         });
+    }
+
+    public void reset() {
+        for (AbstractColorChooserPanel p : chooser.getChooserPanels()) {
+
+            if (p.getClass().getSimpleName().equals("DefaultSwatchChooserPanel")) {
+
+                Field recentPanelField;
+
+                try {
+                    recentPanelField = p.getClass().getDeclaredField("recentSwatchPanel");
+                    recentPanelField.setAccessible(true);
+                    Object recentPanel = recentPanelField.get(p);
+                    Method recentColorMethod = recentPanel.getClass().getMethod("setMostRecentColor", Color.class);
+                    recentColorMethod.setAccessible(true);
+                    recentColorMethod.invoke(recentPanel, Color.BLACK);
+                    recentColorMethod.invoke(recentPanel, Color.RED);
+                } catch (Exception ex) {
+                    Logger.getLogger(PaletteViewer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                break;
+            }
+
+        }
+    }
+
+    public void event_addNewColor() {
+        Color selectedColor = chooser.getColor();
+        palettes.addNewItem(selectedColor);
+        System.out.println(selectedColor.toString());
     }
 
 }
