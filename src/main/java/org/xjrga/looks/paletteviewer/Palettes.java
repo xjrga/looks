@@ -37,8 +37,11 @@ public class Palettes extends AbstractColorChooserPanel {
     private final JPanel panelResult;
     private JTable table;
     private final DefaultTableModel model;
+    private final ExportData export;
+    
 
     public Palettes() {
+        export = new ExportData();
         super.setLayout(new GridLayout(0, 1));
         panelResult = new JPanel();
         super.add(panelResult);
@@ -106,6 +109,7 @@ public class Palettes extends AbstractColorChooserPanel {
             sb.setLength(sb.length()-1);
             sb.append("\n");
         }
-        System.out.println(sb.toString());       
+        System.out.println(sb.toString());
+        export.writeTestDocument();
     }
 }
