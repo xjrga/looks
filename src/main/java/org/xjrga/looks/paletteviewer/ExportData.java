@@ -74,43 +74,7 @@ public class ExportData {
         return null;
     }
 
-    public void writeTestDocument() {
-        XMLOutputFactory factory = XMLOutputFactory.newInstance();
-        XMLEventFactory eventFactory = XMLEventFactory.newInstance();
-        //XMLStreamConstants.DTD
-        try {
-            XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("test.xml"));
-            XMLEvent event = eventFactory.createStartDocument();
-            writer.add(event);
-            event = eventFactory.createSpace("\n");
-            writer.add(event);
-            event = eventFactory.createDTD("<!DOCTYPE document SYSTEM \"test.dtd\">");
-            writer.add(event);
-            event = eventFactory.createSpace("\n");
-            writer.add(event);
-            event = eventFactory.createStartElement("", "", "document");
-            writer.add(event);
-            event = eventFactory.createStartElement("", "", "colors");
-            writer.add(event);
-            event = eventFactory.createStartElement("", "", "color");
-            writer.add(event);
-            event = eventFactory.createCharacters("cyan");
-            writer.add(event);
-            event = eventFactory.createEndElement("", "", "color");
-            writer.add(event);
-            event = eventFactory.createEndElement("", "", "colors");
-            writer.add(event);
-            event = eventFactory.createEndElement("", "", "document");
-            writer.add(event);
-            writer.flush();
-            writer.close();
-        } catch (XMLStreamException e) {
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeTestDocument2(DefaultTableModel model) {
+    public void writeTestDocument2(DefaultTableModel model) {    
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         try {
