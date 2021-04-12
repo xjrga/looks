@@ -47,4 +47,8 @@ public class RecentColorsQueue<Color> {
     public Color dequeue() {
         return list.remove(list.size() - 1);
     }
+
+    public void clear() {
+        list.clear();
+    }
 }
