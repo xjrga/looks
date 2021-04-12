@@ -47,6 +47,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import org.xjrga.looks.Dawn180;
 import org.xjrga.looks.harmonic.Categorizer;
@@ -347,7 +349,12 @@ public class PaletteViewer {
             if (componentsColorChooser[i] instanceof JTabbedPane) {
                 chooserTabbedPane = (JTabbedPane) componentsColorChooser[i];
             }
+        }        
+        chooserTabbedPane.addChangeListener(new ChangeListener() {
+        public void stateChanged(ChangeEvent e) {
+            System.out.println("Tab: " + chooserTabbedPane.getSelectedIndex());
         }
+    });
     }    
 
     public void exit() {
@@ -394,8 +401,7 @@ public class PaletteViewer {
     }
 
     private void event_clearRecentPanel() {
-        resetRecentPanel();
-        System.out.println("Tab "+chooserTabbedPane.getSelectedIndex()+" is selected.");
+        resetRecentPanel();        
     }
 
 }
