@@ -76,16 +76,24 @@ public class ExportData {
     public void writeTestDocument() {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
+        //XMLStreamConstants.DTD
         try {
             XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("test.xml"));
-            XMLEvent event = eventFactory.createStartDocument();
+            XMLEvent event = eventFactory.createStartDocument();                        
+            writer.add(event);           
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createDTD("<!DOCTYPE document SYSTEM \"test.dtd\">");
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createStartElement("", "", "document");
             writer.add(event);
             event = eventFactory.createStartElement("", "", "colors");            
             writer.add(event);
             event = eventFactory.createStartElement("", "", "color");            
-            writer.add(event);            
-            event = eventFactory.createProcessingInstruction("color", "cyan");
-            event =  eventFactory.createCharacters("cyan");            
+            writer.add(event);                        
+            event =  eventFactory.createCharacters("cyan"); 
             writer.add(event);
             //event = eventFactory.createNamespace("", "");
             //writer.add(event);
@@ -94,6 +102,8 @@ public class ExportData {
             event = eventFactory.createEndElement("", "", "color");
             writer.add(event);
             event = eventFactory.createEndElement("", "", "colors");
+            writer.add(event);
+            event = eventFactory.createEndElement("", "", "document");
             writer.add(event);
             writer.flush();
             writer.close();
