@@ -115,7 +115,8 @@ public class PaletteViewer {
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelSaveButton = new JButton("Save");
-        previewPanelSaveButton.setEnabled(false);
+        previewPanelDeleteButton.setEnabled(false);
+        previewPanelSaveButton.setEnabled(false);        
         previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
@@ -357,20 +358,26 @@ public class PaletteViewer {
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelSaveButton.setEnabled(false);
+                        previewPanelDeleteButton.setEnabled(false);
                         break;
                     case 1:
                         previewPanelSaveButton.setEnabled(false);
+                        previewPanelDeleteButton.setEnabled(false);
                         break;
                     case 2:
                         previewPanelSaveButton.setEnabled(false);
+                        previewPanelDeleteButton.setEnabled(false);
                         break;
                     case 3:
                         previewPanelSaveButton.setEnabled(false);
+                        previewPanelDeleteButton.setEnabled(false);
                         break;
                     case 4:
+                        previewPanelDeleteButton.setEnabled(false);
                         previewPanelSaveButton.setEnabled(false);
                         break;
                     case 5:
+                        previewPanelDeleteButton.setEnabled(true);
                         previewPanelSaveButton.setEnabled(true);
                         break;
                 }

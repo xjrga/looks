@@ -25,7 +25,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Vector;
 import javax.swing.Icon;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -52,11 +51,7 @@ public class Palettes extends AbstractColorChooserPanel {
             if (table.getSelectedRow() > -1) {
                 getColorSelectionModel().setSelectedColor((Color)table.getValueAt(table.getSelectedRow(), 0));
             }
-        });
-        JButton buttonAdd = new JButton("+");
-        panelResult.add(buttonAdd);
-        //buttonAdd.addActionListener(e -> event_addNewColor());
-
+        });       
     }
         
     @Override
@@ -83,12 +78,10 @@ public class Palettes extends AbstractColorChooserPanel {
         return null;
     }    
    
-    public void addNewItem(Color selectedColor) {
-        //addButton(selectedColor.getRGB(), selectedColor);
+    public void addNewItem(Color selectedColor) {        
         Vector row = new Vector();
         row.add(selectedColor);
-        model.addRow(row);
-        System.out.println(model.getRowCount());
+        model.addRow(row);        
         panelResult.revalidate();
         panelResult.repaint();
     }
