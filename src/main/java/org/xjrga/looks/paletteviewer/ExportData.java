@@ -119,7 +119,6 @@ public class ExportData {
             writer.close();
         } catch (XMLStreamException e) {
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
