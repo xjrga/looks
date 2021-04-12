@@ -73,7 +73,7 @@ public class PaletteViewer {
     private Palettes palettes;
     private JColorChooser chooser;
     private JTabbedPane chooserTabbedPane;
-    
+
     public PaletteViewer() {
         frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,6 +115,7 @@ public class PaletteViewer {
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelSaveButton = new JButton("Save");
+        previewPanelSaveButton.setEnabled(false);
         previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
@@ -342,20 +343,40 @@ public class PaletteViewer {
             }
         });
         previewPanelAddButton.addActionListener(e -> event_addNewColor());
-        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());       
-        
+        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
+
         Component[] componentsColorChooser = chooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
             if (componentsColorChooser[i] instanceof JTabbedPane) {
                 chooserTabbedPane = (JTabbedPane) componentsColorChooser[i];
             }
-        }        
-        chooserTabbedPane.addChangeListener(new ChangeListener() {
-        public void stateChanged(ChangeEvent e) {
-            System.out.println("Tab: " + chooserTabbedPane.getSelectedIndex());
         }
-    });
-    }    
+        chooserTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("Tab: " + chooserTabbedPane.getSelectedIndex());
+                switch (chooserTabbedPane.getSelectedIndex()) {
+                    case 0:
+                        previewPanelSaveButton.setEnabled(false);
+                        break;
+                    case 1:
+                        previewPanelSaveButton.setEnabled(false);
+                        break;
+                    case 2:
+                        previewPanelSaveButton.setEnabled(false);
+                        break;
+                    case 3:
+                        previewPanelSaveButton.setEnabled(false);
+                        break;
+                    case 4:
+                        previewPanelSaveButton.setEnabled(false);
+                        break;
+                    case 5:
+                        previewPanelSaveButton.setEnabled(true);
+                        break;
+                }
+            }
+        });
+    }
 
     public void exit() {
         frame.dispose();
@@ -401,7 +422,7 @@ public class PaletteViewer {
     }
 
     private void event_clearRecentPanel() {
-        resetRecentPanel();        
+        resetRecentPanel();
     }
 
 }
