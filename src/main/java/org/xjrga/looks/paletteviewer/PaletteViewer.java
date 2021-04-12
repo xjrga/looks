@@ -425,13 +425,13 @@ public class PaletteViewer {
 
     public void event_addNewColor() {
         Color selectedColor = chooser.getColor();
-        palettes.addNewItem(selectedColor);
+        palettes.addNewColorItem(selectedColor);
         System.out.println(selectedColor.toString());
     }
 
     private void event_clearRecentPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
-            palettes.deleteItems();
+            palettes.deleteAllColorItems();
         } else if (chooserTabbedPane.getSelectedIndex() == 0) {
             resetRecentPanel();
         }

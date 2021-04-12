@@ -78,7 +78,7 @@ public class Palettes extends AbstractColorChooserPanel {
         return null;
     }    
    
-    public void addNewItem(Color selectedColor) {        
+    public void addNewColorItem(Color selectedColor) {        
         Vector row = new Vector();
         row.add(selectedColor);
         model.addRow(row);        
@@ -86,7 +86,7 @@ public class Palettes extends AbstractColorChooserPanel {
         panelResult.repaint();
     }
     
-    public void deleteItems(){
+    public void deleteAllColorItems(){
         model.setRowCount(0);
     }
 }
