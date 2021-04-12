@@ -39,6 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -67,7 +68,10 @@ public class PaletteViewer {
     private Color borderColor;
     private Color fontColor;
     private Color backgroundColor;
-
+    private Palettes palettes;
+    private JColorChooser chooser;
+    private JTabbedPane chooserTabbedPane;
+    
     public PaletteViewer() {
         frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,9 +113,9 @@ public class PaletteViewer {
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelSaveButton = new JButton("Save");
+        previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
-        previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelSaveButton);
         chooser.setPreviewPanel(previewPanel);
         JPanel panel00 = new JPanel();
@@ -336,10 +340,15 @@ public class PaletteViewer {
             }
         });
         previewPanelAddButton.addActionListener(e -> event_addNewColor());
-        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());
-    }
-    private Palettes palettes;
-    private JColorChooser chooser;
+        previewPanelClearButton.addActionListener(e -> event_clearRecentPanel());       
+        
+        Component[] componentsColorChooser = chooser.getComponents();
+        for (int i = 0; i < componentsColorChooser.length; i++) {
+            if (componentsColorChooser[i] instanceof JTabbedPane) {
+                chooserTabbedPane = (JTabbedPane) componentsColorChooser[i];
+            }
+        }
+    }    
 
     public void exit() {
         frame.dispose();
@@ -381,11 +390,12 @@ public class PaletteViewer {
     public void event_addNewColor() {
         Color selectedColor = chooser.getColor();
         palettes.addNewItem(selectedColor);
-        System.out.println(selectedColor.toString());        
+        System.out.println(selectedColor.toString());
     }
 
     private void event_clearRecentPanel() {
         resetRecentPanel();
+        System.out.println("Tab "+chooserTabbedPane.getSelectedIndex()+" is selected.");
     }
 
 }
