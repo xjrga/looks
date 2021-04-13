@@ -43,9 +43,11 @@ public class ExportData {
     private XMLInputFactory inputFactory;
     private XMLEventReader eventReader;
     private String color;
-    private boolean isRedOn;
-    private boolean isGreenOn;
-    private boolean isBlueOn;
+    private int red;
+    private int green;
+    private int blue;
+    private String startEvent;
+    private String endEvent;
 
     public ExportData() {
         inputFactory = XMLInputFactory.newInstance();
@@ -60,23 +62,29 @@ public class ExportData {
                 XMLEvent event = eventReader.nextEvent();
                 switch (event.getEventType()) {
                     case XMLEvent.START_ELEMENT:
-                        eventName = event.asStartElement().getName().getLocalPart();
+                        startEvent = event.asStartElement().getName().getLocalPart();
                         break;
                     case XMLEvent.CHARACTERS:
-                        switch (eventName) {
+                        String data = fixString(event.asCharacters().getData());
+                        switch (startEvent) {
                             case "red":
-                                System.out.println("red: "+event.asCharacters().getData().trim());
+                                red = Integer.valueOf(data);
                                 break;
                             case "green":
-                                System.out.println("green: "+event.asCharacters().getData().trim());
+                                green = Integer.valueOf(data);
                                 break;
                             case "blue":
-                                System.out.println("blue: "+event.asCharacters().getData().trim());
+                                blue = Integer.valueOf(data);
                                 break;
                         }
                         break;
                     case XMLEvent.END_ELEMENT:
-                        eventName = "";
+                        endEvent = event.asEndElement().getName().getLocalPart();
+                        switch (endEvent) {
+                            case "color":
+                                System.out.println(new Color(red, green, blue).getRGB());
+                                break;
+                        }
                         break;
                 }
             }
@@ -85,7 +93,10 @@ public class ExportData {
             Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private String eventName;
+    
+    public String fixString(String data){                
+        return data.strip();
+    }
 
     public void exportColors(DefaultTableModel model) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
