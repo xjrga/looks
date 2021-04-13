@@ -65,17 +65,19 @@ public class ExportData {
                         startEvent = event.asStartElement().getName().getLocalPart();
                         break;
                     case XMLEvent.CHARACTERS:
-                        String data = fixString(event.asCharacters().getData());
-                        switch (startEvent) {
-                            case "red":
-                                red = Integer.valueOf(data);
-                                break;
-                            case "green":
-                                green = Integer.valueOf(data);
-                                break;
-                            case "blue":
-                                blue = Integer.valueOf(data);
-                                break;
+                        String data = event.asCharacters().getData().strip();
+                        if (!data.isBlank()) {
+                            switch (startEvent) {
+                                case "red":
+                                    red = Integer.valueOf(data);
+                                    break;
+                                case "green":
+                                    green = Integer.valueOf(data);
+                                    break;
+                                case "blue":
+                                    blue = Integer.valueOf(data);
+                                    break;
+                            }
                         }
                         break;
                     case XMLEvent.END_ELEMENT:
@@ -94,10 +96,6 @@ public class ExportData {
         }
     }
     
-    public String fixString(String data){                
-        return data.strip();
-    }
-
     public void exportColors(DefaultTableModel model) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
