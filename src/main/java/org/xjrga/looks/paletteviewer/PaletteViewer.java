@@ -156,8 +156,8 @@ public class PaletteViewer {
         jSplitPane.add(colorChooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
-        frame.setMinimumSize(new Dimension(760, 600));
-        frame.setPreferredSize(new Dimension(1500, 600));
+        frame.setMinimumSize(new Dimension(760, 635));
+        frame.setPreferredSize(new Dimension(1496, 635));
         frame.pack();
         frame.setVisible(true);
         colorChooser.getSelectionModel().addChangeListener((var event) -> {
