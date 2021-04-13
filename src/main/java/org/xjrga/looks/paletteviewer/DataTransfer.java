@@ -46,6 +46,7 @@ public class DataTransfer {
     private int red;
     private int green;
     private int blue;
+    private String hexcode;
     private String startEvent;
     private String endEvent;
 
@@ -77,6 +78,9 @@ public class DataTransfer {
                                 case "blue":
                                     blue = Integer.valueOf(data);
                                     break;
+                                case "hexcode":
+                                    hexcode = String.valueOf(data);
+                                    break;
                             }
                         }
                         break;
@@ -107,11 +111,11 @@ public class DataTransfer {
             writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
-            event = eventFactory.createStartElement("", "", "colors");
+            event = eventFactory.createStartElement("", "", "palette");
             writer.add(event);
             event = eventFactory.createAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
             writer.add(event);
-            event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/colors.xsd");
+            event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/palette.xsd");
             writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
@@ -119,8 +123,7 @@ public class DataTransfer {
             int columns = model.getColumnCount();
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
-                    Color color = (Color) model.getValueAt(i, j);
-                    System.out.println("Hex value: "+getHexColorValue(color));
+                    Color color = (Color) model.getValueAt(i, j);                    
                     event = eventFactory.createStartElement("", "", "color");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");
@@ -147,7 +150,7 @@ public class DataTransfer {
                     writer.add(event);
                     event = eventFactory.createEndElement("", "", "blue");
                     writer.add(event);
-                    event = eventFactory.createSpace("\n");  
+                    event = eventFactory.createSpace("\n");
                     writer.add(event);
                     event = eventFactory.createStartElement("", "", "hexcode");
                     writer.add(event);
@@ -156,14 +159,14 @@ public class DataTransfer {
                     event = eventFactory.createEndElement("", "", "hexcode");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");
-                    writer.add(event);                    
+                    writer.add(event);
                     event = eventFactory.createEndElement("", "", "color");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");
                     writer.add(event);
                 }
             }
-            event = eventFactory.createEndElement("", "", "colors");
+            event = eventFactory.createEndElement("", "", "palette");
             writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
