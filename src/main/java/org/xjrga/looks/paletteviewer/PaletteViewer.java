@@ -355,8 +355,7 @@ public class PaletteViewer {
             }
         }
         chooserTabbedPane.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("Tab: " + chooserTabbedPane.getSelectedIndex());
+            public void stateChanged(ChangeEvent e) {                
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelClearButton.setEnabled(true);
@@ -438,8 +437,7 @@ public class PaletteViewer {
 
     public void event_addColorItem() {
         Color selectedColor = chooser.getColor();
-        palettes.addColorItem(selectedColor);
-        System.out.println(selectedColor.toString());
+        palettes.addColorItem(selectedColor);        
     }
 
     private void event_deleteColorItem() {

@@ -1,0 +1,47 @@
+<xsd:schema version="1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"           
+           elementFormDefault="qualified">
+    <xsd:element name="colors">
+        <xsd:annotation>
+            <xsd:documentation>
+                Data Exchange Document Schema For Palette Viewer Software
+                Palette Viewer: Software to Create Color Palettes.
+                Author: Jorge Garcia R de Alba
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="color" type="color_type" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:unique name="Uniquely_Specified_Color">
+            <xsd:selector xpath="color"/>
+            <xsd:field xpath="red"/>
+            <xsd:field xpath="green"/>
+            <xsd:field xpath="blue"/>
+        </xsd:unique>
+    </xsd:element>
+    <!-- Color -->
+    <xsd:complexType name="color_type">
+        <xsd:sequence>               
+            <xsd:element name="red" type="red_type" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="green" type="green_type" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="blue" type="blue_type" minOccurs="1" maxOccurs="1"/>         
+        </xsd:sequence>
+    </xsd:complexType>    
+    <!-- Red -->
+    <xsd:simpleType name="red_type">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Green -->
+    <xsd:simpleType name="green_type">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Blue -->
+    <xsd:simpleType name="blue_type">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+    xsd:noNamespaceSchemaLocation='file:/home/jr/Project/Queued/Looks/colors.xsd'>
+    <color>
+        <red>255</red>
+        <green>51</green>
+        <blue>51</blue>
+    </color>
+    <color>
+        <red>0</red>
+        <green>51</green>
+        <blue>255</blue>
+    </color>
+    <color>
+        <red>102</red>
+        <green>255</green>
+        <blue>102</blue>
+    </color>
+</colors>

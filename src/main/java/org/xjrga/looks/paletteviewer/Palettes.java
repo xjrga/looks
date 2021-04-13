@@ -110,6 +110,6 @@ public class Palettes extends AbstractColorChooserPanel {
 //            sb.append("\n");
 //        }
 //        System.out.println(sb.toString());
-        export.writeTestDocument2(model);
+        export.exportColors(model);
     }
 }
