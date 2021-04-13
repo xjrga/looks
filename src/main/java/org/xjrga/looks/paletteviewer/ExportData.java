@@ -42,7 +42,10 @@ public class ExportData {
 
     private XMLInputFactory inputFactory;
     private XMLEventReader eventReader;
-    private boolean isColorOn;
+    private String color;
+    private boolean isRedOn;
+    private boolean isGreenOn;
+    private boolean isBlueOn;
 
     public ExportData() {
         inputFactory = XMLInputFactory.newInstance();
@@ -57,23 +60,23 @@ public class ExportData {
                 XMLEvent event = eventReader.nextEvent();
                 switch (event.getEventType()) {
                     case XMLEvent.START_ELEMENT:
-                        switch (event.asStartElement().getName().getLocalPart()) {
-                            case "color":
-                                isColorOn = true;
-                                break;
-                        }
+                        eventName = event.asStartElement().getName().getLocalPart();
                         break;
                     case XMLEvent.CHARACTERS:
-                        if (isColorOn) {
-                            System.out.println(event.asCharacters().getData());
+                        switch (eventName) {
+                            case "red":
+                                System.out.println("red: "+event.asCharacters().getData().trim());
+                                break;
+                            case "green":
+                                System.out.println("green: "+event.asCharacters().getData().trim());
+                                break;
+                            case "blue":
+                                System.out.println("blue: "+event.asCharacters().getData().trim());
+                                break;
                         }
                         break;
                     case XMLEvent.END_ELEMENT:
-                        switch (event.asEndElement().getName().getLocalPart()) {
-                            case "color":
-                                isColorOn = false;
-                                break;
-                        }
+                        eventName = "";
                         break;
                 }
             }
@@ -82,6 +85,7 @@ public class ExportData {
             Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private String eventName;
 
     public void exportColors(DefaultTableModel model) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
