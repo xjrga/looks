@@ -454,14 +454,8 @@ public class PaletteViewer {
         JFileChooser chooser = new JFileChooser();
         int returnVal = chooser.showDialog(frame, "Export");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            String path = chooser.getSelectedFile().getAbsolutePath();
-            //chooser.setCurrentDirectory(new File("D:\\outlook"));            
-            StringBuilder sb = new StringBuilder();
-            sb.append(path);
-            //sb.append(File.separator);
-            //sb.append(chooser.getSelectedFile().getName());
-            System.out.println(sb.toString());
-            //palettes.exportColorItems(sb.toString());
+            String path = chooser.getSelectedFile().getAbsolutePath();                                    
+            palettes.exportColorItems(path);
         }
     }
 
