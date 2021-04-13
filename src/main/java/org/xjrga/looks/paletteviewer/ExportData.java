@@ -45,18 +45,13 @@ public class ExportData {
     private boolean isColorOn;
 
     public ExportData() {
+        inputFactory = XMLInputFactory.newInstance();
     }
 
     public void importColors() {
         try {
-            File file = new File("data.xml");           
+            File file = new File("data.xml");
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            String currentLine = reader.readLine();            
-            while(currentLine != null){
-                currentLine = reader.readLine();
-                System.out.println(currentLine);
-            }
-            //reader.close();
             eventReader = inputFactory.createXMLEventReader(reader);
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
@@ -74,7 +69,7 @@ public class ExportData {
                         }
                         break;
                     case XMLEvent.END_ELEMENT:
-                        switch (event.asStartElement().getName().getLocalPart()) {
+                        switch (event.asEndElement().getName().getLocalPart()) {
                             case "color":
                                 isColorOn = false;
                                 break;
@@ -82,6 +77,7 @@ public class ExportData {
                         break;
                 }
             }
+            reader.close();
         } catch (Exception ex) {
             Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
         }
