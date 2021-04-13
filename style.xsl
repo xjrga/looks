@@ -20,8 +20,7 @@
                 <title>style.xsl</title>
             </head>                   
             <body>
-                <xsl:for-each select="colors/color">
-                    <!--h1 style="background-color:rgb(255, 80, 71);">Hello, world!</h1-->
+                <xsl:for-each select="colors/color">                    
                     <H1>                        
                         <xsl:attribute name="style">
                             <xsl:text>background-color:rgb(</xsl:text>                            
