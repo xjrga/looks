@@ -50,10 +50,10 @@ import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.metal.MetalLookAndFeel;
-import org.xjrga.looks.themes.Dawn180;
 import org.xjrga.looks.harmonic.Categorizer;
 import org.xjrga.looks.harmonic.ColorHarmonic;
 import org.xjrga.looks.harmonic.HarmonicColor;
+import org.xjrga.looks.themes.Dawn180;
 
 /**
  *
@@ -114,13 +114,15 @@ public class PaletteViewer {
         JButton previewPanelAddButton = new JButton("+");
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
-        JButton previewPanelSaveButton = new JButton("Save");
+        JButton previewPanelSaveButton = new JButton("Export");
+        JButton previewPanelImportButton = new JButton("Import");
         previewPanelDeleteButton.setEnabled(false);
         previewPanelSaveButton.setEnabled(false);
         previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
         previewPanel.add(previewPanelSaveButton);
+        previewPanel.add(previewPanelImportButton);
         chooser.setPreviewPanel(previewPanel);
         JPanel panel00 = new JPanel();
         JPanel panel01 = new JPanel();
@@ -347,6 +349,7 @@ public class PaletteViewer {
         previewPanelAddButton.addActionListener(e -> event_addColorItem());
         previewPanelDeleteButton.addActionListener(e -> event_deleteColorItem());
         previewPanelSaveButton.addActionListener(e -> event_exportColorItems());
+        previewPanelImportButton.addActionListener(e -> event_importColorItems());
 
         Component[] componentsColorChooser = chooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
@@ -455,5 +458,8 @@ public class PaletteViewer {
             resetRecentPanel();
         }
     }
-    
+
+    private void event_importColorItems() {
+        palettes.importColorItems();
+    }    
 }

@@ -18,9 +18,13 @@
 package org.xjrga.looks.paletteviewer;
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
@@ -28,8 +32,6 @@ import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.XMLStreamWriter;
 import javax.xml.stream.events.XMLEvent;
 
 /**
@@ -38,38 +40,51 @@ import javax.xml.stream.events.XMLEvent;
  */
 public class ExportData {
 
-    private XMLStreamReader streamReader;
     private XMLInputFactory inputFactory;
-    private XMLOutputFactory outputFactory;
-    private XMLEventWriter eventWriter;
-    private XMLStreamWriter streamWriter;
-    private Reader reader;
     private XMLEventReader eventReader;
+    private boolean isColorOn;
 
     public ExportData() {
-//        try {
-//            inputFactory = XMLInputFactory.newInstance();
-//            streamReader = inputFactory.createXMLStreamReader(new FileReader("test.xml"));
-//            outputFactory = XMLOutputFactory.newInstance();
-//            eventWriter = outputFactory.createXMLEventWriter(new FileWriter("test.xml"));
-//            streamWriter = outputFactory.createXMLStreamWriter(new FileWriter("test.xml"));
-//            reader = getXmlReader();
-//            while (eventReader.hasNext()) {
-//                XMLEvent event;
-//                eventReader = inputFactory.createXMLEventReader(reader);
-//                event = eventReader.nextEvent();
-//                if (event.getEventType() == XMLStreamConstants.START_ELEMENT) {
-//                    StartElement startElement = event.asStartElement();
-//                    System.out.println(startElement.getName().getLocalPart());
-//                }
-//            }
-//        } catch (Exception e) {
-//        }
-
     }
 
-    public Reader getXmlReader() {
-        return null;
+    public void importColors() {
+        try {
+            File file = new File("data.xml");           
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String currentLine = reader.readLine();            
+            while(currentLine != null){
+                currentLine = reader.readLine();
+                System.out.println(currentLine);
+            }
+            //reader.close();
+            eventReader = inputFactory.createXMLEventReader(reader);
+            while (eventReader.hasNext()) {
+                XMLEvent event = eventReader.nextEvent();
+                switch (event.getEventType()) {
+                    case XMLEvent.START_ELEMENT:
+                        switch (event.asStartElement().getName().getLocalPart()) {
+                            case "color":
+                                isColorOn = true;
+                                break;
+                        }
+                        break;
+                    case XMLEvent.CHARACTERS:
+                        if (isColorOn) {
+                            System.out.println(event.asCharacters().getData());
+                        }
+                        break;
+                    case XMLEvent.END_ELEMENT:
+                        switch (event.asStartElement().getName().getLocalPart()) {
+                            case "color":
+                                isColorOn = false;
+                                break;
+                        }
+                        break;
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void exportColors(DefaultTableModel model) {
@@ -86,7 +101,7 @@ public class ExportData {
             event = eventFactory.createAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
             writer.add(event);
             event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/colors.xsd");
-            writer.add(event);            
+            writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
             int rows = model.getRowCount();

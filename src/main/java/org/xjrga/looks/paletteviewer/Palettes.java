@@ -38,7 +38,6 @@ public class Palettes extends AbstractColorChooserPanel {
     private JTable table;
     private final DefaultTableModel model;
     private final ExportData export;
-    
 
     public Palettes() {
         export = new ExportData();
@@ -111,5 +110,9 @@ public class Palettes extends AbstractColorChooserPanel {
 //        }
 //        System.out.println(sb.toString());
         export.exportColors(model);
+    }
+
+    public void importColorItems() {
+        export.importColors();
     }
 }
