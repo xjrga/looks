@@ -40,15 +40,15 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTable table;
     private final DefaultTableModel model;
     private final DataTransfer transfer;
-    private JTextField palette;
+    private JTextField textFieldPaletteName;
 
     public PaletteChooserPanel() {
         transfer = new DataTransfer();
         setLayout(new FlowLayout());
-        palette = new JTextField();
+        textFieldPaletteName = new JTextField();
         panelResult = new JPanel();
-        palette.setPreferredSize(new Dimension(100, 28));
-        add(palette);
+        textFieldPaletteName.setPreferredSize(new Dimension(100, 28));
+        add(textFieldPaletteName);
         add(panelResult);
         table = new JTable();
         model = new TableModelColor();
@@ -94,7 +94,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         panelResult.repaint();
     }
 
-    public void deleteAllColorItems() {
+    public void clearAllColorItems() {
         model.setRowCount(0);
     }
 
@@ -103,11 +103,15 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     }
 
     public void exportColorItems(String path) {
-        transfer.exportColors(palette.getText(), model, path);
+        transfer.exportColors(textFieldPaletteName.getText(), model, path);
     }
 
     public void importColorItems(String path) {
         transfer.importColors(model, path);
-        palette.setText(transfer.getPaletteName());
+        textFieldPaletteName.setText(transfer.getPaletteName());
+    }
+
+    void clearPaletteName() {
+        textFieldPaletteName.setText("");
     }
 }

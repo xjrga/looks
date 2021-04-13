@@ -468,7 +468,8 @@ public class PaletteViewer {
 
     private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
-            palettes.deleteAllColorItems();
+            palettes.clearAllColorItems();
+            palettes.clearPaletteName();
         } else if (chooserTabbedPane.getSelectedIndex() == 0) {
             resetRecentPanel();
         }
