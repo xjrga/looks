@@ -54,54 +54,6 @@ public class DataTransfer {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public void importColors(DefaultTableModel model, String path) {
-        try {
-            File file = new File(path);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            eventReader = inputFactory.createXMLEventReader(reader);
-            while (eventReader.hasNext()) {
-                XMLEvent event = eventReader.nextEvent();
-                switch (event.getEventType()) {
-                    case XMLEvent.START_ELEMENT:
-                        startEvent = event.asStartElement().getName().getLocalPart();
-                        break;
-                    case XMLEvent.CHARACTERS:
-                        String data = event.asCharacters().getData().strip();
-                        if (!data.isBlank()) {
-                            switch (startEvent) {
-                                case "red":
-                                    red = Integer.valueOf(data);
-                                    break;
-                                case "green":
-                                    green = Integer.valueOf(data);
-                                    break;
-                                case "blue":
-                                    blue = Integer.valueOf(data);
-                                    break;
-                                case "hexcode":
-                                    hexcode = String.valueOf(data);
-                                    break;
-                            }
-                        }
-                        break;
-                    case XMLEvent.END_ELEMENT:
-                        endEvent = event.asEndElement().getName().getLocalPart();
-                        switch (endEvent) {
-                            case "color":
-                                Vector row = new Vector();
-                                row.add(new Color(red, green, blue));
-                                model.addRow(row);
-                                break;
-                        }
-                        break;
-                }
-            }
-            reader.close();
-        } catch (Exception ex) {
-            Logger.getLogger(DataTransfer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void exportColors(DefaultTableModel model, String path) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
@@ -123,7 +75,7 @@ public class DataTransfer {
             int columns = model.getColumnCount();
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
-                    Color color = (Color) model.getValueAt(i, j);                    
+                    Color color = (Color) model.getValueAt(i, j);
                     event = eventFactory.createStartElement("", "", "color");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");
@@ -176,6 +128,54 @@ public class DataTransfer {
             writer.close();
         } catch (XMLStreamException e) {
         } catch (IOException e) {
+        }
+    }
+
+    public void importColors(DefaultTableModel model, String path) {
+        try {
+            File file = new File(path);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            eventReader = inputFactory.createXMLEventReader(reader);
+            while (eventReader.hasNext()) {
+                XMLEvent event = eventReader.nextEvent();
+                switch (event.getEventType()) {
+                    case XMLEvent.START_ELEMENT:
+                        startEvent = event.asStartElement().getName().getLocalPart();
+                        break;
+                    case XMLEvent.CHARACTERS:
+                        String data = event.asCharacters().getData().strip();
+                        if (!data.isBlank()) {
+                            switch (startEvent) {
+                                case "red":
+                                    red = Integer.valueOf(data);
+                                    break;
+                                case "green":
+                                    green = Integer.valueOf(data);
+                                    break;
+                                case "blue":
+                                    blue = Integer.valueOf(data);
+                                    break;
+                                case "hexcode":
+                                    hexcode = String.valueOf(data);
+                                    break;
+                            }
+                        }
+                        break;
+                    case XMLEvent.END_ELEMENT:
+                        endEvent = event.asEndElement().getName().getLocalPart();
+                        switch (endEvent) {
+                            case "color":
+                                Vector row = new Vector();
+                                row.add(new Color(red, green, blue));
+                                model.addRow(row);
+                                break;
+                        }
+                        break;
+                }
+            }
+            reader.close();
+        } catch (Exception ex) {
+            Logger.getLogger(DataTransfer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
