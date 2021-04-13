@@ -152,11 +152,12 @@ public class PaletteViewer {
         panel00.add(optionHarmonic);
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
-        JSplitPane jSplitPane = new JSplitPane();
+        JSplitPane jSplitPane = new JSplitPane();        
         jSplitPane.add(colorChooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
-        frame.setPreferredSize(new Dimension(1500, 500));
+        frame.setMinimumSize(new Dimension(700, 600));
+        frame.setPreferredSize(new Dimension(1500, 600));
         frame.pack();
         frame.setVisible(true);
         colorChooser.getSelectionModel().addChangeListener((var event) -> {
@@ -366,6 +367,7 @@ public class PaletteViewer {
         }
         chooserTabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
+                System.out.println(frame.getSize());
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelClearButton.setEnabled(true);

@@ -21,9 +21,9 @@ package org.xjrga.looks.paletteviewer;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.JPanel;
@@ -43,13 +43,13 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTextField textFieldPaletteName;
 
     public PaletteChooserPanel() {
-        transfer = new DataTransfer();
-        setLayout(new FlowLayout());
+        transfer = new DataTransfer();        
+        setLayout(new BorderLayout(10,10));
         textFieldPaletteName = new JTextField();
-        panelResult = new JPanel();
+        panelResult = new JPanel();        
         textFieldPaletteName.setPreferredSize(new Dimension(100, 28));
-        add(textFieldPaletteName);
-        add(panelResult);
+        add(panelResult,BorderLayout.CENTER);
+        add(textFieldPaletteName,BorderLayout.SOUTH);
         table = new JTable();
         model = new TableModelColor();
         table.setModel(model);
