@@ -182,4 +182,8 @@ public class DataTransfer {
     private static String getHexColorValue(Color color) {
         return Integer.toHexString(color.getRGB() & 0x00ffffff);
     }
+
+    public String getPaletteName() {
+        return "Palette Name";
+    }
 }

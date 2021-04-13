@@ -73,7 +73,7 @@ public class PaletteViewer {
     private Color borderColor;
     private Color fontColor;
     private Color backgroundColor;
-    private Palettes palettes;
+    private PaletteChooserPanel palettes;
     private JColorChooser chooser;
     private JTabbedPane chooserTabbedPane;
 
@@ -82,7 +82,7 @@ public class PaletteViewer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         chooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
-        palettes = new Palettes();
+        palettes = new PaletteChooserPanel();
         chooser.addChooserPanel(palettes);
         JPanel panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));

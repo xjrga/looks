@@ -22,39 +22,45 @@ package org.xjrga.looks.paletteviewer;
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
-public class Palettes extends AbstractColorChooserPanel {
+public class PaletteChooserPanel extends AbstractColorChooserPanel {
 
     private final JPanel panelResult;
     private JTable table;
     private final DefaultTableModel model;
     private final DataTransfer transfer;
+    private JTextField palette;
 
-    public Palettes() {
+    public PaletteChooserPanel() {
         transfer = new DataTransfer();
-        super.setLayout(new GridLayout(0, 1));
+        setLayout(new FlowLayout());        
+        palette = new JTextField();
         panelResult = new JPanel();
-        super.add(panelResult);
+        palette.setPreferredSize(new Dimension(100,28));
+        add(palette);
+        add(panelResult);
         table = new JTable();
         model = new TableModelColor();
         table.setModel(model);
-        table.setDefaultRenderer(Color.class, new ColorRenderer());
+        table.setDefaultRenderer(Color.class, new ColorRenderer());        
         panelResult.add(new JScrollPane(table));
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
                 getColorSelectionModel().setSelectedColor((Color) table.getValueAt(table.getSelectedRow(), 0));
             }
         });
-    }
+    }    
 
     @Override
     public void buildChooser() {
@@ -102,5 +108,6 @@ public class Palettes extends AbstractColorChooserPanel {
 
     public void importColorItems(String path) {
         transfer.importColors(model,path);
+        palette.setText(transfer.getPaletteName());
     }    
 }
