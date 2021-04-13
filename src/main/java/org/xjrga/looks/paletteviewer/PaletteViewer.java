@@ -117,14 +117,15 @@ public class PaletteViewer {
         JButton previewPanelAddButton = new JButton("+");
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
-        JButton previewPanelSaveButton = new JButton("Export");
+        JButton previewPanelExportButton = new JButton("Export");
         JButton previewPanelImportButton = new JButton("Import");
         previewPanelDeleteButton.setEnabled(false);
-        previewPanelSaveButton.setEnabled(false);
+        previewPanelExportButton.setEnabled(false);
+        previewPanelImportButton.setEnabled(false);
         previewPanel.add(previewPanelClearButton);
         previewPanel.add(previewPanelAddButton);
         previewPanel.add(previewPanelDeleteButton);
-        previewPanel.add(previewPanelSaveButton);
+        previewPanel.add(previewPanelExportButton);
         previewPanel.add(previewPanelImportButton);
         chooser.setPreviewPanel(previewPanel);
         JPanel panel00 = new JPanel();
@@ -351,7 +352,7 @@ public class PaletteViewer {
         previewPanelClearButton.addActionListener(e -> event_clearRecentColorPanel());
         previewPanelAddButton.addActionListener(e -> event_addColorItem());
         previewPanelDeleteButton.addActionListener(e -> event_deleteColorItem());
-        previewPanelSaveButton.addActionListener(e -> event_exportColorItems());
+        previewPanelExportButton.addActionListener(e -> event_exportColorItems());
         previewPanelImportButton.addActionListener(e -> event_importColorItems());
 
         Component[] componentsColorChooser = chooser.getComponents();
@@ -367,37 +368,43 @@ public class PaletteViewer {
                         previewPanelClearButton.setEnabled(true);
                         previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelExportButton.setEnabled(false);
+                        previewPanelImportButton.setEnabled(false);                       
                         break;
                     case 1:
                         previewPanelClearButton.setEnabled(false);
                         previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelExportButton.setEnabled(false);
+                        previewPanelImportButton.setEnabled(false);
                         break;
                     case 2:
                         previewPanelClearButton.setEnabled(false);
                         previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelExportButton.setEnabled(false);
+                        previewPanelImportButton.setEnabled(false);
                         break;
                     case 3:
                         previewPanelClearButton.setEnabled(false);
                         previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelExportButton.setEnabled(false);
+                        previewPanelImportButton.setEnabled(false);
                         break;
                     case 4:
                         previewPanelClearButton.setEnabled(false);
                         previewPanelAddButton.setEnabled(true);
-                        previewPanelSaveButton.setEnabled(false);
+                        previewPanelExportButton.setEnabled(false);
                         previewPanelDeleteButton.setEnabled(false);
+                        previewPanelImportButton.setEnabled(false);
                         break;
                     case 5:
                         previewPanelClearButton.setEnabled(true);
                         previewPanelAddButton.setEnabled(true);
-                        previewPanelSaveButton.setEnabled(true);
+                        previewPanelExportButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(true);
+                        previewPanelImportButton.setEnabled(true);
                         break;
                 }
             }

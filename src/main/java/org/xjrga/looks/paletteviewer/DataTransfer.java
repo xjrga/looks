@@ -53,7 +53,7 @@ public class DataTransfer {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public void importColors(DefaultTableModel model,String path) {
+    public void importColors(DefaultTableModel model, String path) {
         try {
             File file = new File(path);
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -86,7 +86,7 @@ public class DataTransfer {
                             case "color":
                                 Vector row = new Vector();
                                 row.add(new Color(red, green, blue));
-                                model.addRow(row);                                
+                                model.addRow(row);
                                 break;
                         }
                         break;
@@ -98,7 +98,7 @@ public class DataTransfer {
         }
     }
 
-    public void exportColors(DefaultTableModel model,String path) {
+    public void exportColors(DefaultTableModel model, String path) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         try {
@@ -120,6 +120,7 @@ public class DataTransfer {
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < columns; j++) {
                     Color color = (Color) model.getValueAt(i, j);
+                    System.out.println("Hex value: "+getHexColorValue(color));
                     event = eventFactory.createStartElement("", "", "color");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");
@@ -165,5 +166,9 @@ public class DataTransfer {
         } catch (XMLStreamException e) {
         } catch (IOException e) {
         }
-    }   
+    }
+
+    private static String getHexColorValue(Color color) {
+        return Integer.toHexString(color.getRGB() & 0x00ffffff);
+    }
 }
