@@ -73,7 +73,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
 
     @Override
     public String getDisplayName() {
-        return "Palettes";
+        return "Palette";
     }
 
     @Override
