@@ -50,7 +50,7 @@ import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.metal.MetalLookAndFeel;
-import org.xjrga.looks.Dawn180;
+import org.xjrga.looks.themes.Dawn180;
 import org.xjrga.looks.harmonic.Categorizer;
 import org.xjrga.looks.harmonic.ColorHarmonic;
 import org.xjrga.looks.harmonic.HarmonicColor;

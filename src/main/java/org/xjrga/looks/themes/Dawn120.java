@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.looks.themes;
 
 import java.awt.Color;
 import java.awt.Font;

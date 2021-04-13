@@ -1,4 +1,4 @@
-package org.xjrga.looks;
+package org.xjrga.looks.themes;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
