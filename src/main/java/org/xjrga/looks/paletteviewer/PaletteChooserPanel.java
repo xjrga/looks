@@ -44,23 +44,23 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
 
     public PaletteChooserPanel() {
         transfer = new DataTransfer();
-        setLayout(new FlowLayout());        
+        setLayout(new FlowLayout());
         palette = new JTextField();
         panelResult = new JPanel();
-        palette.setPreferredSize(new Dimension(100,28));
+        palette.setPreferredSize(new Dimension(100, 28));
         add(palette);
         add(panelResult);
         table = new JTable();
         model = new TableModelColor();
         table.setModel(model);
-        table.setDefaultRenderer(Color.class, new ColorRenderer());        
+        table.setDefaultRenderer(Color.class, new ColorRenderer());
         panelResult.add(new JScrollPane(table));
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
                 getColorSelectionModel().setSelectedColor((Color) table.getValueAt(table.getSelectedRow(), 0));
             }
         });
-    }    
+    }
 
     @Override
     public void buildChooser() {
@@ -103,11 +103,11 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     }
 
     public void exportColorItems(String path) {
-        transfer.exportColors(model,path);
+        transfer.exportColors(palette.getText(), model, path);
     }
 
     public void importColorItems(String path) {
-        transfer.importColors(model,path);
+        transfer.importColors(model, path);
         palette.setText(transfer.getPaletteName());
-    }    
+    }
 }

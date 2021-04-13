@@ -49,12 +49,13 @@ public class DataTransfer {
     private String hexcode;
     private String startEvent;
     private String endEvent;
+    private String name = "Palette Name";
 
     public DataTransfer() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public void exportColors(DefaultTableModel model, String path) {
+    public void exportColors(String name, DefaultTableModel model, String path) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         try {
@@ -68,6 +69,14 @@ public class DataTransfer {
             event = eventFactory.createAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
             writer.add(event);
             event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/palette.xsd");
+            writer.add(event);
+            event = eventFactory.createSpace("\n");
+            writer.add(event);
+            event = eventFactory.createStartElement("", "", "name");
+            writer.add(event);
+            event = eventFactory.createCharacters(name);
+            writer.add(event);
+            event = eventFactory.createEndElement("", "", "name");
             writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
@@ -146,6 +155,9 @@ public class DataTransfer {
                         String data = event.asCharacters().getData().strip();
                         if (!data.isBlank()) {
                             switch (startEvent) {
+                                case "name":
+                                    name = data;
+                                    break;
                                 case "red":
                                     red = Integer.valueOf(data);
                                     break;
@@ -184,6 +196,6 @@ public class DataTransfer {
     }
 
     public String getPaletteName() {
-        return "Palette Name";
+        return name;
     }
 }
