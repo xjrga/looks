@@ -113,6 +113,6 @@ public class Palettes extends AbstractColorChooserPanel {
     }
 
     public void importColorItems() {
-        export.importColors();
+        export.importColors(model);
     }
 }

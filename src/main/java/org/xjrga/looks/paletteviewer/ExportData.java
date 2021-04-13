@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -42,7 +43,6 @@ public class ExportData {
 
     private XMLInputFactory inputFactory;
     private XMLEventReader eventReader;
-    private String color;
     private int red;
     private int green;
     private int blue;
@@ -53,7 +53,7 @@ public class ExportData {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public void importColors() {
+    public void importColors(DefaultTableModel model) {
         try {
             File file = new File("data.xml");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -84,7 +84,9 @@ public class ExportData {
                         endEvent = event.asEndElement().getName().getLocalPart();
                         switch (endEvent) {
                             case "color":
-                                System.out.println(new Color(red, green, blue).getRGB());
+                                Vector row = new Vector();
+                                row.add(new Color(red, green, blue));
+                                model.addRow(row);                                
                                 break;
                         }
                         break;
@@ -95,7 +97,7 @@ public class ExportData {
             Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void exportColors(DefaultTableModel model) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
