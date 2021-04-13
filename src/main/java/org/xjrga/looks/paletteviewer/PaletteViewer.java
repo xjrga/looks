@@ -347,7 +347,7 @@ public class PaletteViewer {
             public void windowClosing(WindowEvent e) {
                 exit();
             }
-        });        
+        });
         previewPanelClearButton.addActionListener(e -> event_clearRecentColorPanel());
         previewPanelAddButton.addActionListener(e -> event_addColorItem());
         previewPanelDeleteButton.addActionListener(e -> event_deleteColorItem());
@@ -361,7 +361,7 @@ public class PaletteViewer {
             }
         }
         chooserTabbedPane.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {                
+            public void stateChanged(ChangeEvent e) {
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelClearButton.setEnabled(true);
@@ -443,17 +443,28 @@ public class PaletteViewer {
 
     public void event_addColorItem() {
         Color selectedColor = chooser.getColor();
-        palettes.addColorItem(selectedColor);        
+        palettes.addColorItem(selectedColor);
     }
 
     private void event_deleteColorItem() {
         palettes.deleteSelectedColorItem();
     }
-    
+
     private void event_exportColorItems() {
-        palettes.exportColorItems("data.xml");
+        JFileChooser chooser = new JFileChooser();
+        int returnVal = chooser.showDialog(frame, "Export");
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            String path = chooser.getSelectedFile().getAbsolutePath();
+            //chooser.setCurrentDirectory(new File("D:\\outlook"));            
+            StringBuilder sb = new StringBuilder();
+            sb.append(path);
+            //sb.append(File.separator);
+            //sb.append(chooser.getSelectedFile().getName());
+            System.out.println(sb.toString());
+            //palettes.exportColorItems(sb.toString());
+        }
     }
-    
+
     private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
             palettes.deleteAllColorItems();
@@ -463,14 +474,14 @@ public class PaletteViewer {
     }
 
     private void event_importColorItems() {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setAcceptAllFileFilterUsed(false);
-        chooser.addChoosableFileFilter(new FileNameExtensionFilter("Xml Document", "xml"));
-        int returnVal = chooser.showOpenDialog(frame);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Xml Document", "xml"));
+        int returnVal = fileChooser.showOpenDialog(frame);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();            
+            File file = fileChooser.getSelectedFile();
             String path = file.getAbsolutePath();
-            palettes.importColorItems(path);            
-        }        
-    }    
+            palettes.importColorItems(path);
+        }
+    }
 }
