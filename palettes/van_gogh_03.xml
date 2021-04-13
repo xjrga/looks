@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/palette.xsd">
+<name>Van Gogh’s “Café Terrace on the Place du Forum, Arles” (1888)</name>
+<color>
+<red>40</red>
+<green>85</green>
+<blue>176</blue>
+<hexcode>2855b0</hexcode>
+</color>
+<color>
+<red>103</red>
+<green>149</green>
+<blue>209</blue>
+<hexcode>6795d1</hexcode>
+</color>
+<color>
+<red>229</red>
+<green>153</green>
+<blue>59</blue>
+<hexcode>e5993b</hexcode>
+</color>
+<color>
+<red>249</red>
+<green>223</green>
+<blue>86</blue>
+<hexcode>f9df56</hexcode>
+</color>
+<color>
+<red>30</red>
+<green>44</green>
+<blue>53</blue>
+<hexcode>1e2c35</hexcode>
+</color>
+</palette>
