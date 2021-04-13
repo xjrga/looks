@@ -76,8 +76,10 @@ public class PaletteViewer {
     private PaletteChooserPanel paletteChooserPanel;
     private JColorChooser colorChooser;
     private JTabbedPane chooserTabbedPane;
+    private JFileChooser fileChooser;
 
     public PaletteViewer() {
+        fileChooser = new JFileChooser();
         frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         colorChooser = new JColorChooser();
@@ -107,7 +109,7 @@ public class PaletteViewer {
         panelColors.setLayout(new GridLayout(0, 1));
         TitledBorder titledBorder = new TitledBorder("Color Wheel (HSV)");
         panelColors.setBorder(titledBorder);
-        titledBorder.setTitleJustification(TitledBorder.RIGHT);        
+        titledBorder.setTitleJustification(TitledBorder.RIGHT);
         panelColors.add(panelOriginal);
         panelColors.add(panelColorsTop);
         panelColors.add(panelColorsBottom);
@@ -121,7 +123,7 @@ public class PaletteViewer {
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelExportButton = new JButton("Export");
-        JButton previewPanelImportButton = new JButton("Import");
+        JButton previewPanelImportButton = new JButton("Import");        
         previewPanelDeleteButton.setEnabled(false);
         previewPanelExportButton.setEnabled(false);
         previewPanelImportButton.setEnabled(false);
@@ -152,7 +154,7 @@ public class PaletteViewer {
         panel00.add(optionHarmonic);
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
-        JSplitPane jSplitPane = new JSplitPane();        
+        JSplitPane jSplitPane = new JSplitPane();
         jSplitPane.add(colorChooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
@@ -240,7 +242,7 @@ public class PaletteViewer {
                         panelColorsLeft.removeAll();
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();
-                            panelColorsLeft.add(getLabel(next));                            
+                            panelColorsLeft.add(getLabel(next));
                         }
                         panelColorsLeft.revalidate();
                         panelColorsLeft.repaint();
@@ -248,7 +250,7 @@ public class PaletteViewer {
                         panelColorsRight.removeAll();
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
-                            panelColorsRight.add(getLabel(next));                            
+                            panelColorsRight.add(getLabel(next));
                         }
                         panelColorsRight.revalidate();
                         panelColorsRight.repaint();
@@ -256,7 +258,7 @@ public class PaletteViewer {
                         panelColorsTop.removeAll();
                         while (topIterator.hasNext()) {
                             HarmonicColor next = topIterator.next();
-                            panelColorsTop.add(getLabel(next));                            
+                            panelColorsTop.add(getLabel(next));
                         }
                         panelColorsTop.revalidate();
                         panelColorsTop.repaint();
@@ -363,14 +365,14 @@ public class PaletteViewer {
             }
         }
         chooserTabbedPane.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {                
+            public void stateChanged(ChangeEvent e) {
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelClearButton.setEnabled(true);
                         previewPanelAddButton.setEnabled(true);
                         previewPanelDeleteButton.setEnabled(false);
                         previewPanelExportButton.setEnabled(false);
-                        previewPanelImportButton.setEnabled(false);                       
+                        previewPanelImportButton.setEnabled(false);
                         break;
                     case 1:
                         previewPanelClearButton.setEnabled(false);
@@ -456,7 +458,7 @@ public class PaletteViewer {
 
     private void event_deleteColorItem() {
         paletteChooserPanel.deleteSelectedColorItem();
-    }    
+    }
 
     private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
@@ -468,26 +470,28 @@ public class PaletteViewer {
     }
 
     private void event_exportColorItems() {
-        JFileChooser chooser = new JFileChooser();
-        int returnVal = chooser.showDialog(frame, "Export");
+        int returnVal = fileChooser.showDialog(frame, "Export");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            String path = chooser.getSelectedFile().getAbsolutePath();                                    
+            String path = fileChooser.getSelectedFile().getAbsolutePath();
+            fileChooser.setCurrentDirectory(new File(path));
             StringBuilder sb = new StringBuilder();
             sb.append(path);
             sb.append(".xml");
             paletteChooserPanel.exportColorItems(sb.toString());
+            
         }
     }
-    
+
     private void event_importColorItems() {
-        JFileChooser fileChooser = new JFileChooser();
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Xml Document", "xml"));
         int returnVal = fileChooser.showOpenDialog(frame);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();            
-            String path = file.getAbsolutePath();            
+            File file = fileChooser.getSelectedFile();
+            String path = file.getAbsolutePath();
+            fileChooser.setCurrentDirectory(new File(path));
             paletteChooserPanel.importColorItems(path);
         }
-    }
+    }    
+    
 }
