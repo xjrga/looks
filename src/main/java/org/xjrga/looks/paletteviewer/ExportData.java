@@ -79,12 +79,14 @@ public class ExportData {
             XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("data.xml"));
             XMLEvent event = eventFactory.createStartDocument();
             writer.add(event);
-            //event = eventFactory.createAttribute("xsi:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/colors.xsd");
-            //writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
             event = eventFactory.createStartElement("", "", "colors");
             writer.add(event);
+            event = eventFactory.createAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
+            writer.add(event);
+            event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/colors.xsd");
+            writer.add(event);            
             event = eventFactory.createSpace("\n");
             writer.add(event);
             int rows = model.getRowCount();
