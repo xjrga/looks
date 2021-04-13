@@ -25,6 +25,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -33,6 +34,7 @@ import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -49,6 +51,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import org.xjrga.looks.harmonic.Categorizer;
 import org.xjrga.looks.harmonic.ColorHarmonic;
@@ -448,7 +451,7 @@ public class PaletteViewer {
     }
     
     private void event_exportColorItems() {
-        palettes.exportColorItems();
+        palettes.exportColorItems("data.xml");
     }
     
     private void event_clearRecentColorPanel() {
@@ -460,6 +463,14 @@ public class PaletteViewer {
     }
 
     private void event_importColorItems() {
-        palettes.importColorItems();
+        JFileChooser chooser = new JFileChooser();
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.addChoosableFileFilter(new FileNameExtensionFilter("Xml Document", "xml"));
+        int returnVal = chooser.showOpenDialog(frame);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();            
+            String path = file.getAbsolutePath();
+            palettes.importColorItems(path);            
+        }        
     }    
 }

@@ -96,23 +96,11 @@ public class Palettes extends AbstractColorChooserPanel {
         model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));
     }
 
-    public void exportColorItems() {
-//        StringBuilder sb = new StringBuilder();
-//        int rows = model.getRowCount();
-//        int columns = model.getColumnCount();
-//        for (int i = 0; i < rows; i++) {
-//            for (int j = 0; j < columns; j++) {
-//                sb.append(model.getValueAt(i,j)); 
-//                sb.append(",");
-//            }
-//            sb.setLength(sb.length()-1);
-//            sb.append("\n");
-//        }
-//        System.out.println(sb.toString());
-        transfer.exportColors(model);
+    public void exportColorItems(String path) {
+        transfer.exportColors(model,path);
     }
 
-    public void importColorItems() {
-        transfer.importColors(model);
-    }
+    public void importColorItems(String path) {
+        transfer.importColors(model,path);
+    }    
 }

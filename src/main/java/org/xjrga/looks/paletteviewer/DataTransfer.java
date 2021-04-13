@@ -53,9 +53,9 @@ public class DataTransfer {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public void importColors(DefaultTableModel model) {
+    public void importColors(DefaultTableModel model,String path) {
         try {
-            File file = new File("data.xml");
+            File file = new File(path);
             BufferedReader reader = new BufferedReader(new FileReader(file));
             eventReader = inputFactory.createXMLEventReader(reader);
             while (eventReader.hasNext()) {
@@ -98,11 +98,11 @@ public class DataTransfer {
         }
     }
 
-    public void exportColors(DefaultTableModel model) {
+    public void exportColors(DefaultTableModel model,String path) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         try {
-            XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter("data.xml"));
+            XMLEventWriter writer = factory.createXMLEventWriter(new FileWriter(path));
             XMLEvent event = eventFactory.createStartDocument();
             writer.add(event);
             event = eventFactory.createSpace("\n");
@@ -165,5 +165,5 @@ public class DataTransfer {
         } catch (XMLStreamException e) {
         } catch (IOException e) {
         }
-    }
+    }   
 }
