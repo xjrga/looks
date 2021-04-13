@@ -39,7 +39,7 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class ExportData {
+public class DataTransfer {
 
     private XMLInputFactory inputFactory;
     private XMLEventReader eventReader;
@@ -49,7 +49,7 @@ public class ExportData {
     private String startEvent;
     private String endEvent;
 
-    public ExportData() {
+    public DataTransfer() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
@@ -94,7 +94,7 @@ public class ExportData {
             }
             reader.close();
         } catch (Exception ex) {
-            Logger.getLogger(ExportData.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataTransfer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
