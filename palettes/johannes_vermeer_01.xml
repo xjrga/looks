@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/palette.xsd">
+<name>Girl with a Pearl Earring by Johannes Vermeer</name>
+<color>
+<red>18</red>
+<green>10</green>
+<blue>19</blue>
+<hexcode>120a13</hexcode>
+</color>
+<color>
+<red>72</red>
+<green>93</green>
+<blue>165</blue>
+<hexcode>485da5</hexcode>
+</color>
+<color>
+<red>205</red>
+<green>182</green>
+<blue>122</blue>
+<hexcode>cdb67a</hexcode>
+</color>
+<color>
+<red>137</red>
+<green>97</green>
+<blue>53</blue>
+<hexcode>896135</hexcode>
+</color>
+<color>
+<red>112</red>
+<green>40</green>
+<blue>33</blue>
+<hexcode>702821</hexcode>
+</color>
+</palette>

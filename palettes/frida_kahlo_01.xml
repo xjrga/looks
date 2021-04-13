@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/palette.xsd">
+<name>Self-Portrait with Thorn Necklace and Hummingbird, c.1940 By Frida Kahlo</name>
+<color>
+<red>238</red>
+<green>207</green>
+<blue>94</blue>
+<hexcode>eecf5e</hexcode>
+</color>
+<color>
+<red>228</red>
+<green>171</green>
+<blue>69</blue>
+<hexcode>e4ab45</hexcode>
+</color>
+<color>
+<red>151</red>
+<green>169</green>
+<blue>151</blue>
+<hexcode>97a997</hexcode>
+</color>
+<color>
+<red>100</red>
+<green>120</green>
+<blue>10</blue>
+<hexcode>64780a</hexcode>
+</color>
+<color>
+<red>35</red>
+<green>65</green>
+<blue>16</blue>
+<hexcode>234110</hexcode>
+</color>
+<color>
+<red>189</red>
+<green>65</green>
+<blue>28</blue>
+<hexcode>bd411c</hexcode>
+</color>
+</palette>

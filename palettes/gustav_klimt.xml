@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/palette.xsd">
+<name>The Kiss by Gustav Klimt</name>
+<color>
+<red>125</red>
+<green>106</green>
+<blue>60</blue>
+<hexcode>7d6a3c</hexcode>
+</color>
+<color>
+<red>199</red>
+<green>169</green>
+<blue>77</blue>
+<hexcode>c7a94d</hexcode>
+</color>
+<color>
+<red>119</red>
+<green>143</green>
+<blue>80</blue>
+<hexcode>778f50</hexcode>
+</color>
+<color>
+<red>142</red>
+<green>117</green>
+<blue>128</blue>
+<hexcode>8e7580</hexcode>
+</color>
+<color>
+<red>182</red>
+<green>100</green>
+<blue>78</blue>
+<hexcode>b6644e</hexcode>
+</color>
+</palette>
