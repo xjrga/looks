@@ -167,6 +167,7 @@ public class PaletteViewer {
                 fontColor = chooserColor;
                 new Thread() {
                     public void run() {
+                        ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
@@ -239,8 +240,7 @@ public class PaletteViewer {
                         panelColorsLeft.removeAll();
                         while (leftIterator.hasNext()) {
                             HarmonicColor next = leftIterator.next();
-                            panelColorsLeft.add(getLabel(next));
-                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            panelColorsLeft.add(getLabel(next));                            
                         }
                         panelColorsLeft.revalidate();
                         panelColorsLeft.repaint();
@@ -248,8 +248,7 @@ public class PaletteViewer {
                         panelColorsRight.removeAll();
                         while (rightIterator.hasNext()) {
                             HarmonicColor next = rightIterator.next();
-                            panelColorsRight.add(getLabel(next));
-                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            panelColorsRight.add(getLabel(next));                            
                         }
                         panelColorsRight.revalidate();
                         panelColorsRight.repaint();
@@ -257,8 +256,7 @@ public class PaletteViewer {
                         panelColorsTop.removeAll();
                         while (topIterator.hasNext()) {
                             HarmonicColor next = topIterator.next();
-                            panelColorsTop.add(getLabel(next));
-                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
+                            panelColorsTop.add(getLabel(next));                            
                         }
                         panelColorsTop.revalidate();
                         panelColorsTop.repaint();
@@ -267,7 +265,6 @@ public class PaletteViewer {
                         while (bottomIterator.hasNext()) {
                             HarmonicColor next = bottomIterator.next();
                             panelColorsBottom.add(getLabel(next));
-                            //System.out.println(next.getAngle() + ":" + next.getAngleChange() + ":" + categorizer.getColorTemperature() + ":" + categorizer.getColorPositionTB() + ":" + categorizer.getColorPositionLR() + ":" + categorizer.getColorCategory());
                         }
                         panelColorsBottom.revalidate();
                         panelColorsBottom.repaint();
