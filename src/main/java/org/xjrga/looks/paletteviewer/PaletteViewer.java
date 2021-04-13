@@ -363,8 +363,7 @@ public class PaletteViewer {
             }
         }
         chooserTabbedPane.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                System.out.println(frame.getSize());
+            public void stateChanged(ChangeEvent e) {                
                 switch (chooserTabbedPane.getSelectedIndex()) {
                     case 0:
                         previewPanelClearButton.setEnabled(true);
@@ -457,16 +456,7 @@ public class PaletteViewer {
 
     private void event_deleteColorItem() {
         paletteChooserPanel.deleteSelectedColorItem();
-    }
-
-    private void event_exportColorItems() {
-        JFileChooser chooser = new JFileChooser();
-        int returnVal = chooser.showDialog(frame, "Export");
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            String path = chooser.getSelectedFile().getAbsolutePath();                                    
-            paletteChooserPanel.exportColorItems(path);
-        }
-    }
+    }    
 
     private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
@@ -477,14 +467,26 @@ public class PaletteViewer {
         }
     }
 
+    private void event_exportColorItems() {
+        JFileChooser chooser = new JFileChooser();
+        int returnVal = chooser.showDialog(frame, "Export");
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            String path = chooser.getSelectedFile().getAbsolutePath();                                    
+            StringBuilder sb = new StringBuilder();
+            sb.append(path);
+            sb.append(".xml");
+            paletteChooserPanel.exportColorItems(sb.toString());
+        }
+    }
+    
     private void event_importColorItems() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Xml Document", "xml"));
         int returnVal = fileChooser.showOpenDialog(frame);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            String path = file.getAbsolutePath();
+            File file = fileChooser.getSelectedFile();            
+            String path = file.getAbsolutePath();            
             paletteChooserPanel.importColorItems(path);
         }
     }
