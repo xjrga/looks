@@ -73,17 +73,17 @@ public class PaletteViewer {
     private Color borderColor;
     private Color fontColor;
     private Color backgroundColor;
-    private PaletteChooserPanel palettes;
-    private JColorChooser chooser;
+    private PaletteChooserPanel paletteChooserPanel;
+    private JColorChooser colorChooser;
     private JTabbedPane chooserTabbedPane;
 
     public PaletteViewer() {
         frame = new JFrame("Palette Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        chooser = new JColorChooser();
+        colorChooser = new JColorChooser();
         Categorizer categorizer = new Categorizer();
-        palettes = new PaletteChooserPanel();
-        chooser.addChooserPanel(palettes);
+        paletteChooserPanel = new PaletteChooserPanel();
+        colorChooser.addChooserPanel(paletteChooserPanel);
         JPanel panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
         panelOriginal.setBorder(new TitledBorder("Original"));
@@ -127,7 +127,7 @@ public class PaletteViewer {
         previewPanel.add(previewPanelDeleteButton);
         previewPanel.add(previewPanelExportButton);
         previewPanel.add(previewPanelImportButton);
-        chooser.setPreviewPanel(previewPanel);
+        colorChooser.setPreviewPanel(previewPanel);
         JPanel panel00 = new JPanel();
         JPanel panel01 = new JPanel();
         panel00.setLayout(new FlowLayout());
@@ -150,15 +150,15 @@ public class PaletteViewer {
         panel01.add(panel00, BorderLayout.NORTH);
         panel01.add(jScrollPane, BorderLayout.CENTER);
         JSplitPane jSplitPane = new JSplitPane();
-        jSplitPane.add(chooser, JSplitPane.TOP);
+        jSplitPane.add(colorChooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
         frame.setContentPane(jSplitPane);
         frame.setPreferredSize(new Dimension(1500, 500));
         frame.pack();
         frame.setVisible(true);
-        chooser.getSelectionModel().addChangeListener((var event) -> {
-            ColorHarmonic colorHarmonic = new ColorHarmonic(chooser.getColor());
-            chooserColor = chooser.getColor();
+        colorChooser.getSelectionModel().addChangeListener((var event) -> {
+            ColorHarmonic colorHarmonic = new ColorHarmonic(colorChooser.getColor());
+            chooserColor = colorChooser.getColor();
             if (optionFont.isSelected()) {
                 fontColor = chooserColor;
                 new Thread() {
@@ -355,7 +355,7 @@ public class PaletteViewer {
         previewPanelExportButton.addActionListener(e -> event_exportColorItems());
         previewPanelImportButton.addActionListener(e -> event_importColorItems());
 
-        Component[] componentsColorChooser = chooser.getComponents();
+        Component[] componentsColorChooser = colorChooser.getComponents();
         for (int i = 0; i < componentsColorChooser.length; i++) {
             if (componentsColorChooser[i] instanceof JTabbedPane) {
                 chooserTabbedPane = (JTabbedPane) componentsColorChooser[i];
@@ -427,7 +427,7 @@ public class PaletteViewer {
     }
 
     public void resetRecentPanel() {
-        for (AbstractColorChooserPanel p : chooser.getChooserPanels()) {
+        for (AbstractColorChooserPanel p : colorChooser.getChooserPanels()) {
             if (p.getClass().getSimpleName().equals("DefaultSwatchChooserPanel")) {
                 Field recentPanelField;
                 try {
@@ -449,12 +449,12 @@ public class PaletteViewer {
     }
 
     public void event_addColorItem() {
-        Color selectedColor = chooser.getColor();
-        palettes.addColorItem(selectedColor);
+        Color selectedColor = colorChooser.getColor();
+        paletteChooserPanel.addColorItem(selectedColor);
     }
 
     private void event_deleteColorItem() {
-        palettes.deleteSelectedColorItem();
+        paletteChooserPanel.deleteSelectedColorItem();
     }
 
     private void event_exportColorItems() {
@@ -462,14 +462,14 @@ public class PaletteViewer {
         int returnVal = chooser.showDialog(frame, "Export");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             String path = chooser.getSelectedFile().getAbsolutePath();                                    
-            palettes.exportColorItems(path);
+            paletteChooserPanel.exportColorItems(path);
         }
     }
 
     private void event_clearRecentColorPanel() {
         if (chooserTabbedPane.getSelectedIndex() == 5) {
-            palettes.clearAllColorItems();
-            palettes.clearPaletteName();
+            paletteChooserPanel.clearAllColorItems();
+            paletteChooserPanel.clearPaletteName();
         } else if (chooserTabbedPane.getSelectedIndex() == 0) {
             resetRecentPanel();
         }
@@ -483,7 +483,7 @@ public class PaletteViewer {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             String path = file.getAbsolutePath();
-            palettes.importColorItems(path);
+            paletteChooserPanel.importColorItems(path);
         }
     }
 }
