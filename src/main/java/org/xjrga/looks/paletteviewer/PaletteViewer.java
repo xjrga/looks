@@ -105,6 +105,9 @@ public class PaletteViewer {
         panelColorsRight.setBorder(new TitledBorder("Right"));
         JPanel panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
+        TitledBorder titledBorder = new TitledBorder("Color Wheel (HSV)");
+        panelColors.setBorder(titledBorder);
+        titledBorder.setTitleJustification(TitledBorder.RIGHT);        
         panelColors.add(panelOriginal);
         panelColors.add(panelColorsTop);
         panelColors.add(panelColorsBottom);
