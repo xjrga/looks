@@ -147,8 +147,16 @@ public class DataTransfer {
                     writer.add(event);
                     event = eventFactory.createEndElement("", "", "blue");
                     writer.add(event);
-                    event = eventFactory.createSpace("\n");
+                    event = eventFactory.createSpace("\n");  
                     writer.add(event);
+                    event = eventFactory.createStartElement("", "", "hexcode");
+                    writer.add(event);
+                    event = eventFactory.createCharacters(getHexColorValue(color));
+                    writer.add(event);
+                    event = eventFactory.createEndElement("", "", "hexcode");
+                    writer.add(event);
+                    event = eventFactory.createSpace("\n");
+                    writer.add(event);                    
                     event = eventFactory.createEndElement("", "", "color");
                     writer.add(event);
                     event = eventFactory.createSpace("\n");

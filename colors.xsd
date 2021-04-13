@@ -1,6 +1,6 @@
 <xsd:schema version="1.0"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="colors">
+    <xsd:element name="palette">
         <xsd:annotation>
             <xsd:documentation>
                 Data Exchange Document Schema For Palette Viewer Software
@@ -10,6 +10,7 @@
         </xsd:annotation>
         <xsd:complexType>
             <xsd:sequence>
+                <xsd:element name="palette" type="xsd:string" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="color" type="color_type" minOccurs="1" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
@@ -22,12 +23,18 @@
     </xsd:element>
     <!-- Color -->
     <xsd:complexType name="color_type">
-        <xsd:sequence>               
+        <xsd:sequence>
+            <xsd:element name="hexcode" type="hex_color_code_type" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="red" type="red_type" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="green" type="green_type" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="blue" type="blue_type" minOccurs="1" maxOccurs="1"/>         
+            <xsd:element name="blue" type="blue_type" minOccurs="1" maxOccurs="1"/>            
         </xsd:sequence>
-    </xsd:complexType>    
+    </xsd:complexType>
+    <!-- Hex Color Code -->
+    <xsd:simpleType name="hex_color_code_type">
+        <xsd:restriction base="xsd:hexBinary">
+        </xsd:restriction>
+    </xsd:simpleType>
     <!-- Red -->
     <xsd:simpleType name="red_type">
         <xsd:restriction base="xsd:nonNegativeInteger">
