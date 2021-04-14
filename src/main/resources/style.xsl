@@ -20,7 +20,7 @@
                 <title>style.xsl</title>
             </head>                   
             <body>
-                <xsl:for-each select="palette/color">                    
+                <xsl:for-each select="palette/color">
                     <H1>                        
                         <xsl:attribute name="style">
                             <xsl:text>background-color:rgb(</xsl:text>                            
@@ -37,8 +37,11 @@
                             </xsl:text>
                             <xsl:text>);</xsl:text>
                         </xsl:attribute>
-                        Hello, world!
+                        <xsl:value-of select="hexcode"/>
                     </H1>              
+                </xsl:for-each>
+                <xsl:for-each select="palette">
+                    <xsl:value-of select="name"/>
                 </xsl:for-each>
             </body>
         </html>
