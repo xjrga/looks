@@ -471,11 +471,7 @@ public class PaletteViewer {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             String path = fileChooser.getSelectedFile().getAbsolutePath();
             fileChooser.setCurrentDirectory(new File(path));
-            StringBuilder sb = new StringBuilder();
-            sb.append(path);
-            sb.append(".xml");
-            paletteChooserPanel.exportColorItems(sb.toString());
-
+            paletteChooserPanel.exportColorItems(fileChooser.getSelectedFile());
         }
     }
 

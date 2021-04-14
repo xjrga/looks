@@ -56,8 +56,8 @@ public class XmlToHtml {
         String xmlFileName = new StringBuilder(trimFileNameExtension(xmlFile.getName())).append(".html").toString();
         File xslFile = new File("palettes", "style.xsl");
         File htmlFile = new File("html", xmlFileName);
-        xmlToHtml.setXmlDoc(xmlFile);
-        xmlToHtml.setXslDoc(xslFile);
+        xmlToHtml.setXmlFile(xmlFile);
+        xmlToHtml.setXslFile(xslFile);
         xmlToHtml.setHtmlFile(htmlFile);
         xmlToHtml.transform();
     }
@@ -66,11 +66,11 @@ public class XmlToHtml {
         return fileName.substring(0, fileName.lastIndexOf('.'));
     }
 
-    public void setXmlDoc(File xml) {
+    public void setXmlFile(File xml) {
         this.xml = xml;
     }
 
-    public void setXslDoc(File xsl) {
+    public void setXslFile(File xsl) {
         this.xsl = xsl;
     }
 
@@ -78,7 +78,7 @@ public class XmlToHtml {
         this.html = html;
     }
 
-    private void transform() {
+    public void transform() {
         if (xml != null && xsl != null && html != null) {
             transformXmlDoc(xml, xsl, html);
         }

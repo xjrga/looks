@@ -24,6 +24,7 @@ package org.xjrga.looks.software;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.File;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.JLabel;
@@ -42,8 +43,10 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private final DefaultTableModel model;
     private final DataTransfer transfer;
     private JTextField textFieldPaletteName;
+    private XmlToHtml xmlToHtml;
 
     public PaletteChooserPanel() {
+        xmlToHtml = new XmlToHtml();
         transfer = new DataTransfer();
         setLayout(new BorderLayout(10, 10));
         textFieldPaletteName = new JTextField();
@@ -106,8 +109,19 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));
     }
 
-    public void exportColorItems(String path) {
-        transfer.exportColors(textFieldPaletteName.getText(), model, path);
+    public void exportColorItems(File selectedFile) {
+        String selectedFileName = selectedFile.getName();
+        String selectedFilePath = selectedFile.getAbsolutePath();
+        String selectedFileParentPath = selectedFile.getParent();
+        transfer.exportColors(textFieldPaletteName.getText(), model, new StringBuilder(selectedFilePath).append(".xml").toString());
+        File xmlFile = new File(selectedFileParentPath, new StringBuilder(selectedFileName).append(".xml").toString());
+        File xslFile = new File("palettes", "style.xsl");
+        String xmlFileName = new StringBuilder(selectedFileName).append(".html").toString();
+        File htmlFile = new File(selectedFileParentPath, xmlFileName);
+        xmlToHtml.setXmlFile(xmlFile);
+        xmlToHtml.setXslFile(xslFile);
+        xmlToHtml.setHtmlFile(htmlFile);
+        xmlToHtml.transform();
     }
 
     public void importColorItems(String path) {
