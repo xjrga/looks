@@ -51,6 +51,16 @@
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <classpathLayoutType>simple</classpathLayoutType>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <addClasspath>true</addClasspath>
+                                <mainClass>org.xjrga.looks.software.PaletteViewer</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
@@ -99,6 +109,24 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>create-project</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>                                
+                                <descriptor>src/assembly/app.xml</descriptor>
+                            </descriptors>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>         

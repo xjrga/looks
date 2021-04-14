@@ -1,4 +1,4 @@
-package org.xjrga.looks.themes;
+package org.xjrga.looks.harmonic;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
