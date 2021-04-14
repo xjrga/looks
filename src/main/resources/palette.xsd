@@ -23,11 +23,11 @@
     </xsd:element>
     <!-- Color -->
     <xsd:complexType name="color_type">
-        <xsd:sequence>
-            <xsd:element name="hexcode" type="hex_color_code_type" minOccurs="1" maxOccurs="1"/>
+        <xsd:sequence>            
             <xsd:element name="red" type="red_type" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="green" type="green_type" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="blue" type="blue_type" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="blue" type="blue_type" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="hexcode" type="hex_color_code_type" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     <!-- Hex Color Code -->

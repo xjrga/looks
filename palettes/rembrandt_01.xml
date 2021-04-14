@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/palette.xsd">
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/src/main/resources/palette.xsd">
 <name>The Nightwatch by Rembrandt</name>
 <color>
 <red>10</red>
