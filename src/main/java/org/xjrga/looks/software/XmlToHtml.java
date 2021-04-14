@@ -53,8 +53,8 @@ public class XmlToHtml {
     public static void main(String[] args) {
         XmlToHtml xmlToHtml = new XmlToHtml();
         File xmlFile = new File("palettes", "raphael_01.xml");
-        File xslFile = new File("palettes", "style.xsl");        
         String xmlFileName = new StringBuilder(trimFileNameExtension(xmlFile.getName())).append(".html").toString();
+        File xslFile = new File("palettes", "style.xsl");
         File htmlFile = new File("html", xmlFileName);
         xmlToHtml.setXmlDoc(xmlFile);
         xmlToHtml.setXslDoc(xslFile);

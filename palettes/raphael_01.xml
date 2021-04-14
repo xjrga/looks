@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/src/main/resources/palette.xsd">
-<name>Saint Catherine of Alexandria by Raphael</name>
-<color>
-<red>252</red>
-<green>229</green>
-<blue>189</blue>
-<hexcode>fce5bd</hexcode>
-</color>
-<color>
-<red>107</red>
-<green>81</green>
-<blue>46</blue>
-<hexcode>6b512e</hexcode>
-</color>
-<color>
-<red>191</red>
-<green>51</green>
-<blue>34</blue>
-<hexcode>bf3322</hexcode>
-</color>
-<color>
-<red>101</red>
-<green>101</green>
-<blue>129</blue>
-<hexcode>656581</hexcode>
-</color>
-<color>
-<red>230</red>
-<green>164</green>
-<blue>90</blue>
-<hexcode>e6a45a</hexcode>
-</color>
+    <name>Saint Catherine of Alexandria by Raphael</name>
+    <color>
+        <red>252</red>
+        <green>229</green>
+        <blue>189</blue>
+        <hexcode>fce5bd</hexcode>
+    </color>
+    <color>
+        <red>107</red>
+        <green>81</green>
+        <blue>46</blue>
+        <hexcode>6b512e</hexcode>
+    </color>
+    <color>
+        <red>191</red>
+        <green>51</green>
+        <blue>34</blue>
+        <hexcode>bf3322</hexcode>
+    </color>
+    <color>
+        <red>101</red>
+        <green>101</green>
+        <blue>129</blue>
+        <hexcode>656581</hexcode>
+    </color>
+    <color>
+        <red>230</red>
+        <green>164</green>
+        <blue>90</blue>
+        <hexcode>e6a45a</hexcode>
+    </color>
 </palette>

@@ -27,20 +27,16 @@ import javax.swing.table.TableCellRenderer;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
+public class ColorRenderer extends JLabel implements TableCellRenderer {
 
-public class ColorRenderer extends JLabel implements TableCellRenderer
-{
-
-    public ColorRenderer()
-    {
+    public ColorRenderer() {
         super.setOpaque(true);
     }
-    
+
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
-    {        
-        super.setBackground((Color)value);        
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        super.setBackground((Color) value);
         return this;
     }
-    
+
 }

@@ -21,7 +21,7 @@ public class ColorGenerator {
      */
     public ColorGenerator(Color color) {
         hsbValues = new HsbValues(color);
-        hue = hsbValues.getHue();        
+        hue = hsbValues.getHue();
     }
 
     /**
@@ -52,7 +52,7 @@ public class ColorGenerator {
         float saturation = hsbValues.getSaturation();
         float brightness = hsbValues.getBrightness();
         return generateColor(newHue, saturation, brightness);
-    }    
+    }
 
     /**
      * Generates a new monochrome color from base color
@@ -62,7 +62,7 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColor(float saturation, float brightness) {        
+    public Color generateMonochromeColor(float saturation, float brightness) {
         return generateColor(hue, saturation, brightness);
     }
 
@@ -73,7 +73,7 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColorUsingSaturation(float saturation) {        
+    public Color generateMonochromeColorUsingSaturation(float saturation) {
         float brightness = hsbValues.getBrightness();
         return generateColor(hue, saturation, brightness);
     }
@@ -85,11 +85,11 @@ public class ColorGenerator {
      * @return a color
      * @see java.awt.Color
      */
-    public Color generateMonochromeColorUsingBrightness(float brightness) {        
+    public Color generateMonochromeColorUsingBrightness(float brightness) {
         float saturation = hsbValues.getSaturation();
         return generateColor(hue, saturation, brightness);
     }
-    
+
     public float getHue() {
         return hue;
     }

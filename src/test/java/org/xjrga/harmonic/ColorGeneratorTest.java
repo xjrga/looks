@@ -24,7 +24,7 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getGreen(), 0);
         Assert.assertEquals(color.getBlue(), 0);
     }
-    
+
     /**
      *
      */
@@ -37,7 +37,7 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getGreen(), 102);
         Assert.assertEquals(color.getBlue(), 102);
     }
-    
+
     /**
      *
      */
@@ -50,18 +50,18 @@ public class ColorGeneratorTest {
         Assert.assertEquals(color.getGreen(), 0);
         Assert.assertEquals(color.getBlue(), 0);
     }
-    
+
     /**
      *
      */
     @Test
     public void testGenerateMonochromeColor() {
         ColorGenerator colorGenerator = new ColorGenerator(new Color(255, 0, 0));
-        Color color = colorGenerator.generateMonochromeColor(75,75);
+        Color color = colorGenerator.generateMonochromeColor(75, 75);
         //Red,191,48,48
         Assert.assertEquals(color.getRed(), 191);
         Assert.assertEquals(color.getGreen(), 48);
         Assert.assertEquals(color.getBlue(), 48);
     }
-    
+
 }

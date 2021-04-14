@@ -24,5 +24,5 @@ public class ColorHarmonicTest {
         Assert.assertEquals(complementaryColor.getGreen(), 255);
         Assert.assertEquals(complementaryColor.getBlue(), 255);
     }
-       
+
 }

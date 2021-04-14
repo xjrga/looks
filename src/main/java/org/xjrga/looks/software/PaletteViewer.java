@@ -122,7 +122,7 @@ public class PaletteViewer {
         JButton previewPanelDeleteButton = new JButton("-");
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelExportButton = new JButton("Export");
-        JButton previewPanelImportButton = new JButton("Import");        
+        JButton previewPanelImportButton = new JButton("Import");
         previewPanelDeleteButton.setEnabled(false);
         previewPanelExportButton.setEnabled(false);
         previewPanelImportButton.setEnabled(false);
@@ -475,7 +475,7 @@ public class PaletteViewer {
             sb.append(path);
             sb.append(".xml");
             paletteChooserPanel.exportColorItems(sb.toString());
-            
+
         }
     }
 
@@ -489,6 +489,6 @@ public class PaletteViewer {
             fileChooser.setCurrentDirectory(new File(path));
             paletteChooserPanel.importColorItems(path);
         }
-    }    
-    
+    }
+
 }

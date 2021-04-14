@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/src/main/resources/palette.xsd">
-<name>Van Gogh’s “The Painter on the Road to Tarascon” (1888)</name>
-<color>
-<red>92</red>
-<green>140</green>
-<blue>78</blue>
-<hexcode>5c8c4e</hexcode>
-</color>
-<color>
-<red>135</red>
-<green>188</green>
-<blue>146</blue>
-<hexcode>87bc92</hexcode>
-</color>
-<color>
-<red>220</red>
-<green>173</green>
-<blue>59</blue>
-<hexcode>dcad3b</hexcode>
-</color>
-<color>
-<red>46</red>
-<green>136</green>
-<blue>170</blue>
-<hexcode>2e88aa</hexcode>
-</color>
-<color>
-<red>61</red>
-<green>67</green>
-<blue>53</blue>
-<hexcode>3d4335</hexcode>
-</color>
+    <name>Van Gogh’s “The Painter on the Road to Tarascon” (1888)</name>
+    <color>
+        <red>92</red>
+        <green>140</green>
+        <blue>78</blue>
+        <hexcode>5c8c4e</hexcode>
+    </color>
+    <color>
+        <red>135</red>
+        <green>188</green>
+        <blue>146</blue>
+        <hexcode>87bc92</hexcode>
+    </color>
+    <color>
+        <red>220</red>
+        <green>173</green>
+        <blue>59</blue>
+        <hexcode>dcad3b</hexcode>
+    </color>
+    <color>
+        <red>46</red>
+        <green>136</green>
+        <blue>170</blue>
+        <hexcode>2e88aa</hexcode>
+    </color>
+    <color>
+        <red>61</red>
+        <green>67</green>
+        <blue>53</blue>
+        <hexcode>3d4335</hexcode>
+    </color>
 </palette>

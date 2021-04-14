@@ -89,7 +89,7 @@ public class ColorHarmonic {
         left.add(harmonic135);
         left.add(harmonic150);
         left.add(harmonic165);
-        left.add(harmonic180);                
+        left.add(harmonic180);
         //right (counter-clockwise)
         right.add(harmonic0);
         right.add(harmonic345);
@@ -102,7 +102,7 @@ public class ColorHarmonic {
         right.add(harmonic240);
         right.add(harmonic225);
         right.add(harmonic210);
-        right.add(harmonic195);     
+        right.add(harmonic195);
         right.add(harmonic180);
         //top (clockwise)
         top.add(harmonic90);
@@ -131,7 +131,7 @@ public class ColorHarmonic {
         bottom.add(harmonic315);
         bottom.add(harmonic300);
         bottom.add(harmonic285);
-        bottom.add(harmonic270);       
+        bottom.add(harmonic270);
         //left.sort(new HarmonicColorComparator());
         //right.sort(new HarmonicColorComparator());
         this.color = color;
@@ -146,7 +146,7 @@ public class ColorHarmonic {
     public Color getBaseColor() {
         return color;
     }
-    
+
     /**
      * Returns first analogous color with respect to base color
      *
@@ -380,15 +380,15 @@ public class ColorHarmonic {
     public Iterator<HarmonicColor> getLeftIterator() {
         return left.iterator();
     }
-    
+
     public Iterator<HarmonicColor> getRightIterator() {
         return right.iterator();
     }
-    
+
     public Iterator<HarmonicColor> getTopIterator() {
         return top.iterator();
     }
-    
+
     public Iterator<HarmonicColor> getBottomIterator() {
         return bottom.iterator();
     }

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="file:/home/jr/Project/Queued/Looks/src/main/resources/palette.xsd">
-<name>The Scream by Edvard Munch</name>
-<color>
-<red>208</red>
-<green>64</green>
-<blue>10</blue>
-<hexcode>d0400a</hexcode>
-</color>
-<color>
-<red>30</red>
-<green>53</green>
-<blue>57</blue>
-<hexcode>1e3539</hexcode>
-</color>
-<color>
-<red>126</red>
-<green>113</green>
-<blue>75</blue>
-<hexcode>7e714b</hexcode>
-</color>
-<color>
-<red>184</red>
-<green>162</green>
-<blue>96</blue>
-<hexcode>b8a260</hexcode>
-</color>
-<color>
-<red>219</red>
-<green>119</green>
-<blue>16</blue>
-<hexcode>db7710</hexcode>
-</color>
+    <name>The Scream by Edvard Munch</name>
+    <color>
+        <red>208</red>
+        <green>64</green>
+        <blue>10</blue>
+        <hexcode>d0400a</hexcode>
+    </color>
+    <color>
+        <red>30</red>
+        <green>53</green>
+        <blue>57</blue>
+        <hexcode>1e3539</hexcode>
+    </color>
+    <color>
+        <red>126</red>
+        <green>113</green>
+        <blue>75</blue>
+        <hexcode>7e714b</hexcode>
+    </color>
+    <color>
+        <red>184</red>
+        <green>162</green>
+        <blue>96</blue>
+        <hexcode>b8a260</hexcode>
+    </color>
+    <color>
+        <red>219</red>
+        <green>119</green>
+        <blue>16</blue>
+        <hexcode>db7710</hexcode>
+    </color>
 </palette>

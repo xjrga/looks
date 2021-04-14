@@ -23,16 +23,17 @@ import java.awt.Color;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
-public class TableModelColor extends DefaultTableModel {    
-    private Vector columns;    
+public class TableModelColor extends DefaultTableModel {
 
-    public TableModelColor() {        
+    private Vector columns;
+
+    public TableModelColor() {
         this.setColumnIdentifiers();
     }
 
     private void setColumnIdentifiers() {
         columns = new Vector();
-        columns.add("Color");         
+        columns.add("Color");
         this.setColumnIdentifiers(columns);
     }
 
@@ -40,12 +41,12 @@ public class TableModelColor extends DefaultTableModel {
         Class returnValue = Object.class;
         if (i == 0) {
             returnValue = Color.class;
-        } 
+        }
         return returnValue;
     }
 
     @Override
     public boolean isCellEditable(int i, int i1) {
         return false;
-    }    
+    }
 }

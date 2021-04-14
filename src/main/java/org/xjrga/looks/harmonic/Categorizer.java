@@ -58,7 +58,7 @@ public class Categorizer {
 
         return side;
     }
-    
+
     public String getColorPositionTB() {
 
         String side;

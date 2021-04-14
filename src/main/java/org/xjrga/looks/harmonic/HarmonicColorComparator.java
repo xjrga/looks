@@ -30,7 +30,7 @@ public class HarmonicColorComparator implements Comparator<HarmonicColor> {
     }
 
     @Override
-    public int compare(HarmonicColor o1, HarmonicColor o2) {        
+    public int compare(HarmonicColor o1, HarmonicColor o2) {
         float angle1 = o1.getAngleChange();
         float angle2 = o2.getAngleChange();
         if (angle1 < angle2) {

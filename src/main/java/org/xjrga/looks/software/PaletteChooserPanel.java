@@ -44,16 +44,16 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTextField textFieldPaletteName;
 
     public PaletteChooserPanel() {
-        transfer = new DataTransfer();        
-        setLayout(new BorderLayout(10,10));
+        transfer = new DataTransfer();
+        setLayout(new BorderLayout(10, 10));
         textFieldPaletteName = new JTextField();
-        panelResult = new JPanel();        
+        panelResult = new JPanel();
         textFieldPaletteName.setPreferredSize(new Dimension(375, 28));
-        add(panelResult,BorderLayout.CENTER);
-        JPanel textFieldPanel = new JPanel();        
+        add(panelResult, BorderLayout.CENTER);
+        JPanel textFieldPanel = new JPanel();
         textFieldPanel.add(new JLabel("Palette: "));
         textFieldPanel.add(textFieldPaletteName);
-        add(textFieldPanel,BorderLayout.SOUTH);
+        add(textFieldPanel, BorderLayout.SOUTH);
         table = new JTable();
         model = new TableModelColor();
         table.setModel(model);
