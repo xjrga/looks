@@ -31,11 +31,15 @@ import javax.xml.transform.stream.StreamSource;
  */
 public class XmlToHtml {
 
-    private void transformXmlDoc(String xml, String xsl) {
+    private String xml;
+    private String xsl;
+    private String html;
+
+    private void transformXmlDoc(String xml, String xsl, String file) {
         try {
             TransformerFactory tfactory = TransformerFactory.newInstance();
             Transformer transformer = tfactory.newTransformer(new StreamSource(xsl));
-            transformer.transform(new StreamSource(xml), new StreamResult(new File("palette.html")));
+            transformer.transform(new StreamSource(xml), new StreamResult(new File(file)));
         } catch (Exception ex) {
             Logger.getLogger(XmlToHtml.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -44,6 +48,25 @@ public class XmlToHtml {
 
     public static void main(String[] args) {
         XmlToHtml xmlToHtml = new XmlToHtml();
-        xmlToHtml.transformXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml", "/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
+        xmlToHtml.setXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml");
+        xmlToHtml.setXslDoc("/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
+        xmlToHtml.setHtmlFile("palete.html");
+        xmlToHtml.transform();
+    }
+
+    public void setXmlDoc(String xml) {
+        this.xml = xml;
+    }
+
+    public void setXslDoc(String xsl) {
+        this.xsl = xsl;
+    }
+
+    public void setHtmlFile(String html) {
+        this.html = html;
+    }
+
+    private void transform() {
+        transformXmlDoc(xml, xsl, html);
     }
 }
