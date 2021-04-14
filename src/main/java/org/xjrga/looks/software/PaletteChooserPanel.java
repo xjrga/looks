@@ -117,8 +117,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         //name.xml
         String selectedFileName = selectedFile.getName();
         //name
-        //check for extension
-        String selectedFileNameNoExtension = selectedFileName.substring(0, selectedFileName.lastIndexOf('.'));
+        String selectedFileNameNoExtension = XmlToHtml.trimFileNameExtension(selectedFileName);
         //name.html
         String htmlFileName = new StringBuilder(selectedFileNameNoExtension).append(".html").toString();
         //

@@ -63,7 +63,15 @@ public class XmlToHtml {
     }
 
     public static String trimFileNameExtension(String fileName) {
-        return fileName.substring(0, fileName.lastIndexOf('.'));
+
+        String noExtensionFileName = "";
+
+        if (fileName.contains(".")) {
+            noExtensionFileName = fileName.substring(0, fileName.lastIndexOf('.'));
+        } else {
+            noExtensionFileName = fileName;
+        }
+        return noExtensionFileName;
     }
 
     public void setXmlFile(File xml) {
