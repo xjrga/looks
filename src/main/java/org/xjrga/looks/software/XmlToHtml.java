@@ -62,7 +62,7 @@ public class XmlToHtml {
         xmlToHtml.transform();
     }
 
-    private static String trimFileNameExtension(String fileName) {
+    public static String trimFileNameExtension(String fileName) {
         return fileName.substring(0, fileName.lastIndexOf('.'));
     }
 
