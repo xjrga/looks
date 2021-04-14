@@ -110,19 +110,21 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     }
 
     public void exportColorItems(File selectedFile) {
-        //path/name.xml
-        String selectedFilePath = selectedFile.getAbsolutePath();
         //path
         String selectedFileParentPath = selectedFile.getParent();
-        //name.xml
+        //name.xml or name
         String selectedFileName = selectedFile.getName();
         //name
         String selectedFileNameNoExtension = XmlToHtml.trimFileNameExtension(selectedFileName);
+        //name.xml
+        String xmlFileName = new StringBuilder(selectedFileNameNoExtension).append(".xml").toString();
         //name.html
         String htmlFileName = new StringBuilder(selectedFileNameNoExtension).append(".html").toString();
+        //path/name.xml
+        String selectedFilePath = new StringBuilder(selectedFileParentPath).append(File.separator).append(xmlFileName).toString();
         //
         transfer.exportColors(textFieldPaletteName.getText(), model, selectedFilePath);
-        File xmlFile = new File(selectedFileParentPath, selectedFileName);
+        File xmlFile = new File(selectedFileParentPath, xmlFileName);
         File xslFile = new File("palettes", "style.xsl");
         File htmlFile = new File(selectedFileParentPath, htmlFileName);
         xmlToHtml.setXmlFile(xmlFile);
