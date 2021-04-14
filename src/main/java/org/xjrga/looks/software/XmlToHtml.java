@@ -35,7 +35,7 @@ public class XmlToHtml {
     private File xsl;
     private File html;
 
-    public XmlToHtml() {       
+    public XmlToHtml() {
 
     }
 
@@ -52,14 +52,18 @@ public class XmlToHtml {
 
     public static void main(String[] args) {
         XmlToHtml xmlToHtml = new XmlToHtml();
-        File xml = new File("palettes", "raphael_01.xml");
-        String xmlDocName = xml.getName();
-        File xsl = new File("palettes", "style.xsl");
-        File html = new File("html", xmlDocName.substring(0, xmlDocName.lastIndexOf('.')) + ".html");
-        xmlToHtml.setXmlDoc(xml);
-        xmlToHtml.setXslDoc(xsl);
-        xmlToHtml.setHtmlFile(html);
+        File xmlFile = new File("palettes", "raphael_01.xml");
+        File xslFile = new File("palettes", "style.xsl");        
+        String xmlFileName = new StringBuilder(trimFileNameExtension(xmlFile.getName())).append(".html").toString();
+        File htmlFile = new File("html", xmlFileName);
+        xmlToHtml.setXmlDoc(xmlFile);
+        xmlToHtml.setXslDoc(xslFile);
+        xmlToHtml.setHtmlFile(htmlFile);
         xmlToHtml.transform();
+    }
+
+    private static String trimFileNameExtension(String fileName) {
+        return fileName.substring(0, fileName.lastIndexOf('.'));
     }
 
     public void setXmlDoc(File xml) {
@@ -77,6 +81,6 @@ public class XmlToHtml {
     private void transform() {
         if (xml != null && xsl != null && html != null) {
             transformXmlDoc(xml, xsl, html);
-        } 
-    }    
+        }
+    }
 }
