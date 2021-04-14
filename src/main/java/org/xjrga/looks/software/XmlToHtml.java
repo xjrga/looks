@@ -29,21 +29,21 @@ import javax.xml.transform.stream.StreamSource;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class Transform {
+public class XmlToHtml {
 
-    public static void transformXmlDoc(String xml, String xsl) {
-        //exampleSimple2("data/books.xml", "styles/books.xsl");
+    private void transformXmlDoc(String xml, String xsl) {
         try {
             TransformerFactory tfactory = TransformerFactory.newInstance();
             Transformer transformer = tfactory.newTransformer(new StreamSource(xsl));
             transformer.transform(new StreamSource(xml), new StreamResult(new File("palette.html")));
         } catch (Exception ex) {
-            Logger.getLogger(Transform.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XmlToHtml.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public static void main(String[] args) {
-        Transform.transformXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml", "/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
-    }    
+        XmlToHtml xmlToHtml = new XmlToHtml();
+        xmlToHtml.transformXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml", "/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
+    }
 }
