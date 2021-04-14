@@ -24,4 +24,5 @@ package org.xjrga.harmonic;
 public class Notes {
 //todo refactor
 //todo test
+//todo add tooltips
 }
