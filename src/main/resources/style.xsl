@@ -21,7 +21,7 @@
             </head>                   
             <body>
                 <xsl:for-each select="palette/color">
-                    <H1>                        
+                    <h1>                        
                         <xsl:attribute name="style">
                             <xsl:text>background-color:rgb(</xsl:text>                            
                             <xsl:text>
@@ -38,10 +38,12 @@
                             <xsl:text>);</xsl:text>
                         </xsl:attribute>
                         <xsl:value-of select="hexcode"/>
-                    </H1>              
+                    </h1>              
                 </xsl:for-each>
                 <xsl:for-each select="palette">
-                    <xsl:value-of select="name"/>
+                    <h1>
+                        <xsl:value-of select="name"/>
+                    </h1>                    
                 </xsl:for-each>
             </body>
         </html>
