@@ -31,15 +31,19 @@ import javax.xml.transform.stream.StreamSource;
  */
 public class XmlToHtml {
 
-    private String xml;
-    private String xsl;
-    private String html;
+    private File xml;
+    private File xsl;
+    private File html;
 
-    private void transformXmlDoc(String xml, String xsl, String file) {
+    public XmlToHtml() {       
+
+    }
+
+    private void transformXmlDoc(File xml, File xsl, File html) {
         try {
             TransformerFactory tfactory = TransformerFactory.newInstance();
             Transformer transformer = tfactory.newTransformer(new StreamSource(xsl));
-            transformer.transform(new StreamSource(xml), new StreamResult(new File(file)));
+            transformer.transform(new StreamSource(xml), new StreamResult(html));
         } catch (Exception ex) {
             Logger.getLogger(XmlToHtml.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,25 +52,31 @@ public class XmlToHtml {
 
     public static void main(String[] args) {
         XmlToHtml xmlToHtml = new XmlToHtml();
-        xmlToHtml.setXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml");
-        xmlToHtml.setXslDoc("/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
-        xmlToHtml.setHtmlFile("palette.html");
+        File xml = new File("palettes", "raphael_01.xml");
+        String xmlDocName = xml.getName();
+        File xsl = new File("palettes", "style.xsl");
+        File html = new File("html", xmlDocName.substring(0, xmlDocName.lastIndexOf('.')) + ".html");
+        xmlToHtml.setXmlDoc(xml);
+        xmlToHtml.setXslDoc(xsl);
+        xmlToHtml.setHtmlFile(html);
         xmlToHtml.transform();
     }
 
-    public void setXmlDoc(String xml) {
+    public void setXmlDoc(File xml) {
         this.xml = xml;
     }
 
-    public void setXslDoc(String xsl) {
+    public void setXslDoc(File xsl) {
         this.xsl = xsl;
     }
 
-    public void setHtmlFile(String html) {
+    public void setHtmlFile(File html) {
         this.html = html;
     }
 
     private void transform() {
-        transformXmlDoc(xml, xsl, html);
-    }
+        if (xml != null && xsl != null && html != null) {
+            transformXmlDoc(xml, xsl, html);
+        } 
+    }    
 }
