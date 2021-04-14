@@ -50,7 +50,7 @@ public class XmlToHtml {
         XmlToHtml xmlToHtml = new XmlToHtml();
         xmlToHtml.setXmlDoc("/home/jr/Project/Queued/Looks/palettes/raphael_01.xml");
         xmlToHtml.setXslDoc("/home/jr/Project/Queued/Looks/src/main/resources/style.xsl");
-        xmlToHtml.setHtmlFile("palete.html");
+        xmlToHtml.setHtmlFile("palette.html");
         xmlToHtml.transform();
     }
 
