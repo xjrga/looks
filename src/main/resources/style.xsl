@@ -23,6 +23,12 @@
 		    html {        
 		    background-color:rgb(0, 0, 0);    
 		    }
+		    body {
+		    margin-top: 50px;
+		    margin-bottom: 50px;
+		    margin-left: 50px;
+		    margin-right: 50px;		    	
+		    }
 		    div {
 		    text-align: center;
 		    max-width: 500px;
