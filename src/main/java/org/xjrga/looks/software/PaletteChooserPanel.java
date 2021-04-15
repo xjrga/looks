@@ -27,8 +27,6 @@ import java.awt.Dimension;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -127,40 +125,13 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         String selectedFilePath = new StringBuilder(selectedFileParentPath).append(File.separator).append(xmlFileName).toString();
         //
         transfer.exportColors(textFieldPaletteName.getText(), model, selectedFilePath);
-        try {
-            //java.io.FileNotFoundException: /home/jr/Software/looks-01/
-            //file:/home/jr/Software/looks-01/looks-01.jar!/style.xsl (No such file or directory)
-            //InputStream inputStream = this.getClass().getResourceAsStream("/style");
-            //FileReader f = new FileReader(new File(getClass().getResource("/style.xsl").toURI()));
-            //URL url = new URL(getClass().getResource("/style.xsl").getPath());
-            //System.out.println("File: "+url.getFile());
-            //java.net.MalformedURLException: no protocol: /home/jr/Project/Queued/Looks/target/classes/style.xsl
-            //System.out.println("Path: " + url.getPath());
-            //java.net.MalformedURLException: no protocol: /home/jr/Project/Queued/Looks/target/classes/style.xsl
-            //File xslFile = new File(getClass().getResource("/style.xsl").toURI());
-            //java.lang.IllegalArgumentException: URI is not hierarchical
-            //InputStream in = ClassLoader.getSystemClassLoader().getResourceAsStream("/style.xsl");
-            InputStream in = getClass().getResourceAsStream("/style.xsl");
-            //BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            //File xslFile = File.createTempFile(String.valueOf(in.hashCode()), ".tmp");
-            //xslFile.deleteOnExit();
-//            String line;
-//            while((line = reader.readLine())!=null){
-//                System.out.println(line);
-//                //reader.toString();
-//                //reader.transferTo(out)
-//            }
-            File xmlFile = new File(selectedFileParentPath, xmlFileName);
-            //File xslFile = new File(getClass().getResource("/style.xsl").getPath());
-            File htmlFile = new File(selectedFileParentPath, htmlFileName);
-            xmlToHtml.setXmlFile(xmlFile);
-            xmlToHtml.setXslFile(in);
-            xmlToHtml.setHtmlFile(htmlFile);
-            xmlToHtml.transform();
-        } catch (Exception ex) {
-            Logger.getLogger(PaletteChooserPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        InputStream xslStream = getClass().getResourceAsStream("/style.xsl");
+        File xmlFile = new File(selectedFileParentPath, xmlFileName);
+        File htmlFile = new File(selectedFileParentPath, htmlFileName);
+        xmlToHtml.setXmlFile(xmlFile);
+        xmlToHtml.setXslStream(xslStream);
+        xmlToHtml.setHtmlFile(htmlFile);
+        xmlToHtml.transform();
     }
 
     public void importColorItems(String path) {

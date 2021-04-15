@@ -67,7 +67,7 @@ public class XmlToHtml {
         this.xml = xml;
     }
 
-    public void setXslFile(InputStream xsl) {
+    public void setXslStream(InputStream xsl) {
         this.xsl = xsl;
     }
 
