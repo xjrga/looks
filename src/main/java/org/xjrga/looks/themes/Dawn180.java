@@ -75,11 +75,12 @@ public class Dawn180 extends MetalTheme {
 
     /**
      * Theme constructor
-     *
+     * 
+     * @param font the font
+     * @see java.awt.Font
      */
-    public Dawn180() {
-        //fontUIResource = new FontUIResource(font);
-        fontUIResource = new FontUIResource(Font.DIALOG, Font.PLAIN, 12);
+    public Dawn180(Font font) {
+        fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
         color01 = colorHarmonic01.getBaseColor();

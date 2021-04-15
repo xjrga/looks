@@ -22,6 +22,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.WindowAdapter;
@@ -424,7 +425,8 @@ public class PaletteViewer {
 
     public static void main(String[] args) {
         try {
-            MetalLookAndFeel.setCurrentTheme(new Dawn180());
+            Font font = new Font(Font.DIALOG, Font.PLAIN, 12);
+            MetalLookAndFeel.setCurrentTheme(new Dawn180(font));
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }

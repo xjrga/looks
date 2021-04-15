@@ -76,9 +76,11 @@ public class Dawn120 extends MetalTheme {
     /**
      * Theme constructor
      *
+     * @param font the font
+     * @see java.awt.Font
      */
-    public Dawn120() {
-        fontUIResource = new FontUIResource(Font.DIALOG, Font.PLAIN, 12);
+    public Dawn120(Font font) {
+        fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new ColorHarmonic(new Color(58, 127, 184));
         colorGenerator = new ColorGenerator(new Color(94, 98, 101));
         color01 = colorHarmonic01.getBaseColor();
