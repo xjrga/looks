@@ -82,8 +82,7 @@ public class PaletteViewer {
     public PaletteViewer() {
         fileChooser = new JFileChooser();
         frame = new JFrame("Palette Viewer");
-        //todo icon does not show
-        Image image = new ImageIcon(this.getClass().getResource("/jrga_48.png")).getImage();
+        Image image = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
         frame.setIconImage(image);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         colorChooser = new JColorChooser();
