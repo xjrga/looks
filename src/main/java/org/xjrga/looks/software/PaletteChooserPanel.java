@@ -125,7 +125,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         //
         transfer.exportColors(textFieldPaletteName.getText(), model, selectedFilePath);
         File xmlFile = new File(selectedFileParentPath, xmlFileName);
-        File xslFile = new File("palettes", "style.xsl");
+        File xslFile = new File(getClass().getResource("/style.xsl").getFile());
         File htmlFile = new File(selectedFileParentPath, htmlFileName);
         xmlToHtml.setXmlFile(xmlFile);
         xmlToHtml.setXslFile(xslFile);
