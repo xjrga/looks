@@ -25,5 +25,5 @@ public class Notes {
 //todo refactor
 //todo test
 //todo add tooltips
-//todo put app on a jscrollpane
+//todo my face as icon
 }
