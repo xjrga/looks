@@ -47,30 +47,36 @@
 	    </head>                   
 	    <body>
 		<div>
-		<xsl:for-each select="palette/color">		   
-		    <div>
-			<xsl:attribute name="id">
-			    <xsl:text>margin</xsl:text>
-			</xsl:attribute>
-			<xsl:attribute name="style">
-			    <xsl:text>background-color:rgb(</xsl:text>
-			    <xsl:text><xsl:value-of select="red"/></xsl:text>
-			    <xsl:text>,</xsl:text>
-			    <xsl:text><xsl:value-of select="green"/></xsl:text>
-			    <xsl:text>,</xsl:text>
-			    <xsl:text><xsl:value-of select="blue"/></xsl:text>
-			    <xsl:text>);</xsl:text>
-			</xsl:attribute>
-			<xsl:value-of select="hexcode"/>
-		    </div>		    
-		</xsl:for-each> 
-		<xsl:for-each select="palette">		    
-		    <div>
-			<xsl:attribute name="id">
-                        <xsl:text>name</xsl:text>
-			</xsl:attribute>Palette: <xsl:value-of select="name"/>
-		    </div>
-		</xsl:for-each>
+		    <xsl:for-each select="palette/color">		   
+			<div>
+			    <xsl:attribute name="id">
+				<xsl:text>margin</xsl:text>
+			    </xsl:attribute>
+			    <xsl:attribute name="style">
+				<xsl:text>background-color:rgb(</xsl:text>
+				<xsl:text>
+				    <xsl:value-of select="red"/>
+				</xsl:text>
+				<xsl:text>,</xsl:text>
+				<xsl:text>
+				    <xsl:value-of select="green"/>
+				</xsl:text>
+				<xsl:text>,</xsl:text>
+				<xsl:text>
+				    <xsl:value-of select="blue"/>
+				</xsl:text>
+				<xsl:text>);</xsl:text>
+			    </xsl:attribute>
+			    <xsl:value-of select="hexcode"/>
+			</div>		    
+		    </xsl:for-each> 
+		    <xsl:for-each select="palette">		    
+			<div>
+			    <xsl:attribute name="id">
+				<xsl:text>name</xsl:text>
+			    </xsl:attribute>Palette: <xsl:value-of select="name"/>
+			</div>
+		    </xsl:for-each>
 		</div>
 	    </body>
 	</html>
