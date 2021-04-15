@@ -156,7 +156,9 @@ public class PaletteViewer {
         JSplitPane jSplitPane = new JSplitPane();
         jSplitPane.add(colorChooser, JSplitPane.TOP);
         jSplitPane.add(panel01, JSplitPane.BOTTOM);
-        frame.setContentPane(jSplitPane);
+        JPanel mainPanel = new JPanel();
+        mainPanel.add(jSplitPane);
+        frame.setContentPane(new JScrollPane(mainPanel));
         frame.setMinimumSize(new Dimension(760, 635));
         frame.setPreferredSize(new Dimension(1496, 635));
         frame.pack();
