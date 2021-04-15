@@ -82,7 +82,7 @@ public class PaletteViewer {
     public PaletteViewer() {
         fileChooser = new JFileChooser();
         frame = new JFrame("Palette Viewer");
-        Image image = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
+        Image image = new ImageIcon(getClass().getResource("/logo.png")).getImage();
         frame.setIconImage(image);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         colorChooser = new JColorChooser();
