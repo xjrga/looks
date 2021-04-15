@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 public class TheFont {
 
     private Font font;
+    private float size = 13f;
 
     /**
      *
@@ -24,6 +26,19 @@ public class TheFont {
     public TheFont(String path, float size) {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(size);
+            this.size = size;
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(TheFont.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     *
+     * @param fontStream InputStream
+     */
+    public TheFont(InputStream fontStream) {
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(size);
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TheFont.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -36,6 +51,10 @@ public class TheFont {
      */
     public Font getFont() {
         return font;
+    }
+
+    public void setSize(float size) {
+        this.size = size;
     }
 
 }
