@@ -18,6 +18,7 @@
 package org.xjrga.looks.software;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.Transformer;
@@ -32,14 +33,14 @@ import javax.xml.transform.stream.StreamSource;
 public class XmlToHtml {
 
     private File xml;
-    private File xsl;
+    private InputStream xsl;
     private File html;
 
     public XmlToHtml() {
 
     }
 
-    private void transformXmlDoc(File xml, File xsl, File html) {
+    private void transformXmlDoc(File xml, InputStream xsl, File html) {
         try {
             TransformerFactory tfactory = TransformerFactory.newInstance();
             Transformer transformer = tfactory.newTransformer(new StreamSource(xsl));
@@ -66,7 +67,7 @@ public class XmlToHtml {
         this.xml = xml;
     }
 
-    public void setXslFile(File xsl) {
+    public void setXslFile(InputStream xsl) {
         this.xsl = xsl;
     }
 
