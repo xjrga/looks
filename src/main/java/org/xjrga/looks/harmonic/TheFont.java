@@ -20,13 +20,18 @@ public class TheFont {
 
     /**
      *
-     * @param path Path to truetype font
-     * @param size Font size
+     *
      */
-    public TheFont(String path, float size) {
+    public TheFont(){
+    }
+
+    /**
+     *
+     * @param path Path to truetype font
+     */
+    public void setFontFilePath(String path) {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(size);
-            this.size = size;
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TheFont.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -36,7 +41,7 @@ public class TheFont {
      *
      * @param fontStream InputStream
      */
-    public TheFont(InputStream fontStream) {
+    public void setFontFileStream(InputStream fontStream) {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(size);
         } catch (FontFormatException | IOException ex) {
