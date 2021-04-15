@@ -25,5 +25,4 @@ public class Notes {
 //todo refactor
 //todo test
 //todo add tooltips
-//todo my face as icon
 }
