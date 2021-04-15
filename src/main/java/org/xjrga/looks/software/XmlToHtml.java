@@ -50,18 +50,6 @@ public class XmlToHtml {
 
     }
 
-    public static void main(String[] args) {
-        XmlToHtml xmlToHtml = new XmlToHtml();
-        File xmlFile = new File("palettes", "raphael_01.xml");
-        String xmlFileName = new StringBuilder(trimFileNameExtension(xmlFile.getName())).append(".html").toString();
-        File xslFile = new File("palettes", "style.xsl");
-        File htmlFile = new File("html", xmlFileName);
-        xmlToHtml.setXmlFile(xmlFile);
-        xmlToHtml.setXslFile(xslFile);
-        xmlToHtml.setHtmlFile(htmlFile);
-        xmlToHtml.transform();
-    }
-
     public static String trimFileNameExtension(String fileName) {
 
         String noExtensionFileName = "";
