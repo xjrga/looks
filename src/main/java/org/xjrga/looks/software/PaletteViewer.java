@@ -31,8 +31,6 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -322,33 +320,33 @@ public class PaletteViewer {
                     public void run() {
                         LineBorder labelLineBorder = new LineBorder(borderColor, 2);
                         Component[] componentsOriginal = panelOriginal.getComponents();
-                        for (int i = 0; i < componentsOriginal.length; i++) {
-                            if (componentsOriginal[i] instanceof JLabel) {
-                                ((JLabel) componentsOriginal[i]).setBorder(labelLineBorder);
+                        for (Component component : componentsOriginal) {
+                            if (component instanceof JLabel) {
+                                ((JLabel) component).setBorder(labelLineBorder);
                             }
                         }
                         Component[] componentsTop = panelColorsTop.getComponents();
-                        for (int i = 0; i < componentsTop.length; i++) {
-                            if (componentsTop[i] instanceof JLabel) {
-                                ((JLabel) componentsTop[i]).setBorder(labelLineBorder);
+                        for (Component component : componentsTop) {
+                            if (component instanceof JLabel) {
+                                ((JLabel) component).setBorder(labelLineBorder);
                             }
                         }
                         Component[] componentsBottom = panelColorsBottom.getComponents();
-                        for (int i = 0; i < componentsBottom.length; i++) {
-                            if (componentsBottom[i] instanceof JLabel) {
-                                ((JLabel) componentsBottom[i]).setBorder(labelLineBorder);
+                        for (Component component : componentsBottom) {
+                            if (component instanceof JLabel) {
+                                ((JLabel) component).setBorder(labelLineBorder);
                             }
                         }
                         Component[] componentsLeft = panelColorsLeft.getComponents();
-                        for (int i = 0; i < componentsLeft.length; i++) {
-                            if (componentsLeft[i] instanceof JLabel) {
-                                ((JLabel) componentsLeft[i]).setBorder(labelLineBorder);
+                        for (Component component : componentsLeft) {
+                            if (component instanceof JLabel) {
+                                ((JLabel) component).setBorder(labelLineBorder);
                             }
                         }
                         Component[] componentsRight = panelColorsRight.getComponents();
-                        for (int i = 0; i < componentsRight.length; i++) {
-                            if (componentsRight[i] instanceof JLabel) {
-                                ((JLabel) componentsRight[i]).setBorder(labelLineBorder);
+                        for (Component component : componentsRight) {
+                            if (component instanceof JLabel) {
+                                ((JLabel) component).setBorder(labelLineBorder);
                             }
                         }
                         frame.repaint();
@@ -370,13 +368,12 @@ public class PaletteViewer {
         previewPanelImportButton.addActionListener(e -> event_importColorItems());
 
         Component[] componentsColorChooser = colorChooser.getComponents();
-        for (int i = 0; i < componentsColorChooser.length; i++) {
-            if (componentsColorChooser[i] instanceof JTabbedPane) {
-                chooserTabbedPane = (JTabbedPane) componentsColorChooser[i];
+        for (Component component : componentsColorChooser) {
+            if (component instanceof JTabbedPane) {
+                chooserTabbedPane = (JTabbedPane) component;
             }
         }
         chooserTabbedPane.addChangeListener((ChangeEvent e) -> {
-            System.out.println(frame.getSize());
             switch (chooserTabbedPane.getSelectedIndex()) {
                 case 0:
                     previewPanelClearButton.setEnabled(true);
@@ -453,8 +450,7 @@ public class PaletteViewer {
                     for (int i = 0; i < 35; i++) {
                         recentColorMethod.invoke(recentPanel, new Color(95, 99, 102));
                     }
-                } catch (Exception ex) {
-                    Logger.getLogger(PaletteViewer.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception e) {
                 }
                 break;
             }
