@@ -75,10 +75,10 @@ public class PaletteViewer {
     private Color borderColor;
     private Color fontColor;
     private Color backgroundColor;
-    private PaletteChooserPanel paletteChooserPanel;
+    private final PaletteChooserPanel paletteChooserPanel;
     private JColorChooser colorChooser;
     private JTabbedPane chooserTabbedPane;
-    private JFileChooser fileChooser;
+    private final JFileChooser fileChooser;
 
     public PaletteViewer() {
         fileChooser = new JFileChooser();
@@ -187,33 +187,33 @@ public class PaletteViewer {
                         ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
                         ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
                         Component[] componentsOriginal = panelOriginal.getComponents();
-                        for (int i = 0; i < componentsOriginal.length; i++) {
-                            if (componentsOriginal[i] instanceof JLabel) {
-                                componentsOriginal[i].setForeground(fontColor);
+                        for (Component component : componentsOriginal) {
+                            if (component instanceof JLabel) {
+                                component.setForeground(fontColor);
                             }
                         }
                         Component[] componentsLeft = panelColorsLeft.getComponents();
-                        for (int i = 0; i < componentsLeft.length; i++) {
-                            if (componentsLeft[i] instanceof JLabel) {
-                                componentsLeft[i].setForeground(fontColor);
+                        for (Component component : componentsLeft) {
+                            if (component instanceof JLabel) {
+                                component.setForeground(fontColor);
                             }
                         }
                         Component[] componentsRight = panelColorsRight.getComponents();
-                        for (int i = 0; i < componentsRight.length; i++) {
-                            if (componentsRight[i] instanceof JLabel) {
-                                componentsRight[i].setForeground(fontColor);
+                        for (Component component : componentsRight) {
+                            if (component instanceof JLabel) {
+                                component.setForeground(fontColor);
                             }
                         }
                         Component[] componentsTop = panelColorsTop.getComponents();
-                        for (int i = 0; i < componentsTop.length; i++) {
-                            if (componentsTop[i] instanceof JLabel) {
-                                componentsTop[i].setForeground(fontColor);
+                        for (Component component : componentsTop) {
+                            if (component instanceof JLabel) {
+                                component.setForeground(fontColor);
                             }
                         }
                         Component[] componentsBottom = panelColorsBottom.getComponents();
-                        for (int i = 0; i < componentsBottom.length; i++) {
-                            if (componentsBottom[i] instanceof JLabel) {
-                                componentsBottom[i].setForeground(fontColor);
+                        for (Component component : componentsBottom) {
+                            if (component instanceof JLabel) {
+                                component.setForeground(fontColor);
                             }
                         }
                         frame.repaint();
