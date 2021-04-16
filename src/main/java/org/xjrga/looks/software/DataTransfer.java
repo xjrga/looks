@@ -68,7 +68,7 @@ public class DataTransfer {
             writer.add(event);
             event = eventFactory.createAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
             writer.add(event);
-            event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:/home/jr/Project/Queued/Looks/palette.xsd");
+            event = eventFactory.createAttribute("xsd:noNamespaceSchemaLocation", "file:palette.xsd");
             writer.add(event);
             event = eventFactory.createSpace("\n");
             writer.add(event);
