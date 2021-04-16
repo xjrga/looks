@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="palette.xsd">
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://raw.githubusercontent.com/x-jrga/schemas/main/palette.xsd">
     <name>Van Gogh’s “Wheatfield with Crows” (1890)</name>
     <color>
         <red>1</red>

@@ -22,7 +22,6 @@ package org.xjrga.harmonic;
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class Notes {
-//todo fix hexcode generation
 //todo refactor
 //todo test schema
 //todo test export (xml doc, html doc)
