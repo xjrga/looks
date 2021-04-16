@@ -128,6 +128,11 @@ public class PaletteViewer {
         JButton previewPanelClearButton = new JButton("Clear");
         JButton previewPanelExportButton = new JButton("Export");
         JButton previewPanelImportButton = new JButton("Import");
+        previewPanelClearButton.setToolTipText("Clear palette");
+        previewPanelAddButton.setToolTipText("Add color to palette");
+        previewPanelDeleteButton.setToolTipText("Delete color from palette");
+        previewPanelExportButton.setToolTipText("Export palette");
+        previewPanelImportButton.setToolTipText("Import palette");
         previewPanelDeleteButton.setEnabled(false);
         previewPanelExportButton.setEnabled(false);
         previewPanelImportButton.setEnabled(false);
