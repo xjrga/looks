@@ -191,11 +191,21 @@ public class DataTransfer {
         }
     }
 
-    private static String getHexColorValue(Color color) {
-        return Integer.toHexString(color.getRGB() & 0x00ffffff);
+    private String getHexColorValue(Color color) {
+        String hexcode = Integer.toHexString(color.getRGB() & 0x00ffffff);
+        return pad(hexcode);
     }
 
     public String getPaletteName() {
         return name;
+    }
+
+    public String pad(String hexcode) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(hexcode);
+        while (sb.length()< 6) {
+            sb.insert(0, "0");
+        }
+        return sb.toString();
     }
 }
