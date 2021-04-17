@@ -35,7 +35,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.colorchooser.ColorSelectionModel;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 public class PaletteChooserPanel extends AbstractColorChooserPanel {
@@ -66,13 +65,13 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         table.setModel(model);
         table.setDefaultRenderer(Color.class, new ColorRenderer());
         panelResult.add(new JScrollPane(table));
-        table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
-            if (table.getSelectedRow() > -1) {
-                selectedColor = (Color) table.getValueAt(table.getSelectedRow(), 0);
-                colorSelectionModel = getColorSelectionModel();
-                colorSelectionModel.setSelectedColor(selectedColor);
-            }
-        });
+//        table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
+//            if (table.getSelectedRow() > -1) {
+//                selectedColor = (Color) table.getValueAt(table.getSelectedRow(), 0);
+//                colorSelectionModel = getColorSelectionModel();
+//                colorSelectionModel.setSelectedColor(selectedColor);
+//            }
+//        });
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,9 +79,10 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
                 int col = table.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
                     selectedColor = (Color) table.getValueAt(row, 0);
-                    //getColorSelectionModel().setSelectedColor(Color.white);
-                    //getColorSelectionModel().setSelectedColor(selectedColor);
-
+                    colorSelectionModel = getColorSelectionModel();
+                    colorSelectionModel.setSelectedColor(selectedColor);
+                    //JColorChooser colorChooser = (JColorChooser) getParent().getParent().getParent();
+                    //colorChooser.updateUI();
                 }
             }
         });

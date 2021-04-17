@@ -279,6 +279,7 @@ public class PaletteViewer {
     }
 
     private void updateGui() {
+        //colorChooser.addChooserPanel(paletteChooserPanel);
         ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
         if (optionFont.isSelected()) {
             fontColor = selectedColor;
