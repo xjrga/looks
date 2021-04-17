@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.Vector;
 import javax.swing.Icon;
+import javax.swing.JColorChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -81,8 +82,9 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
                     selectedColor = (Color) table.getValueAt(row, 0);
                     colorSelectionModel = getColorSelectionModel();
                     colorSelectionModel.setSelectedColor(selectedColor);
-                    //JColorChooser colorChooser = (JColorChooser) getParent().getParent().getParent();
-                    //colorChooser.updateUI();
+                    JColorChooser colorChooser = (JColorChooser) getParent().getParent().getParent();
+                    colorChooser.updateUI();
+                    System.out.println(colorChooser.getChooserPanels().length);
                 }
             }
         });

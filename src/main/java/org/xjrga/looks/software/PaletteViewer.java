@@ -279,7 +279,6 @@ public class PaletteViewer {
     }
 
     private void updateGui() {
-        //colorChooser.addChooserPanel(paletteChooserPanel);
         ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
         if (optionFont.isSelected()) {
             fontColor = selectedColor;
@@ -456,7 +455,6 @@ public class PaletteViewer {
                             ((JLabel) component).setBorder(labelLineBorder);
                         }
                     }
-                    frame.repaint();
                 }
             }.start();
         }
