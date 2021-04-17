@@ -91,26 +91,26 @@ public class PaletteViewer {
         Categorizer categorizer = new Categorizer();
         paletteChooserPanel = new PaletteChooserPanel();
         colorChooser.addChooserPanel(paletteChooserPanel);
-        JPanel panelOriginal = new JPanel();
+        panelOriginal = new JPanel();
         panelOriginal.setLayout(new GridLayout(0, 13, 10, 10));
         panelOriginal.setBorder(new TitledBorder("Original"));
-        JPanel panelColorsTop = new JPanel();
+        panelColorsTop = new JPanel();
         panelColorsTop.setOpaque(true);
         panelColorsTop.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsTop.setBorder(new TitledBorder("Complementary"));
-        JPanel panelColorsBottom = new JPanel();
+        panelColorsBottom = new JPanel();
         panelColorsBottom.setOpaque(true);
         panelColorsBottom.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsBottom.setBorder(new TitledBorder("Analogous"));
-        JPanel panelColorsLeft = new JPanel();
+        panelColorsLeft = new JPanel();
         panelColorsLeft.setOpaque(true);
         panelColorsLeft.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsLeft.setBorder(new TitledBorder("Left"));
-        JPanel panelColorsRight = new JPanel();
+        panelColorsRight = new JPanel();
         panelColorsRight.setOpaque(true);
         panelColorsRight.setLayout(new GridLayout(0, 13, 10, 10));
         panelColorsRight.setBorder(new TitledBorder("Right"));
-        JPanel panelColors = new JPanel();
+        panelColors = new JPanel();
         panelColors.setLayout(new GridLayout(0, 1));
         TitledBorder titledBorder = new TitledBorder("Color Wheel (HSV)");
         panelColors.setBorder(titledBorder);
@@ -357,6 +357,7 @@ public class PaletteViewer {
                 }.start();
             }
         });
+        
         frame.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -453,6 +454,12 @@ public class PaletteViewer {
             }
         });
     }
+    private JPanel panelColorsRight;
+    private JPanel panelColorsLeft;
+    private JPanel panelColorsBottom;
+    private JPanel panelColorsTop;
+    private JPanel panelOriginal;
+    private JPanel panelColors;
 
     public void exit() {
         frame.dispose();
