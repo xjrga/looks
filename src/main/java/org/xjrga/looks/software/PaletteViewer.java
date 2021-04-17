@@ -320,7 +320,6 @@ public class PaletteViewer {
                             component.setForeground(fontColor);
                         }
                     }
-                    frame.repaint();
                 }
             }.start();
         } else if (optionBackground.isSelected()) {
