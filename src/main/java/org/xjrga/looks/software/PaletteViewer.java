@@ -72,7 +72,7 @@ public class PaletteViewer {
     private final JRadioButton optionFont;
     private final JRadioButton optionHarmonic;
     private final JRadioButton optionBorder;
-    private Color chooserColor;
+    private Color selectedColor;
     private Color borderColor;
     private Color fontColor;
     private Color backgroundColor;
@@ -176,9 +176,9 @@ public class PaletteViewer {
         frame.setVisible(true);
         colorChooser.getSelectionModel().addChangeListener((var event) -> {
             ColorHarmonic colorHarmonic = new ColorHarmonic(colorChooser.getColor());
-            chooserColor = colorChooser.getColor();
+            selectedColor = colorChooser.getColor();
             if (optionFont.isSelected()) {
-                fontColor = chooserColor;
+                fontColor = selectedColor;
                 new Thread() {
                     public void run() {
                         ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
@@ -221,7 +221,7 @@ public class PaletteViewer {
                     }
                 }.start();
             } else if (optionBackground.isSelected()) {
-                backgroundColor = chooserColor;
+                backgroundColor = selectedColor;
                 new Thread() {
                     public void run() {
                         LineBorder paneLineBorder = new LineBorder(backgroundColor);
@@ -318,7 +318,7 @@ public class PaletteViewer {
                     }
                 }.start();
             } else if (optionBorder.isSelected()) {
-                borderColor = chooserColor;
+                borderColor = selectedColor;
                 new Thread() {
                     public void run() {
                         LineBorder labelLineBorder = new LineBorder(borderColor, 2);
