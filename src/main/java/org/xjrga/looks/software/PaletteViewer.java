@@ -88,7 +88,7 @@ public class PaletteViewer {
         frame.setIconImage(image);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         colorChooser = new JColorChooser();
-        Categorizer categorizer = new Categorizer();
+        categorizer = new Categorizer();
         paletteChooserPanel = new PaletteChooserPanel();
         colorChooser.addChooserPanel(paletteChooserPanel);
         panelOriginal = new JPanel();
@@ -176,188 +176,9 @@ public class PaletteViewer {
         frame.setVisible(true);
         colorChooser.getSelectionModel().addChangeListener((var event) -> {
             selectedColor = colorChooser.getColor();
-            ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
-            if (optionFont.isSelected()) {
-                fontColor = selectedColor;
-                new Thread() {
-                    public void run() {
-                        ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
-                        Component[] componentsOriginal = panelOriginal.getComponents();
-                        for (Component component : componentsOriginal) {
-                            if (component instanceof JLabel) {
-                                component.setForeground(fontColor);
-                            }
-                        }
-                        Component[] componentsLeft = panelColorsLeft.getComponents();
-                        for (Component component : componentsLeft) {
-                            if (component instanceof JLabel) {
-                                component.setForeground(fontColor);
-                            }
-                        }
-                        Component[] componentsRight = panelColorsRight.getComponents();
-                        for (Component component : componentsRight) {
-                            if (component instanceof JLabel) {
-                                component.setForeground(fontColor);
-                            }
-                        }
-                        Component[] componentsTop = panelColorsTop.getComponents();
-                        for (Component component : componentsTop) {
-                            if (component instanceof JLabel) {
-                                component.setForeground(fontColor);
-                            }
-                        }
-                        Component[] componentsBottom = panelColorsBottom.getComponents();
-                        for (Component component : componentsBottom) {
-                            if (component instanceof JLabel) {
-                                component.setForeground(fontColor);
-                            }
-                        }
-                        frame.repaint();
-                    }
-                }.start();
-            } else if (optionBackground.isSelected()) {
-                backgroundColor = selectedColor;
-                new Thread() {
-                    public void run() {
-                        LineBorder paneLineBorder = new LineBorder(backgroundColor);
-                        panelColors.setBackground(backgroundColor);
-                        panelOriginal.setBackground(backgroundColor);
-                        panelColorsLeft.setBackground(backgroundColor);
-                        panelColorsRight.setBackground(backgroundColor);
-                        panelColorsTop.setBackground(backgroundColor);
-                        panelColorsBottom.setBackground(backgroundColor);
-                        ((TitledBorder) panelOriginal.getBorder()).setBorder(paneLineBorder);
-                        ((TitledBorder) panelColorsTop.getBorder()).setBorder(paneLineBorder);
-                        ((TitledBorder) panelColorsBottom.getBorder()).setBorder(paneLineBorder);
-                        ((TitledBorder) panelColorsLeft.getBorder()).setBorder(paneLineBorder);
-                        ((TitledBorder) panelColorsRight.getBorder()).setBorder(paneLineBorder);
-                    }
-                }.start();
-            } else if (optionHarmonic.isSelected()) {
-                Iterator<HarmonicColor> leftIterator = colorHarmonic.getLeftIterator();
-                Iterator<HarmonicColor> rightIterator = colorHarmonic.getRightIterator();
-                Iterator<HarmonicColor> topIterator = colorHarmonic.getTopIterator();
-                Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();
-                new Thread() {
-                    public void run() {
-                        //
-                        panelOriginal.removeAll();
-                        panelOriginal.add(getLabel(colorHarmonic.getHarmonic0()));
-                        panelOriginal.revalidate();
-                        panelOriginal.repaint();
-                        //
-                        panelColorsLeft.removeAll();
-                        while (leftIterator.hasNext()) {
-                            HarmonicColor next = leftIterator.next();
-                            panelColorsLeft.add(getLabel(next));
-                        }
-                        panelColorsLeft.revalidate();
-                        panelColorsLeft.repaint();
-                        //
-                        panelColorsRight.removeAll();
-                        while (rightIterator.hasNext()) {
-                            HarmonicColor next = rightIterator.next();
-                            panelColorsRight.add(getLabel(next));
-                        }
-                        panelColorsRight.revalidate();
-                        panelColorsRight.repaint();
-                        //
-                        panelColorsTop.removeAll();
-                        while (topIterator.hasNext()) {
-                            HarmonicColor next = topIterator.next();
-                            panelColorsTop.add(getLabel(next));
-                        }
-                        panelColorsTop.revalidate();
-                        panelColorsTop.repaint();
-                        //
-                        panelColorsBottom.removeAll();
-                        while (bottomIterator.hasNext()) {
-                            HarmonicColor next = bottomIterator.next();
-                            panelColorsBottom.add(getLabel(next));
-                        }
-                        panelColorsBottom.revalidate();
-                        panelColorsBottom.repaint();
-                    }
-
-                    private JLabel getLabel(HarmonicColor harmonicColor) {
-                        JLabel label = new JLabel();
-                        label.setOpaque(true);
-                        label.setPreferredSize(new Dimension(50, 50));
-                        label.setForeground(fontColor);
-                        label.setBorder(new LineBorder((borderColor)));
-                        label.setText(harmonicColor.getAngle() + "");
-                        label.setBackground(harmonicColor.getColor());
-                        label.setHorizontalAlignment(SwingConstants.CENTER);
-                        label.setVerticalAlignment(SwingConstants.CENTER);
-                        categorizer.setHarmonicColor(harmonicColor);
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("<html>");
-                        sb.append("Temperature: ");
-                        sb.append(String.valueOf(categorizer.getColorTemperature()));
-                        sb.append("<br/>");
-                        sb.append("Position: ");
-                        sb.append(categorizer.getColorPositionTB());
-                        sb.append(", ");
-                        sb.append(categorizer.getColorPositionLR());
-                        sb.append("<br/>");
-                        sb.append("Type: ");
-                        sb.append(categorizer.getColorCategory());
-                        sb.append("<br/>");
-                        sb.append("Hue: ");
-                        sb.append(harmonicColor.getAngle());
-                        sb.append("<br/>");
-                        sb.append("Hue Change: ");
-                        sb.append(harmonicColor.getAngleChange());
-                        label.setToolTipText(sb.toString());
-                        return label;
-                    }
-                }.start();
-            } else if (optionBorder.isSelected()) {
-                borderColor = selectedColor;
-                new Thread() {
-                    public void run() {
-                        LineBorder labelLineBorder = new LineBorder(borderColor, 2);
-                        Component[] componentsOriginal = panelOriginal.getComponents();
-                        for (Component component : componentsOriginal) {
-                            if (component instanceof JLabel) {
-                                ((JLabel) component).setBorder(labelLineBorder);
-                            }
-                        }
-                        Component[] componentsTop = panelColorsTop.getComponents();
-                        for (Component component : componentsTop) {
-                            if (component instanceof JLabel) {
-                                ((JLabel) component).setBorder(labelLineBorder);
-                            }
-                        }
-                        Component[] componentsBottom = panelColorsBottom.getComponents();
-                        for (Component component : componentsBottom) {
-                            if (component instanceof JLabel) {
-                                ((JLabel) component).setBorder(labelLineBorder);
-                            }
-                        }
-                        Component[] componentsLeft = panelColorsLeft.getComponents();
-                        for (Component component : componentsLeft) {
-                            if (component instanceof JLabel) {
-                                ((JLabel) component).setBorder(labelLineBorder);
-                            }
-                        }
-                        Component[] componentsRight = panelColorsRight.getComponents();
-                        for (Component component : componentsRight) {
-                            if (component instanceof JLabel) {
-                                ((JLabel) component).setBorder(labelLineBorder);
-                            }
-                        }
-                        frame.repaint();
-                    }
-                }.start();
-            }
+            updateGui();
         });
-        
+
         frame.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -454,6 +275,190 @@ public class PaletteViewer {
             }
         });
     }
+
+    private void updateGui() {
+        ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
+        if (optionFont.isSelected()) {
+            fontColor = selectedColor;
+            new Thread() {
+                public void run() {
+                    ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
+                    ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
+                    ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
+                    ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
+                    ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
+                    ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
+                    Component[] componentsOriginal = panelOriginal.getComponents();
+                    for (Component component : componentsOriginal) {
+                        if (component instanceof JLabel) {
+                            component.setForeground(fontColor);
+                        }
+                    }
+                    Component[] componentsLeft = panelColorsLeft.getComponents();
+                    for (Component component : componentsLeft) {
+                        if (component instanceof JLabel) {
+                            component.setForeground(fontColor);
+                        }
+                    }
+                    Component[] componentsRight = panelColorsRight.getComponents();
+                    for (Component component : componentsRight) {
+                        if (component instanceof JLabel) {
+                            component.setForeground(fontColor);
+                        }
+                    }
+                    Component[] componentsTop = panelColorsTop.getComponents();
+                    for (Component component : componentsTop) {
+                        if (component instanceof JLabel) {
+                            component.setForeground(fontColor);
+                        }
+                    }
+                    Component[] componentsBottom = panelColorsBottom.getComponents();
+                    for (Component component : componentsBottom) {
+                        if (component instanceof JLabel) {
+                            component.setForeground(fontColor);
+                        }
+                    }
+                    frame.repaint();
+                }
+            }.start();
+        } else if (optionBackground.isSelected()) {
+            backgroundColor = selectedColor;
+            new Thread() {
+                public void run() {
+                    LineBorder paneLineBorder = new LineBorder(backgroundColor);
+                    panelColors.setBackground(backgroundColor);
+                    panelOriginal.setBackground(backgroundColor);
+                    panelColorsLeft.setBackground(backgroundColor);
+                    panelColorsRight.setBackground(backgroundColor);
+                    panelColorsTop.setBackground(backgroundColor);
+                    panelColorsBottom.setBackground(backgroundColor);
+                    ((TitledBorder) panelOriginal.getBorder()).setBorder(paneLineBorder);
+                    ((TitledBorder) panelColorsTop.getBorder()).setBorder(paneLineBorder);
+                    ((TitledBorder) panelColorsBottom.getBorder()).setBorder(paneLineBorder);
+                    ((TitledBorder) panelColorsLeft.getBorder()).setBorder(paneLineBorder);
+                    ((TitledBorder) panelColorsRight.getBorder()).setBorder(paneLineBorder);
+                }
+            }.start();
+        } else if (optionHarmonic.isSelected()) {
+            Iterator<HarmonicColor> leftIterator = colorHarmonic.getLeftIterator();
+            Iterator<HarmonicColor> rightIterator = colorHarmonic.getRightIterator();
+            Iterator<HarmonicColor> topIterator = colorHarmonic.getTopIterator();
+            Iterator<HarmonicColor> bottomIterator = colorHarmonic.getBottomIterator();
+            new Thread() {
+                public void run() {
+                    //
+                    panelOriginal.removeAll();
+                    panelOriginal.add(getLabel(colorHarmonic.getHarmonic0()));
+                    panelOriginal.revalidate();
+                    panelOriginal.repaint();
+                    //
+                    panelColorsLeft.removeAll();
+                    while (leftIterator.hasNext()) {
+                        HarmonicColor next = leftIterator.next();
+                        panelColorsLeft.add(getLabel(next));
+                    }
+                    panelColorsLeft.revalidate();
+                    panelColorsLeft.repaint();
+                    //
+                    panelColorsRight.removeAll();
+                    while (rightIterator.hasNext()) {
+                        HarmonicColor next = rightIterator.next();
+                        panelColorsRight.add(getLabel(next));
+                    }
+                    panelColorsRight.revalidate();
+                    panelColorsRight.repaint();
+                    //
+                    panelColorsTop.removeAll();
+                    while (topIterator.hasNext()) {
+                        HarmonicColor next = topIterator.next();
+                        panelColorsTop.add(getLabel(next));
+                    }
+                    panelColorsTop.revalidate();
+                    panelColorsTop.repaint();
+                    //
+                    panelColorsBottom.removeAll();
+                    while (bottomIterator.hasNext()) {
+                        HarmonicColor next = bottomIterator.next();
+                        panelColorsBottom.add(getLabel(next));
+                    }
+                    panelColorsBottom.revalidate();
+                    panelColorsBottom.repaint();
+                }
+
+                private JLabel getLabel(HarmonicColor harmonicColor) {
+                    JLabel label = new JLabel();
+                    label.setOpaque(true);
+                    label.setPreferredSize(new Dimension(50, 50));
+                    label.setForeground(fontColor);
+                    label.setBorder(new LineBorder((borderColor)));
+                    label.setText(harmonicColor.getAngle() + "");
+                    label.setBackground(harmonicColor.getColor());
+                    label.setHorizontalAlignment(SwingConstants.CENTER);
+                    label.setVerticalAlignment(SwingConstants.CENTER);
+                    categorizer.setHarmonicColor(harmonicColor);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("<html>");
+                    sb.append("Temperature: ");
+                    sb.append(String.valueOf(categorizer.getColorTemperature()));
+                    sb.append("<br/>");
+                    sb.append("Position: ");
+                    sb.append(categorizer.getColorPositionTB());
+                    sb.append(", ");
+                    sb.append(categorizer.getColorPositionLR());
+                    sb.append("<br/>");
+                    sb.append("Type: ");
+                    sb.append(categorizer.getColorCategory());
+                    sb.append("<br/>");
+                    sb.append("Hue: ");
+                    sb.append(harmonicColor.getAngle());
+                    sb.append("<br/>");
+                    sb.append("Hue Change: ");
+                    sb.append(harmonicColor.getAngleChange());
+                    label.setToolTipText(sb.toString());
+                    return label;
+                }
+            }.start();
+        } else if (optionBorder.isSelected()) {
+            borderColor = selectedColor;
+            new Thread() {
+                public void run() {
+                    LineBorder labelLineBorder = new LineBorder(borderColor, 2);
+                    Component[] componentsOriginal = panelOriginal.getComponents();
+                    for (Component component : componentsOriginal) {
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setBorder(labelLineBorder);
+                        }
+                    }
+                    Component[] componentsTop = panelColorsTop.getComponents();
+                    for (Component component : componentsTop) {
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setBorder(labelLineBorder);
+                        }
+                    }
+                    Component[] componentsBottom = panelColorsBottom.getComponents();
+                    for (Component component : componentsBottom) {
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setBorder(labelLineBorder);
+                        }
+                    }
+                    Component[] componentsLeft = panelColorsLeft.getComponents();
+                    for (Component component : componentsLeft) {
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setBorder(labelLineBorder);
+                        }
+                    }
+                    Component[] componentsRight = panelColorsRight.getComponents();
+                    for (Component component : componentsRight) {
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setBorder(labelLineBorder);
+                        }
+                    }
+                    frame.repaint();
+                }
+            }.start();
+        }
+    }
+    private Categorizer categorizer;
     private JPanel panelColorsRight;
     private JPanel panelColorsLeft;
     private JPanel panelColorsBottom;
