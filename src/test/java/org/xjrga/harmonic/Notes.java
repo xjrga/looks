@@ -22,8 +22,8 @@ package org.xjrga.harmonic;
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class Notes {
-//todo refactor
 //todo test schema
+//todo refactor
 //todo test export (xml doc, html doc)
 //todo test import
 //todo test harmonic display
