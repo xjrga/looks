@@ -285,11 +285,11 @@ public class PaletteViewer {
                 public void run() {
                     ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
-                    frame.repaint();
                     ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
+                    panelColors.repaint();
                     Component[] componentsOriginal = panelOriginal.getComponents();
                     for (Component component : componentsOriginal) {
                         if (component instanceof JLabel) {
@@ -392,7 +392,7 @@ public class PaletteViewer {
                     label.setOpaque(true);
                     label.setPreferredSize(new Dimension(50, 50));
                     label.setForeground(fontColor);
-                    if(borderColor==null){
+                    if (borderColor == null) {
                         borderColor = harmonicColor.getBaseColor();
                     }
                     label.setBorder(new LineBorder(borderColor, 2));
