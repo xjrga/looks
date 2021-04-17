@@ -39,7 +39,7 @@ public class ColorRenderer extends JLabel implements TableCellRenderer {
         Color color = (Color) value;
         super.setBackground(color);
         if(isSelected){
-            this.setBorder(new LineBorder(color.brighter().brighter(),1));
+            this.setBorder(new LineBorder(color.brighter(),1));
         }else{
             this.setBorder(new LineBorder(color,1));
         }
