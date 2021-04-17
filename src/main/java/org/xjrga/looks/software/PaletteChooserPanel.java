@@ -47,11 +47,8 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTextField textFieldPaletteName;
     private XmlToHtml xmlToHtml;
     private Color selectedColor;
-    private ColorSelectionModel colorSelectionModel;
 
     public PaletteChooserPanel() {
-        colorSelectionModel = super.getColorSelectionModel();
-        //super.getColorFromModel()
         xmlToHtml = new XmlToHtml();
         transfer = new DataTransfer();
         setLayout(new BorderLayout(10, 10));
@@ -71,6 +68,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
                 selectedColor = (Color) table.getValueAt(table.getSelectedRow(), 0);
+                ColorSelectionModel colorSelectionModel = getColorSelectionModel();
                 colorSelectionModel.setSelectedColor(selectedColor);
             }
         });

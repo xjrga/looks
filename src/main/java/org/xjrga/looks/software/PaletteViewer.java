@@ -182,7 +182,6 @@ public class PaletteViewer {
         frame.pack();
         frame.setVisible(true);
         frame.addWindowListener(new WindowAdapter() {
-
             @Override
             public void windowClosing(WindowEvent e) {
                 exit();
