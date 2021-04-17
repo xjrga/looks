@@ -75,7 +75,7 @@ public class Dawn180 extends MetalTheme {
 
     /**
      * Theme constructor
-     * 
+     *
      * @param font the font
      * @see java.awt.Font
      */

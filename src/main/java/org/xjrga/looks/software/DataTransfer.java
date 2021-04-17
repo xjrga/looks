@@ -203,7 +203,7 @@ public class DataTransfer {
     public String pad(String hexcode) {
         StringBuilder sb = new StringBuilder();
         sb.append(hexcode);
-        while (sb.length()< 6) {
+        while (sb.length() < 6) {
             sb.insert(0, "0");
         }
         return sb.toString();

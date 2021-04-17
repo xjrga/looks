@@ -66,7 +66,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         panelResult.add(new JScrollPane(table));
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
-                selectedColor = (Color) table.getValueAt(table.getSelectedRow(),0);
+                selectedColor = (Color) table.getValueAt(table.getSelectedRow(), 0);
                 getColorSelectionModel().setSelectedColor(selectedColor);
             }
         });

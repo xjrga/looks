@@ -22,7 +22,7 @@ public class TheFont {
      *
      *
      */
-    public TheFont(){
+    public TheFont() {
     }
 
     /**
