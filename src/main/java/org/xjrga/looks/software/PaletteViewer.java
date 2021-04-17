@@ -279,7 +279,6 @@ public class PaletteViewer {
     }
 
     private void updateGui() {
-        ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
         if (optionFont.isSelected()) {
             fontColor = selectedColor;
             new Thread() {
@@ -341,6 +340,7 @@ public class PaletteViewer {
                 }
             }.start();
         } else if (optionHarmonic.isSelected()) {
+            ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
             Iterator<HarmonicColor> leftIterator = colorHarmonic.getLeftIterator();
             Iterator<HarmonicColor> rightIterator = colorHarmonic.getRightIterator();
             Iterator<HarmonicColor> topIterator = colorHarmonic.getTopIterator();
@@ -391,6 +391,9 @@ public class PaletteViewer {
                     label.setOpaque(true);
                     label.setPreferredSize(new Dimension(50, 50));
                     label.setForeground(fontColor);
+                    if(borderColor==null){
+                        borderColor = harmonicColor.getBaseColor();
+                    }
                     label.setBorder(new LineBorder(borderColor, 2));
                     label.setText(harmonicColor.getAngle() + "");
                     label.setBackground(harmonicColor.getColor());
