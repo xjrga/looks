@@ -80,6 +80,13 @@ public class PaletteViewer {
     private JColorChooser colorChooser;
     private JTabbedPane chooserTabbedPane;
     private final JFileChooser fileChooser;
+    private Categorizer categorizer;
+    private JPanel panelColorsRight;
+    private JPanel panelColorsLeft;
+    private JPanel panelColorsBottom;
+    private JPanel panelColorsTop;
+    private JPanel panelOriginal;
+    private JPanel panelColors;
 
     public PaletteViewer() {
         fileChooser = new JFileChooser();
@@ -454,13 +461,6 @@ public class PaletteViewer {
             }.start();
         }
     }
-    private Categorizer categorizer;
-    private JPanel panelColorsRight;
-    private JPanel panelColorsLeft;
-    private JPanel panelColorsBottom;
-    private JPanel panelColorsTop;
-    private JPanel panelOriginal;
-    private JPanel panelColors;
 
     public void exit() {
         frame.dispose();
