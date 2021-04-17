@@ -174,11 +174,6 @@ public class PaletteViewer {
         frame.setPreferredSize(new Dimension(1496, 635));
         frame.pack();
         frame.setVisible(true);
-        colorChooser.getSelectionModel().addChangeListener((var event) -> {
-            selectedColor = colorChooser.getColor();
-            updateGui();
-        });
-
         frame.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -247,31 +242,32 @@ public class PaletteViewer {
         optionBackground.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                updateGui();
+                //updateGui();
             }
         });
         optionFont.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                updateGui();
+                //updateGui();
             }
         });
         optionHarmonic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                updateGui();
+                //updateGui();
             }
         });
         optionBorder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                updateGui();
+                //updateGui();
             }
         });
         colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent arg0) {
-                Color color = colorChooser.getColor();
+                selectedColor = colorChooser.getColor();
+                updateGui();
             }
         });
     }
@@ -390,7 +386,7 @@ public class PaletteViewer {
                     label.setOpaque(true);
                     label.setPreferredSize(new Dimension(50, 50));
                     label.setForeground(fontColor);
-                    label.setBorder(new LineBorder((borderColor)));
+                    label.setBorder(new LineBorder(borderColor, 2));
                     label.setText(harmonicColor.getAngle() + "");
                     label.setBackground(harmonicColor.getColor());
                     label.setHorizontalAlignment(SwingConstants.CENTER);
