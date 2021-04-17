@@ -285,11 +285,11 @@ public class PaletteViewer {
                 public void run() {
                     ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
+                    frame.repaint();
                     ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsRight.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsTop.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsBottom.getBorder()).setTitleColor(fontColor);
-                    frame.repaint();
                     Component[] componentsOriginal = panelOriginal.getComponents();
                     for (Component component : componentsOriginal) {
                         if (component instanceof JLabel) {
