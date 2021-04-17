@@ -25,6 +25,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -51,6 +53,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import org.xjrga.looks.harmonic.Categorizer;
@@ -417,6 +420,36 @@ public class PaletteViewer {
                     previewPanelDeleteButton.setEnabled(true);
                     previewPanelImportButton.setEnabled(true);
                     break;
+            }
+        });
+        optionBackground.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+               System.out.println(colorChooser.getColor());
+            }
+        });
+        optionFont.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.out.println(colorChooser.getColor());
+            }
+        });
+        optionHarmonic.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.out.println(colorChooser.getColor());
+            }
+        });
+        optionBorder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.out.println(colorChooser.getColor());
+            }
+        });
+        colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent arg0) {
+                Color color = colorChooser.getColor();
             }
         });
     }
