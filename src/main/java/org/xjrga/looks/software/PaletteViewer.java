@@ -351,40 +351,33 @@ public class PaletteViewer {
                     //
                     panelOriginal.removeAll();
                     panelOriginal.add(getLabel(colorHarmonic.getHarmonic0()));
-                    panelOriginal.revalidate();
-                    panelOriginal.repaint();
                     //
                     panelColorsLeft.removeAll();
                     while (leftIterator.hasNext()) {
                         HarmonicColor next = leftIterator.next();
                         panelColorsLeft.add(getLabel(next));
                     }
-                    panelColorsLeft.revalidate();
-                    panelColorsLeft.repaint();
                     //
                     panelColorsRight.removeAll();
                     while (rightIterator.hasNext()) {
                         HarmonicColor next = rightIterator.next();
                         panelColorsRight.add(getLabel(next));
                     }
-                    panelColorsRight.revalidate();
-                    panelColorsRight.repaint();
                     //
                     panelColorsTop.removeAll();
                     while (topIterator.hasNext()) {
                         HarmonicColor next = topIterator.next();
                         panelColorsTop.add(getLabel(next));
                     }
-                    panelColorsTop.revalidate();
-                    panelColorsTop.repaint();
                     //
                     panelColorsBottom.removeAll();
                     while (bottomIterator.hasNext()) {
                         HarmonicColor next = bottomIterator.next();
                         panelColorsBottom.add(getLabel(next));
                     }
-                    panelColorsBottom.revalidate();
-                    panelColorsBottom.repaint();
+                    //
+                    panelColors.revalidate();
+                    panelColors.repaint();
                 }
 
                 private JLabel getLabel(HarmonicColor harmonicColor) {
