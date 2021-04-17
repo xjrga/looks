@@ -247,25 +247,25 @@ public class PaletteViewer {
         optionBackground.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-               System.out.println(colorChooser.getColor());
+               updateGui();
             }
         });
         optionFont.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.out.println(colorChooser.getColor());
+                updateGui();
             }
         });
         optionHarmonic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.out.println(colorChooser.getColor());
+                updateGui();
             }
         });
         optionBorder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.out.println(colorChooser.getColor());
+                updateGui();
             }
         });
         colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
