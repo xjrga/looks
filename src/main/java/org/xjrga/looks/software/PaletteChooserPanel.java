@@ -34,6 +34,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.colorchooser.ColorSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,8 +47,11 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTextField textFieldPaletteName;
     private XmlToHtml xmlToHtml;
     private Color selectedColor;
+    private ColorSelectionModel colorSelectionModel;
 
     public PaletteChooserPanel() {
+        colorSelectionModel = super.getColorSelectionModel();
+        //super.getColorFromModel()
         xmlToHtml = new XmlToHtml();
         transfer = new DataTransfer();
         setLayout(new BorderLayout(10, 10));
@@ -67,7 +71,20 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         table.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (table.getSelectedRow() > -1) {
                 selectedColor = (Color) table.getValueAt(table.getSelectedRow(), 0);
-                getColorSelectionModel().setSelectedColor(selectedColor);
+                colorSelectionModel.setSelectedColor(selectedColor);
+            }
+        });
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = table.rowAtPoint(evt.getPoint());
+                int col = table.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) {
+                    selectedColor = (Color) table.getValueAt(row, 0);
+                    //getColorSelectionModel().setSelectedColor(Color.white);
+                    //getColorSelectionModel().setSelectedColor(selectedColor);
+
+                }
             }
         });
     }
