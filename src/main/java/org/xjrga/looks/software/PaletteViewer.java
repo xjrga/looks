@@ -175,8 +175,8 @@ public class PaletteViewer {
         frame.pack();
         frame.setVisible(true);
         colorChooser.getSelectionModel().addChangeListener((var event) -> {
-            ColorHarmonic colorHarmonic = new ColorHarmonic(colorChooser.getColor());
             selectedColor = colorChooser.getColor();
+            ColorHarmonic colorHarmonic = new ColorHarmonic(selectedColor);
             if (optionFont.isSelected()) {
                 fontColor = selectedColor;
                 new Thread() {
