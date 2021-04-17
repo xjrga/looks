@@ -70,16 +70,6 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
                 getColorSelectionModel().setSelectedColor(selectedColor);
             }
         });
-//        table.addMouseListener(new java.awt.event.MouseAdapter() {
-//            @Override
-//            public void mouseClicked(java.awt.event.MouseEvent evt) {
-//                int row = table.rowAtPoint(evt.getPoint());
-//                int col = table.columnAtPoint(evt.getPoint());
-//                if (row >= 0 && col >= 0) {
-//                    getColorSelectionModel().setSelectedColor((Color) table.getValueAt(row, 0));
-//                }
-//            }
-//        });
     }
 
     @Override
