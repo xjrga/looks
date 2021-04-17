@@ -276,6 +276,7 @@ public class PaletteViewer {
                 updateGui();
             }
         });
+
     }
 
     private void updateGui() {

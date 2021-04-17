@@ -30,6 +30,7 @@ import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.JColorChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -44,8 +45,8 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private JTable table;
     private final DefaultTableModel model;
     private final DataTransfer transfer;
-    private JTextField textFieldPaletteName;
-    private XmlToHtml xmlToHtml;
+    private final JTextField textFieldPaletteName;
+    private final XmlToHtml xmlToHtml;
     private Color selectedColor;
     private ColorSelectionModel colorSelectionModel;
 
@@ -81,9 +82,12 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
                 if (row >= 0 && col >= 0) {
                     selectedColor = (Color) table.getValueAt(row, 0);
                     colorSelectionModel = getColorSelectionModel();
-                    colorSelectionModel.setSelectedColor(selectedColor);
-                    JColorChooser colorChooser = (JColorChooser) getParent().getParent().getParent();
-                    //colorChooser.updateUI();
+                    if(selectedColor.equals(colorSelectionModel.getSelectedColor())){
+                        colorSelectionModel.setSelectedColor(selectedColor.brighter());
+                        colorSelectionModel.setSelectedColor(selectedColor);
+                    }else{
+                        colorSelectionModel.setSelectedColor(selectedColor);
+                    }
                 }
             }
         });
