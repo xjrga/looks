@@ -83,8 +83,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
                     colorSelectionModel = getColorSelectionModel();
                     colorSelectionModel.setSelectedColor(selectedColor);
                     JColorChooser colorChooser = (JColorChooser) getParent().getParent().getParent();
-                    colorChooser.updateUI();
-                    System.out.println(colorChooser.getChooserPanels().length);
+                    //colorChooser.updateUI();
                 }
             }
         });
