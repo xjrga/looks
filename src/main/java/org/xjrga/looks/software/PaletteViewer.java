@@ -247,7 +247,7 @@ public class PaletteViewer {
         optionBackground.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-               updateGui();
+                updateGui();
             }
         });
         optionFont.addActionListener(new ActionListener() {
