@@ -21,6 +21,7 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.border.LineBorder;
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -36,6 +37,11 @@ public class ColorRenderer extends JLabel implements TableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.setBackground((Color) value);
+        if(isSelected){
+            this.setBorder(new LineBorder(Color.white,1));
+        }else{
+            this.setBorder(new LineBorder((Color) value,1));
+        }
         return this;
     }
 
