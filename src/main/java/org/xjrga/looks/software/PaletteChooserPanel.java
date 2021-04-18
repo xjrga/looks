@@ -65,6 +65,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         model = new TableModelColor();
         table.setModel(model);
         table.setDefaultRenderer(Color.class, new ColorRenderer());
+        table.getTableHeader().setToolTipText("Sort by hue");
         TableRowSorter tableSorter = new TableRowSorter<>(model);
         table.setRowSorter(tableSorter);
         ColorComparator colorComparator = new ColorComparator();
