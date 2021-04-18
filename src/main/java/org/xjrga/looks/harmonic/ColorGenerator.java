@@ -90,10 +90,18 @@ public class ColorGenerator {
         return generateColor(hue, saturation, brightness);
     }
 
+    /**
+     *
+     * @return original color hue
+     */
     public float getHue() {
         return hue;
     }
 
+    /**
+     *
+     * @return newly created color hue
+     */
     public float getNewHue() {
         return newHue;
     }
