@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://raw.githubusercontent.com/x-jrga/schemas/main/palette.xsd">
-    <name>Starry Night by Vincent van Gogh</name>
-    <color>
-        <red>6</red>
-        <green>12</green>
-        <blue>15</blue>
-        <hexcode>060c0f</hexcode>
-    </color>
-    <color>
-        <red>29</red>
-        <green>88</green>
-        <blue>128</blue>
-        <hexcode>1d5880</hexcode>
-    </color>
-    <color>
-        <red>254</red>
-        <green>206</green>
-        <blue>62</blue>
-        <hexcode>fece3e</hexcode>
-    </color>
-    <color>
-        <red>248</red>
-        <green>226</green>
-        <blue>136</blue>
-        <hexcode>f8e288</hexcode>
-    </color>
-    <color>
-        <red>159</red>
-        <green>199</green>
-        <blue>152</blue>
-        <hexcode>9fc798</hexcode>
-    </color>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="palette.xsd">
+<name>Starry Night by Vincent van Gogh</name>
+<color>
+<red>6</red>
+<green>12</green>
+<blue>15</blue>
+<hexcode>060c0f</hexcode>
+</color>
+<color>
+<red>29</red>
+<green>88</green>
+<blue>128</blue>
+<hexcode>1d5880</hexcode>
+</color>
+<color>
+<red>254</red>
+<green>206</green>
+<blue>62</blue>
+<hexcode>fece3e</hexcode>
+</color>
+<color>
+<red>248</red>
+<green>226</green>
+<blue>136</blue>
+<hexcode>f8e288</hexcode>
+</color>
+<color>
+<red>159</red>
+<green>199</green>
+<blue>152</blue>
+<hexcode>9fc798</hexcode>
+</color>
 </palette>

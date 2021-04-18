@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://raw.githubusercontent.com/x-jrga/schemas/main/palette.xsd">
-    <name>Luis Barragan</name>
-    <color>
-        <red>187</red>
-        <green>45</green>
-        <blue>129</blue>
-        <hexcode>bb2d81</hexcode>
-    </color>
-    <color>
-        <red>219</red>
-        <green>80</green>
-        <blue>39</blue>
-        <hexcode>db5027</hexcode>
-    </color>
-    <color>
-        <red>231</red>
-        <green>186</green>
-        <blue>23</blue>
-        <hexcode>e7ba17</hexcode>
-    </color>
-    <color>
-        <red>176</red>
-        <green>21</green>
-        <blue>16</blue>
-        <hexcode>b01510</hexcode>
-    </color>
-    <color>
-        <red>44</red>
-        <green>170</green>
-        <blue>255</blue>
-        <hexcode>2caaff</hexcode>
-    </color>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="palette.xsd">
+<name>Luis Barragan</name>
+<color>
+<red>187</red>
+<green>45</green>
+<blue>129</blue>
+<hexcode>bb2d81</hexcode>
+</color>
+<color>
+<red>219</red>
+<green>80</green>
+<blue>39</blue>
+<hexcode>db5027</hexcode>
+</color>
+<color>
+<red>231</red>
+<green>186</green>
+<blue>23</blue>
+<hexcode>e7ba17</hexcode>
+</color>
+<color>
+<red>176</red>
+<green>21</green>
+<blue>16</blue>
+<hexcode>b01510</hexcode>
+</color>
+<color>
+<red>44</red>
+<green>170</green>
+<blue>255</blue>
+<hexcode>2caaff</hexcode>
+</color>
 </palette>

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://raw.githubusercontent.com/x-jrga/schemas/main/palette.xsd">
-    <name>Van Gogh’s “Wheatfield with Crows” (1890)</name>
-    <color>
-        <red>1</red>
-        <green>56</green>
-        <blue>86</blue>
-        <hexcode>013856</hexcode>
-    </color>
-    <color>
-        <red>57</red>
-        <green>126</green>
-        <blue>191</blue>
-        <hexcode>397ebf</hexcode>
-    </color>
-    <color>
-        <red>116</red>
-        <green>56</green>
-        <blue>55</blue>
-        <hexcode>743837</hexcode>
-    </color>
-    <color>
-        <red>236</red>
-        <green>198</green>
-        <blue>75</blue>
-        <hexcode>ecc64b</hexcode>
-    </color>
-    <color>
-        <red>96</red>
-        <green>122</green>
-        <blue>77</blue>
-        <hexcode>607a4d</hexcode>
-    </color>
+<palette xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="palette.xsd">
+<name>Van Gogh’s “Wheatfield with Crows” (1890)</name>
+<color>
+<red>1</red>
+<green>56</green>
+<blue>86</blue>
+<hexcode>013856</hexcode>
+</color>
+<color>
+<red>57</red>
+<green>126</green>
+<blue>191</blue>
+<hexcode>397ebf</hexcode>
+</color>
+<color>
+<red>116</red>
+<green>56</green>
+<blue>55</blue>
+<hexcode>743837</hexcode>
+</color>
+<color>
+<red>236</red>
+<green>198</green>
+<blue>75</blue>
+<hexcode>ecc64b</hexcode>
+</color>
+<color>
+<red>96</red>
+<green>122</green>
+<blue>77</blue>
+<hexcode>607a4d</hexcode>
+</color>
 </palette>
