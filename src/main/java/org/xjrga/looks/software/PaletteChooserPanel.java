@@ -28,9 +28,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.Vector;
 import javax.swing.Icon;
-import javax.swing.JColorChooser;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -38,6 +36,7 @@ import javax.swing.JTextField;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.colorchooser.ColorSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class PaletteChooserPanel extends AbstractColorChooserPanel {
 
@@ -66,6 +65,10 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         model = new TableModelColor();
         table.setModel(model);
         table.setDefaultRenderer(Color.class, new ColorRenderer());
+        TableRowSorter tableSorter = new TableRowSorter<>(model);
+        table.setRowSorter(tableSorter);
+        ColorComparator colorComparator = new ColorComparator();
+        tableSorter.setComparator(0, colorComparator);
         panelResult.add(new JScrollPane(table));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override

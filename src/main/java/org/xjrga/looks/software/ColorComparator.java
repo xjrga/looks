@@ -15,19 +15,31 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package org.xjrga.harmonic;
+package org.xjrga.looks.software;
+
+import java.awt.Color;
+import java.util.Comparator;
+import org.xjrga.looks.harmonic.ColorGenerator;
 
 /**
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class Notes {
-//todo test import
-//todo test export (xml doc, html doc)
-//todo refactor
-//todo test harmonic display
-//todo test classes
-//todo test themes
-//todo test library
+public class ColorComparator implements Comparator {
+
+    public ColorComparator() {
+
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Color color01 = (Color) o1;
+        Color color02 = (Color) o2;
+        ColorGenerator colorGenerator01 = new ColorGenerator(color01);
+        ColorGenerator colorGenerator02 = new ColorGenerator(color02);
+        Float f01 = colorGenerator01.getHue();
+        Float f02 = colorGenerator02.getHue();
+        return f01.compareTo(f02);
+    }
 
 }
