@@ -25,14 +25,27 @@ public class Categorizer {
 
     private HarmonicColor color;
 
+    /**
+     * This class puts color in a categories
+     *
+     * @author Jorge R Garcia de Alba
+     */
     public Categorizer() {
 
     }
 
+    /**
+     *
+     * @param Harmonic color to be categorized
+     */
     public void setHarmonicColor(HarmonicColor color) {
         this.color = color;
     }
 
+    /**
+     *
+     * @return Color temperature category (warm or cold)
+     */
     public String getColorTemperature() {
 
         String tempRange = "Cold";
@@ -44,6 +57,11 @@ public class Categorizer {
         return tempRange;
     }
 
+    /**
+     *
+     * @return Color general position category of the color wheel starting from
+     * original color to complementary (center, left or right)
+     */
     public String getColorPositionLR() {
 
         String side;
@@ -59,6 +77,11 @@ public class Categorizer {
         return side;
     }
 
+    /**
+     *
+     * @return Color general position category on the color wheel starting from
+     * original color to complementary (side, top or bottom)
+     */
     public String getColorPositionTB() {
 
         String side;
@@ -74,6 +97,10 @@ public class Categorizer {
         return side;
     }
 
+    /**
+     *
+     * @return Color type category (analogous or complementary)
+     */
     public String getColorCategory() {
 
         String colorType;
