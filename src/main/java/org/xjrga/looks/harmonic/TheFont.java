@@ -19,8 +19,9 @@ public class TheFont {
     private float size = 13f;
 
     /**
+     * TheFont constructor
      *
-     *
+     * @see java.awt.Font
      */
     public TheFont() {
     }
