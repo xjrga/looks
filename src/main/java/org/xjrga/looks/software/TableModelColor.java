@@ -23,10 +23,18 @@ import java.awt.Color;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * This class is data model that stores colors
+ *
+ * @author Jorge R Garcia de Alba
+ */
 public class TableModelColor extends DefaultTableModel {
 
     private Vector columns;
 
+    /**
+     * Constructs a new data model
+     */
     public TableModelColor() {
         this.setColumnIdentifiers();
     }
