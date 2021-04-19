@@ -20,8 +20,9 @@ package org.xjrga.looks.harmonic;
 import java.util.Comparator;
 
 /**
+ * This class enables color comparisons by hue
  *
- * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
+ * @author Jorge R Garcia de Alba
  */
 public class HarmonicColorComparator implements Comparator<HarmonicColor> {
 
