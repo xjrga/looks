@@ -59,6 +59,10 @@ public class TheFont {
         return font;
     }
 
+    /**
+     *
+     * @param size Font size
+     */
     public void setSize(float size) {
         this.size = size;
     }
