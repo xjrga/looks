@@ -26,6 +26,10 @@ import java.util.Comparator;
  */
 public class HarmonicColorComparator implements Comparator<HarmonicColor> {
 
+    /**
+     * Constructs harmonic color comparator
+     *
+     */
     public HarmonicColorComparator() {
 
     }
