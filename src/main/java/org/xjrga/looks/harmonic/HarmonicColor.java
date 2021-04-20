@@ -5,7 +5,7 @@ import java.awt.Color;
 /**
  * Implementing this interface allows an object to be a harmonic color
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public interface HarmonicColor {
 

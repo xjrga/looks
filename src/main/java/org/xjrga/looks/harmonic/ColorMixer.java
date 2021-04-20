@@ -6,7 +6,7 @@ import java.awt.Color;
  * This class blends two colors. The color blend goes from 0 percent additional
  * color to 100 percent.
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class ColorMixer {
 

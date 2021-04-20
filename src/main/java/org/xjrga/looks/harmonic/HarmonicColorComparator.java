@@ -22,7 +22,7 @@ import java.util.Comparator;
 /**
  * This class enables color comparisons by hue
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class HarmonicColorComparator implements Comparator<HarmonicColor> {
 

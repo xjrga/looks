@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * This class is a theme for Java Look and Feel (also known as Metal)
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class Minimal extends MetalTheme {
 

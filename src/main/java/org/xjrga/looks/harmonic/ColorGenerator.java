@@ -5,7 +5,7 @@ import java.awt.Color;
 /**
  * This class generates Color objects from color hsb values
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class ColorGenerator {
 

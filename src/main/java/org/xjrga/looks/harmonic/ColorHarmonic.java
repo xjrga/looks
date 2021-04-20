@@ -7,7 +7,7 @@ import java.util.Iterator;
 /**
  * This class generates harmonic color objects
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class ColorHarmonic {
 

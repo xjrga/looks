@@ -22,6 +22,7 @@ import java.util.Comparator;
 import org.xjrga.looks.harmonic.ColorGenerator;
 
 /**
+ * This class provides process for color comparison
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */

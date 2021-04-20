@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 /**
  * This class generates a Font object from a true type font file
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class TheFont {
 

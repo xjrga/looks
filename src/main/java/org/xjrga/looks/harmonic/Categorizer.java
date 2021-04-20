@@ -26,9 +26,8 @@ public class Categorizer {
     private HarmonicColor color;
 
     /**
-     * This class places color in a category
+     * Constructs categorizer
      *
-     * @author Jorge R Garcia de Alba
      */
     public Categorizer() {
 

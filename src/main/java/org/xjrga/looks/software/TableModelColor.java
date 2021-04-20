@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * This class is data model that stores colors
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class TableModelColor extends DefaultTableModel {
 

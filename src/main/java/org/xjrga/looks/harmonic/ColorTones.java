@@ -5,7 +5,7 @@ import java.awt.Color;
 /**
  * This class generates darker or lighter color tones.
  *
- * @author Jorge R Garcia de Alba
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class ColorTones {
 
