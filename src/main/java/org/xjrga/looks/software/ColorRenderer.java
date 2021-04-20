@@ -25,11 +25,16 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.TableCellRenderer;
 
 /**
+ * This class renders a label on jtables
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
 public class ColorRenderer extends JLabel implements TableCellRenderer {
 
+    /**
+     * Constructs ColorRenderer
+     *
+     */
     public ColorRenderer() {
         super.setOpaque(true);
     }

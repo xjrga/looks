@@ -28,6 +28,10 @@ import org.xjrga.looks.harmonic.ColorGenerator;
  */
 public class ColorComparator implements Comparator {
 
+    /**
+     * Constructs ColorComparator
+     *
+     */
     public ColorComparator() {
 
     }
