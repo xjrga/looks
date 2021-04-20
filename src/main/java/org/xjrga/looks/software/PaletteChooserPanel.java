@@ -54,6 +54,9 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private Color selectedColor;
     private ColorSelectionModel colorSelectionModel;
 
+    /**
+     *
+     */
     public PaletteChooserPanel() {
         xmlToHtml = new XmlToHtml();
         transfer = new DataTransfer();
@@ -119,6 +122,10 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         return null;
     }
 
+    /**
+     *
+     * @param selectedColor
+     */
     public void addColorItem(Color selectedColor) {
         Vector row = new Vector();
         row.add(selectedColor);
@@ -127,14 +134,24 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         panelResult.repaint();
     }
 
+    /**
+     *
+     */
     public void clearAllColorItems() {
         model.setRowCount(0);
     }
 
+    /**
+     *
+     */
     public void deleteSelectedColorItem() {
         model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));
     }
 
+    /**
+     *
+     * @param selectedFile
+     */
     public void exportColorItems(File selectedFile) {
         //path
         String selectedFileParentPath = selectedFile.getParent();
@@ -159,6 +176,10 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
         xmlToHtml.transform();
     }
 
+    /**
+     *
+     * @param path
+     */
     public void importColorItems(String path) {
         transfer.importColors(model, path);
         textFieldPaletteName.setText(transfer.getPaletteName());

@@ -52,10 +52,19 @@ public class DataTransfer {
     private String endEvent;
     private String name = "Palette Name";
 
+    /**
+     *
+     */
     public DataTransfer() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
+    /**
+     *
+     * @param name
+     * @param model
+     * @param path
+     */
     public void exportColors(String name, DefaultTableModel model, String path) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
@@ -141,6 +150,11 @@ public class DataTransfer {
         }
     }
 
+    /**
+     *
+     * @param model
+     * @param path
+     */
     public void importColors(DefaultTableModel model, String path) {
         try {
             File file = new File(path);
@@ -197,10 +211,19 @@ public class DataTransfer {
         return pad(hexcode);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPaletteName() {
         return name;
     }
 
+    /**
+     *
+     * @param hexcode
+     * @return
+     */
     public String pad(String hexcode) {
         StringBuilder sb = new StringBuilder();
         sb.append(hexcode);
