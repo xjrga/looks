@@ -88,6 +88,11 @@ public class PaletteViewer {
     private JPanel panelOriginal;
     private JPanel panelColors;
 
+    /**
+     * This class creates a palette viewer
+     *
+     * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
+     */
     public PaletteViewer() {
         fileChooser = new JFileChooser();
         frame = new JFrame("Palette Viewer");

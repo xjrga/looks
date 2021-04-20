@@ -38,6 +38,11 @@ import javax.swing.colorchooser.ColorSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
+/**
+ * This class provides a custom palette chooser palette
+ *
+ * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
+ */
 public class PaletteChooserPanel extends AbstractColorChooserPanel {
 
     private final JPanel panelResult;
