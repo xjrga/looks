@@ -53,7 +53,7 @@ public class DataTransfer {
     private String name = "Palette Name";
 
     /**
-     *
+     * Constructs DataTransfer class
      */
     public DataTransfer() {
         inputFactory = XMLInputFactory.newInstance();
