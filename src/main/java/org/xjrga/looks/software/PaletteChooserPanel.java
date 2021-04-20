@@ -135,14 +135,14 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     }
 
     /**
-     *
+     * Clears table model
      */
     public void clearAllColorItems() {
         model.setRowCount(0);
     }
 
     /**
-     *
+     * Deletes selected color from data model
      */
     public void deleteSelectedColorItem() {
         model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));

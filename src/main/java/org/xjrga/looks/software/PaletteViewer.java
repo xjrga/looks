@@ -462,10 +462,17 @@ public class PaletteViewer {
         }
     }
 
+    /**
+     * Disposes application
+     */
     public void exit() {
         frame.dispose();
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         try {
             Font font = new Font(Font.DIALOG, Font.PLAIN, 12);
@@ -478,6 +485,9 @@ public class PaletteViewer {
         });
     }
 
+    /**
+     * Resets recent color panel
+     */
     public void resetRecentPanel() {
         for (AbstractColorChooserPanel p : colorChooser.getChooserPanels()) {
             if (p.getClass().getSimpleName().equals("DefaultSwatchChooserPanel")) {
@@ -499,6 +509,9 @@ public class PaletteViewer {
         }
     }
 
+    /**
+     * Adds selected color to palette
+     */
     public void event_addColorItem() {
         Color selectedColor = colorChooser.getColor();
         paletteChooserPanel.addColorItem(selectedColor);
