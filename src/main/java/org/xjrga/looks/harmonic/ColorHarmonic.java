@@ -140,7 +140,7 @@ public class ColorHarmonic {
     /**
      * Returns base color
      *
-     * @return a color
+     * @return color
      * @see java.awt.Color
      */
     public Color getBaseColor() {
@@ -148,9 +148,9 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns base color
      *
-     * @return a color
+     * @return color
      * @see java.awt.Color
      */
     public HarmonicColor getHarmonic0() {
@@ -158,7 +158,17 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 15
+     *
+     * @return color
+     * @see java.awt.Color
+     */
+    public HarmonicColor getHarmonic15() {
+        return harmonic15;
+    }
+
+    /**
+     * Returns harmonic color 30
      *
      * @return a color
      * @see java.awt.Color
@@ -168,7 +178,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 45
      *
      * @return a color
      * @see java.awt.Color
@@ -178,7 +188,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 60
      *
      * @return a color
      * @see java.awt.Color
@@ -188,7 +198,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 75
      *
      * @return a color
      * @see java.awt.Color
@@ -198,7 +208,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 90
      *
      * @return a color
      * @see java.awt.Color
@@ -208,7 +218,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 105
      *
      * @return a color
      * @see java.awt.Color
@@ -218,7 +228,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 120
      *
      * @return a color
      * @see java.awt.Color
@@ -228,7 +238,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 135
      *
      * @return a color
      * @see java.awt.Color
@@ -238,7 +248,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 150
      *
      * @return a color
      * @see java.awt.Color
@@ -248,7 +258,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 165
      *
      * @return a color
      * @see java.awt.Color
@@ -258,7 +268,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns complementary color with respect to base color
+     * Returns harmonic color 180
      *
      * @return a color
      * @see java.awt.Color
@@ -268,7 +278,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 195
      *
      * @return a color
      * @see java.awt.Color
@@ -278,7 +288,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 210
      *
      * @return a color
      * @see java.awt.Color
@@ -288,7 +298,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 225
      *
      * @return a color
      * @see java.awt.Color
@@ -298,7 +308,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 240
      *
      * @return a color
      * @see java.awt.Color
@@ -308,7 +318,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 255
      *
      * @return a color
      * @see java.awt.Color
@@ -318,7 +328,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 270
      *
      * @return a color
      * @see java.awt.Color
@@ -328,7 +338,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 285
      *
      * @return a color
      * @see java.awt.Color
@@ -338,7 +348,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 300
      *
      * @return a color
      * @see java.awt.Color
@@ -348,7 +358,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 315
      *
      * @return a color
      * @see java.awt.Color
@@ -358,7 +368,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 330
      *
      * @return a color
      * @see java.awt.Color
@@ -368,7 +378,7 @@ public class ColorHarmonic {
     }
 
     /**
-     * Returns first analogous color with respect to base color
+     * Returns harmonic color 345
      *
      * @return a color
      * @see java.awt.Color
@@ -377,18 +387,38 @@ public class ColorHarmonic {
         return harmonic345;
     }
 
+    /**
+     * Returns quadrant II and III of color wheel with respect to base color
+     *
+     * @return
+     */
     public Iterator<HarmonicColor> getLeftIterator() {
         return left.iterator();
     }
 
+    /**
+     * Returns quadrant I and IV of color wheel with respect to base color
+     *
+     * @return
+     */
     public Iterator<HarmonicColor> getRightIterator() {
         return right.iterator();
     }
 
+    /**
+     * Returns quadrant II and I of color wheel with respect to base color
+     *
+     * @return
+     */
     public Iterator<HarmonicColor> getTopIterator() {
         return top.iterator();
     }
 
+    /**
+     * Returns quadrant IV and III of color wheel with respect to base color
+     *
+     * @return
+     */
     public Iterator<HarmonicColor> getBottomIterator() {
         return bottom.iterator();
     }
