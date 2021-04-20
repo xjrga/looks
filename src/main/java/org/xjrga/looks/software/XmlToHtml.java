@@ -37,6 +37,9 @@ public class XmlToHtml {
     private InputStream xsl;
     private File html;
 
+    /**
+     * Constructs XmlToHtml instance
+     */
     public XmlToHtml() {
 
     }
@@ -52,6 +55,11 @@ public class XmlToHtml {
 
     }
 
+    /**
+     *
+     * @param fileName
+     * @return
+     */
     public static String trimFileNameExtension(String fileName) {
 
         String noExtensionFileName = "";
@@ -64,18 +72,33 @@ public class XmlToHtml {
         return noExtensionFileName;
     }
 
+    /**
+     *
+     * @param xml
+     */
     public void setXmlFile(File xml) {
         this.xml = xml;
     }
 
+    /**
+     *
+     * @param xsl
+     */
     public void setXslStream(InputStream xsl) {
         this.xsl = xsl;
     }
 
+    /**
+     *
+     * @param html
+     */
     public void setHtmlFile(File html) {
         this.html = html;
     }
 
+    /**
+     * Transform xml document to html document
+     */
     public void transform() {
         if (xml != null && xsl != null && html != null) {
             transformXmlDoc(xml, xsl, html);
