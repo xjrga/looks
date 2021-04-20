@@ -55,7 +55,7 @@ public class PaletteChooserPanel extends AbstractColorChooserPanel {
     private ColorSelectionModel colorSelectionModel;
 
     /**
-     *
+     * Constructs PaletteChooserPanel class
      */
     public PaletteChooserPanel() {
         xmlToHtml = new XmlToHtml();
