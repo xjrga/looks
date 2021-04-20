@@ -7,7 +7,7 @@ import javax.swing.plaf.metal.MetalTheme;
 import java.awt.*;
 
 /**
- * This class is a theme for Java Look and Feel (also known as Metal)
+ * This class is a metal theme
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
