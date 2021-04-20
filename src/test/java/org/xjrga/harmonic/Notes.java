@@ -27,5 +27,4 @@ public class Notes {
 //todo test themes
 //todo test library
 //todo refactor
-
 }
