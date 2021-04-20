@@ -25,7 +25,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * This class renders a label on jtables
+ * This class is a jtable cell label renderer
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */

@@ -24,7 +24,7 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * This class is data model that stores colors
+ * This class is a data model that stores colors
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */

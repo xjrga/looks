@@ -62,6 +62,7 @@ import org.xjrga.looks.harmonic.HarmonicColor;
 import org.xjrga.looks.themes.Dawn180;
 
 /**
+ * This class builds palette viewer application
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
