@@ -8,12 +8,10 @@
     <fileSets>
         <fileSet>
             <directory>${project.basedir}</directory>            
-            <outputDirectory></outputDirectory>             
-            <excludes>                
-                <exclude>${project.build.directory}/**</exclude>
-                <exclude>**/nb*</exclude>
-                <exclude>**/notes.txt</exclude>
-            </excludes>            
+            <outputDirectory></outputDirectory>
+	    <includes>
+		<include>palettes/**</include>
+	    </includes>
         </fileSet>
         <fileSet>           
             <directory>${project.build.directory}</directory>            
