@@ -8,9 +8,8 @@
     <artifactId>looks</artifactId>
     <version>01</version>
 
-    <name>Looks</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>Looks</name>    
+    <url>https://xjrga.github.io/looks</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +44,7 @@
                     <version>3.8.0</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
+    in as an administrator, and click on the Repositories link in the left-hand navigation menu in the Views/Repositories section.                <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.1</version>
                 </plugin>
                 <plugin>
