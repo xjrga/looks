@@ -3,7 +3,7 @@ package org.xjrga.harmonic;
 import java.awt.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.xjrga.looks.harmonic.ColorMixer;
+import com.github.xjrga.looks.harmonic.ColorMixer;
 
 /**
  * ColorMix tests
