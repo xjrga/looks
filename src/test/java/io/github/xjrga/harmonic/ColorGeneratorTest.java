@@ -1,4 +1,4 @@
-package com.github.xjrga.harmonic;
+package io.github.xjrga.harmonic;
 
 import java.awt.Color;
 import org.testng.Assert;
