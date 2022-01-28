@@ -1,4 +1,4 @@
-package io.github.xjrga.looks.roughdraft;
+package io.github.xjrga.looks.themes;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,7 +16,7 @@ import io.github.xjrga.looks.harmonic.Color_harmonic;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class Theme extends MetalTheme {
+public class Dawn_120 extends MetalTheme {
 
     private final ColorUIResource white;
     private final ColorUIResource black;
@@ -71,40 +71,27 @@ public class Theme extends MetalTheme {
     private final Color color08;
     private final Color color09;
     private final Color_harmonic colorHarmonic01;
-    private final Color_generator color_generator_01;
-    private final Color_generator color_generator_02;
     private final Color_generator colorGenerator;
-    private final Color color_a = new Color(0, 61, 82);
-    private final Color color_b = new Color(92, 120, 108);
-    private final Color color_c = new Color(188, 176, 142);
-    private final Color color_d = new Color(94, 42, 21);
-    private final Color color_e = new Color(101, 144, 206);
-    private final Color color_f = new Color(25, 11, 12);
-    private final Color color_g = new Color(110, 49, 29);
-    private final Color color_h = new Color(200, 114, 85);
 
     /**
      * Theme constructor
      *
-     * @param font
+     * @param font the font
+     * @see java.awt.Font
      */
-    public Theme(Font font) {
+    public Dawn_120(Font font) {
         fontUIResource = new FontUIResource(font);
-        colorHarmonic01 = new Color_harmonic(new Color(0, 61, 82));
-        color_generator_02 = new Color_generator(new Color(188, 176, 142));
-        colorGenerator = new Color_generator(new Color(0, 61, 82));
-        color_generator_01 = new Color_generator(new Color(92, 120, 108));
-        color01 = color_generator_01.generate_monochrome_color_using_brightness(35);
-        //tree folders and table rows
-        color02 = colorHarmonic01.get_hue_change_330().get_color();
+        colorHarmonic01 = new Color_harmonic(new Color(58, 127, 184));
+        colorGenerator = new Color_generator(new Color(94, 98, 101));
+        color01 = colorHarmonic01.get_base_color();
+        color02 = colorHarmonic01.get_hue_change_120().get_color();
         color03 = colorGenerator.generate_monochrome_color_using_brightness(40);
         color04 = colorGenerator.generate_monochrome_color_using_brightness(45);
         color05 = colorGenerator.generate_monochrome_color_using_brightness(50);
-        //font
-        color06 = color_generator_02.generate_monochrome_color_using_brightness(50);
+        color06 = colorGenerator.generate_monochrome_color_using_brightness(80);
         color07 = colorGenerator.generate_monochrome_color_using_brightness(30);
         color08 = colorGenerator.generate_monochrome_color_using_brightness(25);
-        color09 = colorGenerator.generate_monochrome_color_using_brightness(20);
+        color09 = Color.WHITE;
         //
         primary1 = new ColorUIResource(color09);
         primary2 = new ColorUIResource(color09);
@@ -161,7 +148,7 @@ public class Theme extends MetalTheme {
 
     @Override
     public String getName() {
-        return "Theme";
+        return "Dawn 120";
     }
 
     @Override

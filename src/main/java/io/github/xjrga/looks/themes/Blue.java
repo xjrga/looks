@@ -1,4 +1,4 @@
-package io.github.xjrga.looks.roughdraft;
+package io.github.xjrga.looks.themes;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,7 +16,7 @@ import io.github.xjrga.looks.harmonic.Color_harmonic;
  *
  * @author Jorge R Garcia de Alba &lt;jorge.r.garciadealba@gmail.com&gt;
  */
-public class Theme extends MetalTheme {
+public class Blue extends MetalTheme {
 
     private final ColorUIResource white;
     private final ColorUIResource black;
@@ -88,7 +88,7 @@ public class Theme extends MetalTheme {
      *
      * @param font
      */
-    public Theme(Font font) {
+    public Blue(Font font) {
         fontUIResource = new FontUIResource(font);
         colorHarmonic01 = new Color_harmonic(new Color(0, 61, 82));
         color_generator_02 = new Color_generator(new Color(188, 176, 142));
@@ -101,7 +101,7 @@ public class Theme extends MetalTheme {
         color04 = colorGenerator.generate_monochrome_color_using_brightness(45);
         color05 = colorGenerator.generate_monochrome_color_using_brightness(50);
         //font
-        color06 = color_generator_02.generate_monochrome_color_using_brightness(50);
+        color06 = color_generator_02.generate_monochrome_color_using_brightness(65);
         color07 = colorGenerator.generate_monochrome_color_using_brightness(30);
         color08 = colorGenerator.generate_monochrome_color_using_brightness(25);
         color09 = colorGenerator.generate_monochrome_color_using_brightness(20);

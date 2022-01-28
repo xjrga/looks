@@ -23,7 +23,7 @@ package io.github.xjrga.looks.harmonic;
  */
 public class Categorizer {
 
-    private HarmonicColor color;
+    private Harmonic_color color;
 
     /**
      * Constructs categorizer
@@ -37,7 +37,7 @@ public class Categorizer {
      *
      * @param color to be categorized
      */
-    public void setHarmonicColor(HarmonicColor color) {
+    public void set_harmonic_color(Harmonic_color color) {
         this.color = color;
     }
 
@@ -45,11 +45,11 @@ public class Categorizer {
      *
      * @return Temperature category (warm or cold)
      */
-    public String getColorTemperature() {
+    public String get_color_temperature() {
 
         String tempRange = "Cold";
 
-        if (color.getAngle() >= 0f && color.getAngle() <= 165f) {
+        if (color.get_angle() >= 0f && color.get_angle() <= 165f) {
             tempRange = "Warm";
         }
 
@@ -61,13 +61,13 @@ public class Categorizer {
      * @return Position category with respect to starting point in color wheel
      * (center, left or right)
      */
-    public String getColorPositionLR() {
+    public String get_color_position_lr() {
 
         String side;
 
-        if (color.getAngleChange() == 0f || color.getAngleChange() == 180f) {
+        if (color.get_angle_change() == 0f || color.get_angle_change() == 180f) {
             side = "Center";
-        } else if (color.getAngleChange() > 0f && color.getAngleChange() < 180f) {
+        } else if (color.get_angle_change() > 0f && color.get_angle_change() < 180f) {
             side = "Left";
         } else {
             side = "Right";
@@ -81,13 +81,13 @@ public class Categorizer {
      * @return Position category with respect to starting point in color wheel
      * (side, top or bottom)
      */
-    public String getColorPositionTB() {
+    public String get_color_position_tb() {
 
         String side;
 
-        if (color.getAngleChange() == 90f || color.getAngleChange() == 270f) {
+        if (color.get_angle_change() == 90f || color.get_angle_change() == 270f) {
             side = "Side";
-        } else if (color.getAngleChange() > 90f && color.getAngleChange() < 270f) {
+        } else if (color.get_angle_change() > 90f && color.get_angle_change() < 270f) {
             side = "Top";
         } else {
             side = "Bottom";
@@ -100,23 +100,23 @@ public class Categorizer {
      *
      * @return Color type category (analogous or complementary)
      */
-    public String getColorCategory() {
+    public String get_color_category() {
 
         String colorType;
 
-        if (color.getAngleChange() == 180f) {
+        if (color.get_angle_change() == 180f) {
             colorType = "Complementary";
-        } else if (color.getAngleChange() == 0f) {
+        } else if (color.get_angle_change() == 0f) {
             colorType = "Original";
-        } else if (color.getAngleChange() == 90f) {
+        } else if (color.get_angle_change() == 90f) {
             colorType = "Analogous and Complementary";
-        } else if (color.getAngleChange() == 270f) {
+        } else if (color.get_angle_change() == 270f) {
             colorType = "Analogous and Complementary";
-        } else if (color.getAngleChange() > 0f && color.getAngleChange() < 90f) {
+        } else if (color.get_angle_change() > 0f && color.get_angle_change() < 90f) {
             colorType = "Analogous";
-        } else if (color.getAngleChange() > 90f && color.getAngleChange() < 180f) {
+        } else if (color.get_angle_change() > 90f && color.get_angle_change() < 180f) {
             colorType = "Complementary";
-        } else if (color.getAngleChange() > 180f && color.getAngleChange() < 270f) {
+        } else if (color.get_angle_change() > 180f && color.get_angle_change() < 270f) {
             colorType = "Complementary";
         } else {
             colorType = "Analogous";

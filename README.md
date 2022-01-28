@@ -1,12 +1,12 @@
-[Looks](https://xjrga.github.io/looks "Looks: Metal Themes Library and Color Palette Viewer Software")
+[Looks](https://xjrga.github.io/looks "Looks: Metal Themes Library")
     
 Build
 
-    01
+    02
 
 Authors
 
-[Jorge R Garcia de Alba](https://xjrga.github.io "Looks: Metal Themes Library and Color Palette Viewer Software")
+[Jorge R Garcia de Alba](https://xjrga.github.io "Looks: Metal Themes Library")
 
 License
 
