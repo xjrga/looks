@@ -86,7 +86,7 @@ public class Theme extends MetalTheme {
     /**
      * Theme constructor
      *
-     * @param font
+     * @param font a font of your choosing
      */
     public Theme(Font font) {
         fontUIResource = new FontUIResource(font);

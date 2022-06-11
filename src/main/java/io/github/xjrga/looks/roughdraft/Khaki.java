@@ -20,11 +20,35 @@ public class Khaki extends MetalTheme {
     private final ColorUIResource secondary1;
     private final ColorUIResource secondary2;
     private final ColorUIResource secondary3;
+
+    /**
+     *
+     */
     public final Color A = new Color(0xac5c2c);
+
+    /**
+     *
+     */
     public final Color B = new Color(0xc8a353);
+
+    /**
+     *
+     */
     public final Color C = new Color(0x281924);
+
+    /**
+     *
+     */
     public final Color D = new Color(0x897846);
+
+    /**
+     *
+     */
     public final Color E = new Color(0x9ba068);
+
+    /**
+     *
+     */
     public final Color F = new Color(0xe0cca8);
     private final FontUIResource fontUIResource;
 

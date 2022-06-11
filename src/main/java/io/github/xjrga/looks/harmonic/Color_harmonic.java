@@ -390,7 +390,7 @@ public class Color_harmonic {
     /**
      * Returns quadrant II and III of color wheel with respect to base color
      *
-     * @return
+     * @return Iterator&lt;Harmonic_color&gt;
      */
     public Iterator<Harmonic_color> get_left_iterator() {
         return left.iterator();
@@ -399,7 +399,7 @@ public class Color_harmonic {
     /**
      * Returns quadrant I and IV of color wheel with respect to base color
      *
-     * @return
+     * @return Iterator&lt;Harmonic_color&gt;
      */
     public Iterator<Harmonic_color> get_right_iterator() {
         return right.iterator();
@@ -408,7 +408,7 @@ public class Color_harmonic {
     /**
      * Returns quadrant II and I of color wheel with respect to base color
      *
-     * @return
+     * @return Iterator&lt;Harmonic_color&gt;
      */
     public Iterator<Harmonic_color> get_top_iterator() {
         return top.iterator();
@@ -417,7 +417,7 @@ public class Color_harmonic {
     /**
      * Returns quadrant IV and III of color wheel with respect to base color
      *
-     * @return
+     * @return Iterator&lt;Harmonic_color&gt;
      */
     public Iterator<Harmonic_color> get_bottom_iterator() {
         return bottom.iterator();

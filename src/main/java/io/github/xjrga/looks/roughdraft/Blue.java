@@ -1,4 +1,4 @@
-package io.github.xjrga.looks.themes;
+package io.github.xjrga.looks.roughdraft;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -86,7 +86,7 @@ public class Blue extends MetalTheme {
     /**
      * Theme constructor
      *
-     * @param font
+     * @param font a font of your choosing
      */
     public Blue(Font font) {
         fontUIResource = new FontUIResource(font);

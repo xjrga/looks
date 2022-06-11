@@ -20,10 +20,30 @@ public class Green extends MetalTheme {
     private final ColorUIResource secondary1;
     private final ColorUIResource secondary2;
     private final ColorUIResource secondary3;
+
+    /**
+     *
+     */
     public final Color LIGHTGREEN = new Color(0x87bc92);
+
+    /**
+     *
+     */
     public final Color MEDIUMGREEN = new Color(0x5c8c4e);
+
+    /**
+     *
+     */
     public final Color YELLOW = new Color(0xdcad3b);
+
+    /**
+     *
+     */
     public final Color BLUE = new Color(0x2e88aa);
+
+    /**
+     *
+     */
     public final Color DARKGREEN = new Color(0x3d4335);
     private final FontUIResource fontUIResource;
 
